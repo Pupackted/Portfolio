@@ -7,23 +7,7 @@
     <title>Adrian | Software Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        @keyframes fade-in-up {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-fade-in-up {
-            animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="min-h-screen bg-[#f5f5f7] text-[#1d1d1f] font-sans selection:bg-blue-500 selection:text-white">
@@ -65,6 +49,10 @@
                             class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                     </a>
                     <div class="flex gap-4 ml-4 text-gray-400">
+                        <a href="https://github.com/Pupackted" target="_blank" rel="noreferrer"
+                            class="hover:text-black transition-colors">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                        </a>
                         <a href="https://www.linkedin.com/in/adrian-rachman-432a60218/" target="_blank" rel="noreferrer"
                             class="hover:text-black transition-colors">
                             <i data-lucide="linkedin" class="w-5 h-5"></i>
@@ -81,7 +69,7 @@
     <!-- Bento Grid Projects -->
     <section id="work" class="py-20 px-6">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 tracking-tight">Selected Work</h2>
+            <h2 class="text-3xl font-bold mb-12 tracking-tight">Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                 <!-- Project 1: RideCheck -->
@@ -104,18 +92,35 @@
                             </div>
                             <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-600 transition-colors">RideCheck
                             </h3>
-                            <p class="text-gray-600 leading-relaxed mb-6">
-                                Viral vehicle component tracking app. Achieved 11k+ impressions and 2,400+ downloads on
-                                the App Store.
+                            Viral vehicle component tracking app. Achieved 11k+ impressions and 2,400+ downloads on
+                            the App Store.
                             </p>
+                            <a href="https://apps.apple.com/id/app/ridecheck/id6748782930" target="_blank"
+                                class="inline-flex items-center gap-2 bg-black text-white text-xs font-medium px-4 py-2 rounded-full hover:bg-gray-800 transition-colors mb-6 mt-4">
+                                <i data-lucide="download" class="w-4 h-4"></i>
+                                Download on App Store
+                            </a>
                         </div>
                         <div class="flex flex-wrap gap-2">
                             <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">SwiftUI</span>
+                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">Swift
+                                & SwiftUI</span>
                             <span
                                 class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">CoreData</span>
                             <span
+                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">MapKit</span>
+                            <span
+                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">CoreLocation</span>
+                            <span
+                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">CoreMotion</span>
+                            <span
+                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">SwiftData</span>
+                            <span
                                 class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">WidgetKit</span>
+                            <span
+                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">AppIntents</span>
+                            <span
+                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">UserNotifications</span>
                         </div>
                     </div>
                 </div>
@@ -136,10 +141,14 @@
                             </div>
                             <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-600 transition-colors">SwiSekai
                             </h3>
-                            <p class="text-gray-600 leading-relaxed mb-6">
-                                Interactive Swift learning platform featuring an integrated AI mentor and gamified
-                                curriculum.
+                            Interactive Swift learning platform featuring an integrated AI mentor and gamified
+                            curriculum.
                             </p>
+                            <a href="https://apps.apple.com/id/app/swisekai/id6751531464?mt=12" target="_blank"
+                                class="inline-flex items-center gap-2 bg-black text-white text-xs font-medium px-4 py-2 rounded-full hover:bg-gray-800 transition-colors mb-6 mt-4">
+                                <i data-lucide="download" class="w-4 h-4"></i>
+                                Download on App Store
+                            </a>
                         </div>
                         <div class="flex flex-wrap gap-2">
                             <span
@@ -147,8 +156,7 @@
                             <span
                                 class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">SwiftUI</span>
                             <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">OpenAI
-                                API</span>
+                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">API</span>
                         </div>
                     </div>
                 </div>
@@ -209,11 +217,17 @@
                         </div>
                         <div class="flex flex-wrap gap-2">
                             <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">HTML/CSS</span>
+                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">HTML/CSS
+                                (Tailwind)</span>
                             <span
                                 class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">JavaScript</span>
                             <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">Frontend</span>
+                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">Django</span>
+                            <span
+                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">SQLite</span>
+                            <span
+                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">Fullstack</span>
+
                         </div>
                     </div>
                 </div>
@@ -419,6 +433,11 @@
                     <i data-lucide="linkedin" class="w-5 h-5"></i>
                     <span>LinkedIn</span>
                 </a>
+                <a href="https://github.com/Pupackted" target="_blank" rel="noreferrer"
+                    class="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                    <span>GitHub</span>
+                </a>
             </div>
         </div>
         <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-100 text-center text-xs text-gray-400">
@@ -426,22 +445,7 @@
         </div>
     </footer>
 
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
-
-        // Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-white/80', 'backdrop-blur-md', 'border-b', 'border-gray-200');
-                navbar.classList.remove('bg-transparent');
-            } else {
-                navbar.classList.remove('bg-white/80', 'backdrop-blur-md', 'border-b', 'border-gray-200');
-                navbar.classList.add('bg-transparent');
-            }
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
