@@ -1,40 +1,7 @@
 // Initialize Lucide Icons
 lucide.createIcons();
 
-// Navbar Scroll Effect
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('bg-white/80', 'backdrop-blur-md', 'border-b', 'border-gray-200');
-        navbar.classList.remove('bg-transparent');
-    } else {
-        navbar.classList.remove('bg-white/80', 'backdrop-blur-md', 'border-b', 'border-gray-200');
-        navbar.classList.add('bg-transparent');
-    }
-});
+// Navbar Scroll Effect logic is now handled in components.js or can be kept here if needed for other pages
+// Since components.js handles the header rendering and its scroll effect, we can keep this file minimal or for other page-specific logic.
 
-// Mobile Menu Toggle
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const mobileLinks = document.querySelectorAll('.mobile-link');
-
-if (mobileMenuBtn && mobileMenu) {
-    const hamburgerLines = mobileMenuBtn.querySelector('.hamburger-lines');
-
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('mobile-menu-open');
-        if (hamburgerLines) {
-            hamburgerLines.classList.toggle('open');
-        }
-    });
-
-    // Close menu when a link is clicked
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.remove('mobile-menu-open');
-            if (hamburgerLines) {
-                hamburgerLines.classList.remove('open');
-            }
-        });
-    });
-}
+// If there are other page-specific scripts, they can go here.

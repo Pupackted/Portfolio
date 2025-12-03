@@ -13,52 +13,8 @@
 <body class="min-h-screen bg-[#f5f5f7] text-[#1d1d1f] font-sans selection:bg-blue-500 selection:text-white">
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent">
-        <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="index.html"
-                class="text-xl font-semibold tracking-tight hover:opacity-70 transition-opacity">Adrian.</a>
-            <div class="hidden md:flex space-x-8 text-xs font-medium text-gray-600">
-                <a href="index.html" class="hover:text-black transition-colors">Home</a>
-                <a href="#education" class="hover:text-black transition-colors">Education</a>
-                <a href="#skills" class="hover:text-black transition-colors">Skills</a>
-                <a href="#activities" class="hover:text-black transition-colors">Activities</a>
-            </div>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-gray-600 hover:text-black focus:outline-none p-2">
-                <div class="hamburger-lines relative w-6 h-5">
-                    <span
-                        class="line line1 absolute w-full h-0.5 bg-current rounded-full transition-all duration-300 ease-in-out top-0"></span>
-                    <span
-                        class="line line2 absolute w-full h-0.5 bg-current rounded-full transition-all duration-300 ease-in-out top-1/2 -translate-y-1/2"></span>
-                    <span
-                        class="line line3 absolute w-full h-0.5 bg-current rounded-full transition-all duration-300 ease-in-out bottom-0"></span>
-                </div>
-            </button>
-
-            <a href="mailto:adrian.y.rachman@gmail.com"
-                class="hidden md:inline-block bg-black text-white text-xs px-4 py-1.5 rounded-full hover:bg-gray-800 transition-colors">
-                Get in Touch
-            </a>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu"
-            class="md:hidden bg-white border-t border-gray-100 absolute w-full left-0 top-14 shadow-lg">
-            <div class="flex flex-col px-6 py-4 space-y-4">
-                <a href="index.html"
-                    class="text-sm font-medium text-gray-600 hover:text-black transition-colors mobile-link">Home</a>
-                <a href="#education"
-                    class="text-sm font-medium text-gray-600 hover:text-black transition-colors mobile-link">Education</a>
-                <a href="#skills"
-                    class="text-sm font-medium text-gray-600 hover:text-black transition-colors mobile-link">Skills</a>
-                <a href="#activities"
-                    class="text-sm font-medium text-gray-600 hover:text-black transition-colors mobile-link">Activities</a>
-                <a href="mailto:adrian.y.rachman@gmail.com"
-                    class="text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors mobile-link">Get in
-                    Touch</a>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation -->
+    <div id="app-header"></div>
 
     <!-- Profile Header -->
     <section class="pt-32 pb-16 px-6">
@@ -279,37 +235,22 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200 py-12 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="text-center md:text-left">
-                <h3 class="text-xl font-bold mb-2">Let's build something amazing.</h3>
-                <p class="text-gray-500">Available for opportunities in iOS & Web Development.</p>
-            </div>
+    <div id="app-footer"></div>
 
-            <div class="flex gap-6">
-                <a href="mailto:adrian.y.rachman@gmail.com"
-                    class="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
-                    <i data-lucide="mail" class="w-5 h-5"></i>
-                    <span>Email</span>
-                </a>
-                <a href="https://www.linkedin.com/in/adrian-rachman-432a60218/" target="_blank" rel="noreferrer"
-                    class="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors">
-                    <i data-lucide="linkedin" class="w-5 h-5"></i>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="https://github.com/Pupackted" target="_blank" rel="noreferrer"
-                    class="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
-                    <i data-lucide="github" class="w-5 h-5"></i>
-                    <span>GitHub</span>
-                </a>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-100 text-center text-xs text-gray-400">
-            © 2025 Adrian Yusufa Rachman. Designed with code.
-        </div>
-    </footer>
-
+    <script src="js/components.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        renderHeader({
+            logoHref: 'index.html',
+            links: [
+                { text: 'Home', href: 'index.html' },
+                { text: 'Education', href: '#education' },
+                { text: 'Skills', href: '#skills' },
+                { text: 'Activities', href: '#activities' }
+            ]
+        });
+        renderFooter();
+    </script>
 </body>
 
 </html>
