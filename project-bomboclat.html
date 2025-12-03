@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BomBocLat | Adrian</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="min-h-screen bg-[#f5f5f7] text-[#1d1d1f] font-sans selection:bg-blue-500 selection:text-white">
+
+    <!-- Header -->
+    <div id="app-header"></div>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-12 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-6">
+                <a href="index.html" class="text-sm font-medium text-gray-500 hover:text-black transition-colors">
+                    &larr; Back to Projects
+                </a>
+            </div>
+            <div class="flex flex-wrap gap-3 mb-6">
+                <span
+                    class="text-xs font-semibold uppercase tracking-wider text-red-600 bg-red-50 px-3 py-1 rounded-full">iOS
+                    App</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-gray-900">BomBocLat</h1>
+            <p class="text-xl md:text-2xl text-gray-600 leading-relaxed font-light mb-8">
+                Pixel-art bomb-passing game inspired by “hot potato,” where players pass a ticking bomb under added
+                twists that make the classic gameplay more fun and engaging.
+            </p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-12 px-6 bg-white">
+        <div class="max-w-4xl mx-auto space-y-16">
+
+            <!-- Overview -->
+            <div>
+                <h2 class="text-2xl font-bold mb-4">Overview</h2>
+                <p class="text-gray-600 leading-relaxed">
+                    BomBocLat brings the classic "hot potato" game to your phone with a retro pixel-art style. It's a
+                    high-energy party game where players must complete challenges or answer questions before passing the
+                    "bomb" to the next person. The twists and turns ensure that no two games are the same.
+                </p>
+            </div>
+
+            <!-- Key Features -->
+            <div>
+                <h2 class="text-2xl font-bold mb-6">Key Features</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="p-6 bg-gray-50 rounded-2xl">
+                        <div
+                            class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mb-4 text-red-600">
+                            <i data-lucide="bomb" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Ticking Bomb Mechanic</h3>
+                        <p class="text-sm text-gray-600">Pass the device before the timer runs out!</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-2xl">
+                        <div
+                            class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mb-4 text-orange-600">
+                            <i data-lucide="palette" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Pixel Art Style</h3>
+                        <p class="text-sm text-gray-600">Charming retro graphics powered by SpriteKit.</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-2xl">
+                        <div
+                            class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mb-4 text-yellow-600">
+                            <i data-lucide="zap" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Dynamic Challenges</h3>
+                        <p class="text-sm text-gray-600">Randomized challenges keep the gameplay fresh and exciting.</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-2xl">
+                        <div
+                            class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-600">
+                            <i data-lucide="music" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Immersive Audio</h3>
+                        <p class="text-sm text-gray-600">Sound effects and music managed by AVFoundation enhance the
+                            tension.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div>
+                <h2 class="text-2xl font-bold mb-6">Tech Stack</h2>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">Swift</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">SwiftUI</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">SpriteKit</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">SwiftData</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">Combine</span>
+                    <span
+                        class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">AVFoundation</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">WebKit</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">MVVM</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">XCTest</span>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div>
+                <h2 class="text-2xl font-bold mb-6">Gallery</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="aspect-video bg-gray-100 rounded-2xl flex items-center justify-center text-gray-400">
+                        <span class="flex flex-col items-center gap-2">
+                            <i data-lucide="image" class="w-8 h-8"></i>
+                            App Screenshot 1
+                        </span>
+                    </div>
+                    <div class="aspect-video bg-gray-100 rounded-2xl flex items-center justify-center text-gray-400">
+                        <span class="flex flex-col items-center gap-2">
+                            <i data-lucide="image" class="w-8 h-8"></i>
+                            App Screenshot 2
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="app-footer"></div>
+
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        renderHeader({
+            logoHref: 'index.html',
+            links: [
+                { text: 'Home', href: 'index.html' },
+                { text: 'Work', href: 'index.html#work' },
+                { text: 'Experience', href: 'index.html#experience' },
+                { text: 'Contact', href: 'index.html#contact' }
+            ]
+        });
+        renderFooter();
+    </script>
+</body>
+
+</html>
