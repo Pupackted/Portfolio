@@ -13,3 +13,37 @@
 .animate-fade-in-up {
     animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* Hamburger Animation */
+.hamburger-lines.open .line1 {
+    transform: rotate(45deg);
+    top: 50%;
+    margin-top: -1px;
+    /* Half of height to center exactly */
+}
+
+.hamburger-lines.open .line2 {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+.hamburger-lines.open .line3 {
+    transform: rotate(-45deg);
+    bottom: 50%;
+    margin-bottom: -1px;
+    /* Half of height to center exactly */
+}
+
+/* Mobile Menu Animation */
+#mobile-menu {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#mobile-menu.mobile-menu-open {
+    max-height: 400px;
+    /* Adjust based on content height */
+    opacity: 1;
+}
