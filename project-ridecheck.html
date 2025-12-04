@@ -32,6 +32,7 @@
                     <i data-lucide="download" class="w-3 h-3"></i> 3.2k+ Downloads
                 </span>
             </div>
+            <img src="Assets/RideCheckLogo.png" alt="RideCheck Logo" class="w-20 h-20 rounded-2xl shadow-lg mb-6">
             <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-gray-900">RideCheck</h1>
             <p class="text-xl md:text-2xl text-gray-600 leading-relaxed font-light mb-8">
                 Vehicle component tracking app. Tracks vehicle components automatically and notifies users when they are
@@ -53,13 +54,36 @@
 
             <!-- Overview -->
             <div>
-                <h2 class="text-2xl font-bold mb-4">Overview</h2>
+                <h2 class="text-2xl font-bold mb-4">Project Overview</h2>
                 <p class="text-gray-600 leading-relaxed">
-                    RideCheck is designed to help vehicle owners keep track of their maintenance schedule effortlessly.
-                    By automatically monitoring component usage, the app ensures that users are notified exactly when a
-                    part needs attention, preventing costly repairs and ensuring safety. With over 3,200 downloads and
-                    11k+ impressions, it has proven to be a valuable tool for many.
+                    RideCheck is a native iOS application built with SwiftUI designed to simplify vehicle ownership by
+                    automating maintenance tracking. Addressing the common issue of neglected vehicle care, the app
+                    utilizes device sensors to automatically track mileage and predict component wear-and-tear in
+                    real-time. It serves as a digital health monitor for motorcycles and cars, ensuring timely servicing
+                    to prolong vehicle lifespan and ensure rider safety.
                 </p>
+            </div>
+
+            <!-- The Problem & Solution -->
+            <div>
+                <h2 class="text-2xl font-bold mb-4">The Problem & Solution</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">The Problem</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Vehicle owners often forget maintenance intervals, relying on manual odometer checks or
+                            paper stickers, leading to preventable breakdowns and expensive repairs.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">The Solution</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            RideCheck automates this process using Core Motion and Core Location to detect when a user
+                            is driving. It updates the vehicle's digital odometer automatically and alerts the user when
+                            specific parts (oil, tires, brakes, etc.) reach their lifespan limit.
+                        </p>
+                    </div>
+                </div>
             </div>
 
             <!-- Key Features -->
@@ -71,72 +95,299 @@
                             class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-600">
                             <i data-lucide="activity" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="font-bold mb-2">Automated Tracking</h3>
-                        <p class="text-sm text-gray-600">Automatically tracks mileage and usage to predict maintenance
-                            needs.</p>
+                        <h3 class="font-bold mb-2">Automated Mileage Tracking</h3>
+                        <p class="text-sm text-gray-600">Utilizes background location services and motion activity to
+                            detect trips and update the vehicle's odometer without manual input.</p>
                     </div>
                     <div class="p-6 bg-gray-50 rounded-2xl">
                         <div
                             class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mb-4 text-green-600">
-                            <i data-lucide="bell" class="w-5 h-5"></i>
+                            <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="font-bold mb-2">Smart Notifications</h3>
-                        <p class="text-sm text-gray-600">Get timely alerts when components are nearing their end of
-                            life.</p>
+                        <h3 class="font-bold mb-2">Component Lifespan Monitoring</h3>
+                        <p class="text-sm text-gray-600">Tracks the health of individual vehicle parts (e.g., Engine
+                            Oil, Brake Pads, Tires) using visual progress bars and color-coded health indicators.</p>
                     </div>
                     <div class="p-6 bg-gray-50 rounded-2xl">
                         <div
                             class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mb-4 text-purple-600">
-                            <i data-lucide="map" class="w-5 h-5"></i>
+                            <i data-lucide="truck" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="font-bold mb-2">Location Integration</h3>
-                        <p class="text-sm text-gray-600">Uses CoreLocation to provide context-aware tracking.</p>
+                        <h3 class="font-bold mb-2">Multi-Vehicle Support</h3>
+                        <p class="text-sm text-gray-600">Architecture supports managing multiple vehicles with distinct
+                            maintenance profiles and odometers.</p>
                     </div>
                     <div class="p-6 bg-gray-50 rounded-2xl">
                         <div
                             class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mb-4 text-orange-600">
+                            <i data-lucide="map" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Trip Logs & Analytics</h3>
+                        <p class="text-sm text-gray-600">Detailed history of recent trips, including distance traveled
+                            and route snapshots, providing users with transparency on their vehicle usage.</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-2xl">
+                        <div
+                            class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mb-4 text-indigo-600">
                             <i data-lucide="layout" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="font-bold mb-2">Widget Support</h3>
-                        <p class="text-sm text-gray-600">Check your vehicle status directly from your home screen.</p>
+                        <h3 class="font-bold mb-2">Home Screen Widgets</h3>
+                        <p class="text-sm text-gray-600">Built with WidgetKit to provide at-a-glance status updates on
+                            vehicle health directly from the iPhone Home Screen.</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-2xl">
+                        <div
+                            class="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center mb-4 text-teal-600">
+                            <i data-lucide="settings" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Customizable Maintenance</h3>
+                        <p class="text-sm text-gray-600">Users can add custom components and define their own
+                            distance-based service intervals.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Tech Stack -->
+            <!-- Technical Architecture -->
             <div>
-                <h2 class="text-2xl font-bold mb-6">Tech Stack</h2>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">Swift</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">SwiftUI</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">CoreData</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">MapKit</span>
-                    <span
-                        class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">CoreLocation</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">CoreMotion</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">SwiftData</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">WidgetKit</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">AppIntents</span>
-                    <span
-                        class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">UserNotifications</span>
+                <h2 class="text-2xl font-bold mb-6">Technical Architecture</h2>
+                <div class="space-y-4">
+                    <div class="flex flex-col md:flex-row md:items-start gap-2">
+                        <span class="font-semibold min-w-[150px]">Language:</span>
+                        <span class="text-gray-600">Swift 5</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-start gap-2">
+                        <span class="font-semibold min-w-[150px]">UI Framework:</span>
+                        <span class="text-gray-600">SwiftUI</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-start gap-2">
+                        <span class="font-semibold min-w-[150px]">Data Persistence:</span>
+                        <span class="text-gray-600">Core Data / UserDefaults (for settings)</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-start gap-2">
+                        <span class="font-semibold min-w-[150px]">Core Frameworks:</span>
+                        <div class="text-gray-600">
+                            <ul class="list-disc list-inside space-y-1">
+                                <li><strong>CoreLocation & CoreMotion:</strong> For background trip detection and
+                                    automatic odometer updates.</li>
+                                <li><strong>WidgetKit:</strong> For extension support.</li>
+                                <li><strong>MapKit:</strong> For generating trip visual snapshots.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-start gap-2">
+                        <span class="font-semibold min-w-[150px]">Architecture:</span>
+                        <span class="text-gray-600">MVVM (Model-View-ViewModel)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Market Impact & Achievements -->
+            <div>
+                <h2 class="text-2xl font-bold mb-6">Market Impact & Achievements</h2>
+                <div class="bg-gray-50 rounded-2xl p-8">
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        RideCheck moved beyond a theoretical project to achieve significant real-world traction:
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-3xl font-bold text-blue-600 mb-2">3,200+</h3>
+                            <p class="font-medium mb-1">Organic Downloads</p>
+                            <p class="text-sm text-gray-500">Achieved through strategic social media marketing with
+                                11,000+ impressions.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold text-blue-600 mb-2">29%+</h3>
+                            <p class="font-medium mb-1">Conversion Rate</p>
+                            <p class="text-sm text-gray-500">Significantly higher than the industry average.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold text-blue-600 mb-2">5.0</h3>
+                            <p class="font-medium mb-1">App Store Rating</p>
+                            <p class="text-sm text-gray-500">Consistent user satisfaction with active revenue
+                                generation.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">National Recognition</h3>
+                            <p class="text-sm text-gray-600">Presented to the Deputy Minister of Komdigi, validating
+                                potential scalability.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What I Did -->
+            <div>
+                <h2 class="text-2xl font-bold mb-6">What I Did</h2>
+                <div class="grid gap-6">
+                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                        <div
+                            class="w-10 h-10 bg-blue-100 rounded-full flex-shrink-0 flex items-center justify-center text-blue-600 mt-1">
+                            <i data-lucide="lightbulb" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Product Strategy</h3>
+                            <p class="text-gray-600 leading-relaxed">Conceptualized the original idea for RideCheck,
+                                moving it from a raw concept to a roadmap presented to government officials.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                        <div
+                            class="w-10 h-10 bg-indigo-100 rounded-full flex-shrink-0 flex items-center justify-center text-indigo-600 mt-1">
+                            <i data-lucide="code-2" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Core Engineering</h3>
+                            <p class="text-gray-600 leading-relaxed">Co-Engineered the proprietary background tracking
+                                algorithm, optimizing the balance between GPS precision and battery efficiency.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                        <div
+                            class="w-10 h-10 bg-purple-100 rounded-full flex-shrink-0 flex items-center justify-center text-purple-600 mt-1">
+                            <i data-lucide="smartphone" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Frontend Development</h3>
+                            <p class="text-gray-600 leading-relaxed">Developed the polished SwiftUI frontend, ensuring
+                                high fidelity to the original designs and smooth animations.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                        <div
+                            class="w-10 h-10 bg-pink-100 rounded-full flex-shrink-0 flex items-center justify-center text-pink-600 mt-1">
+                            <i data-lucide="pen-tool" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">UX/UI Design</h3>
+                            <p class="text-gray-600 leading-relaxed">Designed key user flows and low-fidelity prototypes
+                                to streamline the vehicle management process.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                        <div
+                            class="w-10 h-10 bg-green-100 rounded-full flex-shrink-0 flex items-center justify-center text-green-600 mt-1">
+                            <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">System Validation</h3>
+                            <p class="text-gray-600 leading-relaxed">Validated the system through extensive field
+                                testing, ensuring the app performs flawlessly under real-world driving conditions.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Gallery -->
             <div>
                 <h2 class="text-2xl font-bold mb-6">Gallery</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="aspect-video bg-gray-100 rounded-2xl flex items-center justify-center text-gray-400">
-                        <span class="flex flex-col items-center gap-2">
-                            <i data-lucide="image" class="w-8 h-8"></i>
-                            App Screenshot 1
-                        </span>
+                <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+                    <!-- RideCheck Screenshots -->
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/RideCheckPics/RideCheckScreenshot1.png" alt="Dashboard & Mileage Tracking"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">App Screenshot </p>
+                        </div>
                     </div>
-                    <div class="aspect-video bg-gray-100 rounded-2xl flex items-center justify-center text-gray-400">
-                        <span class="flex flex-col items-center gap-2">
-                            <i data-lucide="image" class="w-8 h-8"></i>
-                            App Screenshot 2
-                        </span>
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/RideCheckPics/RideCheckScreenshot2.png" alt="Component Health Monitoring"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">App Screenshot</p>
+                        </div>
+                    </div>
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/RideCheckPics/RideCheckScreenshot3.png" alt="Trip Logs & Analytics"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">App Screenshot</p>
+                        </div>
+                    </div>
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/RideCheckPics/RideCheckScreenshot4.png" alt="Vehicle Settings"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">App Screenshot</p>
+                        </div>
+                    </div>
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/RideCheckPics/RideCheckScreenshot5.png" alt="Home Screen Widgets"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">App Screenshot</p>
+                        </div>
+                    </div>
+
+                    <!-- Testing & Prototype -->
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/RideCheckPics/AutoTrackingTesting1.PNG" alt="Auto Tracking Testing"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">Auto Tracking Testing Results</p>
+                        </div>
+                    </div>
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/RideCheckPics/AutoTrackingTesting2.PNG" alt="Auto Tracking Testing Results"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">Auto Tracking Testing</p>
+                        </div>
+                    </div>
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/RideCheckPics/Lo-Fi_Prototype.png" alt="Lo-Fi Prototype"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">Lo-Fi Prototype</p>
+                        </div>
+                    </div>
+
+                    <!-- Team & Events -->
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/RideCheckPics/RideCheckTeamPic.jpeg" alt="The RideCheck Team"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">The RideCheck Team</p>
+                        </div>
+                    </div>
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/RideCheckPics/withKomdigi1.jpeg" alt="Presentation to Komdigi"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">Presentation to Deputy minister of Komdigi</p>
+                        </div>
+                    </div>
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/RideCheckPics/withKomdigi2.jpeg" alt="Komdigi Event"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">Presentation to Deputy minister of Komdigi</p>
+                        </div>
                     </div>
                 </div>
             </div>
