@@ -104,8 +104,8 @@ function renderFooter() {
     <footer id="contact" class="bg-white border-t border-gray-200 py-12 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="text-center md:text-left">
-                <h3 class="text-xl font-bold mb-2">Let's work together!</h3>
-                <p class="text-gray-500">Available for opportunities in iOS & Web Development.</p>
+                <h3 class="text-xl font-bold mb-2">Let's work together</h3>
+             
             </div>
 
             <div class="flex gap-6">
