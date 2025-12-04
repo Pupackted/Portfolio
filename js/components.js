@@ -28,10 +28,16 @@ function renderHeader(config) {
                 </div>
             </button>
 
-            <a href="mailto:adrian.y.rachman@gmail.com"
-                class="hidden md:inline-block bg-black text-white text-xs px-4 py-1.5 rounded-full hover:bg-gray-800 transition-colors">
-                Get in Touch
-            </a>
+            <div class="hidden md:flex items-center gap-4">
+                <a href="Assets/CV/CV_ADRIAN%20YUSUFA%20RACHMAN.pdf" download
+                    class="text-xs font-medium text-gray-600 hover:text-black transition-colors">
+                    Download CV
+                </a>
+                <a href="mailto:adrian.y.rachman@gmail.com"
+                    class="bg-black text-white text-xs px-4 py-1.5 rounded-full hover:bg-gray-800 transition-colors">
+                    Get in Touch
+                </a>
+            </div>
         </div>
 
         <!-- Mobile Menu -->
@@ -39,6 +45,10 @@ function renderHeader(config) {
             class="md:hidden bg-white border-t border-gray-100 absolute w-full left-0 top-14 shadow-lg">
             <div class="flex flex-col px-6 py-4 space-y-4">
                 ${mobileLinksHtml}
+                <a href="Assets/CV/CV_ADRIAN%20YUSUFA%20RACHMAN.pdf" download
+                    class="text-sm font-medium text-gray-600 hover:text-black transition-colors mobile-link">
+                    Download CV
+                </a>
                 <a href="mailto:adrian.y.rachman@gmail.com"
                     class="text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors mobile-link">Get in
                     Touch</a>
