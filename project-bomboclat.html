@@ -28,6 +28,7 @@
                     class="text-xs font-semibold uppercase tracking-wider text-red-600 bg-red-50 px-3 py-1 rounded-full">iOS
                     App</span>
             </div>
+            <img src="Assets/BomBocLatLogo.png" alt="BomBocLat Logo" class="w-20 h-20 rounded-2xl shadow-lg mb-6">
             <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-gray-900">BomBocLat</h1>
             <p class="text-xl md:text-2xl text-gray-600 leading-relaxed font-light mb-8">
                 Pixel-art bomb-passing game inspired by “hot potato,” where players pass a ticking bomb under added
@@ -42,12 +43,39 @@
 
             <!-- Overview -->
             <div>
-                <h2 class="text-2xl font-bold mb-4">Overview</h2>
+                <h2 class="text-2xl font-bold mb-4">Project Overview</h2>
                 <p class="text-gray-600 leading-relaxed">
-                    BomBocLat brings the classic "hot potato" game to your phone with a retro pixel-art style. It's a
-                    high-energy party game where players must complete challenges or answer questions before passing the
-                    "bomb" to the next person. The twists and turns ensure that no two games are the same.
+                    BomBocLat is a high-energy, retro-styled arcade game designed to break the ice between people.
+                    Inspired by the classic "Hot Potato" mechanic, it is an offline multiplayer game where players must
+                    pass a ticking bomb back and forth before it explodes. With a charming pixel-art aesthetic featuring
+                    custom characters, the game combines tension, strategy (via cooldowns), and humor to foster
+                    immediate face-to-face social interaction.
                 </p>
+            </div>
+
+            <!-- The Problem & Solution -->
+            <div>
+                <h2 class="text-2xl font-bold mb-4">The Problem & Solution</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">The Problem</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            In environments like the Apple Developer Academy, new cohorts often face "social friction."
+                            Learners can find it difficult to break the ice, initiate organic conversations, or get to
+                            know their peers beyond professional introductions.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">The Solution</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            We created an offline, local multiplayer game that acts as a "digital icebreaker." By
+                            physically handing the phone back and forth (or playing side-by-side) in a high-stakes
+                            virtual duel, the app forces interaction. The shared tension of the ticking bomb and the
+                            humor of the pixel-art explosion create an instant shared experience, effectively removing
+                            awkwardness and sparking friendship.
+                        </p>
+                    </div>
+                </div>
             </div>
 
             <!-- Key Features -->
@@ -57,71 +85,188 @@
                     <div class="p-6 bg-gray-50 rounded-2xl">
                         <div
                             class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mb-4 text-red-600">
-                            <i data-lucide="bomb" class="w-5 h-5"></i>
+                            <i data-lucide="gamepad-2" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="font-bold mb-2">Ticking Bomb Mechanic</h3>
-                        <p class="text-sm text-gray-600">Pass the device before the timer runs out!</p>
+                        <h3 class="font-bold mb-2">Dual Game Modes</h3>
+                        <p class="text-sm text-gray-600">Supports 1-Player (vs CPU) for practice and 2-Player (PvP) for
+                            local social play.</p>
                     </div>
                     <div class="p-6 bg-gray-50 rounded-2xl">
                         <div
                             class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mb-4 text-orange-600">
-                            <i data-lucide="palette" class="w-5 h-5"></i>
+                            <i data-lucide="timer" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="font-bold mb-2">Pixel Art Style</h3>
-                        <p class="text-sm text-gray-600">Charming retro graphics powered by SpriteKit.</p>
+                        <h3 class="font-bold mb-2">Tension Mechanics</h3>
+                        <p class="text-sm text-gray-600">Features a Hidden/Random Timer (10-15 seconds) so players never
+                            know exactly when the bomb will go off.</p>
                     </div>
                     <div class="p-6 bg-gray-50 rounded-2xl">
                         <div
                             class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mb-4 text-yellow-600">
-                            <i data-lucide="zap" class="w-5 h-5"></i>
+                            <i data-lucide="shield-alert" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="font-bold mb-2">Dynamic Challenges</h3>
-                        <p class="text-sm text-gray-600">Randomized challenges keep the gameplay fresh and exciting.</p>
+                        <h3 class="font-bold mb-2">Strategic Gameplay</h3>
+                        <p class="text-sm text-gray-600">Implemented a Cooldown System preventing players from spamming
+                            the "Pass" button immediately, requiring timing and nerve.</p>
                     </div>
                     <div class="p-6 bg-gray-50 rounded-2xl">
                         <div
                             class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-600">
-                            <i data-lucide="music" class="w-5 h-5"></i>
+                            <i data-lucide="palette" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="font-bold mb-2">Immersive Audio</h3>
-                        <p class="text-sm text-gray-600">Sound effects and music managed by AVFoundation enhance the
-                            tension.</p>
+                        <h3 class="font-bold mb-2">Custom Pixel Art</h3>
+                        <p class="text-sm text-gray-600">A unique visual identity featuring pixelated avatars of Academy
+                            members (e.g., Angel, Kemas, Farid) and retro UI components.</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-2xl">
+                        <div
+                            class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mb-4 text-purple-600">
+                            <i data-lucide="layout" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Interactive UI</h3>
+                        <p class="text-sm text-gray-600">Dynamic menus with custom fonts (ArcadeClassic) and animated
+                            GIF integration for character reactions.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Tech Stack -->
+            <!-- Technical Architecture -->
             <div>
-                <h2 class="text-2xl font-bold mb-6">Tech Stack</h2>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">Swift</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">SwiftUI</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">SpriteKit</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">SwiftData</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">Combine</span>
-                    <span
-                        class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">AVFoundation</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">WebKit</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">MVVM</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">XCTest</span>
+                <h2 class="text-2xl font-bold mb-6">Technical Architecture</h2>
+                <div class="space-y-4">
+                    <div class="flex flex-col md:flex-row md:items-start gap-2">
+                        <span class="font-semibold min-w-[150px]">Architecture:</span>
+                        <span class="text-gray-600">Follows the MVVM (Model-View-ViewModel) pattern to separate game
+                            logic (timers, health, turns) from the UI code.</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-start gap-2">
+                        <span class="font-semibold min-w-[150px]">ViewModel:</span>
+                        <span class="text-gray-600">GameLogicViewModel handles the state machine, including bomb
+                            ownership, cooldown timers, and win/loss conditions.</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-start gap-2">
+                        <span class="font-semibold min-w-[150px]">UI Framework:</span>
+                        <span class="text-gray-600">SwiftUI was used for the entire navigation flow, onboarding, and HUD
+                            (Heads-Up Display).</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-start gap-2">
+                        <span class="font-semibold min-w-[150px]">Game Engine:</span>
+                        <span class="text-gray-600">Utilized SpriteKit (SKScene) embedded within SwiftUI via SpriteView
+                            to render the game scene and manage efficient rendering of the background and particle
+                            effects.</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-start gap-2">
+                        <span class="font-semibold min-w-[150px]">Data Persistence:</span>
+                        <span class="text-gray-600">Uses SwiftData and UserDefaults (TrophyManager.swift) to track
+                            player wins and unlockable characters.</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-start gap-2">
+                        <span class="font-semibold min-w-[150px]">Audio:</span>
+                        <span class="text-gray-600">Integrated AVFoundation for background music and sound effects
+                            management.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What I Did -->
+            <div>
+                <h2 class="text-2xl font-bold mb-6">What I Did</h2>
+                <div class="grid gap-6">
+                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                        <div
+                            class="w-10 h-10 bg-blue-100 rounded-full flex-shrink-0 flex items-center justify-center text-blue-600 mt-1">
+                            <i data-lucide="lightbulb" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Ideation & Concept</h3>
+                            <p class="text-gray-600 leading-relaxed">Co-developed the core concept of a "Pixel Art
+                                Social Game." I specifically championed the mechanic of using the game as a tool to
+                                solve the Academy's social isolation problem.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                        <div
+                            class="w-10 h-10 bg-purple-100 rounded-full flex-shrink-0 flex items-center justify-center text-purple-600 mt-1">
+                            <i data-lucide="pen-tool" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">UX/UI Design</h3>
+                            <p class="text-gray-600 leading-relaxed">Designed the user flow from Onboarding to Gameplay.
+                                I created the Lo-Fi wireframes to validate the navigation structure before development.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                        <div
+                            class="w-10 h-10 bg-orange-100 rounded-full flex-shrink-0 flex items-center justify-center text-orange-600 mt-1">
+                            <i data-lucide="code-2" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Frontend Development (SwiftUI)</h3>
+                            <ul class="list-disc list-inside text-gray-600 leading-relaxed space-y-1">
+                                <li>Built the primary views (HomeView, GameView, CharacterSelectView).</li>
+                                <li>Developed reusable custom components such as CircleButton, DynamicSquareButton, and
+                                    SeperatorView to maintain design consistency.</li>
+                                <li>Implemented the character carousel logic allowing players to scroll through and
+                                    select avatars.</li>
+                                <li>Handled the integration of animated GIFs (using WKWebView wrappers) to bring the
+                                    pixel characters to life during gameplay.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Gallery -->
             <div>
                 <h2 class="text-2xl font-bold mb-6">Gallery</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="aspect-video bg-gray-100 rounded-2xl flex items-center justify-center text-gray-400">
-                        <span class="flex flex-col items-center gap-2">
-                            <i data-lucide="image" class="w-8 h-8"></i>
-                            App Screenshot 1
-                        </span>
+                <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/BomBocLatPics/BomBocLatScreenShot1.png" alt="BomBocLat Screenshot 1"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">App Screenshot</p>
+                        </div>
                     </div>
-                    <div class="aspect-video bg-gray-100 rounded-2xl flex items-center justify-center text-gray-400">
-                        <span class="flex flex-col items-center gap-2">
-                            <i data-lucide="image" class="w-8 h-8"></i>
-                            App Screenshot 2
-                        </span>
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/BomBocLatPics/BomBocLatScreenShot2.png" alt="BomBocLat Screenshot 2"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">App Screenshot</p>
+                        </div>
+                    </div>
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/BomBocLatPics/BomBocLatScreenShot3.png" alt="BomBocLat Screenshot 3"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">App Screenshot</p>
+                        </div>
+                    </div>
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/BomBocLatPics/BomBocLatScreenShot4.png" alt="BomBocLat Screenshot 4"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">App Screenshot</p>
+                        </div>
+                    </div>
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/BomBocLatPics/TeamMember.jpeg" alt="The Team"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">The Team</p>
+                        </div>
                     </div>
                 </div>
             </div>
