@@ -41,13 +41,45 @@
 
             <!-- Overview -->
             <div>
-                <h2 class="text-2xl font-bold mb-4">Overview</h2>
+                <h2 class="text-2xl font-bold mb-4">Project Overview</h2>
                 <p class="text-gray-600 leading-relaxed">
-                    Reporthink Template Editor is a powerful tool designed to streamline the creation of professional
-                    reports. It features a WYSIWYG editor that allows users to drag and drop elements, customize
-                    layouts, and export their templates. Built with Django and modern frontend technologies, it offers a
-                    seamless and responsive experience.
+                    The Reporthink.AI Template Editor is a comprehensive, web-based platform designed to bridge the gap
+                    between static report templates and dynamic user customization. Built to support corporate reporting
+                    needs (Sustainability Reports, Annual Reports, etc.), this application allows users to select A4
+                    layouts, customize text and design elements directly in the browser, and export high-fidelity PDFs.
+                    It transforms a rigid file-download system into an interactive SaaS experience.
                 </p>
+            </div>
+
+            <!-- The Problem & Solution -->
+            <div>
+                <h2 class="text-2xl font-bold mb-4">The Problem & Solution</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">The Problem</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Reporthink.AI faced a significant limitation regarding the features available to users for
+                            editing their selected report templates. Previously, users could only select a desired
+                            template but lacked the ability to customize or edit it to suit their specific needs. They
+                            were unable to add necessary text or modify existing design elements, which severely
+                            restricted the flexibility of template usage. This rigidity hindered users' effectiveness in
+                            tailoring content to their specific requirements, ultimately diminishing the overall user
+                            experience. Consequently, there was a critical need for a platform where users could
+                            directly edit the report templates they selected.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">The Solution</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Based on the identified problems and analysis, it was concluded that a comprehensive
+                            approach was required to address these needs. The solution involved designing a platform
+                            capable of accommodating various features, specifically allowing users to edit templates
+                            with certain degrees of flexibility while strictly maintaining the integrity of the original
+                            design structure. Furthermore, this solution was built upon reliable technology to ensure
+                            optimal performance and a seamless workflow from selection to export.
+                        </p>
+                    </div>
+                </div>
             </div>
 
             <!-- Key Features -->
@@ -57,67 +89,235 @@
                     <div class="p-6 bg-gray-50 rounded-2xl">
                         <div
                             class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mb-4 text-emerald-600">
-                            <i data-lucide="move" class="w-5 h-5"></i>
+                            <i data-lucide="edit-3" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="font-bold mb-2">Drag-and-Drop</h3>
-                        <p class="text-sm text-gray-600">Intuitive interface for arranging report elements.</p>
+                        <h3 class="font-bold mb-2">WYSIWYG Template Editor</h3>
+                        <p class="text-sm text-gray-600">A custom-built editor allowing users to modify text (fonts,
+                            bold, italic, alignment) and change element colors using a real-time color picker.</p>
                     </div>
                     <div class="p-6 bg-gray-50 rounded-2xl">
                         <div
                             class="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center mb-4 text-teal-600">
-                            <i data-lucide="edit-3" class="w-5 h-5"></i>
+                            <i data-lucide="move" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="font-bold mb-2">Live Editing</h3>
-                        <p class="text-sm text-gray-600">See changes in real-time as you customize your template.</p>
+                        <h3 class="font-bold mb-2">Drag-and-Drop Media Handling</h3>
+                        <p class="text-sm text-gray-600">Users can replace placeholder images and logos simply by
+                            clicking or dragging new files directly onto the canvas.</p>
                     </div>
                     <div class="p-6 bg-gray-50 rounded-2xl">
                         <div
                             class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-600">
-                            <i data-lucide="database" class="w-5 h-5"></i>
+                            <i data-lucide="layers" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="font-bold mb-2">Template Management</h3>
-                        <p class="text-sm text-gray-600">Save, load, and organize your templates efficiently.</p>
+                        <h3 class="font-bold mb-2">Dynamic Page Management</h3>
+                        <p class="text-sm text-gray-600">A "Template Parts" system allowing users to add specific page
+                            layouts (covers, table of contents, content pages) and reorder them via a drag-and-drop
+                            interface.</p>
                     </div>
                     <div class="p-6 bg-gray-50 rounded-2xl">
                         <div
                             class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mb-4 text-indigo-600">
-                            <i data-lucide="layers" class="w-5 h-5"></i>
+                            <i data-lucide="file-check" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="font-bold mb-2">Fullstack Architecture</h3>
-                        <p class="text-sm text-gray-600">Robust backend with Django and responsive frontend with
-                            Tailwind CSS.</p>
+                        <h3 class="font-bold mb-2">High-Fidelity PDF Export</h3>
+                        <p class="text-sm text-gray-600">Integrates html2canvas and jsPDF to render the DOM into a
+                            pixel-perfect A4 PDF document ready for print or distribution.</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-2xl">
+                        <div
+                            class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mb-4 text-purple-600">
+                            <i data-lucide="save" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">User Dashboard & Persistence</h3>
+                        <p class="text-sm text-gray-600">A "Saved Templates" profile section where users can save their
+                            work-in-progress and resume editing later.</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-2xl">
+                        <div
+                            class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mb-4 text-orange-600">
+                            <i data-lucide="search" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Smart Search & Filtering</h3>
+                        <p class="text-sm text-gray-600">A robust search engine to filter templates by name, category,
+                            or description.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Tech Stack -->
+            <!-- Technical Architecture -->
             <div>
-                <h2 class="text-2xl font-bold mb-6">Tech Stack</h2>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">HTML/CSS
-                        (Tailwind)</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">JavaScript</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">Django</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">SQLite</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">Fullstack</span>
+                <h2 class="text-2xl font-bold mb-6">Technical Architecture</h2>
+                <div class="space-y-4">
+                    <div class="flex flex-col md:flex-row md:items-start gap-2">
+                        <span class="font-semibold min-w-[150px]">Architecture:</span>
+                        <span class="text-gray-600">Full-Stack architecture using the Django
+                            framework.</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-start gap-2">
+                        <span class="font-semibold min-w-[150px]">Backend:</span>
+                        <span class="text-gray-600">Python & Django (utilizing Django’s MVT architecture).</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-start gap-2">
+                        <span class="font-semibold min-w-[150px]">Frontend:</span>
+                        <span class="text-gray-600">HTML5, Tailwind CSS (via django-tailwind), and Vanilla JavaScript
+                            for complex DOM manipulation.</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-start gap-2">
+                        <span class="font-semibold min-w-[150px]">Database:</span>
+                        <span class="text-gray-600">SQLite (Development) / PostgreSQL (If production ready) using Django
+                            ORM.</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-start gap-2">
+                        <span class="font-semibold min-w-[150px]">PDF Engine:</span>
+                        <span class="text-gray-600">Client-side rendering using html2canvas and jsPDF.</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-start gap-2">
+                        <span class="font-semibold min-w-[150px]">Design Pattern:</span>
+                        <span class="text-gray-600">Strict separation of "Templates" (master copies) from
+                            "UserDocuments" (user-edited instances) to ensure data integrity.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What I Did -->
+            <div>
+                <h2 class="text-2xl font-bold mb-6">What I Did</h2>
+                <div class="grid gap-6">
+                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                        <div
+                            class="w-10 h-10 bg-blue-100 rounded-full flex-shrink-0 flex items-center justify-center text-blue-600 mt-1">
+                            <i data-lucide="code-2" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">End-to-End Development</h3>
+                            <p class="text-gray-600 leading-relaxed">Built the entire backend logic in Django and the
+                                interactive frontend using JavaScript and Tailwind CSS.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                        <div
+                            class="w-10 h-10 bg-purple-100 rounded-full flex-shrink-0 flex items-center justify-center text-purple-600 mt-1">
+                            <i data-lucide="database" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">System Design</h3>
+                            <p class="text-gray-600 leading-relaxed">Architected the database schema (ERD) to handle
+                                complex relationships between Users, Templates, and unique User Edits.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                        <div
+                            class="w-10 h-10 bg-orange-100 rounded-full flex-shrink-0 flex items-center justify-center text-orange-600 mt-1">
+                            <i data-lucide="pen-tool" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">UI/UX Design</h3>
+                            <p class="text-gray-600 leading-relaxed">Designed all wireframes, high-fidelity mockups, and
+                                the final responsive user interface to match Reporthink.AI’s branding.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                        <div
+                            class="w-10 h-10 bg-green-100 rounded-full flex-shrink-0 flex items-center justify-center text-green-600 mt-1">
+                            <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Testing & QA</h3>
+                            <p class="text-gray-600 leading-relaxed">Conducted Unit Testing on authentication and
+                                database models, and performed User Acceptance Testing (UAT) to refine the user flow.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Gallery -->
             <div>
                 <h2 class="text-2xl font-bold mb-6">Gallery</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="aspect-video bg-gray-100 rounded-2xl flex items-center justify-center text-gray-400">
-                        <span class="flex flex-col items-center gap-2">
-                            <i data-lucide="image" class="w-8 h-8"></i>
-                            Dashboard Screenshot
-                        </span>
+                <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/ReporthinkAIPics/ReporthinkScreenRecord1.gif" alt="Reporthink App Demo 1"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">App Demo</p>
+                        </div>
                     </div>
-                    <div class="aspect-video bg-gray-100 rounded-2xl flex items-center justify-center text-gray-400">
-                        <span class="flex flex-col items-center gap-2">
-                            <i data-lucide="image" class="w-8 h-8"></i>
-                            Editor Screenshot
-                        </span>
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/ReporthinkAIPics/ReporthinkScreenRecord2.gif" alt="Reporthink App Demo 2"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">App Demo</p>
+                        </div>
+                    </div>
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/ReporthinkAIPics/ReporthinkScreenShot1.png" alt="Reporthink Screenshot 1"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">App Screenshot</p>
+                        </div>
+                    </div>
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/ReporthinkAIPics/ReporthinkScreenShot2.png" alt="Reporthink Screenshot 2"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">App Screenshot</p>
+                        </div>
+                    </div>
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/ReporthinkAIPics/ReporthinkScreenShot3.png" alt="Reporthink Screenshot 3"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">App Screenshot</p>
+                        </div>
+                    </div>
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/ReporthinkAIPics/ReporthinkScreenShot4.png" alt="Reporthink Screenshot 4"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">App Screenshot</p>
+                        </div>
+                    </div>
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/ReporthinkAIPics/ReporthinkScreenShot5.png" alt="Reporthink Screenshot 5"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">App Screenshot</p>
+                        </div>
+                    </div>
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/ReporthinkAIPics/ReporthinkScreenShot6.png" alt="Reporthink Screenshot 6"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">App Screenshot</p>
+                        </div>
+                    </div>
+                    <div
+                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                        <img src="Assets/ReporthinkAIPics/ReporthinkScreenShot7.png" alt="Reporthink Screenshot 7"
+                            class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">App Screenshot</p>
+                        </div>
                     </div>
                 </div>
             </div>
