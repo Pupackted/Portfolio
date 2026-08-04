@@ -29,7 +29,7 @@ function renderHeader(config) {
             </button>
 
             <div class="hidden md:flex items-center gap-4">
-                <a href="Assets/CV/CV_ADRIAN%20YUSUFA%20RACHMAN.pdf" download
+                <a href="Assets/CV/CV_ADRIAN_YUSUFA_RACHMAN.pdf" download
                     class="text-xs font-medium text-gray-600 hover:text-black transition-colors">
                     Download CV
                 </a>
@@ -45,7 +45,7 @@ function renderHeader(config) {
             class="md:hidden bg-white border-t border-gray-100 absolute w-full left-0 top-14 shadow-lg">
             <div class="flex flex-col px-6 py-4 space-y-4">
                 ${mobileLinksHtml}
-                <a href="Assets/CV/CV_ADRIAN%20YUSUFA%20RACHMAN.pdf" download
+                <a href="Assets/CV/CV_ADRIAN_YUSUFA_RACHMAN.pdf" download
                     class="text-sm font-medium text-gray-600 hover:text-black transition-colors mobile-link">
                     Download CV
                 </a>
@@ -127,7 +127,7 @@ function renderFooter() {
             </div>
         </div>
         <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-100 text-center text-xs text-gray-400">
-           Last updated December 2025.
+           Last updated August 2026.
         </div>
     </footer>
     `;
