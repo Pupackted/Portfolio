@@ -159,33 +159,62 @@
             <!-- Technical Architecture -->
             <div>
                 <h2 class="text-2xl font-bold mb-6">Technical Architecture</h2>
-                <div class="space-y-4">
-                    <div class="flex flex-col md:flex-row md:items-start gap-2">
-                        <span class="font-semibold min-w-[150px]">Language:</span>
-                        <span class="text-gray-600">Swift</span>
-                    </div>
-                    <div class="flex flex-col md:flex-row md:items-start gap-2">
-                        <span class="font-semibold min-w-[150px]">UI Framework:</span>
-                        <span class="text-gray-600">SwiftUI</span>
-                    </div>
-                    <div class="flex flex-col md:flex-row md:items-start gap-2">
-                        <span class="font-semibold min-w-[150px]">Data Persistence:</span>
-                        <span class="text-gray-600">Core Data / UserDefaults (for settings)</span>
-                    </div>
-                    <div class="flex flex-col md:flex-row md:items-start gap-2">
-                        <span class="font-semibold min-w-[150px]">Core Frameworks:</span>
-                        <div class="text-gray-600">
-                            <ul class="list-disc list-inside space-y-1">
-                                <li><strong>CoreLocation & CoreMotion:</strong> For background trip detection and
-                                    automatic odometer updates.</li>
-                                <li><strong>WidgetKit:</strong> For extension support.</li>
-                                <li><strong>MapKit:</strong> For generating trip visual snapshots.</li>
-                            </ul>
+                <div class="space-y-8">
+                    <!-- iOS Tech Stack -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-blue-600">iOS Architecture</h3>
+                        <div class="space-y-4">
+                            <div class="flex flex-col md:flex-row md:items-start gap-2">
+                                <span class="font-semibold min-w-[150px]">Language:</span>
+                                <span class="text-gray-600">Swift</span>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:items-start gap-2">
+                                <span class="font-semibold min-w-[150px]">UI Framework:</span>
+                                <span class="text-gray-600">SwiftUI</span>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:items-start gap-2">
+                                <span class="font-semibold min-w-[150px]">Data Persistence:</span>
+                                <span class="text-gray-600">CoreData / UserDefaults</span>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:items-start gap-2">
+                                <span class="font-semibold min-w-[150px]">Core Frameworks:</span>
+                                <div class="text-gray-600">
+                                    <ul class="list-disc list-inside space-y-1">
+                                        <li><strong>CoreLocation & CoreMotion:</strong> For background trip detection and automatic odometer updates.</li>
+                                        <li><strong>WidgetKit:</strong> For interactive Home Screen widgets.</li>
+                                        <li><strong>MapKit:</strong> For generating trip visual snapshots.</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex flex-col md:flex-row md:items-start gap-2">
-                        <span class="font-semibold min-w-[150px]">Architecture:</span>
-                        <span class="text-gray-600">MVVM (Model-View-ViewModel)</span>
+
+                    <!-- Android Tech Stack -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-[#01875F]">Android Architecture</h3>
+                        <div class="space-y-4">
+                            <div class="flex flex-col md:flex-row md:items-start gap-2">
+                                <span class="font-semibold min-w-[150px]">Language:</span>
+                                <span class="text-gray-600">TypeScript</span>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:items-start gap-2">
+                                <span class="font-semibold min-w-[150px]">Framework:</span>
+                                <span class="text-gray-600">React Native / Expo</span>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:items-start gap-2">
+                                <span class="font-semibold min-w-[150px]">Data & Backend:</span>
+                                <span class="text-gray-600">Firebase (Auth, Firestore), SQLite with Drizzle ORM</span>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:items-start gap-2">
+                                <span class="font-semibold min-w-[150px]">Key Modules:</span>
+                                <div class="text-gray-600">
+                                    <ul class="list-disc list-inside space-y-1">
+                                        <li><strong>Expo Location & TaskManager:</strong> For background GPS tracking.</li>
+                                        <li><strong>React Native Android Widget:</strong> For native Android home screen widgets.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
