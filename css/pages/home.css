@@ -1112,3 +1112,114 @@
     row-gap: 44px;
   }
 }
+
+/* ── The workshop: smaller things, no case study yet ─────────────────────── */
+
+.lab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 16px;
+  margin-top: 44px;
+}
+
+.lab-card {
+  display: flex;
+  flex-direction: column;
+  padding: 26px 26px 20px;
+}
+
+.lab-card__top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.lab-card__icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  color: var(--tone, var(--accent));
+  background: color-mix(in srgb, var(--tone, var(--accent)) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--tone, var(--accent)) 26%, transparent);
+  transition: transform 0.6s var(--ease-spring);
+}
+
+.lab-card:hover .lab-card__icon {
+  transform: translateY(-2px) rotate(-6deg);
+}
+
+.lab-card__icon .i {
+  font-size: 19px;
+}
+
+.lab-card__top h3 {
+  font-size: 17.5px;
+  letter-spacing: -0.02em;
+}
+
+.lab-card__kind {
+  margin-top: 2px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+.lab-card__desc {
+  margin-top: 16px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--fg-2);
+}
+
+.lab-card__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 18px;
+}
+
+.lab-card__stack span {
+  padding: 4px 9px;
+  border-radius: 7px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-3);
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--line);
+}
+
+.lab-card__soon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 18px;
+  font-size: 12.5px;
+  color: var(--fg-4);
+}
+
+.lab-card__soon::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--tone, var(--accent));
+  opacity: 0.55;
+  animation: lab-blink 3.2s var(--ease-in-out) infinite;
+}
+
+@keyframes lab-blink {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.75; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab-card__soon::before {
+    animation: none;
+  }
+}

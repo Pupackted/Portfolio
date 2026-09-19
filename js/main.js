@@ -591,6 +591,7 @@
     var items = [
       { group: 'Navigate', label: 'Home', hint: 'Start', icon: 'home', href: onHome ? '#top' : 'index.html' },
       { group: 'Navigate', label: 'Selected work', icon: 'grid', href: home('#work') },
+      { group: 'Navigate', label: 'The workshop', hint: 'Smaller things I’ve built', icon: 'wrench', href: home('#lab') },
       { group: 'Navigate', label: 'Experience', icon: 'briefcase', href: home('#experience') },
       { group: 'Navigate', label: 'About me', icon: 'user', href: 'profile.html' },
       { group: 'Navigate', label: 'Contact', icon: 'mail', href: '#contact' },

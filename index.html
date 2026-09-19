@@ -151,7 +151,7 @@
             <p class="eyebrow" data-reveal><span class="eyebrow__index">01</span><span class="eyebrow__rule"></span>Selected work</p>
             <h2 class="h2 mt-24" data-split>Things I’ve built. <span class="dim">Most of them shipped.</span></h2>
           </div>
-          <p class="lead" data-reveal style="--d:150">Six projects across iPhone, Android, the Mac and the web — from a pixel-art game made to break the ice, to an app that 160,000 people now trust with their vehicles.</p>
+          <p class="lead" data-reveal style="--d:150">Six case studies across iPhone, Android, the Mac and the web — from a pixel-art game made to break the ice, to an app that 160,000 people now trust with their vehicles.</p>
         </header>
 
         <!-- Flagship -->
@@ -267,12 +267,109 @@
       </div>
     </section>
 
+    <!-- ═══ The workshop ═══════════════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="lab">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">02</span><span class="eyebrow__rule"></span>The workshop</p>
+            <h2 class="h2 mt-24" data-split>Things I built <span class="dim">because I wanted them to exist.</span></h2>
+          </div>
+          <p class="lead" data-reveal>Smaller tools — for me, for the people around me, for my team — and most of them still in daily use. Write-ups are on the way.</p>
+        </header>
+
+        <div class="lab-grid" data-stagger>
+
+          <article class="card lab-card" data-spotlight style="--tone:#a78bfa">
+            <div class="lab-card__top">
+              <span class="lab-card__icon"><svg class="i" aria-hidden="true"><use href="#i-pen" /></svg></span>
+              <div><h3>A place to rant</h3><p class="lab-card__kind">Web · AI</p></div>
+            </div>
+            <p class="lab-card__desc">A journal for when your head is loud: open it and the cursor is already waiting, and it saves as you type. Write enough and it turns the pile into a chapter — mood entry by entry, recurring themes, patterns you can’t spot yourself. The shareable web descendant of my on-device AI Journal, and the one my friends actually use.</p>
+            <div class="lab-card__stack"><span>HTML/CSS/JS</span><span>Local-first</span><span>Claude · ChatGPT · Gemini</span></div>
+            <p class="lab-card__soon">Case study coming soon</p>
+          </article>
+
+          <article class="card lab-card" data-spotlight style="--tone:#4aa3f5">
+            <div class="lab-card__top">
+              <span class="lab-card__icon"><svg class="i" aria-hidden="true"><use href="#i-monitor" /></svg></span>
+              <div><h3>MUOOD</h3><p class="lab-card__kind">macOS · Old devices</p></div>
+            </div>
+            <p class="lab-card__desc">Making Use Of Old Device: a phone you stopped using becomes a live companion display for your Mac. Now playing with time-synced lyrics, a deck of buttons, Control Center for volume, brightness, mic and keep-awake, vitals like CPU, memory and battery, your repos and deploys, weather and a clock. Apple’s StandBy, but it does far more — and because it’s a web app, almost any old screen can run it over USB or Wi-Fi.</p>
+            <div class="lab-card__stack"><span>Svelte</span><span>Node</span><span>macOS app</span></div>
+            <p class="lab-card__soon">Case study coming soon</p>
+          </article>
+
+          <article class="card lab-card" data-spotlight style="--tone:#22d3ee">
+            <div class="lab-card__top">
+              <span class="lab-card__icon"><svg class="i" aria-hidden="true"><use href="#i-map" /></svg></span>
+              <div><h3>Waypoint</h3><p class="lab-card__kind">Web · RideCheck internal</p></div>
+            </div>
+            <p class="lab-card__desc">RideCheck’s Notion and Jira in one: docs, the roadmap, meetings and the partner pipeline. Anyone on the team pastes an idea, a bug or a rant in plain language, and the AI files it, maps it to the part of the product it touches, and hands the task to whoever owns it. It genuinely changed how the four of us work.</p>
+            <div class="lab-card__stack"><span>Next.js</span><span>Firebase</span><span>Claude API</span><span>MCP</span></div>
+            <p class="lab-card__soon">Case study coming soon</p>
+          </article>
+
+          <article class="card lab-card" data-spotlight style="--tone:#34d399">
+            <div class="lab-card__top">
+              <span class="lab-card__icon"><svg class="i" aria-hidden="true"><use href="#i-file-check" /></svg></span>
+              <div><h3>CV Maker</h3><p class="lab-card__kind">Web · PDF export</p></div>
+            </div>
+            <p class="lab-card__desc">Pick a template, fill in the fields, export a real PDF. Built after one too many CV sites that let you design the whole thing and then ask for money to download it. If I can build what they’re selling, why pay for it?</p>
+            <div class="lab-card__stack"><span>Next.js</span><span>Prisma</span><span>Puppeteer</span></div>
+            <p class="lab-card__soon">Case study coming soon</p>
+          </article>
+
+          <article class="card lab-card" data-spotlight style="--tone:#f87171">
+            <div class="lab-card__top">
+              <span class="lab-card__icon"><svg class="i" aria-hidden="true"><use href="#i-download" /></svg></span>
+              <div><h3>YT Playlist Downloader</h3><p class="lab-card__kind">Android</p></div>
+            </div>
+            <p class="lab-card__desc">My girlfriend wanted her YouTube playlist offline, and saving one video at a time is a chore. This takes the whole playlist, skips what it already has, and writes the thumbnail and artist into every file so her Samsung Music player shows them properly. No subscription required.</p>
+            <div class="lab-card__stack"><span>Kotlin</span><span>Jetpack Compose</span><span>yt-dlp</span></div>
+            <p class="lab-card__soon">Case study coming soon</p>
+          </article>
+
+          <article class="card lab-card" data-spotlight style="--tone:#f0b168">
+            <div class="lab-card__top">
+              <span class="lab-card__icon"><svg class="i" aria-hidden="true"><use href="#i-image" /></svg></span>
+              <div><h3>Filter Generator</h3><p class="lab-card__kind">Desktop · Python</p></div>
+            </div>
+            <p class="lab-card__desc">Drag in a pile of photos, set the grain and the pixel size, and it batches them all out. It came from an aha moment: an image is just data — pixels arranged so our eyes read a picture — and data is something I can change with code.</p>
+            <div class="lab-card__stack"><span>Python</span><span>Pillow</span><span>CustomTkinter</span></div>
+            <p class="lab-card__soon">Case study coming soon</p>
+          </article>
+
+          <article class="card lab-card" data-spotlight style="--tone:#f472b6">
+            <div class="lab-card__top">
+              <span class="lab-card__icon"><svg class="i" aria-hidden="true"><use href="#i-phone" /></svg></span>
+              <div><h3>Photo Widget</h3><p class="lab-card__kind">iOS · WidgetKit</p></div>
+            </div>
+            <p class="lab-card__desc">Apple’s own photo widget won’t let me choose the one picture I want, and the App Store alternatives arrive with ads or a paywall. So: my photo, my crop, on my home screen.</p>
+            <div class="lab-card__stack"><span>Swift</span><span>SwiftUI</span><span>WidgetKit</span></div>
+            <p class="lab-card__soon">Case study coming soon</p>
+          </article>
+
+          <article class="card lab-card" data-spotlight style="--tone:#818cf8">
+            <div class="lab-card__top">
+              <span class="lab-card__icon"><svg class="i" aria-hidden="true"><use href="#i-compass" /></svg></span>
+              <div><h3>Void</h3><p class="lab-card__kind">Browser homepage</p></div>
+            </div>
+            <p class="lab-card__desc">The new tab page I actually wanted: a clock, search, the links I use, notes, tasks and a focus timer, over a background with particles and depth. No build step, no dependencies, no accounts — nothing leaves the browser.</p>
+            <div class="lab-card__stack"><span>HTML/CSS/JS</span><span>Brave extension</span></div>
+            <p class="lab-card__soon">Case study coming soon</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
     <!-- ═══ Experience ═════════════════════════════════════════════════════ -->
     <section class="section section--flush-top" id="experience">
       <div class="container">
         <header class="section-head section-head--split">
           <div>
-            <p class="eyebrow" data-reveal><span class="eyebrow__index">02</span><span class="eyebrow__rule"></span>Experience</p>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">03</span><span class="eyebrow__rule"></span>Experience</p>
             <h2 class="h2 mt-24" data-split>Where I’ve been <span class="dim">building.</span></h2>
           </div>
           <p class="lead" data-reveal style="--d:150">From turning designs into production HTML, to leading an app’s move from iOS to Android. Open any role for the details.</p>
@@ -386,7 +483,7 @@
       <div class="container">
         <div class="about">
           <div>
-            <p class="eyebrow" data-reveal><span class="eyebrow__index">03</span><span class="eyebrow__rule"></span>About</p>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">04</span><span class="eyebrow__rule"></span>About</p>
             <h2 class="h2 mt-24" data-split>Engineer by training. <span class="dim">Product person by habit.</span></h2>
           </div>
           <div class="about__text">
