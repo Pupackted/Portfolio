@@ -1,292 +1,311 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwiSekai | Adrian</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>SwiSekai — Case study · Adrian Rachman</title>
+  <meta name="description" content="SwiSekai: a Mac app that turns learning Swift into an adventure — a quest map of lessons, quizzes and projects, with Taylor, an AI mentor. On the Mac App Store. Case study by Adrian Rachman.">
+  <meta name="theme-color" content="#131418">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SwiSekai — Case study · Adrian Rachman">
+  <meta property="og:description" content="Learn Swift in another world. A gamified Mac app with an AI mentor, on the Mac App Store.">
+  <meta property="og:image" content="https://portfolio-adrian-rachman.vercel.app/Assets/web/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="Assets/web/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/swisekai.css">
+  <script src="js/site.js"></script>
+  <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
 </head>
 
-<body class="min-h-screen bg-[#f5f5f7] text-[#1d1d1f] font-sans selection:bg-blue-500 selection:text-white">
+<body class="theme-swi">
+  <site-header current="work"></site-header>
 
-    <!-- Header -->
-    <div id="app-header"></div>
+  <main id="main">
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-12 px-6">
-        <div class="max-w-4xl mx-auto">
-            <div class="flex items-center gap-3 mb-6">
-                <a href="index.html" class="text-sm font-medium text-gray-500 hover:text-black transition-colors">
-                    &larr; Back to Projects
-                </a>
-            </div>
-            <div class="flex flex-wrap gap-3 mb-6">
-                <span
-                    class="text-xs font-semibold uppercase tracking-wider text-orange-600 bg-orange-50 px-3 py-1 rounded-full">macOS
-                    App</span>
-            </div>
-            <img src="Assets/SwiSekaiLogo.png" alt="SwiSekai Logo" class="w-20 h-20 rounded-2xl shadow-lg mb-6">
-            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-gray-900">SwiSekai</h1>
-            <p class="text-xl md:text-2xl text-gray-600 leading-relaxed font-light mb-8">
-                Interactive Swift learning platform featuring an integrated AI mentor and gamified curriculum.
-            </p>
-            <div class="flex flex-wrap gap-4">
-                <a href="https://apps.apple.com/id/app/swisekai/id6751531464?mt=12" target="_blank"
-                    class="inline-flex items-center gap-2 bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-colors font-medium">
-                    <i data-lucide="download" class="w-5 h-5"></i>
-                    Download on App Store
-                </a>
-                <a href="https://swiftsekai.framer.website/" target="_blank"
-                    class="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-50 transition-colors font-medium">
-                    <i data-lucide="globe" class="w-5 h-5"></i>
-                    View Website
-                </a>
-            </div>
+    <!-- ═══ Hero ═══════════════════════════════════════════════════════════ -->
+    <section class="swi-hero">
+      <div class="swi-aurora" aria-hidden="true"></div>
+      <div class="swi-motes" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+      <div class="container relative">
+        <a class="back-link" href="index.html#work"><svg class="i" aria-hidden="true"><use href="#i-arrow-left" /></svg>All work</a>
+        <p class="swi-kana" lang="ja" data-reveal><span aria-hidden="true"></span>スイ せかい<span aria-hidden="true"></span></p>
+        <h1 class="swi-title" style="view-transition-name: swi-title">SwiSekai</h1>
+        <p class="swi-promise" data-split style="--d:150">Learn Swift <span class="dim">in another world.</span></p>
+        <p class="lead" data-reveal style="--d:300">A Mac app that turns the grind of learning Swift into an adventure: a quest map of lessons, quizzes that unlock the path, projects you actually build — and Taylor, an AI mentor who never gets tired of your questions.</p>
+        <div class="btn-row" data-reveal style="--d:420">
+          <a class="store-mac" href="https://apps.apple.com/id/app/swisekai/id6751531464?mt=12" target="_blank" rel="noopener">
+            <svg class="i" aria-hidden="true"><use href="#i-apple" /></svg>
+            <span><small>Download on the</small><b>Mac App Store</b></span>
+          </a>
+          <a class="btn btn--glass btn--lg" href="https://swiftsekai.framer.website/" target="_blank" rel="noopener">Website <svg class="i i--up-right" aria-hidden="true"><use href="#i-arrow-up-right" /></svg></a>
         </div>
+      </div>
+
+      <div class="swi-stage" data-reveal="scale" style="--d:300">
+        <div class="swi-shot swi-shot--hero">
+          <img src="Assets/web/swisekai/shot-2.webp" alt="The SwiSekai home screen: a chapter card for Swift Data Types, a list of projects, progress, a learning streak and resources" width="1512" height="1336" fetchpriority="high">
+        </div>
+        <img class="swi-icon" src="Assets/web/swisekai/icon.webp" alt="" width="320" height="320" aria-hidden="true">
+        <div class="swi-badge glass" aria-hidden="true">
+          <span class="hex"><svg class="i"><use href="#i-check" /></svg></span>
+          <span>Variables complete<small>Chapter 1 · Swift Datatype</small></span>
+        </div>
+        <div class="swi-fade" aria-hidden="true"></div>
+      </div>
     </section>
 
-    <!-- Content Section -->
-    <section class="py-12 px-6 bg-white">
-        <div class="max-w-4xl mx-auto space-y-16">
+    <div class="container">
+      <dl class="meta-row" data-stagger>
+        <div><dt>My role</dt><dd>Front-end engineer · AI features</dd></div>
+        <div><dt>Context</dt><dd>Apple Developer Academy, 2025</dd></div>
+        <div><dt>Platform</dt><dd>macOS · Mac App Store</dd></div>
+        <div><dt>Stack</dt><dd>Swift · SwiftUI · SwiftData</dd></div>
+      </dl>
+    </div>
 
-            <!-- Overview -->
-            <div>
-                <h2 class="text-2xl font-bold mb-4">Project Overview</h2>
-                <p class="text-gray-600 leading-relaxed">
-                    SwiSekai is an interactive, gamified educational platform designed to break the monotony of
-                    traditional coding tutorials. Built entirely in SwiftUI, the app offers a narrative-driven learning
-                    experience ("Isekai" meaning "Another World") where users are guided by an intelligent AI companion.
-                    It transforms the daunting task of learning iOS development into an engaging adventure, combining
-                    structured modules, quizzes, and hands-on projects with real-time AI assistance.
-                </p>
-            </div>
-
-            <!-- The Problem & Solution -->
-            <div>
-                <h2 class="text-2xl font-bold mb-4">The Problem & Solution</h2>
-                <div class="space-y-6">
-                    <div>
-                        <h3 class="font-bold text-lg mb-2">The Problem</h3>
-                        <p class="text-gray-600 leading-relaxed">
-                            Aspiring developers often face "tutorial hell." The standard resources for learning SwiftUI
-                            (such as the "100 Days of Swift") are incredibly valuable but often suffer from being dry,
-                            repetitive, and isolating. This lack of engagement leads to high burnout rates where
-                            learners give up before building anything meaningful.
-                        </p>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-lg mb-2">The Solution</h3>
-                        <p class="text-gray-600 leading-relaxed">
-                            SwiSekai gamifies the learning curve. Instead of reading static documentation, users
-                            traverse a visual map of chapters and modules. To solve the isolation issue, the app
-                            integrates a generative AI mentor that provides instant feedback, answers questions
-                            contextually, and offers encouragement, effectively simulating a private tutor experience.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Key Features -->
-            <div>
-                <h2 class="text-2xl font-bold mb-6">Key Features</h2>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mb-4 text-orange-600">
-                            <i data-lucide="bot" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Adaptive AI Mentor</h3>
-                        <p class="text-sm text-gray-600">Integrated with Google Gemini and OpenAI, the in-app chatbot
-                            offers context-aware assistance with emotional states (Happy, Thinking, Pout).</p>
-                    </div>
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center mb-4 text-pink-600">
-                            <i data-lucide="map" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Gamified Learning Path</h3>
-                        <p class="text-sm text-gray-600">A scrollable, interactive map (Level System) where users unlock
-                            chapters, complete modules, and pass quizzes to advance.</p>
-                    </div>
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-600">
-                            <i data-lucide="hammer" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Hands-on Projects</h3>
-                        <p class="text-sm text-gray-600">Users don't just read; they build. The app tracks completed
-                            projects and validates progress.</p>
-                    </div>
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mb-4 text-purple-600">
-                            <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Progress Tracking & Streaks</h3>
-                        <p class="text-sm text-gray-600">Built-in analytics track login streaks (Last 7 Days activity)
-                            and user levels to encourage daily learning habits.</p>
-                    </div>
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mb-4 text-indigo-600">
-                            <i data-lucide="layout" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Responsive Adaptive Layout</h3>
-                        <p class="text-sm text-gray-600">The interface morphs seamlessly between desktop (Sidebar
-                            navigation) and compact (Tab Bar navigation) views.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Technical Architecture -->
-            <div>
-                <h2 class="text-2xl font-bold mb-6">Technical Architecture</h2>
-                <div class="space-y-4">
-                    <div class="flex flex-col md:flex-row md:items-start gap-2">
-                        <span class="font-semibold min-w-[150px]">Language & Framework:</span>
-                        <span class="text-gray-600">Swift, SwiftUI</span>
-                    </div>
-                    <div class="flex flex-col md:flex-row md:items-start gap-2">
-                        <span class="font-semibold min-w-[150px]">Data Persistence:</span>
-                        <span class="text-gray-600">SwiftData (@Model macro) for local storage of user progress and
-                            levels.</span>
-                    </div>
-                    <div class="flex flex-col md:flex-row md:items-start gap-2">
-                        <span class="font-semibold min-w-[150px]">Design Pattern:</span>
-                        <span class="text-gray-600">MVVM (Model-View-ViewModel) with Protocol-Oriented
-                            Programming.</span>
-                    </div>
-                    <div class="flex flex-col md:flex-row md:items-start gap-2">
-                        <span class="font-semibold min-w-[150px]">AI Service Layer:</span>
-                        <span class="text-gray-600">Factory Pattern (ChatProviderFactory) to switch between Gemini and
-                            OpenAI.</span>
-                    </div>
-                    <div class="flex flex-col md:flex-row md:items-start gap-2">
-                        <span class="font-semibold min-w-[150px]">Navigation:</span>
-                        <span class="text-gray-600">Deeply nested NavigationStack with programmatic path binding.</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- What I Did -->
-            <div>
-                <h2 class="text-2xl font-bold mb-6">What I Did</h2>
-                <div class="grid gap-6">
-                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
-                        <div
-                            class="w-10 h-10 bg-blue-100 rounded-full flex-shrink-0 flex items-center justify-center text-blue-600 mt-1">
-                            <i data-lucide="layout-template" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-1">Frontend Engineering</h3>
-                            <p class="text-gray-600 leading-relaxed">Architected the app's navigation infrastructure to
-                                be fully responsive. Implemented GeometryReader logic for layout switching and built the
-                                complex "Wavy" scroll view using ScrollViewReader.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
-                        <div
-                            class="w-10 h-10 bg-purple-100 rounded-full flex-shrink-0 flex items-center justify-center text-purple-600 mt-1">
-                            <i data-lucide="bot" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-1">AI Feature Implementation</h3>
-                            <p class="text-gray-600 leading-relaxed">Helped the technical implementation of AI features.
-                                Created the ChatProvider protocol, implemented GeminiProvider and OpenAIProvider, and
-                                handled asynchronous API calls for streaming responses.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
-                        <div
-                            class="w-10 h-10 bg-orange-100 rounded-full flex-shrink-0 flex items-center justify-center text-orange-600 mt-1">
-                            <i data-lucide="lightbulb" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-1">Product Ideation & Strategy</h3>
-                            <p class="text-gray-600 leading-relaxed">Made large contributions to the app's concept,
-                                defining how it works and how to make learning more fun.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Gallery -->
-            <div>
-                <h2 class="text-2xl font-bold mb-6">Gallery</h2>
-                <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-                    <div
-                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-                        <img src="Assets/SwiSekaiPics/SwiSekaiScreenShot1.png" alt="SwiSekai Screenshot 1"
-                            class="w-full h-auto object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-sm font-medium">App Screenshot</p>
-                        </div>
-                    </div>
-                    <div
-                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-                        <img src="Assets/SwiSekaiPics/SwiSekaiScreenShot2.png" alt="SwiSekai Screenshot 2"
-                            class="w-full h-auto object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-sm font-medium">App Screenshot</p>
-                        </div>
-                    </div>
-                    <div
-                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-                        <img src="Assets/SwiSekaiPics/SwiSekaiScreenShot3.png" alt="SwiSekai Screenshot 3"
-                            class="w-full h-auto object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-sm font-medium">App Screenshot</p>
-                        </div>
-                    </div>
-                    <div
-                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-                        <img src="Assets/SwiSekaiPics/SwiSekaiScreenShot4.png" alt="SwiSekai Screenshot 4"
-                            class="w-full h-auto object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-sm font-medium">App Screenshot</p>
-                        </div>
-                    </div>
-                    <div
-                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-                        <img src="Assets/SwiSekaiPics/SwiSekaiScreenShot5.png" alt="SwiSekai Screenshot 5"
-                            class="w-full h-auto object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-sm font-medium">App Screenshot</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+    <!-- ═══ The problem ════════════════════════════════════════════════════ -->
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow" data-reveal><span class="eyebrow__index">01</span><span class="eyebrow__rule"></span>The problem</p>
+        <h2 class="pullquote mt-24" data-split>Tutorials teach you Swift. <span>Nothing makes you want to come back tomorrow.</span></h2>
+        <div class="swi-duo">
+          <article class="card" data-spotlight data-reveal>
+            <p class="swi-duo__tag">Tutorial hell</p>
+            <h3>Great material. Dry, repetitive, and lonely.</h3>
+            <p>Resources like “100 Days of Swift” are genuinely valuable — but reading documentation alone, day after day, burns people out before they build anything meaningful.</p>
+          </article>
+          <article class="card" data-spotlight data-reveal style="--d:120">
+            <p class="swi-duo__tag">Isekai</p>
+            <h3>Make it a quest. Give it a companion.</h3>
+            <p>SwiSekai — from “isekai”, another world — turns the curriculum into a map you travel through, and pairs you with an AI mentor who answers in context and cheers you on, like a private tutor.</p>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <div id="app-footer"></div>
+    <!-- ═══ Playable lesson ════════════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="play">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">02</span><span class="eyebrow__rule"></span>Try a lesson</p>
+          <h2 class="h2" data-split>Answer one. <span class="dim">Meet Taylor.</span></h2>
+          <p class="lead" data-reveal style="--d:150">A taste of how SwiSekai feels: pick an answer and watch the mentor react — thinking, then happy, or a little pouty — just like the moods she has in the app.</p>
+        </header>
 
-    <script src="js/components.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        renderHeader({
-            logoHref: 'index.html',
-            links: [
-                { text: 'Home', href: 'index.html' },
-                { text: 'Work', href: 'index.html#work' },
-                { text: 'Experience', href: 'index.html#experience' },
-                { text: 'Contact', href: 'index.html#contact' }
-            ]
-        });
-        renderFooter();
-    </script>
+        <div class="swi-lesson" data-lesson>
+          <div class="swi-quiz" data-reveal>
+            <div class="swi-xp">
+              <span class="swi-xp__level"><span class="hex hex--now" style="width:22px;height:25px"><svg class="i" aria-hidden="true" style="font-size:11px"><use href="#i-star" /></svg></span>Level <span data-level>3</span></span>
+              <span class="swi-xp__bar" aria-hidden="true"><span class="swi-xp__fill" data-xp-fill></span></span>
+              <span class="swi-xp__num"><span data-xp>120</span> XP<span class="swi-xp__gain" data-xp-gain aria-hidden="true">+10</span></span>
+            </div>
+            <p class="swi-quiz__count" data-count-label>Question 1 of 4</p>
+            <p class="swi-quiz__q" data-question aria-live="polite"></p>
+            <div class="swi-options" data-options role="group" aria-label="Answers"></div>
+            <div class="swi-quiz__foot">
+              <span class="swi-quiz__hint" data-hint>Pick an answer.</span>
+              <button class="swi-next" type="button" data-next>Next question</button>
+            </div>
+          </div>
+
+          <div class="swi-mentor" data-mentor data-mood="happy" data-reveal style="--d:120">
+            <div class="swi-mentor__head">
+              <span class="swi-avatar"><img src="Assets/web/swisekai/icon.webp" alt="Taylor, the AI mentor" width="320" height="320"></span>
+              <span>
+                <span class="swi-mentor__name">Taylor</span>
+                <span class="swi-mentor__sub">Ask me anything regarding Swift!</span>
+              </span>
+              <span class="swi-mood" data-mood-label>Happy</span>
+            </div>
+            <div class="swi-chat" data-chat aria-live="polite">
+              <p class="swi-bubble swi-bubble--taylor"><span class="swi-bubble__who">Taylor</span>Hi! Pick an answer on the left and I’ll tell you how you did. No pressure — wrong answers are how the map gets drawn.</p>
+            </div>
+            <div class="swi-mentor__input" aria-hidden="true"><span>Ask about Swift variables… (e.g. var vs let, optionals)</span><span class="swi-mentor__send"><svg class="i"><use href="#i-arrow-right" /></svg></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Quest map ══════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="features">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">03</span><span class="eyebrow__rule"></span>How it works</p>
+          <h2 class="h2" data-split>A curriculum <span class="dim">you can see.</span></h2>
+        </header>
+
+        <div class="swi-quest" data-quest>
+          <div class="swi-map-wrap" aria-hidden="true">
+            <div class="swi-map" data-map>
+              <svg viewBox="0 0 320 660">
+                <defs>
+                  <linearGradient id="swi-trail" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0" stop-color="#4fc3f7" />
+                    <stop offset="1" stop-color="#ff7a3d" />
+                  </linearGradient>
+                </defs>
+                <path class="swi-map__trail" d="M90 44 C90 100 230 100 230 160 C230 220 90 212 90 272 C90 330 230 326 230 386 C230 446 90 436 90 496 C90 570 160 566 160 606" />
+                <path class="swi-map__trail-lit" pathLength="1" d="M90 44 C90 100 230 100 230 160 C230 220 90 212 90 272 C90 330 230 326 230 386 C230 446 90 436 90 496 C90 570 160 566 160 606" />
+              </svg>
+              <span class="swi-gem" style="left:170px;top:104px" data-gem></span>
+              <span class="swi-gem" style="left:160px;top:218px" data-gem></span>
+              <span class="swi-gem" style="left:170px;top:330px" data-gem></span>
+              <span class="swi-gem" style="left:160px;top:444px" data-gem></span>
+              <div class="swi-node" style="left:90px;top:60px" data-node><span class="hex"><svg class="i i--check"><use href="#i-check" /></svg><svg class="i i--lock"><use href="#i-lock" /></svg><svg class="i i--star"><use href="#i-star" /></svg></span><b>Variables</b></div>
+              <div class="swi-node" style="left:230px;top:176px" data-node><span class="hex"><svg class="i i--check"><use href="#i-check" /></svg><svg class="i i--lock"><use href="#i-lock" /></svg><svg class="i i--star"><use href="#i-star" /></svg></span><b>String</b></div>
+              <div class="swi-node" style="left:90px;top:288px" data-node><span class="hex"><svg class="i i--check"><use href="#i-check" /></svg><svg class="i i--lock"><use href="#i-lock" /></svg><svg class="i i--star"><use href="#i-star" /></svg></span><b>Integer</b></div>
+              <div class="swi-node" style="left:230px;top:402px" data-node><span class="hex"><svg class="i i--check"><use href="#i-check" /></svg><svg class="i i--lock"><use href="#i-lock" /></svg><svg class="i i--star"><use href="#i-star" /></svg></span><b>Double &amp; Float</b></div>
+              <div class="swi-node" style="left:90px;top:512px" data-node><span class="hex"><svg class="i i--check"><use href="#i-check" /></svg><svg class="i i--lock"><use href="#i-lock" /></svg><svg class="i i--star"><use href="#i-star" /></svg></span><b>Boolean</b></div>
+              <div class="swi-summit" data-summit><span class="swi-summit__disc"><svg class="i"><use href="#i-flag" /></svg></span><b>Chapter summary</b></div>
+            </div>
+          </div>
+
+          <div class="swi-steps">
+            <article class="swi-step is-active" data-quest-step>
+              <p class="swi-step__n">01 · The path</p>
+              <h3>A map, not a menu.</h3>
+              <p>Each chapter unfolds as a winding path of modules. Finish one and the next one lights up — the whole curriculum visible at once, and you always one step further along it.</p>
+            </article>
+            <article class="swi-step" data-quest-step>
+              <p class="swi-step__n">02 · Quizzes</p>
+              <h3>Pass the check, open the road.</h3>
+              <p>Modules end in quick quizzes. Pass, and the path moves forward; miss, and the mentor explains why before you try again.</p>
+            </article>
+            <article class="swi-step" data-quest-step>
+              <p class="swi-step__n">03 · Projects</p>
+              <h3>Build it, don’t just read it.</h3>
+              <p>Unlock hands-on projects — a calculator, a timer, a Pomodoro timer — and build them to prove the chapter stuck. The app tracks what you’ve completed.</p>
+            </article>
+            <article class="swi-step" data-quest-step>
+              <p class="swi-step__n">04 · Streaks</p>
+              <h3>A reason to come back tomorrow.</h3>
+              <p>Progress, levels and a seven-day activity streak, kept on the Mac with SwiftData — small rewards for the habit that matters most.</p>
+            </article>
+            <article class="swi-step" data-quest-step>
+              <p class="swi-step__n">05 · Any window</p>
+              <h3>A layout that adapts as you resize.</h3>
+              <p>Wide window, sidebar. Narrow window, tab bar. The interface reshapes itself as the window changes, so learning next to Xcode still feels at home.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Gallery ════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">04</span><span class="eyebrow__rule"></span>The app</p>
+          <h2 class="h2" data-split>Screens from <span class="dim">the other world.</span></h2>
+        </header>
+        <div class="swi-gallery">
+          <figure class="swi-shot" data-reveal>
+            <img src="Assets/web/swisekai/shot-4.webp" alt="A lesson on variables with Taylor, the AI mentor, answering a question in the side panel" width="1512" height="1122" loading="lazy" data-lightbox="swi" data-caption="A lesson on variables, with Taylor answering in the side panel.">
+          </figure>
+          <figure class="swi-shot" data-reveal style="--d:100">
+            <img src="Assets/web/swisekai/shot-1.webp" alt="The learning map: hexagon modules for Variables, String and Integer completed or in progress, with Double, Float and Boolean still locked" width="1512" height="2142" loading="lazy" data-lightbox="swi" data-caption="The quest map for Chapter 1 — Swift Datatype.">
+          </figure>
+          <figure class="swi-shot" data-reveal>
+            <img src="Assets/web/swisekai/shot-5.webp" alt="The projects list, grouped into unlocked, locked and completed, with the Addition and Subtraction Calculator selected" width="1512" height="982" loading="lazy" data-lightbox="swi" data-caption="Projects — unlocked, locked and completed.">
+          </figure>
+          <figure class="window" data-reveal>
+            <div class="window__bar"><span class="window__dot"></span><span class="window__dot"></span><span class="window__dot"></span><span class="window__title">Quiz · alongside a Swift playground</span></div>
+            <img src="Assets/web/swisekai/shot-3.webp" alt="A quiz asking which Swift data type stores text, shown beside an Xcode playground" width="1512" height="982" loading="lazy" data-lightbox="swi" data-caption="A quiz, side by side with a Swift playground.">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ How it's built ═════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <div class="split" style="align-items:start">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">05</span><span class="eyebrow__rule"></span>Architecture</p>
+            <h2 class="h2 mt-24" data-split>One mentor, <span class="dim">two brains.</span></h2>
+            <p class="lead mt-20" data-reveal>The AI layer sits behind a single protocol, so the app can switch between Google Gemini and OpenAI without the interface knowing — and stream every answer as it’s written.</p>
+            <div class="spec mt-40" data-reveal>
+              <div class="spec__row"><span class="spec__key">Interface</span><span class="spec__val"><strong>Swift &amp; SwiftUI</strong> for macOS.</span></div>
+              <div class="spec__row"><span class="spec__key">Data</span><span class="spec__val"><strong>SwiftData</strong> models (<code class="mono">@Model</code>) for progress and levels.</span></div>
+              <div class="spec__row"><span class="spec__key">Pattern</span><span class="spec__val"><strong>MVVM</strong> with protocol-oriented programming.</span></div>
+              <div class="spec__row"><span class="spec__key">AI layer</span><span class="spec__val"><strong>ChatProvider</strong> protocol, with a factory that picks <strong>Gemini</strong> or <strong>OpenAI</strong>.</span></div>
+              <div class="spec__row"><span class="spec__key">Navigation</span><span class="spec__val">Deeply nested <strong>NavigationStack</strong> with programmatic paths.</span></div>
+            </div>
+          </div>
+          <figure data-reveal="scale">
+            <div class="window">
+              <div class="window__bar"><span class="window__dot"></span><span class="window__dot"></span><span class="window__dot"></span><span class="window__title">MentorViewModel.swift</span></div>
+<pre class="swi-code"><code><span class="k">protocol</span> <span class="t">ChatProvider</span> {
+    <span class="k">func</span> <span class="f">stream</span>(<span class="k">_</span> prompt: <span class="t">String</span>) -> <span class="t">AsyncThrowingStream</span>&lt;<span class="t">String</span>, <span class="t">Error</span>&gt;
+}
+
+<span class="k">enum</span> <span class="t">ChatProviderFactory</span> {
+    <span class="k">static func</span> <span class="f">make</span>(<span class="k">_</span> kind: <span class="t">Provider</span>) -> <span class="k">any</span> <span class="t">ChatProvider</span> {
+        <span class="k">switch</span> kind {
+        <span class="k">case</span> .<span class="p">gemini</span>: <span class="t">GeminiProvider</span>()
+        <span class="k">case</span> .<span class="p">openAI</span>: <span class="t">OpenAIProvider</span>()
+        }
+    }
+}
+
+<span class="a">@Observable</span>
+<span class="k">final class</span> <span class="t">MentorViewModel</span> {
+    <span class="k">var</span> reply = <span class="s">""</span>
+    <span class="k">var</span> mood: <span class="t">Mood</span> = .<span class="p">happy</span>
+    <span class="k">private let</span> provider = <span class="t">ChatProviderFactory</span>.<span class="f">make</span>(.<span class="p">gemini</span>)
+
+    <span class="k">func</span> <span class="f">ask</span>(<span class="k">_</span> question: <span class="t">String</span>) <span class="k">async</span> {
+        mood = .<span class="p">thinking</span>
+        reply = <span class="s">""</span>
+        <span class="k">do</span> {
+            <span class="k">for try await</span> token <span class="k">in</span> provider.<span class="f">stream</span>(question) {
+                reply += token   <span class="c">// the answer streams in</span>
+            }
+            mood = .<span class="p">happy</span>
+        } <span class="k">catch</span> {
+            mood = .<span class="p">pout</span>
+        }
+    }
+}</code></pre>
+            </div>
+            <figcaption class="swi-note">Illustrative — the shape of the AI layer, not the app’s source.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ What I did ═════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">06</span><span class="eyebrow__rule"></span>My role</p>
+            <h2 class="h2 mt-24" data-split>What I built.</h2>
+          </div>
+          <p class="lead" data-reveal>A team project at the Apple Developer Academy. I architected the front end’s navigation, helped build the AI mentor, and saw the app through to the Mac App Store.</p>
+        </header>
+        <ol class="roles" data-stagger>
+          <li class="role"><span class="role__n">01</span><h3>Responsive navigation</h3><p>Architected the navigation to be fully responsive, with GeometryReader logic that switches between a sidebar and a tab bar as the window changes size.</p></li>
+          <li class="role"><span class="role__n">02</span><h3>The wavy map</h3><p>Built the winding level map — the app’s signature “wavy” scroll view — with ScrollViewReader.</p></li>
+          <li class="role"><span class="role__n">03</span><h3>The AI mentor</h3><p>Helped implement the AI features: created the ChatProvider protocol, implemented the Gemini and OpenAI providers, and handled the asynchronous calls that stream Taylor’s answers.</p></li>
+          <li class="role"><span class="role__n">04</span><h3>Idea &amp; flows</h3><p>Shaped the concept — how learning works in SwiSekai and how to make it fun — and architected the user flows.</p></li>
+          <li class="role"><span class="role__n">05</span><h3>Shipping</h3><p>Designed and deployed a native Swift learning app to the Mac App Store.</p></li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <site-footer next="bomboclat"></site-footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/pages/swisekai.js" defer></script>
 </body>
 
 </html>

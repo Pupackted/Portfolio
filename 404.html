@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Served for any missing path, however deep: resolve the shell's relative links from the root. -->
+  <base href="/">
+  <title>Page not found — Adrian Rachman</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#131418">
+  <link rel="icon" href="/Assets/web/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    .nf {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: 120px var(--gutter) 80px;
+      text-align: center;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .nf::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: radial-gradient(50% 45% at 50% 45%, rgba(41, 151, 255, 0.14), transparent 70%);
+    }
+
+    .nf__code {
+      font-family: var(--font-mono);
+      font-size: clamp(96px, 22vw, 260px);
+      font-weight: 500;
+      letter-spacing: -0.06em;
+      line-height: 1;
+      background: linear-gradient(180deg, #fff 20%, rgba(255, 255, 255, 0.15));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nf__route {
+      width: min(420px, 80vw);
+      margin: 18px auto 0;
+      overflow: visible;
+    }
+
+    .nf__route path {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-dasharray: 6 10;
+      animation: nf-dash 1.6s linear infinite;
+    }
+
+    @keyframes nf-dash {
+      to {
+        stroke-dashoffset: -32;
+      }
+    }
+
+    .nf h1 {
+      margin-top: 28px;
+      font-size: clamp(28px, 4vw, 48px);
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+    }
+
+    .nf p {
+      max-width: 460px;
+      margin: 14px auto 0;
+      color: var(--fg-2);
+    }
+
+    .nf .btn-row {
+      justify-content: center;
+      margin-top: 32px;
+    }
+  </style>
+  <script src="/js/site.js"></script>
+</head>
+
+<body>
+  <site-header></site-header>
+  <main id="main" class="nf">
+    <div>
+      <p class="nf__code" aria-hidden="true">404</p>
+      <svg class="nf__route" viewBox="0 0 420 60" aria-hidden="true">
+        <path d="M10 40 C80 40 90 12 150 12 S230 50 290 44 S360 16 410 22" />
+        <circle cx="10" cy="40" r="6" fill="#fff" />
+        <circle cx="410" cy="22" r="6" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="3 3" />
+      </svg>
+      <h1>No trip recorded here.</h1>
+      <p>This page took a wrong turn — or never existed. Let’s get you back on the road.</p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="/">Back home <svg class="i i--arrow-right" aria-hidden="true"><use href="#i-arrow-right" /></svg></a>
+        <a class="btn btn--glass" href="/index.html#work">See my work</a>
+      </div>
+    </div>
+  </main>
+  <script src="/js/main.js" defer></script>
+</body>
+
+</html>

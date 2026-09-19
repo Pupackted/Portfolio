@@ -1,296 +1,298 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BomBocLat | Adrian</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>BomBocLat — Case study · Adrian Rachman</title>
+  <meta name="description" content="BomBocLat: a pixel-art hot-potato game for iPhone, built with SwiftUI and SpriteKit at the Apple Developer Academy to get a new cohort talking. Play a round in the browser. Case study by Adrian Rachman.">
+  <meta name="theme-color" content="#131418">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="BomBocLat — Case study · Adrian Rachman">
+  <meta property="og:description" content="Pass the bomb. Don't hold it. A pixel-art icebreaker game for iPhone — playable right on the page.">
+  <meta property="og:image" content="https://portfolio-adrian-rachman.vercel.app/Assets/web/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="Assets/web/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=JetBrains+Mono:wght@400;500;600&family=Silkscreen&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/bomboclat.css">
+  <script src="js/site.js"></script>
+  <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
 </head>
 
-<body class="min-h-screen bg-[#f5f5f7] text-[#1d1d1f] font-sans selection:bg-blue-500 selection:text-white">
+<body class="theme-bomb">
+  <site-header current="work"></site-header>
 
-    <!-- Header -->
-    <div id="app-header"></div>
+  <main id="main">
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-12 px-6">
-        <div class="max-w-4xl mx-auto">
-            <div class="flex items-center gap-3 mb-6">
-                <a href="index.html" class="text-sm font-medium text-gray-500 hover:text-black transition-colors">
-                    &larr; Back to Projects
-                </a>
+    <!-- ═══ Hero ═══════════════════════════════════════════════════════════ -->
+    <section class="bb-hero section">
+      <div class="container">
+        <a class="back-link" href="index.html#work"><svg class="i" aria-hidden="true"><use href="#i-arrow-left" /></svg>All work</a>
+
+        <div class="bb-hero__grid">
+          <div>
+            <p class="bb-kicker px" data-reveal><i aria-hidden="true"></i>Insert coin · iOS game</p>
+            <h1 class="bb-title" style="view-transition-name: bomb-title">BomBocLat</h1>
+            <p class="bb-promise" data-split style="--d:150">Pass the bomb. <span class="dim">Don’t hold it.</span></p>
+            <p class="lead" data-reveal style="--d:300">A pixel-art take on hot potato for iPhone. Two players, one ticking bomb, and a timer nobody can see — built at the Apple Developer Academy to get a room full of strangers laughing together.</p>
+            <div class="btn-row" data-reveal style="--d:420">
+              <a class="btn btn--primary btn--lg" href="#play" data-magnetic="0.2"><svg class="i" aria-hidden="true"><use href="#i-gamepad" /></svg>Play a round</a>
+              <span class="bb-tf"><svg class="i" aria-hidden="true"><use href="#i-apple" /></svg>Shipped to TestFlight</span>
             </div>
-            <div class="flex flex-wrap gap-3 mb-6">
-                <span
-                    class="text-xs font-semibold uppercase tracking-wider text-red-600 bg-red-50 px-3 py-1 rounded-full">iOS
-                    App</span>
-            </div>
-            <img src="Assets/BomBocLatLogo.png" alt="BomBocLat Logo" class="w-20 h-20 rounded-2xl shadow-lg mb-6">
-            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-gray-900">BomBocLat</h1>
-            <p class="text-xl md:text-2xl text-gray-600 leading-relaxed font-light mb-8">
-                Pixel-art bomb-passing game inspired by “hot potato,” where players pass a ticking bomb under added
-                twists that make the classic gameplay more fun and engaging.
-            </p>
+          </div>
+
+          <div class="bb-art" data-reveal="scale" style="--d:200" aria-hidden="true">
+            <div class="bb-art__halo"></div>
+            <div class="phone"><div class="phone__screen"><img src="Assets/web/bomboclat/shot-3.webp" alt="" width="402" height="874" fetchpriority="high"></div></div>
+            <div class="bb-art__bomb"><img src="Assets/BomBocLatLogo.png" alt="" width="640" height="640"><span class="bomb__spark"></span></div>
+            <div class="bb-art__hearts glass"><span class="heart"></span><span class="heart"></span><span class="heart is-lost"></span></div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Content Section -->
-    <section class="py-12 px-6 bg-white">
-        <div class="max-w-4xl mx-auto space-y-16">
+    <div class="container">
+      <dl class="meta-row" data-stagger>
+        <div><dt>My role</dt><dd>Front-end developer · UX</dd></div>
+        <div><dt>Context</dt><dd>Apple Developer Academy, 2025</dd></div>
+        <div><dt>Platform</dt><dd>iOS · TestFlight</dd></div>
+        <div><dt>Stack</dt><dd>SwiftUI · SpriteKit · SwiftData</dd></div>
+      </dl>
+    </div>
 
-            <!-- Overview -->
-            <div>
-                <h2 class="text-2xl font-bold mb-4">Project Overview</h2>
-                <p class="text-gray-600 leading-relaxed">
-                    BomBocLat is a high-energy, retro-styled arcade game designed to break the ice between people.
-                    Inspired by the classic "Hot Potato" mechanic, it is an offline multiplayer game where players must
-                    pass a ticking bomb back and forth before it explodes. With a charming pixel-art aesthetic featuring
-                    custom characters, the game combines tension, strategy (via cooldowns), and humor to foster
-                    immediate face-to-face social interaction.
-                </p>
-            </div>
-
-            <!-- The Problem & Solution -->
-            <div>
-                <h2 class="text-2xl font-bold mb-4">The Problem & Solution</h2>
-                <div class="space-y-6">
-                    <div>
-                        <h3 class="font-bold text-lg mb-2">The Problem</h3>
-                        <p class="text-gray-600 leading-relaxed">
-                            In environments like the Apple Developer Academy, new cohorts often face "social friction."
-                            Learners can find it difficult to break the ice, initiate organic conversations, or get to
-                            know their peers beyond professional introductions.
-                        </p>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-lg mb-2">The Solution</h3>
-                        <p class="text-gray-600 leading-relaxed">
-                            We created an offline, local multiplayer game that acts as a "digital icebreaker." By
-                            physically handing the phone back and forth (or playing side-by-side) in a high-stakes
-                            virtual duel, the app forces interaction. The shared tension of the ticking bomb and the
-                            humor of the pixel-art explosion create an instant shared experience, effectively removing
-                            awkwardness and sparking friendship.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Key Features -->
-            <div>
-                <h2 class="text-2xl font-bold mb-6">Key Features</h2>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mb-4 text-red-600">
-                            <i data-lucide="gamepad-2" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Dual Game Modes</h3>
-                        <p class="text-sm text-gray-600">Supports 1-Player (vs CPU) for practice and 2-Player (PvP) for
-                            local social play.</p>
-                    </div>
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mb-4 text-orange-600">
-                            <i data-lucide="timer" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Tension Mechanics</h3>
-                        <p class="text-sm text-gray-600">Features a Hidden/Random Timer (10-15 seconds) so players never
-                            know exactly when the bomb will go off.</p>
-                    </div>
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mb-4 text-yellow-600">
-                            <i data-lucide="shield-alert" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Strategic Gameplay</h3>
-                        <p class="text-sm text-gray-600">Implemented a Cooldown System preventing players from spamming
-                            the "Pass" button immediately, requiring timing and nerve.</p>
-                    </div>
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-600">
-                            <i data-lucide="palette" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Custom Pixel Art</h3>
-                        <p class="text-sm text-gray-600">A unique visual identity featuring pixelated avatars of Academy
-                            members (e.g., Angel, Kemas, Farid) and retro UI components.</p>
-                    </div>
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mb-4 text-purple-600">
-                            <i data-lucide="layout" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Interactive UI</h3>
-                        <p class="text-sm text-gray-600">Dynamic menus with custom fonts (ArcadeClassic) and animated
-                            GIF integration for character reactions.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Technical Architecture -->
-            <div>
-                <h2 class="text-2xl font-bold mb-6">Technical Architecture</h2>
-                <div class="space-y-4">
-                    <div class="flex flex-col md:flex-row md:items-start gap-2">
-                        <span class="font-semibold min-w-[150px]">Architecture:</span>
-                        <span class="text-gray-600">Follows the MVVM (Model-View-ViewModel) pattern to separate game
-                            logic (timers, health, turns) from the UI code.</span>
-                    </div>
-                    <div class="flex flex-col md:flex-row md:items-start gap-2">
-                        <span class="font-semibold min-w-[150px]">ViewModel:</span>
-                        <span class="text-gray-600">GameLogicViewModel handles the state machine, including bomb
-                            ownership, cooldown timers, and win/loss conditions.</span>
-                    </div>
-                    <div class="flex flex-col md:flex-row md:items-start gap-2">
-                        <span class="font-semibold min-w-[150px]">UI Framework:</span>
-                        <span class="text-gray-600">SwiftUI was used for the entire navigation flow, onboarding, and HUD
-                            (Heads-Up Display).</span>
-                    </div>
-                    <div class="flex flex-col md:flex-row md:items-start gap-2">
-                        <span class="font-semibold min-w-[150px]">Game Engine:</span>
-                        <span class="text-gray-600">Utilized SpriteKit (SKScene) embedded within SwiftUI via SpriteView
-                            to render the game scene and manage efficient rendering of the background and particle
-                            effects.</span>
-                    </div>
-                    <div class="flex flex-col md:flex-row md:items-start gap-2">
-                        <span class="font-semibold min-w-[150px]">Data Persistence:</span>
-                        <span class="text-gray-600">Uses SwiftData and UserDefaults (TrophyManager.swift) to track
-                            player wins and unlockable characters.</span>
-                    </div>
-                    <div class="flex flex-col md:flex-row md:items-start gap-2">
-                        <span class="font-semibold min-w-[150px]">Audio:</span>
-                        <span class="text-gray-600">Integrated AVFoundation for background music and sound effects
-                            management.</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- What I Did -->
-            <div>
-                <h2 class="text-2xl font-bold mb-6">What I Did</h2>
-                <div class="grid gap-6">
-                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
-                        <div
-                            class="w-10 h-10 bg-blue-100 rounded-full flex-shrink-0 flex items-center justify-center text-blue-600 mt-1">
-                            <i data-lucide="lightbulb" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-1">Ideation & Concept</h3>
-                            <p class="text-gray-600 leading-relaxed">Co-developed the core concept of a "Pixel Art
-                                Social Game." I specifically championed the mechanic of using the game as a tool to
-                                solve the Academy's social isolation problem.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
-                        <div
-                            class="w-10 h-10 bg-purple-100 rounded-full flex-shrink-0 flex items-center justify-center text-purple-600 mt-1">
-                            <i data-lucide="pen-tool" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-1">UX/UI Design</h3>
-                            <p class="text-gray-600 leading-relaxed">Designed the user flow from Onboarding to Gameplay.
-                                I created the Lo-Fi wireframes to validate the navigation structure before development.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
-                        <div
-                            class="w-10 h-10 bg-orange-100 rounded-full flex-shrink-0 flex items-center justify-center text-orange-600 mt-1">
-                            <i data-lucide="code-2" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-1">Frontend Development (SwiftUI)</h3>
-                            <ul class="list-disc list-inside text-gray-600 leading-relaxed space-y-1">
-                                <li>Built the primary views (HomeView, GameView, CharacterSelectView).</li>
-                                <li>Developed reusable custom components such as CircleButton, DynamicSquareButton, and
-                                    SeperatorView to maintain design consistency.</li>
-                                <li>Implemented the character carousel logic allowing players to scroll through and
-                                    select avatars.</li>
-                                <li>Handled the integration of animated GIFs (using WKWebView wrappers) to bring the
-                                    pixel characters to life during gameplay.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Gallery -->
-            <div>
-                <h2 class="text-2xl font-bold mb-6">Gallery</h2>
-                <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-                    <div
-                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-                        <img src="Assets/BomBocLatPics/BomBocLatScreenShot1.png" alt="BomBocLat Screenshot 1"
-                            class="w-full h-auto object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-sm font-medium">App Screenshot</p>
-                        </div>
-                    </div>
-                    <div
-                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-                        <img src="Assets/BomBocLatPics/BomBocLatScreenShot2.png" alt="BomBocLat Screenshot 2"
-                            class="w-full h-auto object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-sm font-medium">App Screenshot</p>
-                        </div>
-                    </div>
-                    <div
-                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-                        <img src="Assets/BomBocLatPics/BomBocLatScreenShot3.png" alt="BomBocLat Screenshot 3"
-                            class="w-full h-auto object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-sm font-medium">App Screenshot</p>
-                        </div>
-                    </div>
-                    <div
-                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-                        <img src="Assets/BomBocLatPics/BomBocLatScreenShot4.png" alt="BomBocLat Screenshot 4"
-                            class="w-full h-auto object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-sm font-medium">App Screenshot</p>
-                        </div>
-                    </div>
-                    <div
-                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-                        <img src="Assets/BomBocLatPics/TeamMember.jpeg" alt="The Team"
-                            class="w-full h-auto object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-sm font-medium">The Team</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+    <!-- ═══ Story ══════════════════════════════════════════════════════════ -->
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow" data-reveal><span class="eyebrow__index">01</span><span class="eyebrow__rule"></span>Why a game</p>
+        <h2 class="pullquote mt-24" data-split>A new cohort is a room full of strangers. <span>We turned the awkward part into a game.</span></h2>
+        <div class="bb-duo">
+          <article class="card" data-spotlight data-reveal>
+            <p class="bb-duo__tag px">The problem</p>
+            <h3>Social friction.</h3>
+            <p>At the start of an Apple Developer Academy cohort, learners find it hard to break the ice, start real conversations, or get to know each other beyond polite professional introductions.</p>
+          </article>
+          <article class="card" data-spotlight data-reveal style="--d:120">
+            <p class="bb-duo__tag px">The idea</p>
+            <h3>A digital icebreaker.</h3>
+            <p>An offline, local multiplayer game you play face to face — handing the phone back and forth in a high-stakes duel. The shared tension of the ticking bomb, and the pixel explosion that follows, do the rest.</p>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <div id="app-footer"></div>
+    <!-- ═══ Play ═══════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="play">
+      <div class="container">
+        <header class="section-head section-head--center">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">02</span><span class="eyebrow__rule"></span>Play it here</p>
+          <h2 class="h2" data-split>One bomb. <span class="dim">Two nerves.</span></h2>
+          <p class="lead" data-reveal style="--d:150">The same rules as the game: a hidden fuse, a pass button that needs a moment to recharge, and three hearts each. Play the CPU, or grab a friend and share the keyboard.</p>
+        </header>
 
-    <script src="js/components.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        renderHeader({
-            logoHref: 'index.html',
-            links: [
-                { text: 'Home', href: 'index.html' },
-                { text: 'Work', href: 'index.html#work' },
-                { text: 'Experience', href: 'index.html#experience' },
-                { text: 'Contact', href: 'index.html#contact' }
-            ]
-        });
-        renderFooter();
-    </script>
+        <div class="arcade" data-game data-reveal="scale">
+          <div class="arcade__screen" data-screen>
+            <div class="arcade__flash" data-flash aria-hidden="true"></div>
+
+            <div class="arcade__hud px">
+              <div class="hud hud--p1">
+                <span class="hud__name">Adrian</span>
+                <span class="hud__hearts" data-hearts="0" aria-label="Adrian has 3 hearts"><span class="heart"></span><span class="heart"></span><span class="heart"></span></span>
+              </div>
+              <span class="hud__center" data-round>Round 1</span>
+              <div class="hud hud--p2">
+                <span class="hud__name" data-p2-name>Angel · CPU</span>
+                <span class="hud__hearts" data-hearts="1" aria-label="Angel has 3 hearts"><span class="heart"></span><span class="heart"></span><span class="heart"></span></span>
+              </div>
+            </div>
+
+            <div class="arcade__stage">
+              <img class="fighter fighter--p1" data-fighter="0" src="Assets/web/bomboclat/adrian.png" alt="Adrian, as a pixel character" width="214" height="334">
+              <div class="rail" data-rail>
+                <div class="bomb is-idle" data-bomb data-side="0" aria-hidden="true">
+                  <img src="Assets/BomBocLatLogo.png" alt="" width="640" height="640">
+                  <span class="bomb__spark"></span>
+                </div>
+              </div>
+              <img class="fighter fighter--p2" data-fighter="1" src="Assets/web/bomboclat/angel.png" alt="Angel, as a pixel character" width="194" height="333">
+              <div class="boom" data-boom aria-hidden="true"></div>
+            </div>
+
+            <div class="arcade__controls px">
+              <button class="pass" type="button" data-pass="0" aria-label="Adrian passes the bomb (key A)"><span class="pass__cool"></span>Pass<kbd>A</kbd></button>
+              <p class="arcade__status" data-status aria-live="polite">Press start</p>
+              <button class="pass" type="button" data-pass="1" aria-label="Angel passes the bomb (key L)"><span class="pass__cool"></span>Pass<kbd>L</kbd></button>
+            </div>
+
+            <div class="arcade__overlay px" data-overlay>
+              <p class="arcade__big" data-overlay-title>BomBocLat</p>
+              <div class="arcade__modes" role="group" aria-label="Mode">
+                <button type="button" data-mode="cpu" aria-pressed="true">1P vs CPU</button>
+                <button type="button" data-mode="2p" aria-pressed="false">2P local</button>
+              </div>
+              <button class="arcade__start" type="button" data-start>Press start</button>
+              <p class="arcade__help" data-help>A to pass · Space to start</p>
+            </div>
+          </div>
+        </div>
+        <p class="arcade-note" data-reveal><span><kbd>A</kbd> Adrian passes</span><span><kbd>L</kbd> Angel passes (2P)</span><span><kbd>Space</kbd> start</span><span>Sprites from the real game</span></p>
+      </div>
+    </section>
+
+    <!-- ═══ Manual ═════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">03</span><span class="eyebrow__rule"></span>The manual</p>
+          <h2 class="h2" data-split>Simple rules. <span class="dim">Sweaty palms.</span></h2>
+        </header>
+        <div class="manual" data-stagger>
+          <article class="manual__card">
+            <p class="manual__n px">01</p>
+            <span class="manual__icon"><svg class="i" aria-hidden="true"><use href="#i-timer" /></svg></span>
+            <h3>The hidden fuse</h3>
+            <p>Every round, the timer lands somewhere between 10 and 15 seconds — and nobody ever knows exactly when it will go off.</p>
+          </article>
+          <article class="manual__card">
+            <p class="manual__n px">02</p>
+            <span class="manual__icon"><svg class="i" aria-hidden="true"><use href="#i-hand" /></svg></span>
+            <h3>No spamming</h3>
+            <p>A cooldown on the Pass button stops anyone mashing it. Passing becomes a question of timing and nerve.</p>
+          </article>
+          <article class="manual__card">
+            <p class="manual__n px">03</p>
+            <span class="manual__icon"><svg class="i" aria-hidden="true"><use href="#i-users" /></svg></span>
+            <h3>1P or 2P</h3>
+            <p>Practise against the CPU, or play the real thing: two people, one phone, face to face.</p>
+          </article>
+          <article class="manual__card">
+            <p class="manual__n px">04</p>
+            <span class="manual__icon"><svg class="i" aria-hidden="true"><use href="#i-palette" /></svg></span>
+            <h3>A cast you know</h3>
+            <p>Custom pixel avatars of Academy members, the ArcadeClassic font, and animated GIF reactions for every close call.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ How it's built ═════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <div class="split" style="align-items:start">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">04</span><span class="eyebrow__rule"></span>Under the hood</p>
+            <h2 class="h2 mt-24" data-split>A state machine <span class="dim">in a pixel coat.</span></h2>
+            <p class="lead mt-20" data-reveal>Game logic lives in one view model — who holds the bomb, whose button is cooling down, who just lost a heart — so SwiftUI and SpriteKit only ever draw what it decides.</p>
+            <div class="bb-states" data-reveal aria-label="Game states: ready, holding, passing, cooldown, exploded, game over">
+              <span class="bb-state">ready</span><span class="bb-arrow">→</span>
+              <span class="bb-state bb-state--hot">holding</span><span class="bb-arrow">⇄</span>
+              <span class="bb-state">passed · cooldown</span><span class="bb-arrow">→</span>
+              <span class="bb-state bb-state--hot">exploded</span><span class="bb-arrow">→</span>
+              <span class="bb-state">game over</span>
+            </div>
+            <div class="spec mt-40" data-reveal>
+              <div class="spec__row"><span class="spec__key">Architecture</span><span class="spec__val"><strong>MVVM</strong> — timers, health and turns kept apart from the UI.</span></div>
+              <div class="spec__row"><span class="spec__key">Game logic</span><span class="spec__val"><strong>GameLogicViewModel</strong> runs the state machine: ownership, cooldowns, win and loss.</span></div>
+              <div class="spec__row"><span class="spec__key">Interface</span><span class="spec__val"><strong>SwiftUI</strong> for navigation, onboarding and the HUD.</span></div>
+              <div class="spec__row"><span class="spec__key">Scene</span><span class="spec__val"><strong>SpriteKit</strong> (an SKScene inside SwiftUI via SpriteView) for the background and particles.</span></div>
+              <div class="spec__row"><span class="spec__key">Data</span><span class="spec__val"><strong>SwiftData</strong> and UserDefaults (TrophyManager) for wins and unlockable characters.</span></div>
+              <div class="spec__row"><span class="spec__key">Media</span><span class="spec__val"><strong>AVFoundation</strong> for music and effects; animated GIFs through a WKWebView wrapper.</span></div>
+            </div>
+          </div>
+          <figure data-reveal="scale">
+            <div class="window">
+              <div class="window__bar"><span class="window__dot"></span><span class="window__dot"></span><span class="window__dot"></span><span class="window__title">GameLogicViewModel.swift</span></div>
+<pre class="bb-code"><code><span class="a">@Observable</span>
+<span class="k">final class</span> <span class="t">GameLogicViewModel</span> {
+    <span class="k">enum</span> <span class="t">Phase</span> { <span class="k">case</span> ready, holding(<span class="t">Player</span>), exploded(<span class="t">Player</span>), over }
+
+    <span class="k">private</span>(<span class="k">set</span>) <span class="k">var</span> phase: <span class="t">Phase</span> = .<span class="p">ready</span>
+    <span class="k">private</span>(<span class="k">set</span>) <span class="k">var</span> hearts: [<span class="t">Player</span>: <span class="t">Int</span>] = [.<span class="p">one</span>: <span class="n">3</span>, .<span class="p">two</span>: <span class="n">3</span>]
+    <span class="k">private var</span> fuse: <span class="t">Task</span>&lt;<span class="t">Void</span>, <span class="t">Never</span>&gt;?
+    <span class="k">private var</span> coolingDown: <span class="t">Set</span>&lt;<span class="t">Player</span>&gt; = []
+
+    <span class="k">func</span> <span class="f">startRound</span>(holder: <span class="t">Player</span>) {
+        phase = .<span class="f">holding</span>(holder)
+        <span class="k">let</span> seconds = <span class="t">Double</span>.<span class="f">random</span>(in: <span class="n">10</span>...<span class="n">15</span>)   <span class="c">// never shown</span>
+        fuse = <span class="t">Task</span> {
+            <span class="k">try</span>? <span class="k">await</span> <span class="t">Task</span>.<span class="f">sleep</span>(for: .<span class="f">seconds</span>(seconds))
+            <span class="f">explode</span>()
+        }
+    }
+
+    <span class="k">func</span> <span class="f">pass</span>(from player: <span class="t">Player</span>) {
+        <span class="k">guard case</span> .<span class="f">holding</span>(player) = phase,
+              !coolingDown.<span class="f">contains</span>(player) <span class="k">else</span> { <span class="k">return</span> }
+        phase = .<span class="f">holding</span>(player.<span class="p">opponent</span>)
+        <span class="f">coolDown</span>(player.<span class="p">opponent</span>)   <span class="c">// no instant hand-backs</span>
+    }
+}</code></pre>
+            </div>
+            <figcaption class="bb-note">Illustrative — the shape of the game loop, not the app’s source.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Screens ════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head section-head--center">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">05</span><span class="eyebrow__rule"></span>The game</p>
+          <h2 class="h2" data-split>Four screens, <span class="dim">one explosion.</span></h2>
+        </header>
+        <div class="bb-screens" data-stagger>
+          <figure><div class="phone"><div class="phone__screen"><img src="Assets/web/bomboclat/shot-1.webp" alt="Mode select with two pixel characters, Duos and Offline" width="402" height="874" loading="lazy" data-lightbox="bb" data-caption="Choose a mode — Duos, Offline."></div></div><figcaption>Mode select</figcaption></figure>
+          <figure><div class="phone"><div class="phone__screen"><img src="Assets/web/bomboclat/shot-2.webp" alt="Character select showing Adrian as a pixel character" width="402" height="874" loading="lazy" data-lightbox="bb" data-caption="Pick your character — here, Adrian."></div></div><figcaption>Character select</figcaption></figure>
+          <figure><div class="phone"><div class="phone__screen"><img src="Assets/web/bomboclat/shot-3.webp" alt="Gameplay: Angel holds the bomb at the bottom, Adrian waits upside down at the top, each with three hearts and a Pass button" width="402" height="874" loading="lazy" data-lightbox="bb" data-caption="Mid-round: the phone sits between two players, one of them upside down."></div></div><figcaption>The duel</figcaption></figure>
+          <figure><div class="phone"><div class="phone__screen"><img src="Assets/web/bomboclat/shot-4.webp" alt="The bomb explodes in a pixel mushroom cloud on Angel's side" width="402" height="874" loading="lazy" data-lightbox="bb" data-caption="Boom — a heart lost."></div></div><figcaption>Boom</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ What I did ═════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">06</span><span class="eyebrow__rule"></span>My role</p>
+            <h2 class="h2 mt-24" data-split>What I built.</h2>
+          </div>
+          <p class="lead" data-reveal>From the first idea to TestFlight — the concept, the flows, and the game’s main SwiftUI views.</p>
+        </header>
+        <ol class="roles" data-stagger>
+          <li class="role"><span class="role__n">01</span><h3>Idea &amp; concept</h3><p>Co-developed the idea of a pixel-art social game, and championed using it as a tool against the Academy’s social isolation.</p></li>
+          <li class="role"><span class="role__n">02</span><h3>UX &amp; flows</h3><p>Designed the flow from onboarding to gameplay, with lo-fi wireframes to validate the navigation before anyone wrote code.</p></li>
+          <li class="role"><span class="role__n">03</span><h3>The SwiftUI front end</h3><p>Built the main views — HomeView, GameView, CharacterSelectView — and reusable components like CircleButton, DynamicSquareButton and SeperatorView.</p></li>
+          <li class="role"><span class="role__n">04</span><h3>Characters in motion</h3><p>Implemented the character carousel, and brought the pixel cast to life with animated GIFs wrapped in WKWebView.</p></li>
+          <li class="role"><span class="role__n">05</span><h3>Shipping</h3><p>Managed the lifecycle from ideation to TestFlight deployment.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--flush-top">
+      <div class="container">
+        <div class="bb-team">
+          <figure class="bb-team__photo" data-reveal="left">
+            <img src="Assets/web/bomboclat/team.webp" alt="The BomBocLat team posing in front of a whiteboard at the Apple Developer Academy" width="1600" height="2133" loading="lazy" data-lightbox="team" data-caption="The BomBocLat team at the Apple Developer Academy.">
+          </figure>
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">07</span><span class="eyebrow__rule"></span>The team</p>
+            <h2 class="h2 mt-24" data-split>Made by a cohort, <span class="dim">for the next one.</span></h2>
+            <p class="lead mt-20" data-reveal>A multicultural team at the Apple Developer Academy — and more than a few Academy faces ended up in the game, in pixel form.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <site-footer next="reporthink"></site-footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/pages/bomboclat.js" defer></script>
 </body>
 
 </html>

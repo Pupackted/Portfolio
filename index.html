@@ -1,419 +1,428 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adrian | Software Engineer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Adrian Rachman — iOS, Android &amp; Web Engineer</title>
+  <meta name="description" content="Adrian Yusufa Rachman is an iOS, Android and front-end engineer from Jakarta. Apple Developer Academy alumnus and the engineer behind RideCheck — 160,000+ downloads.">
+  <meta name="theme-color" content="#131418">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Adrian Rachman — iOS, Android & Web Engineer">
+  <meta property="og:description" content="Apple Developer Academy alumnus. Engineer behind RideCheck — 160,000+ downloads, 29,000 monthly riders.">
+  <meta property="og:image" content="https://portfolio-adrian-rachman.vercel.app/Assets/web/og.png">
+  <meta property="og:url" content="https://portfolio-adrian-rachman.vercel.app/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://portfolio-adrian-rachman.vercel.app/">
+  <link rel="icon" href="Assets/web/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=JetBrains+Mono:wght@400;500;600&family=Silkscreen&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/home.css">
+  <script src="js/site.js"></script>
+  <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Adrian Yusufa Rachman",
+      "alternateName": "Adrian Rachman",
+      "jobTitle": "iOS, Android & Web Engineer",
+      "url": "https://portfolio-adrian-rachman.vercel.app/",
+      "email": "mailto:adrian.y.rachman@gmail.com",
+      "address": { "@type": "PostalAddress", "addressLocality": "Jakarta", "addressCountry": "ID" },
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Universitas Prasetiya Mulya" },
+        { "@type": "EducationalOrganization", "name": "Apple Developer Academy @ BINUS" }
+      ],
+      "knowsAbout": ["Swift", "SwiftUI", "React Native", "TypeScript", "Next.js", "iOS development", "Android development"],
+      "sameAs": ["https://www.linkedin.com/in/adrian-rachman-432a60218/", "https://github.com/Pupackted"]
+    }
+  </script>
 </head>
 
-<body class="min-h-screen bg-[#f5f5f7] text-[#1d1d1f] font-sans selection:bg-blue-500 selection:text-white">
+<body>
+  <site-header></site-header>
 
-    <!-- Navigation -->
-    <!-- Navigation -->
-    <div id="app-header"></div>
+  <main id="main">
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-20 md:pt-48 md:pb-32 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="max-w-3xl animate-fade-in-up">
-                <h1 class="text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-6">
-                    Adrian Yusufa Rachman <br />
-                    <span class="text-gray-500">iOS & Web Developer.</span>
-                </h1>
-                <p class="text-xl md:text-2xl text-gray-600 leading-relaxed mb-8 font-light">
-                    Software Engineer focused on Swift, SwiftUI, and modern web technologies.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#work"
-                        class="group flex items-center gap-2 text-blue-600 font-medium hover:underline underline-offset-4">
-                        View Projects
-                        <i data-lucide="chevron-right"
-                            class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                    <div class="flex gap-4 ml-4 text-gray-400">
-                        <a href="https://github.com/Pupackted" target="_blank" rel="noreferrer"
-                            class="hover:text-black transition-colors">
-                            <i data-lucide="github" class="w-5 h-5"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/adrian-rachman-432a60218/" target="_blank" rel="noreferrer"
-                            class="hover:text-black transition-colors">
-                            <i data-lucide="linkedin" class="w-5 h-5"></i>
-                        </a>
-                        <a href="mailto:adrian.y.rachman@gmail.com" class="hover:text-black transition-colors">
-                            <i data-lucide="mail" class="w-5 h-5"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+    <!-- ═══ Hero ═══════════════════════════════════════════════════════════ -->
+    <section class="hero" id="top" data-hero>
+      <div class="hero__code" data-hero-code aria-hidden="true"></div>
+      <div class="hero__glow" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <p class="hero__status glass" data-reveal>
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Open to new roles</span>
+          <span class="hero__status-sep" aria-hidden="true"></span>
+          <span class="faint">Jakarta · <span class="tabular" data-clock>WIB</span></span>
+        </p>
+
+        <h1 class="hero__title">
+          <span class="hero__line" data-split>Adrian Rachman</span>
+          <span class="hero__line hero__line--sub"><span data-split style="--d:180">builds for</span> <span class="hero__rotate" data-reveal="fade" style="--d:360" data-rotate='["iPhone.","Android.","the web.","the Mac.","real people."]' data-interval="2300">iPhone.</span></span>
+        </h1>
+
+        <p class="lead hero__lede" data-reveal style="--d:380">
+          iOS, Android &amp; front-end engineer. Apple Developer Academy alumnus, and one of the four people behind
+          <a class="link link--plain" href="project-ridecheck.html"><strong>RideCheck</strong></a> — the vehicle-care app with
+          <strong>160,000+ downloads</strong> and <strong>29,000 monthly riders</strong>.
+        </p>
+
+        <div class="btn-row hero__cta" data-reveal style="--d:500">
+          <a class="btn btn--primary btn--lg" href="#work" data-magnetic="0.18">See my work <svg class="i i--arrow-down" aria-hidden="true"><use href="#i-arrow-down" /></svg></a>
+          <a class="btn btn--glass btn--lg" href="project-ridecheck.html">The RideCheck story <svg class="i i--arrow-right" aria-hidden="true"><use href="#i-arrow-right" /></svg></a>
         </div>
+      </div>
+
+      <!-- A macOS-style dock of everything shipped. Magnifies under the pointer. -->
+      <nav class="dock-wrap" aria-label="Projects and links">
+        <div class="dock glass" data-dock>
+          <a class="dock__item" href="project-ridecheck.html" data-label="RideCheck" data-launch>
+            <img class="dock__img" src="Assets/web/ridecheck/icon.webp" alt="RideCheck" width="128" height="128">
+            <span class="dock__dot" aria-hidden="true"></span>
+          </a>
+          <a class="dock__item" href="project-swisekai.html" data-label="SwiSekai" data-launch>
+            <img class="dock__img" src="Assets/web/swisekai/icon.webp" alt="SwiSekai" width="128" height="128">
+          </a>
+          <a class="dock__item" href="project-bomboclat.html" data-label="BomBocLat" data-launch>
+            <span class="dock__tile dock__tile--bomb"><img src="Assets/BomBocLatLogo.png" alt="BomBocLat" width="64" height="64"></span>
+          </a>
+          <a class="dock__item" href="project-reporthink.html" data-label="Reporthink Editor" data-launch>
+            <span class="dock__tile dock__tile--rpt"><span>r</span><i></i></span>
+            <span class="sr-only">Reporthink Editor</span>
+          </a>
+          <a class="dock__item" href="project-recipe-app.html" data-label="Recipe App" data-launch>
+            <span class="dock__tile dock__tile--recipe"><svg class="i" aria-hidden="true"><use href="#i-chef" /></svg></span>
+            <span class="sr-only">Recipe App</span>
+          </a>
+          <a class="dock__item" href="project-ai-journal.html" data-label="AI Journal" data-launch>
+            <span class="dock__tile dock__tile--journal"><svg class="i" aria-hidden="true"><use href="#i-sparkles" /></svg></span>
+            <span class="sr-only">AI Journal</span>
+          </a>
+          <span class="dock__sep" aria-hidden="true"></span>
+          <a class="dock__item dock__item--util" href="https://github.com/Pupackted" target="_blank" rel="noopener" data-label="GitHub">
+            <span class="dock__tile dock__tile--util"><svg class="i" aria-hidden="true"><use href="#i-github" /></svg></span>
+            <span class="sr-only">GitHub</span>
+          </a>
+          <a class="dock__item dock__item--util" href="https://www.linkedin.com/in/adrian-rachman-432a60218/" target="_blank" rel="noopener" data-label="LinkedIn">
+            <span class="dock__tile dock__tile--util"><svg class="i" aria-hidden="true"><use href="#i-linkedin" /></svg></span>
+            <span class="sr-only">LinkedIn</span>
+          </a>
+          <button class="dock__item dock__item--util" type="button" data-copy="adrian.y.rachman@gmail.com" data-label="Copy email">
+            <span class="dock__tile dock__tile--util"><svg class="i" aria-hidden="true"><use href="#i-mail" /></svg></span>
+            <span class="sr-only">Copy email address</span>
+          </button>
+        </div>
+      </nav>
     </section>
 
-    <!-- Bento Grid Projects -->
-    <section id="work" class="py-20 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 tracking-tight">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- ═══ Proof strip ════════════════════════════════════════════════════ -->
+    <div class="proof" aria-label="Highlights">
+      <div class="marquee" style="--duration: 46s">
+        <ul class="marquee__track">
+          <li><svg class="i" aria-hidden="true"><use href="#i-apple" /></svg> Apple Developer Academy alumnus</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-apple" /></svg> Apple Developer Institute for Entrepreneurship</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-news" /></svg> Featured in Bloomberg Technoz</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-trophy" /></svg> #2 Top Free · Auto &amp; Vehicles, Google Play</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-mic" /></svg> Pitched to Indonesia’s Deputy Minister of Komdigi</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-download" /></svg> 160,000+ downloads</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-globe" /></svg> Riders in 60+ countries</li>
+        </ul>
+        <ul class="marquee__track" aria-hidden="true">
+          <li><svg class="i" aria-hidden="true"><use href="#i-apple" /></svg> Apple Developer Academy alumnus</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-apple" /></svg> Apple Developer Institute for Entrepreneurship</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-news" /></svg> Featured in Bloomberg Technoz</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-trophy" /></svg> #2 Top Free · Auto &amp; Vehicles, Google Play</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-mic" /></svg> Pitched to Indonesia’s Deputy Minister of Komdigi</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-download" /></svg> 160,000+ downloads</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-globe" /></svg> Riders in 60+ countries</li>
+        </ul>
+      </div>
+    </div>
 
-                <!-- Project 1: RideCheck -->
-                <a href="project-ridecheck.html"
-                    class="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 md:col-span-2 block">
-                    <div
-                        class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500 to-cyan-400 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
-                    </div>
-                    <div class="p-8 h-full flex flex-col justify-between relative z-10">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span
-                                    class="text-xs font-semibold uppercase tracking-wider text-gray-500 bg-white/50 backdrop-blur-sm px-3 py-1 rounded-full">
-                                    iOS & Android App
-                                </span>
-                                <span
-                                    class="flex items-center gap-1 text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded-full">
-                                    <i data-lucide="download" class="w-3 h-3"></i> 90k+ Downloads
-                                </span>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-600 transition-colors">RideCheck
-                            </h3>
-                            <p class="text-gray-600 leading-relaxed mb-6">
-                                Vehicle component tracking app. Tracks vehicle components automatically and notifies users when they are due for maintenance. Scaled to 90,000+ downloads, 5,000+ MAU, and reached Top 9 in Utilities category.
-                            </p>
+    <!-- ═══ Work ═══════════════════════════════════════════════════════════ -->
+    <section class="section" id="work">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">01</span><span class="eyebrow__rule"></span>Selected work</p>
+            <h2 class="h2 mt-24" data-split>Things I’ve built. <span class="dim">Most of them shipped.</span></h2>
+          </div>
+          <p class="lead" data-reveal style="--d:150">Six projects across iPhone, Android, the Mac and the web — from a pixel-art game made to break the ice, to an app that 160,000 people now trust with their vehicles.</p>
+        </header>
 
-
-
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">Swift & SwiftUI</span>
-                            <span class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">React Native & Expo</span>
-                            <span class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">TypeScript</span>
-                            <span class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">Firebase</span>
-                            <span class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">SQLite & Drizzle</span>
-                            <span class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">CoreLocation / Motion</span>
-                            <span class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">WidgetKit</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 2: SwiSekai -->
-                <a href="project-swisekai.html"
-                    class="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 block">
-                    <div
-                        class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-orange-400 to-pink-500 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
-                    </div>
-                    <div class="p-8 h-full flex flex-col justify-between relative z-10">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span
-                                    class="text-xs font-semibold uppercase tracking-wider text-gray-500 bg-white/50 backdrop-blur-sm px-3 py-1 rounded-full">
-                                    macOS App
-                                </span>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-600 transition-colors">SwiSekai
-                            </h3>
-
-                            <p class="text-gray-600 leading-relaxed mb-6">
-                                Interactive Swift learning platform featuring an integrated AI mentor and gamified
-                                curriculum.
-                            </p>
-
-
-
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">macOS</span>
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">SwiftUI</span>
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">API</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 3: BomBocLat -->
-                <a href="project-bomboclat.html"
-                    class="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 block">
-                    <div
-                        class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-red-500 to-orange-500 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
-                    </div>
-                    <div class="p-8 h-full flex flex-col justify-between relative z-10">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span
-                                    class="text-xs font-semibold uppercase tracking-wider text-gray-500 bg-white/50 backdrop-blur-sm px-3 py-1 rounded-full">
-                                    iOS App
-                                </span>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-600 transition-colors">BomBocLat
-                            </h3>
-                            <p class="text-gray-600 leading-relaxed mb-6">
-                                Pixel-art bomb-passing game inspired by “hot potato,” where players pass a ticking bomb
-                                under added twists that make the classic gameplay more fun and engaging.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">Swift</span>
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">SwiftUI</span>
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">SpriteKit</span>
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">SwiftData</span>
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">Combine</span>
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">AVFoundation</span>
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">WebKit</span>
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">MVVM</span>
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">XCTest</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 4: AI Journal -->
-                <a href="project-ai-journal.html"
-                    class="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 block">
-                    <div
-                        class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-500 to-indigo-500 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
-                    </div>
-                    <div class="p-8 h-full flex flex-col justify-between relative z-10">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span
-                                    class="text-xs font-semibold uppercase tracking-wider text-gray-500 bg-white/50 backdrop-blur-sm px-3 py-1 rounded-full">
-                                    iPadOS App
-                                </span>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-600 transition-colors">AI Journal
-                                <span class="text-sm text-gray-400 font-normal">(WIP)</span>
-                            </h3>
-                            <p class="text-gray-600 leading-relaxed mb-6">
-                                Private journaling powered by an offline local LLM (MLX) for secure, on-device
-                                processing.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">MLX</span>
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">Local
-                                LLM</span>
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">Swift</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 5: Recipe Recommendation App -->
-                <a href="project-recipe-app.html"
-                    class="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 block">
-                    <div
-                        class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-green-400 to-yellow-300 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
-                    </div>
-                    <div class="p-8 h-full flex flex-col justify-between relative z-10">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span
-                                    class="text-xs font-semibold uppercase tracking-wider text-gray-500 bg-white/50 backdrop-blur-sm px-3 py-1 rounded-full">
-                                    UI/UX Design
-                                </span>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-600 transition-colors">Recipe App
-                            </h3>
-                            <p class="text-gray-600 leading-relaxed mb-6">
-                                Designed a recipe recommendation app for iOS with a strong focus on user experience and
-                                design planning. Conducted desk research, created wireframes, and developed interactive
-                                prototypes in Figma.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">Figma</span>
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">UI/UX</span>
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">User
-                                Research</span>
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">Prototyping</span>
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">iOS
-                                HIG</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 6: Reporthink Template Editor -->
-                <a href="project-reporthink.html"
-                    class="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 md:col-span-2 lg:col-span-3 block">
-                    <div
-                        class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-emerald-400 to-teal-500 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
-                    </div>
-                    <div class="p-8 h-full flex flex-col justify-between relative z-10">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span
-                                    class="text-xs font-semibold uppercase tracking-wider text-gray-500 bg-white/50 backdrop-blur-sm px-3 py-1 rounded-full">
-                                    Web Development
-                                </span>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-600 transition-colors">Reporthink
-                                Template Editor</h3>
-                            <p class="text-gray-600 leading-relaxed mb-6">
-                                Live web-based editor allowing users to customize reporting templates with drag-and-drop
-                                ease.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">HTML/CSS
-                                (Tailwind)</span>
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">JavaScript</span>
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">Django</span>
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">SQLite</span>
-                            <span
-                                class="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-1 rounded-md">Fullstack</span>
-
-                        </div>
-                    </div>
-                </a>
-
-
-
+        <!-- Flagship -->
+        <a class="flagship" href="project-ridecheck.html" data-spotlight data-reveal="scale" aria-label="RideCheck case study">
+          <div class="flagship__bg" aria-hidden="true"></div>
+          <div class="flagship__copy">
+            <div class="flagship__brand">
+              <img class="flagship__icon" src="Assets/web/ridecheck/icon.webp" alt="" width="56" height="56">
+              <div>
+                <p class="flagship__name" style="view-transition-name: rc-title">RideCheck</p>
+                <p class="flagship__kind">iOS · Android · Web — 2025 to now</p>
+              </div>
+              <span class="chip flagship__chip"><span class="status-dot" aria-hidden="true"></span>Live</span>
             </div>
+            <h3 class="flagship__title">Know every part.<br><span>Trust every ride.</span></h3>
+            <p class="flagship__desc">A vehicle-care app that logs every trip on its own and tells riders what needs servicing before it fails. Built at the Apple Developer Academy, scaled at the Apple Developer Institute, with me as Head of Product.</p>
+            <dl class="flagship__stats">
+              <div><dt>Downloads</dt><dd data-count="160" data-suffix="K+">160K+</dd></div>
+              <div><dt>Monthly active</dt><dd data-count="29" data-suffix="K+">29K+</dd></div>
+              <div><dt>Paying users</dt><dd data-count="2.3" data-decimals="1" data-suffix="K+">2.3K+</dd></div>
+              <div><dt>Google Play</dt><dd>#2</dd></div>
+            </dl>
+            <span class="arrow-link flagship__cta">Read the case study <svg class="i i--arrow-right" aria-hidden="true"><use href="#i-arrow-right" /></svg></span>
+          </div>
+          <div class="flagship__visual" aria-hidden="true">
+            <img class="flagship__phone flagship__phone--l" src="Assets/web/ridecheck/ss-components.webp" alt="" width="1000" height="2071" loading="lazy">
+            <img class="flagship__phone flagship__phone--c" src="Assets/web/ridecheck/ss-bike-dashboard.webp" alt="" width="1000" height="2071" loading="lazy">
+            <img class="flagship__phone flagship__phone--r" src="Assets/web/ridecheck/ss-car-alert.webp" alt="" width="1000" height="2071" loading="lazy">
+          </div>
+        </a>
+
+        <!-- More work -->
+        <div class="work-grid">
+
+          <a class="card card--link work-card work-card--swi" href="project-swisekai.html" data-spotlight data-reveal>
+            <div class="work-card__head">
+              <p class="work-card__kind"><span>macOS app</span><span>2025</span></p>
+              <h3 class="work-card__title" style="view-transition-name: swi-title">SwiSekai</h3>
+              <p class="work-card__line">An “isekai” for learning Swift — a quest map of lessons, quizzes and projects with an AI mentor at your side. Live on the Mac App Store.</p>
+            </div>
+            <div class="work-card__art art-swi" aria-hidden="true">
+              <div class="art-swi__glow"></div>
+              <div class="art-swi__win">
+                <img src="Assets/web/swisekai/shot-2.webp" alt="" width="1512" height="1336" loading="lazy">
+              </div>
+              <img class="art-swi__icon" src="Assets/web/swisekai/icon.webp" alt="" width="320" height="320" loading="lazy">
+            </div>
+            <span class="work-card__go" aria-hidden="true"><svg class="i i--arrow-up-right"><use href="#i-arrow-up-right" /></svg></span>
+          </a>
+
+          <a class="card card--link work-card work-card--bomb" href="project-bomboclat.html" data-spotlight data-reveal style="--d:100">
+            <div class="work-card__head">
+              <p class="work-card__kind"><span>iOS game</span><span>2025</span></p>
+              <h3 class="work-card__title" style="view-transition-name: bomb-title">BomBocLat</h3>
+              <p class="work-card__line">Pixel-art hot potato. Pass the bomb before a hidden timer runs out — built to get a new cohort talking.</p>
+            </div>
+            <div class="work-card__art art-bomb" aria-hidden="true">
+              <div class="art-bomb__grid"></div>
+              <img class="art-bomb__bomb" src="Assets/BomBocLatLogo.png" alt="" width="640" height="640" loading="lazy">
+              <span class="art-bomb__spark"></span>
+              <span class="art-bomb__press">PRESS START</span>
+            </div>
+            <span class="work-card__go" aria-hidden="true"><svg class="i i--arrow-up-right"><use href="#i-arrow-up-right" /></svg></span>
+          </a>
+
+          <a class="card card--link work-card work-card--rpt" href="project-reporthink.html" data-spotlight data-reveal>
+            <div class="work-card__head">
+              <p class="work-card__kind"><span>Web · Django</span><span>2024</span></p>
+              <h3 class="work-card__title" style="view-transition-name: rpt-title">Reporthink Editor</h3>
+              <p class="work-card__line">Turned a gallery of download-only report templates into a live editor — edit, reorder pages, export to PDF.</p>
+            </div>
+            <div class="work-card__art art-rpt" aria-hidden="true">
+              <div class="browser art-rpt__browser">
+                <div class="browser__bar"><div class="browser__dots"><span></span><span></span><span></span></div><div class="browser__url"><svg class="i"><use href="#i-lock" /></svg>reporthink.ai/editor</div><span></span></div>
+                <img src="Assets/web/reporthink/shot-3.webp" alt="" width="1800" height="1003" loading="lazy">
+              </div>
+            </div>
+            <span class="work-card__go" aria-hidden="true"><svg class="i i--arrow-up-right"><use href="#i-arrow-up-right" /></svg></span>
+          </a>
+
+          <a class="card card--link work-card work-card--recipe" href="project-recipe-app.html" data-spotlight data-reveal style="--d:100">
+            <div class="work-card__head">
+              <p class="work-card__kind"><span>UI/UX · Figma</span><span>Design exercise</span></p>
+              <h3 class="work-card__title" style="view-transition-name: recipe-title">Recipe App</h3>
+              <p class="work-card__line">My first UI/UX exercise at the Apple Developer Academy: a Figma-only recipe app that starts from what’s already in your kitchen.</p>
+            </div>
+            <div class="work-card__art art-recipe" aria-hidden="true">
+              <div class="phone art-recipe__p art-recipe__p--1" style="--pw: 150px"><div class="phone__screen"><img src="Assets/web/recipe/shot-2.webp" alt="" width="402" height="874" loading="lazy"></div></div>
+              <div class="phone art-recipe__p art-recipe__p--2" style="--pw: 168px"><div class="phone__screen"><img src="Assets/web/recipe/shot-1.webp" alt="" width="402" height="874" loading="lazy"></div></div>
+              <div class="phone art-recipe__p art-recipe__p--3" style="--pw: 150px"><div class="phone__screen"><img src="Assets/web/recipe/shot-8.webp" alt="" width="402" height="874" loading="lazy"></div></div>
+            </div>
+            <span class="work-card__go" aria-hidden="true"><svg class="i i--arrow-up-right"><use href="#i-arrow-up-right" /></svg></span>
+          </a>
+
+          <a class="card card--link work-card work-card--journal" href="project-ai-journal.html" data-spotlight data-reveal>
+            <div class="work-card__head">
+              <p class="work-card__kind"><span>iPadOS · MLX</span><span class="work-card__wip">In progress</span></p>
+              <h3 class="work-card__title" style="view-transition-name: journal-title">AI Journal</h3>
+              <p class="work-card__line">A private journal with a language model that runs entirely on the iPad. Your words never leave the device.</p>
+            </div>
+            <div class="work-card__art art-journal" aria-hidden="true">
+              <div class="art-journal__page">
+                <p class="art-journal__date">Tuesday, 14 July</p>
+                <p class="art-journal__text" data-journal-type>Long day. The demo went better than I expected — I think I finally stopped over-preparing.</p>
+                <div class="art-journal__insight"><svg class="i"><use href="#i-sparkles" /></svg><span>You sound calmer on days you ship something.</span></div>
+              </div>
+              <div class="art-journal__chip"><svg class="i"><use href="#i-lock" /></svg>On-device · 0 bytes sent</div>
+            </div>
+            <span class="work-card__go" aria-hidden="true"><svg class="i i--arrow-up-right"><use href="#i-arrow-up-right" /></svg></span>
+          </a>
+
         </div>
+      </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 px-6 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 tracking-tight">Experience</h2>
-            <div class="space-y-12">
+    <!-- ═══ Experience ═════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="experience">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">02</span><span class="eyebrow__rule"></span>Experience</p>
+            <h2 class="h2 mt-24" data-split>Where I’ve been <span class="dim">building.</span></h2>
+          </div>
+          <p class="lead" data-reveal style="--d:150">From turning designs into production HTML, to leading an app’s move from iOS to Android. Open any role for the details.</p>
+        </header>
 
-                <!-- Experience 0 -->
-                <div class="flex flex-col md:flex-row gap-4 md:gap-12 group">
-                    <div class="md:w-1/4">
-                        <span class="text-sm font-medium text-gray-400">Mar 2026 - Aug 2026</span>
-                        <div class="mt-1 flex items-center gap-2">
-                            <div
-                                class="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-lg font-bold text-gray-700">
-                                
-                            </div>
-                            <h3 class="font-bold text-lg">Apple Developer Institute for Entrepreneurship</h3>
-                        </div>
-                    </div>
-                    <div
-                        class="md:w-3/4 border-l-2 border-gray-100 pl-8 md:pl-12 py-1 relative transition-colors duration-300 group-hover:border-blue-500">
-                        <h4 class="text-xl font-semibold mb-2">iOS, Android & Web Developer</h4>
-                        <p class="text-gray-600 leading-relaxed mb-2">Led the cross-platform expansion of RideCheck to Android and web portal. Engineered production-ready UI code and scalable monetization features in an agile team.</p>
-                        <p class="text-sm text-gray-400 flex items-center gap-1">
-                            <i data-lucide="globe" class="w-3 h-3"></i> Jakarta, Indonesia
-                        </p>
-                    </div>
+        <ol class="xp" data-stagger>
+          <li class="xp__item is-open" data-accordion>
+            <button class="xp__head" type="button" data-accordion-head aria-expanded="true">
+              <span class="xp__when">2026</span>
+              <span class="xp__org"><span class="xp__logo"><img src="Assets/web/ridecheck/adi-logo.webp" alt="" width="40" height="40"></span>Apple Developer Institute for Entrepreneurship</span>
+              <span class="xp__role">Head of Product · iOS, Android &amp; Web Developer</span>
+              <span class="xp__where">Jakarta</span>
+              <span class="xp__toggle" aria-hidden="true"></span>
+            </button>
+            <div class="xp__body">
+              <div class="xp__inner">
+                <div class="xp__content">
+                  <p class="xp__when">Mar – Aug 2026</p>
+                  <div>
+                    <ul class="xp__points">
+                      <li>As <strong>Head of Product</strong>, led RideCheck’s cross-platform expansion — <strong>engineered the migration from iOS to Android</strong> in React Native &amp; Expo, and built the web portal for partner workshops.</li>
+                      <li>Shipped front-end features as a core engineer in a <strong>four-person agile team</strong>: production UI, backend wiring, and fast iteration through prototyping and user testing.</li>
+                      <li>Integrated monetisation that scaled to <strong>2,300+ paying users</strong>, while the app grew past <strong>160,000 downloads</strong> and <strong>63,000 registered vehicles</strong>.</li>
+                      <li>Reached <strong>#2 Top Free</strong> and <strong>Top 3 Grossing</strong> in Auto &amp; Vehicles on Google Play, and <strong>Top 9 in Utilities</strong> on the App Store.</li>
+                      <li>Signed operational partnerships with independent workshops, opened talks with Formula 4 Indonesia, pitched at Astranauts, and was featured in <strong>Bloomberg Technoz</strong>.</li>
+                    </ul>
+                    <div class="chip-row xp__chips"><span class="chip">Swift</span><span class="chip">React Native</span><span class="chip">Expo</span><span class="chip">TypeScript</span><span class="chip">Firebase</span><span class="chip">Next.js</span></div>
+                  </div>
                 </div>
-
-                <!-- Experience 1 -->
-                <div class="flex flex-col md:flex-row gap-4 md:gap-12 group">
-                    <div class="md:w-1/4">
-                        <span class="text-sm font-medium text-gray-400">Feb 2025 - Dec 2025</span>
-                        <div class="mt-1 flex items-center gap-2">
-                            <div
-                                class="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-lg font-bold text-gray-700">
-                                
-                            </div>
-                            <h3 class="font-bold text-lg">Apple Developer Academy</h3>
-                        </div>
-                    </div>
-                    <div
-                        class="md:w-3/4 border-l-2 border-gray-100 pl-8 md:pl-12 py-1 relative transition-colors duration-300 group-hover:border-blue-500">
-                        <h4 class="text-xl font-semibold mb-2">Junior iOS Developer</h4>
-                        <p class="text-gray-600 leading-relaxed mb-2">Developed multiple iOS/macOS apps in agile teams.
-                            Focused on UI implementation, backend integration, and user validation.</p>
-                        <p class="text-sm text-gray-400 flex items-center gap-1">
-                            <i data-lucide="globe" class="w-3 h-3"></i> Bali, Indonesia
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Experience 2 -->
-                <div class="flex flex-col md:flex-row gap-4 md:gap-12 group">
-                    <div class="md:w-1/4">
-                        <span class="text-sm font-medium text-gray-400">Jan 2025 - Feb 2025</span>
-                        <div class="mt-1 flex items-center gap-2">
-                            <div
-                                class="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-lg font-bold text-gray-700">
-                                N
-                            </div>
-                            <h3 class="font-bold text-lg">NEXSYS-ONE</h3>
-                        </div>
-                    </div>
-                    <div
-                        class="md:w-3/4 border-l-2 border-gray-100 pl-8 md:pl-12 py-1 relative transition-colors duration-300 group-hover:border-blue-500">
-                        <h4 class="text-xl font-semibold mb-2">Master User Intern</h4>
-                        <p class="text-gray-600 leading-relaxed mb-2">Mastered system administration of NEXSYS-ONE
-                            software.</p>
-                        <p class="text-sm text-gray-400 flex items-center gap-1">
-                            <i data-lucide="globe" class="w-3 h-3"></i> Dubai, UAE
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Experience 3 -->
-                <div class="flex flex-col md:flex-row gap-4 md:gap-12 group">
-                    <div class="md:w-1/4">
-                        <span class="text-sm font-medium text-gray-400">July 2024 - Dec 2024</span>
-                        <div class="mt-1 flex items-center gap-2">
-                            <div
-                                class="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-lg font-bold text-gray-700">
-                                M
-                            </div>
-                            <h3 class="font-bold text-lg">Mediawave - Reporthink.ai</h3>
-                        </div>
-                    </div>
-                    <div
-                        class="md:w-3/4 border-l-2 border-gray-100 pl-8 md:pl-12 py-1 relative transition-colors duration-300 group-hover:border-blue-500">
-                        <h4 class="text-xl font-semibold mb-2">Front-End Intern</h4>
-                        <p class="text-gray-600 leading-relaxed mb-2">Converted designs to clean HTML/CSS. Built the
-                            Reporthink Template Editor.</p>
-                        <p class="text-sm text-gray-400 flex items-center gap-1">
-                            <i data-lucide="globe" class="w-3 h-3"></i> Jakarta, Indonesia
-                        </p>
-                    </div>
-                </div>
-
+              </div>
             </div>
-        </div>
+          </li>
+
+          <li class="xp__item" data-accordion>
+            <button class="xp__head" type="button" data-accordion-head aria-expanded="false">
+              <span class="xp__when">2025</span>
+              <span class="xp__org"><span class="xp__logo"><img src="Assets/web/ridecheck/ada-logo.webp" alt="" width="40" height="40"></span>Apple Developer Academy @ BINUS</span>
+              <span class="xp__role">Junior iOS Developer</span>
+              <span class="xp__where">Bali</span>
+              <span class="xp__toggle" aria-hidden="true"></span>
+            </button>
+            <div class="xp__body">
+              <div class="xp__inner">
+                <div class="xp__content">
+                  <p class="xp__when">Feb – Dec 2025</p>
+                  <div>
+                    <ul class="xp__points">
+                      <li>Built iOS, iPadOS and macOS apps in Swift and SwiftUI as the <strong>primary front-end developer</strong> in agile, multicultural teams.</li>
+                      <li>Engineered RideCheck’s <strong>battery-efficient auto-tracking</strong> with CoreLocation, CoreMotion and MapKit — Significant Location Changes and geofencing instead of always-on GPS.</li>
+                      <li>By December 2025: <strong>3,200+ organic downloads</strong> from social content at a 29% conversion rate, a 5-star App Store rating, and a roadmap presented to the <strong>Deputy Minister of Komdigi</strong>.</li>
+                      <li>Also shipped <a class="link" href="project-swisekai.html">SwiSekai</a> to the Mac App Store, built <a class="link" href="project-ai-journal.html">AI Journal</a> on Apple MLX, and took <a class="link" href="project-bomboclat.html">BomBocLat</a> from idea to TestFlight.</li>
+                    </ul>
+                    <div class="chip-row xp__chips"><span class="chip">SwiftUI</span><span class="chip">CoreLocation</span><span class="chip">CoreMotion</span><span class="chip">SpriteKit</span><span class="chip">MLX</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="xp__item" data-accordion>
+            <button class="xp__head" type="button" data-accordion-head aria-expanded="false">
+              <span class="xp__when">2025</span>
+              <span class="xp__org"><span class="xp__logo">N</span>NEXSYS-ONE</span>
+              <span class="xp__role">Master User Intern</span>
+              <span class="xp__where">Dubai</span>
+              <span class="xp__toggle" aria-hidden="true"></span>
+            </button>
+            <div class="xp__body">
+              <div class="xp__inner">
+                <div class="xp__content">
+                  <p class="xp__when">Jan – Feb 2025</p>
+                  <div>
+                    <ul class="xp__points">
+                      <li>Learned system administration of the NEXSYS-ONE enterprise platform end to end, as its designated master user.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="xp__item" data-accordion>
+            <button class="xp__head" type="button" data-accordion-head aria-expanded="false">
+              <span class="xp__when">2024</span>
+              <span class="xp__org"><span class="xp__logo">M</span>Mediawave · Reporthink.ai</span>
+              <span class="xp__role">Front-End Intern</span>
+              <span class="xp__where">Jakarta</span>
+              <span class="xp__toggle" aria-hidden="true"></span>
+            </button>
+            <div class="xp__body">
+              <div class="xp__inner">
+                <div class="xp__content">
+                  <p class="xp__when">Jul – Dec 2024</p>
+                  <div>
+                    <ul class="xp__points">
+                      <li>Converted designs into clean, design-accurate HTML/CSS — <strong>around 80 templates</strong>, several of them shipped on the live production site.</li>
+                      <li>Built the <a class="link" href="project-reporthink.html">Reporthink Template Editor</a>: a live web editor to customise report templates, save progress and export to PDF.</li>
+                    </ul>
+                    <div class="chip-row xp__chips"><span class="chip">HTML/CSS</span><span class="chip">JavaScript</span><span class="chip">Tailwind</span><span class="chip">Django</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
     </section>
 
+    <!-- ═══ About teaser + toolkit ════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="about">
+      <div class="container">
+        <div class="about">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">03</span><span class="eyebrow__rule"></span>About</p>
+            <h2 class="h2 mt-24" data-split>Engineer by training. <span class="dim">Product person by habit.</span></h2>
+          </div>
+          <div class="about__text">
+            <p class="lead" data-reveal>I studied Software Engineering at Universitas Prasetiya Mulya, spent 2025 at the Apple Developer Academy in Bali shipping apps with small multicultural teams, and in 2026 helped take RideCheck through the Apple Developer Institute — from one platform to three.</p>
+            <p class="body mt-20" data-reveal style="--d:100">I care about the details people feel but rarely notice: the battery a background task doesn’t drain, the animation that makes a number believable, the empty state that isn’t an apology.</p>
+            <a class="arrow-link mt-32" href="profile.html" data-reveal style="--d:200">More about me <svg class="i i--arrow-right" aria-hidden="true"><use href="#i-arrow-right" /></svg></a>
+          </div>
+        </div>
 
+        <div class="toolkit" data-stagger>
+          <div class="toolkit__col">
+            <p class="toolkit__label"><svg class="i" aria-hidden="true"><use href="#i-code" /></svg>Languages</p>
+            <ul><li>Swift</li><li>TypeScript</li><li>JavaScript</li><li>Python</li><li>SQL</li><li>HTML &amp; CSS</li></ul>
+          </div>
+          <div class="toolkit__col">
+            <p class="toolkit__label"><svg class="i" aria-hidden="true"><use href="#i-phone" /></svg>Mobile</p>
+            <ul><li>SwiftUI &amp; UIKit</li><li>React Native &amp; Expo</li><li>CoreLocation &amp; CoreMotion</li><li>WidgetKit &amp; Live Activities</li><li>SpriteKit &amp; SceneKit</li><li>MLX</li></ul>
+          </div>
+          <div class="toolkit__col">
+            <p class="toolkit__label"><svg class="i" aria-hidden="true"><use href="#i-monitor" /></svg>Web</p>
+            <ul><li>React &amp; Next.js</li><li>Tailwind CSS</li><li>Three.js</li><li>Django</li><li>Firebase</li><li>REST APIs</li></ul>
+          </div>
+          <div class="toolkit__col">
+            <p class="toolkit__label"><svg class="i" aria-hidden="true"><use href="#i-wrench" /></svg>Tools</p>
+            <ul><li>Xcode &amp; Android Studio</li><li>Git &amp; GitHub</li><li>Figma</li><li>Mixpanel</li><li>App Store Connect</li><li>Google Play Console</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- Header & Footer -->
-    <div id="app-footer"></div>
+  </main>
 
-    <script src="js/components.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        renderHeader({
-            logoHref: '#',
-            links: [
-                { text: 'Work', href: '#work' },
-                { text: 'Experience', href: '#experience' },
-                { text: 'Contact', href: '#contact' },
-                { text: 'Profile', href: 'profile.html' }
-            ]
-        });
-        renderFooter();
-    </script>
+  <site-footer></site-footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/pages/home.js" defer></script>
 </body>
 
 </html>

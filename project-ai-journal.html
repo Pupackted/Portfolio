@@ -1,142 +1,305 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Journal | Adrian</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>AI Journal — Case study · Adrian Rachman</title>
+  <meta name="description" content="AI Journal: a private iPad journal with a language model that runs entirely on the device through Apple's MLX. A work-in-progress case study by Adrian Rachman.">
+  <meta name="theme-color" content="#131418">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI Journal — Case study · Adrian Rachman">
+  <meta property="og:description" content="A journal that thinks — and keeps it to itself. On-device AI with Apple MLX.">
+  <meta property="og:image" content="https://portfolio-adrian-rachman.vercel.app/Assets/web/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="Assets/web/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/journal.css">
+  <script src="js/site.js"></script>
+  <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
 </head>
 
-<body class="min-h-screen bg-[#f5f5f7] text-[#1d1d1f] font-sans selection:bg-blue-500 selection:text-white">
+<body class="theme-journal">
+  <site-header current="work"></site-header>
 
-    <!-- Header -->
-    <div id="app-header"></div>
+  <main id="main">
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-12 px-6">
-        <div class="max-w-4xl mx-auto">
-            <div class="flex items-center gap-3 mb-6">
-                <a href="index.html" class="text-sm font-medium text-gray-500 hover:text-black transition-colors">
-                    &larr; Back to Projects
-                </a>
+    <!-- ═══ Hero ═══════════════════════════════════════════════════════════ -->
+    <section class="aj-hero section">
+      <div class="container">
+        <a class="back-link" href="index.html#work"><svg class="i" aria-hidden="true"><use href="#i-arrow-left" /></svg>All work</a>
+
+        <div class="aj-hero__grid">
+          <div>
+            <span class="aj-status" data-reveal><i aria-hidden="true"></i>In progress</span>
+            <h1 class="h1" style="view-transition-name: journal-title">AI Journal</h1>
+            <p class="aj-hero__promise" data-reveal style="--d:160">A journal that thinks — and keeps it to itself.</p>
+            <p class="lead" data-reveal style="--d:260">A private iPad journal with a language model that runs entirely on the device, through Apple’s MLX. It reads what you write, reflects it back, and never sends a word anywhere.</p>
+            <div class="btn-row mt-32" data-reveal style="--d:360">
+              <a class="btn btn--primary" href="#demo" data-magnetic="0.2">Try the demo <svg class="i i--arrow-down" aria-hidden="true"><use href="#i-arrow-down" /></svg></a>
             </div>
-            <div class="flex flex-wrap gap-3 mb-6">
-                <span
-                    class="text-xs font-semibold uppercase tracking-wider text-purple-600 bg-purple-50 px-3 py-1 rounded-full">iPadOS
-                    App</span>
+          </div>
+
+          <div class="aj-device" data-reveal="scale" style="--d:200" data-tilt="4">
+            <div class="ipad" aria-hidden="true">
+              <div class="ipad__screen">
+                <div class="ipad__side">
+                  <b>Journal</b>
+                  <div class="ipad__entry is-current"><span>Today</span><p>Long day, but the demo went well.</p></div>
+                  <div class="ipad__entry"><span>Monday</span><p>Couldn’t sleep. Too many tabs open in my head.</p></div>
+                  <div class="ipad__entry"><span>Sunday</span><p>Rode to the beach. Didn’t check my phone once.</p></div>
+                  <div class="ipad__entry"><span>Friday</span><p>Shipped the update. Celebrated with noodles.</p></div>
+                </div>
+                <div class="ipad__main">
+                  <p class="ipad__date">Tuesday, 14 July · 21:40</p>
+                  <p class="ipad__text"><span data-hero-type></span><span class="caret-j"></span></p>
+                  <div class="ipad__insight" data-hero-insight><svg class="i" aria-hidden="true"><use href="#i-sparkles" /></svg><span>You sound calmer on the days you ship something. Worth noticing.</span></div>
+                </div>
+              </div>
             </div>
-            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-gray-900">AI Journal <span
-                    class="text-2xl text-gray-400 font-normal">(WIP)</span></h1>
-            <p class="text-xl md:text-2xl text-gray-600 leading-relaxed font-light mb-8">
-                Private journaling powered by an offline local LLM (MLX) for secure, on-device processing.
-            </p>
+            <span class="aj-device__chip"><svg class="i" aria-hidden="true"><use href="#i-lock" /></svg>On-device · 0 bytes sent</span>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Content Section -->
-    <section class="py-12 px-6 bg-white">
-        <div class="max-w-4xl mx-auto space-y-16">
+    <div class="container">
+      <dl class="meta-row" data-stagger>
+        <div><dt>Role</dt><dd>Design &amp; development</dd></div>
+        <div><dt>Context</dt><dd>Apple Developer Academy, 2025</dd></div>
+        <div><dt>Status</dt><dd>Work in progress</dd></div>
+        <div><dt>Stack</dt><dd>Swift · SwiftUI · MLX</dd></div>
+      </dl>
+    </div>
 
-            <!-- Overview -->
-            <div>
-                <h2 class="text-2xl font-bold mb-4">Overview</h2>
-                <p class="text-gray-600 leading-relaxed">
-                    AI Journal offers a secure space for your thoughts, enhanced by the power of Artificial
-                    Intelligence. Unlike other AI apps, AI Journal runs entirely on your device using MLX, ensuring that
-                    your personal data never leaves your phone. It provides intelligent insights, mood tracking, and
-                    prompts without compromising privacy.
-                </p>
+    <!-- ═══ The idea ═══════════════════════════════════════════════════════ -->
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow" data-reveal><span class="eyebrow__index">01</span><span class="eyebrow__rule"></span>The idea</p>
+        <h2 class="pullquote mt-24" data-split>The most private thing you write <span>shouldn’t be the first thing you upload.</span></h2>
+
+        <div class="aj-principle">
+          <div class="card aj-flow aj-flow--bad" data-reveal>
+            <span class="aj-flow__tag"><svg class="i" aria-hidden="true"><use href="#i-globe" /></svg>Typical AI journal</span>
+            <h3>Your entry makes a round trip.</h3>
+            <p>To get a summary or a mood, the words leave the device, get processed on a server you don’t control, and come back.</p>
+            <div class="aj-flow__diagram" aria-hidden="true">
+              <span class="aj-node"><svg class="i"><use href="#i-edit" /></svg>Your entry</span>
+              <span class="aj-wire"></span>
+              <span class="aj-node aj-node--cloud"><svg class="i"><use href="#i-globe" /></svg>Someone’s server</span>
+              <span class="aj-wire"></span>
+              <span class="aj-node"><svg class="i"><use href="#i-sparkles" /></svg>Insight</span>
             </div>
-
-            <!-- Key Features -->
-            <div>
-                <h2 class="text-2xl font-bold mb-6">Key Features</h2>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mb-4 text-purple-600">
-                            <i data-lucide="lock" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Privacy First</h3>
-                        <p class="text-sm text-gray-600">All AI processing happens locally on your device. No data is
-                            sent to the cloud.</p>
-                    </div>
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mb-4 text-indigo-600">
-                            <i data-lucide="brain" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Local LLM</h3>
-                        <p class="text-sm text-gray-600">Powered by Apple's MLX framework for efficient on-device
-                            machine learning.</p>
-                    </div>
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-600">
-                            <i data-lucide="sparkles" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Smart Insights</h3>
-                        <p class="text-sm text-gray-600">Get AI-generated summaries and insights based on your journal
-                            entries.</p>
-                    </div>
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mb-4 text-green-600">
-                            <i data-lucide="smile" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Mood Tracking</h3>
-                        <p class="text-sm text-gray-600">Analyze the sentiment of your writing to track your mood over
-                            time.</p>
-                    </div>
-                </div>
+          </div>
+          <div class="card aj-flow aj-flow--good" data-reveal style="--d:120">
+            <span class="aj-flow__tag"><svg class="i" aria-hidden="true"><use href="#i-lock" /></svg>AI Journal</span>
+            <h3>The model comes to the words.</h3>
+            <p>A compact language model runs on the iPad’s own chip. Reflection, summaries and mood all happen locally — with the Wi-Fi off, if you like.</p>
+            <div class="aj-flow__diagram" aria-hidden="true">
+              <span class="aj-node"><svg class="i"><use href="#i-edit" /></svg>Your entry</span>
+              <span class="aj-wire"></span>
+              <span class="aj-node aj-node--device"><svg class="i"><use href="#i-cpu" /></svg>On the iPad</span>
+              <span class="aj-wire"></span>
+              <span class="aj-node"><svg class="i"><use href="#i-sparkles" /></svg>Insight</span>
             </div>
-
-            <!-- Tech Stack -->
-            <div>
-                <h2 class="text-2xl font-bold mb-6">Tech Stack</h2>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">Swift</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">MLX</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">Local LLM</span>
-                </div>
-            </div>
-
-            <!-- Gallery -->
-            <div>
-                <h2 class="text-2xl font-bold mb-6">Gallery</h2>
-                <div
-                    class="bg-gray-100 rounded-2xl h-64 flex items-center justify-center border-2 border-dashed border-gray-300">
-                    <div class="text-center text-gray-400">
-                        <i data-lucide="image-off" class="w-12 h-12 mx-auto mb-2 opacity-50"></i>
-                        <span class="font-medium">Image Unavailable</span>
-                    </div>
-                </div>
-            </div>
-
-
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <div id="app-footer"></div>
+    <!-- ═══ Demo ═══════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="demo">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">02</span><span class="eyebrow__rule"></span>Try it</p>
+          <h2 class="h2" data-split>Write something. <span class="dim">Watch it think.</span></h2>
+          <p class="lead" data-reveal style="--d:150">Type a few lines — or pick one — and press Reflect. Then flip the network off and do it again. Nothing about the result changes.</p>
+        </header>
 
-    <script src="js/components.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        renderHeader({
-            logoHref: 'index.html',
-            links: [
-                { text: 'Home', href: 'index.html' },
-                { text: 'Work', href: 'index.html#work' },
-                { text: 'Experience', href: 'index.html#experience' },
-                { text: 'Contact', href: 'index.html#contact' }
-            ]
-        });
-        renderFooter();
-    </script>
+        <div class="aj-demo" data-journal-demo>
+          <div class="aj-page" data-reveal>
+            <div class="aj-page__top">
+              <span data-demo-date>Today</span>
+              <div class="aj-samples" role="group" aria-label="Sample entries">
+                <button type="button" data-sample="0">A good day</button>
+                <button type="button" data-sample="1">A heavy one</button>
+                <button type="button" data-sample="2">Tired</button>
+              </div>
+            </div>
+            <label class="sr-only" for="aj-entry">Journal entry</label>
+            <textarea class="aj-textarea" id="aj-entry" data-entry maxlength="600" placeholder="What’s on your mind tonight?"></textarea>
+            <div class="aj-page__foot">
+              <span data-words>0 words</span>
+              <button class="aj-reflect" type="button" data-reflect><svg class="i" aria-hidden="true"><use href="#i-sparkles" /></svg>Reflect</button>
+            </div>
+          </div>
+
+          <div class="aj-console" data-console data-reveal style="--d:120">
+            <div class="aj-console__head">
+              <span>On-device model</span>
+              <span class="aj-console__state"><i aria-hidden="true"></i><span data-state>Idle</span></span>
+            </div>
+            <div class="aj-meters">
+              <div class="aj-meter"><span>Tokens</span><b data-tokens>0</b></div>
+              <div class="aj-meter"><span>Time</span><b data-time>0.0s</b></div>
+              <div class="aj-meter aj-meter--net"><span>Sent</span><b>0 B</b></div>
+            </div>
+            <div class="aj-output" data-output aria-live="polite">
+              <p class="aj-output__empty">Your reflection will appear here — generated where you are, not on a server.</p>
+            </div>
+            <div class="aj-console__foot">
+              <span data-net-label>Network: on · requests: 0</span>
+              <label class="aj-offline">
+                <input type="checkbox" data-offline>
+                <span class="aj-switch" aria-hidden="true"></span>
+                Airplane mode
+              </label>
+            </div>
+          </div>
+        </div>
+        <p class="aj-note" data-reveal>Honest footnote: this web demo uses a tiny word-list model running in your browser, just to show the flow. The app does the real thing — a language model running on the iPad through Apple’s MLX.</p>
+      </div>
+    </section>
+
+    <!-- ═══ Mood over time ═════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <div class="split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">03</span><span class="eyebrow__rule"></span>Over time</p>
+            <h2 class="h2 mt-24" data-split>A week, <span class="dim">read back to you.</span></h2>
+            <p class="lead mt-20" data-reveal>Each entry gets a quiet sentiment read, so patterns surface on their own — the good days, the heavy ones, and what they had in common. The same local model writes the summary.</p>
+          </div>
+          <div class="card aj-week" data-reveal="fade" data-mood-week>
+            <p class="small faint">Mood this week · example data</p>
+            <div class="aj-week__chart">
+              <svg viewBox="0 0 600 220" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="aj-grad" x1="0" x2="1" y1="0" y2="0">
+                    <stop offset="0" stop-color="#7dd3fc" />
+                    <stop offset="0.5" stop-color="#a78bfa" />
+                    <stop offset="1" stop-color="#f0abfc" />
+                  </linearGradient>
+                  <linearGradient id="aj-area" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0" stop-color="#a78bfa" stop-opacity="0.28" />
+                    <stop offset="1" stop-color="#a78bfa" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+                <g stroke="rgba(255,255,255,0.06)" stroke-width="1">
+                  <line x1="0" x2="600" y1="30" y2="30" />
+                  <line x1="0" x2="600" y1="110" y2="110" />
+                  <line x1="0" x2="600" y1="190" y2="190" />
+                </g>
+                <path class="aj-week__area" d="M43 150 C85 150 100 120 129 118 S185 170 214 172 S270 100 300 88 S356 60 386 64 S442 130 471 128 S528 52 557 46 L557 220 L43 220 Z" />
+                <path class="aj-week__line" pathLength="1" d="M43 150 C85 150 100 120 129 118 S185 170 214 172 S270 100 300 88 S356 60 386 64 S442 130 471 128 S528 52 557 46" />
+                <circle class="aj-week__dot" cx="43" cy="150" r="6" stroke="#7dd3fc" />
+                <circle class="aj-week__dot" cx="129" cy="118" r="6" stroke="#93c5fd" />
+                <circle class="aj-week__dot" cx="214" cy="172" r="6" stroke="#a5b4fc" />
+                <circle class="aj-week__dot" cx="300" cy="88" r="6" stroke="#a78bfa" />
+                <circle class="aj-week__dot" cx="386" cy="64" r="6" stroke="#c084fc" />
+                <circle class="aj-week__dot" cx="471" cy="128" r="6" stroke="#d8b4fe" />
+                <circle class="aj-week__dot" cx="557" cy="46" r="6" stroke="#f0abfc" />
+              </svg>
+            </div>
+            <div class="aj-week__days" aria-hidden="true"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+            <div class="aj-week__legend">
+              <span><i style="background:#7dd3fc"></i>Low on Wednesday: “too many tabs open”</span>
+              <span><i style="background:#f0abfc"></i>High on Sunday: “rode to the beach”</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Features ═══════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">04</span><span class="eyebrow__rule"></span>What it does</p>
+          <h2 class="h2" data-split>Four things, <span class="dim">all of them local.</span></h2>
+        </header>
+        <div class="aj-features" data-stagger>
+          <div class="aj-feature"><svg class="i" aria-hidden="true"><use href="#i-lock" /></svg><h3>Privacy first</h3><p>All AI processing happens on the device. No account, no upload, nothing sent to the cloud.</p></div>
+          <div class="aj-feature"><svg class="i" aria-hidden="true"><use href="#i-cpu" /></svg><h3>A local language model</h3><p>Powered by Apple’s MLX framework, built for efficient machine learning on Apple silicon.</p></div>
+          <div class="aj-feature"><svg class="i" aria-hidden="true"><use href="#i-sparkles" /></svg><h3>Smart insights</h3><p>Summaries and gentle reflections generated from your own entries, not from a template.</p></div>
+          <div class="aj-feature"><svg class="i" aria-hidden="true"><use href="#i-smile" /></svg><h3>Mood tracking</h3><p>The sentiment of what you write, tracked over time, so the pattern shows up before you name it.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ How it's built ═════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <div class="split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">05</span><span class="eyebrow__rule"></span>How it works</p>
+            <h2 class="h2 mt-24" data-split>Inference, <span class="dim">in your hands.</span></h2>
+            <p class="lead mt-20" data-reveal>MLX runs the model in the iPad’s unified memory, so the same chip that draws the interface also does the thinking — no round trip, no waiting on a connection.</p>
+            <div class="spec mt-40" data-reveal>
+              <div class="spec__row"><span class="spec__key">Interface</span><span class="spec__val"><strong>SwiftUI</strong> for iPadOS — a writing surface first, AI second.</span></div>
+              <div class="spec__row"><span class="spec__key">Model</span><span class="spec__val">A compact language model run on-device with <strong>Apple MLX</strong>.</span></div>
+              <div class="spec__row"><span class="spec__key">Data</span><span class="spec__val">Entries stay on the device. Nothing leaves it — by design, not by setting.</span></div>
+            </div>
+          </div>
+          <figure class="window" data-reveal="scale">
+            <div class="window__bar"><span class="window__dot"></span><span class="window__dot"></span><span class="window__dot"></span><span class="window__title">Reflector.swift</span></div>
+<pre class="aj-code"><code><span class="k">import</span> MLXLLM
+<span class="k">import</span> MLXLMCommon
+
+<span class="c">/// Turns one entry into a short reflection — on-device.</span>
+<span class="k">@Observable final class</span> <span class="t">Reflector</span> {
+    <span class="k">private var</span> model: <span class="t">ModelContainer</span>?
+
+    <span class="k">func</span> <span class="f">prepare</span>() <span class="k">async throws</span> {
+        model = <span class="k">try await</span> <span class="t">LLMModelFactory</span>.<span class="p">shared</span>
+            .<span class="f">loadContainer</span>(configuration: .<span class="p">journal</span>)
+    }
+
+    <span class="k">func</span> <span class="f">reflect</span>(on entry: <span class="t">String</span>) <span class="k">async throws</span> -> <span class="t">String</span> {
+        <span class="k">guard let</span> model <span class="k">else</span> { <span class="k">return</span> <span class="s">""</span> }
+        <span class="k">return try await</span> model.<span class="f">perform</span> { context <span class="k">in</span>
+            <span class="k">let</span> input = <span class="k">try await</span> context.<span class="p">processor</span>
+                .<span class="f">prepare</span>(input: .<span class="k">init</span>(prompt: .<span class="f">reflection</span>(entry)))
+            <span class="k">return try</span> <span class="f">generate</span>(input: input,
+                                parameters: .<span class="k">init</span>(temperature: <span class="n">0.4</span>),
+                                context: context) { _ <span class="k">in</span> .<span class="p">more</span> }
+                .<span class="p">output</span>
+        }
+    }
+}</code></pre>
+          </figure>
+        </div>
+        <p class="aj-note" data-reveal>The snippet is illustrative: it shows the shape of the on-device path, not the app’s source.</p>
+      </div>
+    </section>
+
+    <!-- ═══ What I did ═════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">06</span><span class="eyebrow__rule"></span>My role</p>
+            <h2 class="h2 mt-24" data-split>What I’m building.</h2>
+          </div>
+          <p class="lead" data-reveal>An exploration of what AI feels like when it never leaves the room. It’s still in progress — screenshots will follow when it’s ready to be seen.</p>
+        </header>
+        <ol class="roles" data-stagger>
+          <li class="role"><span class="role__n">01</span><h3>Privacy as the product</h3><p>Designed the app around one rule — the words never leave the device — and let every feature follow from it.</p></li>
+          <li class="role"><span class="role__n">02</span><h3>On-device intelligence</h3><p>Built the offline AI layer with Apple MLX to run language-model features locally: reflections, summaries and sentiment.</p></li>
+          <li class="role"><span class="role__n">03</span><h3>A calm iPad interface</h3><p>Designing a SwiftUI writing surface where the AI stays quiet until it’s asked — a journal first, a model second.</p></li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <site-footer next="ridecheck"></site-footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/pages/journal.js" defer></script>
 </body>
 
 </html>

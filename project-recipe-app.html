@@ -1,154 +1,207 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe App | Adrian</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Recipe App — UI/UX exercise · Adrian Rachman</title>
+  <meta name="description" content="A recipe app designed in Figma: my first UI/UX exercise at the Apple Developer Academy. Research, wireframes, Apple’s HIG and a clickable prototype — nine screens, never built.">
+  <meta name="theme-color" content="#131418">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Recipe App — UI/UX exercise · Adrian Rachman">
+  <meta property="og:description" content="Cook with what you already have. A Figma-only design exercise from my first weeks at the Apple Developer Academy.">
+  <meta property="og:image" content="https://portfolio-adrian-rachman.vercel.app/Assets/web/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="Assets/web/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/recipe.css">
+  <script src="js/site.js"></script>
+  <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
 </head>
 
-<body class="min-h-screen bg-[#f5f5f7] text-[#1d1d1f] font-sans selection:bg-blue-500 selection:text-white">
+<body class="theme-recipe">
+  <site-header current="work"></site-header>
 
-    <!-- Header -->
-    <div id="app-header"></div>
+  <main id="main">
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-12 px-6">
-        <div class="max-w-4xl mx-auto">
-            <div class="flex items-center gap-3 mb-6">
-                <a href="index.html" class="text-sm font-medium text-gray-500 hover:text-black transition-colors">
-                    &larr; Back to Projects
-                </a>
+    <!-- ═══ Hero ═══════════════════════════════════════════════════════════ -->
+    <section class="rcp-hero">
+      <div class="container">
+        <a class="back-link" href="index.html#work"><svg class="i" aria-hidden="true"><use href="#i-arrow-left" /></svg>All work</a>
+        <div class="rcp-hero__grid">
+          <div>
+            <div class="chip-row" data-reveal>
+              <span class="chip">Apple Developer Academy · 2025</span>
+              <span class="chip chip--mono">Figma · design only</span>
             </div>
-            <div class="flex flex-wrap gap-3 mb-6">
-                <span
-                    class="text-xs font-semibold uppercase tracking-wider text-green-600 bg-green-50 px-3 py-1 rounded-full">UI/UX
-                    Design</span>
+            <h1 style="view-transition-name: recipe-title">Recipe App</h1>
+            <p class="rcp-promise" data-split style="--d:150">Cook with <span class="dim">what you already have.</span></p>
+            <p class="lead" data-reveal style="--d:300">My first UI/UX exercise, in my first weeks at the Apple Developer Academy. No code: the brief was to learn the process — desk research, wireframes, Apple’s Human Interface Guidelines, then a clickable prototype. These are the screens that came out of it.</p>
+          </div>
+
+          <div class="rcp-stage" data-reveal="scale" style="--d:200">
+            <div class="phone">
+              <div class="phone__screen"><img src="Assets/web/recipe/shot-3.webp" alt="My Ingredients: a pantry list grouped into fruits, meat and fish" width="402" height="874" fetchpriority="high"></div>
             </div>
-            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-gray-900">Recipe App</h1>
-            <p class="text-xl md:text-2xl text-gray-600 leading-relaxed font-light mb-8">
-                Designed a recipe recommendation app for iOS with a strong focus on user experience and design planning.
-            </p>
+            <div class="phone">
+              <div class="phone__screen"><img src="Assets/web/recipe/shot-6.webp" alt="The recipes home screen: cuisine filters and rows of recipe cards" width="402" height="874" fetchpriority="high"></div>
+            </div>
+            <div class="phone">
+              <div class="phone__screen"><img src="Assets/web/recipe/shot-1.webp" alt="A recipe screen for Mayo Meatball with its ingredient list and a Let’s Cook button" width="402" height="874"></div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Content Section -->
-    <section class="py-12 px-6 bg-white">
-        <div class="max-w-4xl mx-auto space-y-16">
+    <div class="container">
+      <dl class="meta-row" data-stagger>
+        <div><dt>My role</dt><dd>Design — research to prototype</dd></div>
+        <div><dt>Context</dt><dd>Apple Developer Academy, early 2025</dd></div>
+        <div><dt>Tool</dt><dd>Figma</dd></div>
+        <div><dt>Status</dt><dd>Prototype only — never built</dd></div>
+      </dl>
+    </div>
 
-            <!-- Overview -->
-            <div>
-                <h2 class="text-2xl font-bold mb-4">Overview</h2>
-                <p class="text-gray-600 leading-relaxed">
-                    This project focused on the complete design process of an iOS recipe application. From conducting
-                    desk research to creating high-fidelity prototypes, the goal was to create an intuitive and visually
-                    appealing interface that helps users discover new meals.
-                </p>
+    <!-- ═══ The idea ═══════════════════════════════════════════════════════ -->
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow" data-reveal><span class="eyebrow__index">01</span><span class="eyebrow__rule"></span>The idea</p>
+        <h2 class="pullquote mt-24" data-split>Not “what should I cook?” <span>but “what can I cook right now?”</span></h2>
+        <p class="lead mt-20 w-text" data-reveal>Desk research kept landing on the same small frustration: people don’t lack recipes, they lack the ingredients those recipes assume. So the app keeps a pantry, and every recipe shows how much of it you already own.</p>
+
+        <div class="card pantry mt-40" data-pantry data-reveal>
+          <div>
+            <p class="pantry__label">My ingredients</p>
+            <div class="pantry__list" data-pantry-list role="group" aria-label="Ingredients you have">
+              <button class="pantry__item" type="button" aria-pressed="true" data-has="eggs"><i><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></i>Eggs</button>
+              <button class="pantry__item" type="button" aria-pressed="true" data-has="rice"><i><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></i>Rice</button>
+              <button class="pantry__item" type="button" aria-pressed="false" data-has="chicken"><i><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></i>Chicken</button>
+              <button class="pantry__item" type="button" aria-pressed="true" data-has="potatoes"><i><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></i>Potatoes</button>
+              <button class="pantry__item" type="button" aria-pressed="false" data-has="mayo"><i><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></i>Mayo</button>
+              <button class="pantry__item" type="button" aria-pressed="true" data-has="garlic"><i><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></i>Garlic</button>
+              <button class="pantry__item" type="button" aria-pressed="false" data-has="cheese"><i><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></i>Cheese</button>
+              <button class="pantry__item" type="button" aria-pressed="false" data-has="parsley"><i><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></i>Parsley</button>
             </div>
+            <p class="rcp-note">Tick what’s in your kitchen. The list on the right reorders itself.</p>
+          </div>
 
-            <!-- Key Features -->
-            <div>
-                <h2 class="text-2xl font-bold mb-6">Key Features</h2>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mb-4 text-green-600">
-                            <i data-lucide="search" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">User Research</h3>
-                        <p class="text-sm text-gray-600">In-depth analysis of user needs and pain points in cooking.</p>
-                    </div>
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mb-4 text-yellow-600">
-                            <i data-lucide="layout-template" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Wireframing</h3>
-                        <p class="text-sm text-gray-600">Structural design of the app's layout and flow.</p>
-                    </div>
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mb-4 text-orange-600">
-                            <i data-lucide="pen-tool" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Prototyping</h3>
-                        <p class="text-sm text-gray-600">Interactive Figma prototypes demonstrating user interactions.
-                        </p>
-                    </div>
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-600">
-                            <i data-lucide="smartphone" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">iOS HIG Compliance</h3>
-                        <p class="text-sm text-gray-600">Adherence to Apple's Human Interface Guidelines for a native
-                            feel.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tech Stack -->
-            <div>
-                <h2 class="text-2xl font-bold mb-6">Tech Stack</h2>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">Figma</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">UI/UX</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">User
-                        Research</span>
-                    <span
-                        class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">Prototyping</span>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">iOS HIG</span>
-                </div>
-            </div>
-
-            <!-- Gallery -->
-            <div>
-                <h2 class="text-2xl font-bold mb-6">Gallery</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <img src="Assets/RecipeAppPics/RecipeAppDesignScreenShot1.png" alt="Recipe App Design 1"
-                        class="rounded-2xl shadow-sm hover:shadow-md transition-shadow w-full h-auto">
-                    <img src="Assets/RecipeAppPics/RecipeAppDesignScreenShot2.png" alt="Recipe App Design 2"
-                        class="rounded-2xl shadow-sm hover:shadow-md transition-shadow w-full h-auto">
-                    <img src="Assets/RecipeAppPics/RecipeAppDesignScreenShot3.png" alt="Recipe App Design 3"
-                        class="rounded-2xl shadow-sm hover:shadow-md transition-shadow w-full h-auto">
-                    <img src="Assets/RecipeAppPics/RecipeAppDesignScreenShot4.png" alt="Recipe App Design 4"
-                        class="rounded-2xl shadow-sm hover:shadow-md transition-shadow w-full h-auto">
-                    <img src="Assets/RecipeAppPics/RecipeAppDesignScreenShot5.png" alt="Recipe App Design 5"
-                        class="rounded-2xl shadow-sm hover:shadow-md transition-shadow w-full h-auto">
-                    <img src="Assets/RecipeAppPics/RecipeAppDesignScreenShot6.png" alt="Recipe App Design 6"
-                        class="rounded-2xl shadow-sm hover:shadow-md transition-shadow w-full h-auto">
-                    <img src="Assets/RecipeAppPics/RecipeAppDesignScreenShot7.png" alt="Recipe App Design 7"
-                        class="rounded-2xl shadow-sm hover:shadow-md transition-shadow w-full h-auto">
-                    <img src="Assets/RecipeAppPics/RecipeAppDesignScreenShot8.png" alt="Recipe App Design 8"
-                        class="rounded-2xl shadow-sm hover:shadow-md transition-shadow w-full h-auto">
-                    <img src="Assets/RecipeAppPics/RecipeAppDesignScreenShot9.png" alt="Recipe App Design 9"
-                        class="rounded-2xl shadow-sm hover:shadow-md transition-shadow w-full h-auto">
-                </div>
-            </div>
-
+          <div>
+            <p class="pantry__label">What you could cook</p>
+            <div class="pantry__recipes" data-pantry-recipes></div>
+            <p class="sr-only" aria-live="polite" data-pantry-live></p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <div id="app-footer"></div>
+    <!-- ═══ The screens ════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">02</span><span class="eyebrow__rule"></span>The screens</p>
+          <h2 class="h2 mt-24" data-split>Nine screens, <span class="dim">drawn in Figma.</span></h2>
+        </header>
 
-    <script src="js/components.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        renderHeader({
-            logoHref: 'index.html',
-            links: [
-                { text: 'Home', href: 'index.html' },
-                { text: 'Work', href: 'index.html#work' },
-                { text: 'Experience', href: 'index.html#experience' },
-                { text: 'Contact', href: 'index.html#contact' }
-            ]
-        });
-        renderFooter();
-    </script>
+        <div class="rcp-set" data-reveal>
+          <h3>Finding something to cook</h3>
+          <p>A home screen you can scan: cuisines along the top, then rows you’d actually browse.</p>
+          <div class="rcp-row">
+            <figure class="rcp-shot">
+              <div class="phone"><div class="phone__screen"><img src="Assets/web/recipe/shot-6.webp" alt="Recipes home: cuisine chips for Indonesian, American, Japanese and Afghanistan, then rows for popular, cheap ingredients and previous cookings" width="402" height="874" loading="lazy" data-lightbox="rcp" data-caption="Home — cuisines, popular, cheap ingredients, and what you’ve cooked before."></div></div>
+              <figcaption>Cuisines across the top, then rows for popular, cheap-to-make, and what you’ve cooked before.</figcaption>
+            </figure>
+            <figure class="rcp-shot">
+              <div class="phone"><div class="phone__screen"><img src="Assets/web/recipe/shot-5.webp" alt="The recipes list filtered by an Indonesian chip that can be removed" width="402" height="874" loading="lazy" data-lightbox="rcp" data-caption="A cuisine filter, as a chip you can drop."></div></div>
+              <figcaption>One cuisine at a time, as a filter chip you can drop.</figcaption>
+            </figure>
+            <figure class="rcp-shot">
+              <div class="phone"><div class="phone__screen"><img src="Assets/web/recipe/shot-4.webp" alt="The popular recipes grid, each card showing a price and an owned-ingredients ratio" width="402" height="874" loading="lazy" data-lightbox="rcp" data-caption="Popular — price and owned-ingredient ratio on every card."></div></div>
+              <figcaption>Every card carries its price and how many of its ingredients you already have.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="rcp-set" data-reveal>
+          <h3>The pantry, and a search that respects it</h3>
+          <p>The part the research pointed at: what you own decides what you see.</p>
+          <div class="rcp-row">
+            <figure class="rcp-shot">
+              <div class="phone"><div class="phone__screen"><img src="Assets/web/recipe/shot-3.webp" alt="My Ingredients: checkboxes grouped into fruits, meat and fish, with an A to Z index down the side" width="402" height="874" loading="lazy" data-lightbox="rcp" data-caption="My Ingredients — the pantry, by category."></div></div>
+              <figcaption>The pantry, by category, with an A–Z index down the side.</figcaption>
+            </figure>
+            <figure class="rcp-shot">
+              <div class="phone"><div class="phone__screen"><img src="Assets/web/recipe/shot-7.webp" alt="Search with ingredient chips for fish, cheese and mayo, and filters for ingredients owned: any, all or partially" width="402" height="874" loading="lazy" data-lightbox="rcp" data-caption="Search by ingredient, filtered by what you own."></div></div>
+              <figcaption>Search by ingredient, then filter by what you own: any, all, or partially.</figcaption>
+            </figure>
+            <figure class="rcp-shot">
+              <div class="phone"><div class="phone__screen"><img src="Assets/web/recipe/shot-2.webp" alt="The liked recipes grid" width="402" height="874" loading="lazy" data-lightbox="rcp" data-caption="Liked recipes, kept for later."></div></div>
+              <figcaption>Liked recipes, kept for later.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="rcp-set" data-reveal>
+          <h3>Then actually cooking</h3>
+          <p>One step per screen, so nothing is lost in a wall of instructions.</p>
+          <div class="rcp-row">
+            <figure class="rcp-shot">
+              <div class="phone"><div class="phone__screen"><img src="Assets/web/recipe/shot-1.webp" alt="The Mayo Meatball recipe with its price, description, fully-owned ingredient list and a Let’s Cook button" width="402" height="874" loading="lazy" data-lightbox="rcp" data-caption="A recipe — cost, description, ingredients, and one button."></div></div>
+              <figcaption>Cost, description, and the ingredient list marked as fully owned.</figcaption>
+            </figure>
+            <figure class="rcp-shot">
+              <div class="phone"><div class="phone__screen"><img src="Assets/web/recipe/shot-9.webp" alt="Cooking step one: peel potatoes, with numbered instructions and a step pager" width="402" height="874" loading="lazy" data-lightbox="rcp" data-caption="Step 01 — the boring part."></div></div>
+              <figcaption>Cooking is one step per screen, starting with the boring part.</figcaption>
+            </figure>
+            <figure class="rcp-shot">
+              <div class="phone"><div class="phone__screen"><img src="Assets/web/recipe/shot-8.webp" alt="Cooking step four: serve and enjoy, with the finished dish" width="402" height="874" loading="lazy" data-lightbox="rcp" data-caption="Step 04 — the good part."></div></div>
+              <figcaption>…and ending with the good part.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ What it taught me ══════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">03</span><span class="eyebrow__rule"></span>What it taught me</p>
+            <h2 class="h2 mt-24" data-split>A first pass <span class="dim">at a process.</span></h2>
+          </div>
+          <p class="lead" data-reveal>It was never built, and it wasn’t meant to be. It’s where I learned the order of operations I’ve used on every screen since.</p>
+        </header>
+
+        <div class="feature-grid" data-stagger>
+          <article class="card card--pad feature" style="--tone: var(--accent)">
+            <span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-search" /></svg></span>
+            <h3>Research before pixels</h3>
+            <p>Desk research on how people decide what to cook came first. The pantry idea came out of it, not out of a nice layout.</p>
+          </article>
+          <article class="card card--pad feature" style="--tone: var(--accent)">
+            <span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-pen" /></svg></span>
+            <h3>Wireframes, then hi-fi</h3>
+            <p>Grey boxes until the flow held up, and only then type, colour and food photography — followed by a clickable prototype.</p>
+          </article>
+          <article class="card card--pad feature" style="--tone: var(--accent)">
+            <span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-apple" /></svg></span>
+            <h3>Apple’s HIG</h3>
+            <p>Tab bars, list styles, type sizes and touch targets taken from the Human Interface Guidelines, so it would feel like an iPhone app rather than a poster.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <site-footer next="journal"></site-footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/pages/recipe.js" defer></script>
 </body>
 
 </html>

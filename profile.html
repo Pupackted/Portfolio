@@ -1,233 +1,292 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adrian | Profile</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>About — Adrian Rachman</title>
+  <meta name="description" content="About Adrian Yusufa Rachman: Software Engineering graduate, Apple Developer Academy alumnus, and iOS, Android and web engineer based in Jakarta.">
+  <meta name="theme-color" content="#131418">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="About — Adrian Rachman">
+  <meta property="og:description" content="Real-world problem solver. Lifelong learner. Global collaborator.">
+  <meta property="og:image" content="https://portfolio-adrian-rachman.vercel.app/Assets/web/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="Assets/web/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/about.css">
+  <script src="js/site.js"></script>
+  <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
 </head>
 
-<body class="min-h-screen bg-[#f5f5f7] text-[#1d1d1f] font-sans selection:bg-blue-500 selection:text-white">
+<body>
+  <site-header current="about"></site-header>
 
-    <!-- Navigation -->
-    <!-- Navigation -->
-    <div id="app-header"></div>
+  <main id="main">
 
-    <!-- Profile Header -->
-    <section class="pt-32 pb-16 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="max-w-4xl animate-fade-in-up">
-                <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-gray-900">
-                    Adrian Yusufa Rachman
-                </h1>
-                <h2
-                    class="text-2xl md:text-3xl font-semibold mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    Real-World Problem Solver | Lifelong Learner | Global Collaborator
-                </h2>
-                <p class="text-xl md:text-2xl text-gray-600 leading-relaxed font-light">
-                    I combine a hard-working attitude with a passion for teamwork. Whether working with local peers or
-                    international partners, I am dedicated to learning new things and building solutions that matter.
-                </p>
+    <!-- ═══ Intro ══════════════════════════════════════════════════════════ -->
+    <section class="ab-hero section">
+      <div class="container">
+        <p class="eyebrow" data-reveal><span class="eyebrow__index">About</span><span class="eyebrow__rule"></span>Adrian Yusufa Rachman</p>
+        <h1 class="ab-title mt-32">
+          <span data-split>Real-world problem solver.</span>
+          <span class="dim" data-split style="--d:160">Lifelong learner.</span>
+          <span class="dim" data-split style="--d:300">Global collaborator.</span>
+        </h1>
+
+        <div class="ab-intro">
+          <div>
+            <p class="lead" data-reveal>I’m a software engineer from Jakarta who likes the part where software meets real life — a rider getting a reminder before a breakdown, a workshop logging a service with one scan, a new cohort laughing over a pixel-art bomb.</p>
+            <p class="lead" data-reveal style="--d:100">I pair a hard-working attitude with a genuine love of teamwork. I’ve worked with teams in Jakarta, Bali and Dubai, and built with people from all over the world at the Apple Developer Academy. Wherever the team is, I want to keep learning — and keep shipping things that matter.</p>
+            <div class="btn-row mt-40" data-reveal style="--d:200">
+              <a class="btn btn--primary" href="Assets/CV/CV_ADRIAN_YUSUFA_RACHMAN.pdf" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-file" /></svg>Open my résumé</a>
+              <button class="btn btn--glass" type="button" data-copy="adrian.y.rachman@gmail.com"><svg class="i" aria-hidden="true"><use href="#i-copy" /></svg>Copy email</button>
             </div>
+          </div>
+
+          <div class="ab-glance" data-stagger>
+            <div class="ab-fact glass">
+              <p class="ab-fact__k"><svg class="i" aria-hidden="true"><use href="#i-map-pin" /></svg>Based in</p>
+              <p class="ab-fact__v">Jakarta, Indonesia</p>
+              <p class="ab-fact__s">It’s <span class="tabular" data-clock>WIB</span> here</p>
+            </div>
+            <div class="ab-fact glass">
+              <p class="ab-fact__k"><svg class="i" aria-hidden="true"><use href="#i-briefcase" /></svg>Looking for</p>
+              <p class="ab-fact__v">iOS, Android &amp; front-end roles</p>
+              <p class="ab-fact__s">Open to new opportunities</p>
+            </div>
+            <div class="ab-fact glass">
+              <p class="ab-fact__k"><svg class="i" aria-hidden="true"><use href="#i-cap" /></svg>Studied</p>
+              <p class="ab-fact__v">Software Engineering</p>
+              <p class="ab-fact__s">Universitas Prasetiya Mulya</p>
+            </div>
+            <div class="ab-fact glass">
+              <p class="ab-fact__k"><svg class="i" aria-hidden="true"><use href="#i-apple" /></svg>Trained at</p>
+              <p class="ab-fact__v">Apple Developer Academy</p>
+              <p class="ab-fact__s">@ BINUS, Bali · 2025</p>
+            </div>
+            <div class="ab-fact glass ab-fact--wide">
+              <p class="ab-fact__k"><svg class="i" aria-hidden="true"><use href="#i-languages" /></svg>Speaks</p>
+              <div class="ab-langs mt-16" data-reveal="fade">
+                <div class="ab-lang"><div><b>Indonesian</b><small>Native</small></div><div class="ab-meter" aria-label="Native"><i class="on" style="--k:0"></i><i class="on" style="--k:1"></i><i class="on" style="--k:2"></i><i class="on" style="--k:3"></i><i class="on" style="--k:4"></i></div></div>
+                <div class="ab-lang"><div><b>English</b><small>Full professional</small></div><div class="ab-meter" aria-label="Full professional proficiency"><i class="on" style="--k:0"></i><i class="on" style="--k:1"></i><i class="on" style="--k:2"></i><i class="on" style="--k:3"></i><i style="--k:4"></i></div></div>
+                <div class="ab-lang"><div><b>Japanese</b><small>Elementary</small></div><div class="ab-meter" aria-label="Elementary proficiency"><i class="on" style="--k:0"></i><i style="--k:1"></i><i style="--k:2"></i><i style="--k:3"></i><i style="--k:4"></i></div></div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="py-12 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 tracking-tight">Education</h2>
-            <div class="space-y-8">
-                <!-- University -->
-                <div class="bg-white rounded-3xl p-8 shadow-sm">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
-                        <h3 class="text-2xl font-bold">Universitas Prasetiya Mulya</h3>
-                        <span class="text-gray-500 font-medium">2021 – 2025</span>
-                    </div>
-                    <p class="text-lg text-gray-700 mb-2">Majoring in Software Engineering</p>
-                    <p class="text-gray-600">Current GPA: <span class="font-semibold text-blue-600">3.51/4.00</span></p>
-                </div>
-
-                <!--School -->
-                <div class="bg-white rounded-3xl p-8 shadow-sm">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
-                        <h3 class="text-2xl font-bold">Mentari Intercultural School Bintaro</h3>
-                        <span class="text-gray-500 font-medium">2017 – 2021</span>
-                    </div>
-
-                    <p class="text-lg text-gray-700 mb-2">International Baccalaureate Diploma Program (30 IB points)</p>
-                    <p class="text-lg text-gray-700 mb-4">Cambridge IGCSE (International General Certificate of
-                        Secondary Education)</p>
-
-                    <div>
-                        <h4 class="text-lg font-bold text-gray-800 mb-2">Achievements:</h4>
-                        <ul class="list-disc list-inside text-lg text-gray-700 space-y-1">
-                            <li>Award of Excellence (Most Improved in a Subject)</li>
-                            <li>Placed 1st in a Video Making Competition</li>
-                            <li>Award of Excellence (Citizenship)</li>
-                            <li>Excellence Award (Best Project)</li>
-                            <li>Certification of Appreciation (Most Behaved)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- ═══ Path ═══════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">01</span><span class="eyebrow__rule"></span>The path so far</p>
+          <h2 class="h2" data-split>From an IB classroom <span class="dim">to the Apple Developer Institute.</span></h2>
+        </header>
+        <ol class="ab-path" data-stagger>
+          <li class="ab-step"><p class="ab-step__year">2017</p><div class="ab-step__dot"></div><h3>Mentari Intercultural School</h3><p>Cambridge IGCSE, then the IB Diploma.</p></li>
+          <li class="ab-step"><p class="ab-step__year">2021</p><div class="ab-step__dot"></div><h3>Universitas Prasetiya Mulya</h3><p>Software Engineering, 2021–2025.</p></li>
+          <li class="ab-step"><p class="ab-step__year">2022</p><div class="ab-step__dot"></div><h3>Prog{r}amming 5.0</h3><p>Taught intermediate coding through a game module.</p></li>
+          <li class="ab-step"><p class="ab-step__year">2024</p><div class="ab-step__dot"></div><h3>KISIP 2024</h3><p>Presented a data poster on election disinformation.</p></li>
+          <li class="ab-step"><p class="ab-step__year">2024</p><div class="ab-step__dot"></div><h3>Mediawave · Reporthink.ai</h3><p>Front-end intern. ~80 templates and a live editor.</p></li>
+          <li class="ab-step"><p class="ab-step__year">2025</p><div class="ab-step__dot"></div><h3>NEXSYS-ONE, Dubai</h3><p>Master user intern on an enterprise platform.</p></li>
+          <li class="ab-step"><p class="ab-step__year">2025</p><div class="ab-step__dot"></div><h3>Apple Developer Academy</h3><p>Bali. Four apps, including RideCheck.</p></li>
+          <li class="ab-step is-now"><p class="ab-step__year">2026</p><div class="ab-step__dot"></div><h3>Apple Developer Institute</h3><p>Head of Product at RideCheck, as it goes to Android and the web.</p></li>
+        </ol>
+        <p class="ab-path-hint">Scroll sideways for the full path →</p>
+      </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-12 px-6 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 tracking-tight">Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                <!-- Programming Languages -->
-                <div class="bg-[#f5f5f7] rounded-3xl p-8">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <i data-lucide="code-2" class="w-6 h-6 text-blue-600"></i>
-                        Programming Languages
-                    </h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1.5 bg-white text-gray-700 rounded-lg text-sm font-medium shadow-sm">Swift</span>
-                        <span class="px-3 py-1.5 bg-white text-gray-700 rounded-lg text-sm font-medium shadow-sm">JavaScript / TypeScript</span>
-                        <span class="px-3 py-1.5 bg-white text-gray-700 rounded-lg text-sm font-medium shadow-sm">Python</span>
-                        <span class="px-3 py-1.5 bg-white text-gray-700 rounded-lg text-sm font-medium shadow-sm">HTML/CSS</span>
-                        <span class="px-3 py-1.5 bg-white text-gray-700 rounded-lg text-sm font-medium shadow-sm">SQL</span>
-                    </div>
-                </div>
-
-                <!-- Frameworks -->
-                <div class="bg-[#f5f5f7] rounded-3xl p-8">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <i data-lucide="layers" class="w-6 h-6 text-purple-600"></i>
-                        Mobile & Web Frameworks
-                    </h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1.5 bg-white text-gray-700 rounded-lg text-sm font-medium shadow-sm">SwiftUI</span>
-                        <span class="px-3 py-1.5 bg-white text-gray-700 rounded-lg text-sm font-medium shadow-sm">React Native</span>
-                        <span class="px-3 py-1.5 bg-white text-gray-700 rounded-lg text-sm font-medium shadow-sm">SpriteKit</span>
-                        <span class="px-3 py-1.5 bg-white text-gray-700 rounded-lg text-sm font-medium shadow-sm">ReactJS</span>
-                        <span class="px-3 py-1.5 bg-white text-gray-700 rounded-lg text-sm font-medium shadow-sm">NextJS</span>
-                        <span class="px-3 py-1.5 bg-white text-gray-700 rounded-lg text-sm font-medium shadow-sm">Tailwind CSS</span>
-                    </div>
-                </div>
-
-                <!-- Tools -->
-                <div class="bg-[#f5f5f7] rounded-3xl p-8">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <i data-lucide="wrench" class="w-6 h-6 text-orange-600"></i>
-                        Tools & Deployment
-                    </h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1.5 bg-white text-gray-700 rounded-lg text-sm font-medium shadow-sm">Xcode</span>
-                        <span class="px-3 py-1.5 bg-white text-gray-700 rounded-lg text-sm font-medium shadow-sm">Android Studio</span>
-                        <span class="px-3 py-1.5 bg-white text-gray-700 rounded-lg text-sm font-medium shadow-sm">Git/GitHub</span>
-                        <span class="px-3 py-1.5 bg-white text-gray-700 rounded-lg text-sm font-medium shadow-sm">App Store Connect</span>
-                        <span class="px-3 py-1.5 bg-white text-gray-700 rounded-lg text-sm font-medium shadow-sm">Google Play Console</span>
-                        <span class="px-3 py-1.5 bg-white text-gray-700 rounded-lg text-sm font-medium shadow-sm">Figma</span>
-                    </div>
-                </div>
-
-                <!-- Languages Spoken -->
-                <div class="bg-[#f5f5f7] rounded-3xl p-8">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <i data-lucide="languages" class="w-6 h-6 text-green-600"></i>
-                        Languages Spoken
-                    </h3>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-center gap-2">
-                            <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-                            Native Indonesian
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
-                            Full professional proficiency in English
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
-                            Elementary proficiency in Japanese
-                        </li>
-                    </ul>
-                </div>
-
+    <!-- ═══ Education ══════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="education">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">02</span><span class="eyebrow__rule"></span>Education</p>
+          <h2 class="h2" data-split>Where I learned <span class="dim">to learn.</span></h2>
+        </header>
+        <div class="ab-edu">
+          <article class="card ab-school" data-spotlight data-reveal>
+            <div class="ab-school__top">
+              <span class="ab-school__crest"><svg class="i" aria-hidden="true"><use href="#i-cap" /></svg></span>
+              <span class="chip chip--mono">2021 — 2025</span>
             </div>
+            <h3>Universitas Prasetiya Mulya</h3>
+            <p class="ab-school__sub">Bachelor’s programme, majoring in Software Engineering.</p>
+            <div class="ab-school__stats">
+              <div><b data-count="3.51" data-decimals="2">3.51</b><span>GPA, out of 4.00</span></div>
+            </div>
+          </article>
+          <article class="card ab-school" data-spotlight data-reveal style="--d:100">
+            <div class="ab-school__top">
+              <span class="ab-school__crest"><svg class="i" aria-hidden="true"><use href="#i-book" /></svg></span>
+              <span class="chip chip--mono">2017 — 2021</span>
+            </div>
+            <h3>Mentari Intercultural School Bintaro</h3>
+            <p class="ab-school__sub">International Baccalaureate Diploma Programme, after the Cambridge IGCSE.</p>
+            <div class="ab-school__stats">
+              <div><b data-count="30">30</b><span>IB points, out of 45</span></div>
+            </div>
+            <ul class="ab-awards">
+              <li><svg class="i" aria-hidden="true"><use href="#i-trophy" /></svg>1st place, video-making competition</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-star" /></svg>Excellence Award — Best Project</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-star" /></svg>Award of Excellence — Citizenship</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-star" /></svg>Award of Excellence — Most Improved in a Subject</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-star" /></svg>Certificate of Appreciation — Most Behaved</li>
+            </ul>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- Other Activities Section -->
-    <section id="activities" class="py-20 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 tracking-tight">Other Activities</h2>
-            <div class="space-y-8">
-
-                <!-- Conferences -->
-                <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="flex items-start gap-4">
-                        <div class="p-3 bg-blue-50 text-blue-600 rounded-xl hidden md:block">
-                            <i data-lucide="mic-2" class="w-6 h-6"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold mb-2">Conferences</h3>
-                            <p class="text-lg font-semibold text-gray-800 mb-2">KISIP 2024</p>
-                            <p class="text-gray-600 leading-relaxed">
-                                Participated in the KISIP 2024 social and political science conference, presenting a
-                                data poster on Twitter discourse regarding election disinformation.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Volunteering -->
-                <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="flex items-start gap-4">
-                        <div class="p-3 bg-green-50 text-green-600 rounded-xl hidden md:block">
-                            <i data-lucide="heart-handshake" class="w-6 h-6"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold mb-2">Volunteering</h3>
-                            <p class="text-gray-600 leading-relaxed">
-                                Extensive experience as a facilitator and organizer for events such as:
-                            </p>
-                            <ul class="mt-4 space-y-2 text-gray-600">
-                                <li class="flex items-center gap-2">
-                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500"></i>
-                                    Gaming tournaments (Fortune Cup)
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500"></i>
-                                    Educational events (Prog{r}amming 5.0, Math Fun Day)
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500"></i>
-                                    School competitions (Mentari IGNIGHT)
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
+    <!-- ═══ Skills ═════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="skills">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">03</span><span class="eyebrow__rule"></span>Skills</p>
+            <h2 class="h2 mt-24" data-split>The toolbox, <span class="dim">and where it’s been used.</span></h2>
+          </div>
+          <p class="lead" data-reveal>Hover or focus any skill to see which projects it shipped in.</p>
+        </header>
+        <div class="ab-skills" data-skills>
+          <div class="card ab-skillset" data-reveal>
+            <p class="ab-skillset__head"><svg class="i" aria-hidden="true"><use href="#i-code" /></svg>Languages</p>
+            <div class="chip-row">
+              <span class="chip skill" tabindex="0" data-used="RideCheck, SwiSekai, BomBocLat, AI Journal">Swift</span>
+              <span class="chip skill" tabindex="0" data-used="RideCheck (Android &amp; web)">TypeScript</span>
+              <span class="chip skill" tabindex="0" data-used="Reporthink Editor, this website">JavaScript</span>
+              <span class="chip skill" tabindex="0" data-used="Reporthink Editor (Django)">Python</span>
+              <span class="chip skill" tabindex="0" data-used="Reporthink.ai templates, this website">HTML &amp; CSS</span>
+              <span class="chip skill" tabindex="0" data-used="Reporthink Editor, RideCheck (SQLite)">SQL</span>
             </div>
+          </div>
+          <div class="card ab-skillset" data-reveal style="--d:80">
+            <p class="ab-skillset__head"><svg class="i" aria-hidden="true"><use href="#i-phone" /></svg>Mobile</p>
+            <div class="chip-row">
+              <span class="chip skill" tabindex="0" data-used="RideCheck, SwiSekai, BomBocLat, AI Journal">SwiftUI</span>
+              <span class="chip skill" tabindex="0" data-used="RideCheck (Android)">React Native</span>
+              <span class="chip skill" tabindex="0" data-used="RideCheck (Android)">Expo</span>
+              <span class="chip skill" tabindex="0" data-used="BomBocLat">SpriteKit</span>
+              <span class="chip skill" tabindex="0" data-used="RideCheck">CoreLocation &amp; CoreMotion</span>
+              <span class="chip skill" tabindex="0" data-used="RideCheck">WidgetKit</span>
+              <span class="chip skill" tabindex="0" data-used="AI Journal">MLX</span>
+              <span class="chip skill" tabindex="0" data-used="RideCheck (iOS → Android)">Cross-platform migration</span>
+            </div>
+          </div>
+          <div class="card ab-skillset" data-reveal style="--d:160">
+            <p class="ab-skillset__head"><svg class="i" aria-hidden="true"><use href="#i-monitor" /></svg>Web</p>
+            <div class="chip-row">
+              <span class="chip skill" tabindex="0" data-used="RideCheck web">React</span>
+              <span class="chip skill" tabindex="0" data-used="RideCheck web">Next.js</span>
+              <span class="chip skill" tabindex="0" data-used="Reporthink Editor, RideCheck web">Tailwind CSS</span>
+              <span class="chip skill" tabindex="0" data-used="Reporthink Editor">Django</span>
+              <span class="chip skill" tabindex="0" data-used="RideCheck">Firebase</span>
+              <span class="chip skill" tabindex="0" data-used="SwiSekai (Gemini &amp; OpenAI), RideCheck">API integration</span>
+            </div>
+          </div>
+          <div class="card ab-skillset" data-reveal>
+            <p class="ab-skillset__head"><svg class="i" aria-hidden="true"><use href="#i-wrench" /></svg>Tools</p>
+            <div class="chip-row">
+              <span class="chip skill" tabindex="0" data-used="Every Apple project">Xcode</span>
+              <span class="chip skill" tabindex="0" data-used="RideCheck (Android)">Android Studio</span>
+              <span class="chip skill" tabindex="0" data-used="Everything">Git &amp; GitHub</span>
+              <span class="chip skill" tabindex="0" data-used="RideCheck, SwiSekai">App Store Connect</span>
+              <span class="chip skill" tabindex="0" data-used="RideCheck">Google Play Console</span>
+              <span class="chip skill" tabindex="0" data-used="Recipe App, RideCheck, Reporthink Editor">Figma</span>
+            </div>
+          </div>
+          <div class="card ab-skillset" data-reveal style="--d:80">
+            <p class="ab-skillset__head"><svg class="i" aria-hidden="true"><use href="#i-layers" /></svg>Ways of working</p>
+            <div class="chip-row">
+              <span class="chip skill" tabindex="0" data-used="Apple Developer Academy &amp; Institute teams">Agile (Scrum)</span>
+              <span class="chip skill" tabindex="0" data-used="RideCheck workshop portal">B2B dashboards</span>
+              <span class="chip skill" tabindex="0" data-used="Every Academy challenge">Rapid prototyping</span>
+              <span class="chip skill" tabindex="0" data-used="RideCheck">Technical R&amp;D</span>
+            </div>
+          </div>
+          <div class="card ab-skillset" data-reveal style="--d:160">
+            <p class="ab-skillset__head"><svg class="i" aria-hidden="true"><use href="#i-users" /></svg>Beyond code</p>
+            <div class="chip-row">
+              <span class="chip skill" tabindex="0" data-used="RideCheck to Komdigi and at Astranauts">Pitching</span>
+              <span class="chip skill" tabindex="0" data-used="Workshop partners, Formula 4 Indonesia talks">B2B stakeholders</span>
+              <span class="chip skill" tabindex="0" data-used="Four-person RideCheck team">Cross-functional teams</span>
+              <span class="chip skill" tabindex="0" data-used="Prog{r}amming 5.0">Teaching</span>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Header & Footer -->
-    <div id="app-footer"></div>
+    <!-- ═══ Beyond work ════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="activities">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">04</span><span class="eyebrow__rule"></span>Beyond work</p>
+          <h2 class="h2" data-split>Teaching, organising, <span class="dim">presenting.</span></h2>
+        </header>
+        <div class="ab-beyond">
+          <article class="card ab-activity" data-spotlight data-reveal>
+            <span class="ab-activity__icon" style="--tone:#2997ff"><svg class="i" aria-hidden="true"><use href="#i-code" /></svg></span>
+            <p class="ab-activity__when">Aug 2022 — 2023 · Facilitator</p>
+            <h3>Prog{r}amming 5.0</h3>
+            <p>Wrote an easy-to-follow, intermediate coding-game module for 16–18 participants, taught it across sessions 5.1 to 5.3, and ran the discussion forums while they built their own games.</p>
+            <div class="chip-row"><span class="chip">Teaching</span><span class="chip">Curriculum</span></div>
+          </article>
+          <article class="card ab-activity" data-spotlight data-reveal style="--d:100">
+            <span class="ab-activity__icon" style="--tone:#a78bfa"><svg class="i" aria-hidden="true"><use href="#i-chart" /></svg></span>
+            <p class="ab-activity__when">Jan 2024 · Participant</p>
+            <h3>KISIP 2024</h3>
+            <p>At the social and political science conference at CSIS Auditorium, Jakarta, I presented a data poster on Twitter discourse around the presidential election — the many ways people responded to disinformation.</p>
+            <div class="chip-row"><span class="chip">Data analysis</span><span class="chip">Research</span></div>
+          </article>
+          <article class="card ab-activity" data-spotlight data-reveal style="--d:200">
+            <span class="ab-activity__icon" style="--tone:#30d158"><svg class="i" aria-hidden="true"><use href="#i-users" /></svg></span>
+            <p class="ab-activity__when">2020 — 2021 · Volunteer</p>
+            <h3>Mentari IGNIGHT</h3>
+            <p>Co-organised an inter-school sports competition for 1,000+ participants and a concert headlined by Reality Club — from sponsorship to running it on the day. Also: Fortune Cup gaming tournaments and Math Fun Day.</p>
+            <div class="chip-row"><span class="chip">Events</span><span class="chip">Sponsorship</span><span class="chip">Operations</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <script src="js/components.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        renderHeader({
-            logoHref: 'index.html',
-            links: [
-                { text: 'Home', href: 'index.html' },
-                { text: 'Education', href: '#education' },
-                { text: 'Skills', href: '#skills' },
-                { text: 'Activities', href: '#activities' }
-            ]
-        });
-        renderFooter();
-    </script>
+    <section class="section section--flush-top">
+      <div class="container">
+        <div class="ab-cv" data-reveal="scale">
+          <div>
+            <h2>The one-page version.</h2>
+            <p>Everything above, in a résumé you can forward.</p>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn--primary btn--lg" href="Assets/CV/CV_ADRIAN_YUSUFA_RACHMAN.pdf" target="_blank" rel="noopener">Open résumé <svg class="i i--up-right" aria-hidden="true"><use href="#i-arrow-up-right" /></svg></a>
+            <a class="btn btn--glass btn--lg" href="Assets/CV/CV_ADRIAN_YUSUFA_RACHMAN.pdf" download><svg class="i" aria-hidden="true"><use href="#i-download" /></svg>Download</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <site-footer></site-footer>
+
+  <script src="js/main.js" defer></script>
+  <script>
+    // Skill tooltips: "where has this been used?" — built from data attributes.
+    document.querySelectorAll('.skill[data-used]').forEach(function (chip) {
+      var tip = document.createElement('span');
+      tip.className = 'skill__tip';
+      tip.setAttribute('role', 'tooltip');
+      tip.innerHTML = '<b>Used in</b>';
+      tip.appendChild(document.createTextNode(chip.getAttribute('data-used')));
+      chip.appendChild(tip);
+      chip.setAttribute('aria-label', chip.firstChild.textContent.trim() + ', used in ' + chip.getAttribute('data-used'));
+    });
+  </script>
 </body>
 
 </html>

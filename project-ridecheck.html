@@ -1,453 +1,588 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RideCheck | Adrian</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>RideCheck — Case study · Adrian Rachman</title>
+  <meta name="description" content="How a class project at the Apple Developer Academy became RideCheck: 160,000+ downloads, 29,000 monthly active riders and #2 on Google Play's Auto & Vehicles chart. Case study by Adrian Rachman.">
+  <meta name="theme-color" content="#0e1117">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="RideCheck — Case study · Adrian Rachman">
+  <meta property="og:description" content="From a class project to 160,000+ downloads. Auto-tracking, a 3D vehicle, and a move from iOS to Android.">
+  <meta property="og:image" content="https://portfolio-adrian-rachman.vercel.app/Assets/web/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="Assets/web/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/ridecheck.css">
+  <script src="js/site.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+  <link rel="modulepreload" href="js/ride3d/parts.js">
+  <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
 </head>
 
-<body class="min-h-screen bg-[#f5f5f7] text-[#1d1d1f] font-sans selection:bg-blue-500 selection:text-white">
+<body class="theme-rc">
+  <site-header current="work"></site-header>
 
-    <!-- Header -->
-    <div id="app-header"></div>
+  <main id="main">
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-12 px-6">
-        <div class="max-w-4xl mx-auto">
-            <div class="flex items-center gap-3 mb-6">
-                <a href="index.html" class="text-sm font-medium text-gray-500 hover:text-black transition-colors">
-                    &larr; Back to Projects
-                </a>
-            </div>
-            <div class="flex flex-wrap gap-3 mb-6">
-                <span
-                    class="text-xs font-semibold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full">iOS & Android App</span>
-                <span
-                    class="flex items-center gap-1 text-xs font-medium text-gray-600 bg-gray-100 px-2 py-1 rounded-full">
-                    <i data-lucide="download" class="w-3 h-3"></i> 90k+ Downloads
-                </span>
-            </div>
-            <img src="Assets/RideCheckLogo.png" alt="RideCheck Logo" class="w-20 h-20 rounded-2xl shadow-lg mb-6">
-            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-gray-900">RideCheck</h1>
-            <p class="text-xl md:text-2xl text-gray-600 leading-relaxed font-light mb-8">
-                Vehicle component tracking app. Tracks vehicle components automatically and notifies users when they are
-                due for maintenance.
-            </p>
-            <div class="flex flex-wrap gap-4">
-                <a href="https://apps.apple.com/id/app/ridecheck/id6748782930" target="_blank"
-                    class="inline-flex items-center gap-2 bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-colors font-medium">
-                    <i data-lucide="download" class="w-5 h-5"></i>
-                    App Store
-                </a>
-                <a href="https://play.google.com/store/apps/details?id=com.ridecheck.android" target="_blank"
-                    class="inline-flex items-center gap-2 bg-[#01875F] text-white px-6 py-3 rounded-full hover:bg-[#016547] transition-colors font-medium">
-                    <i data-lucide="download" class="w-5 h-5"></i>
-                    Google Play
-                </a>
-                <a href="https://www.ridecheck.id/" target="_blank"
-                    class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-colors font-medium">
-                    <i data-lucide="globe" class="w-5 h-5"></i>
-                    Website
-                </a>
-            </div>
+    <!-- ═══ Hero ═══════════════════════════════════════════════════════════ -->
+    <section class="rc-hero">
+      <div class="rc-hero__light" aria-hidden="true"></div>
+      <div class="rc-hero__grid" aria-hidden="true"></div>
+
+      <div class="container relative">
+        <a class="back-link" href="index.html#work"><svg class="i" aria-hidden="true"><use href="#i-arrow-left" /></svg>All work</a>
+
+        <div class="rc-hero__head" data-reveal>
+          <img class="rc-hero__icon" src="Assets/web/ridecheck/icon.webp" alt="RideCheck app icon" width="64" height="64">
         </div>
+        <h1 class="rc-hero__title" style="view-transition-name: rc-title">RideCheck</h1>
+        <p class="rc-hero__tagline" data-split style="--d:200">Know every part. <span class="dim">Trust every ride.</span></p>
+        <p class="lead rc-hero__lede" data-reveal style="--d:360">A vehicle-care app for motorcycles and cars that logs every trip by itself and warns riders before a part wears out. As its Head of Product and front-end engineer, I helped take it from a class project at the Apple Developer Academy to <strong>160,000+ downloads</strong>, then led it onto Android and the web.</p>
+
+        <div class="btn-row rc-hero__cta" data-reveal style="--d:480">
+          <a class="store-btn" href="https://apps.apple.com/id/app/ridecheck/id6748782930" target="_blank" rel="noopener">
+            <svg class="i" aria-hidden="true"><use href="#i-apple" /></svg>
+            <span><small>Download on the</small><b>App Store</b></span>
+          </a>
+          <a class="store-btn store-btn--dark" href="https://play.google.com/store/apps/details?id=com.ridecheck.android" target="_blank" rel="noopener">
+            <svg class="i" aria-hidden="true"><use href="#i-play-store" /></svg>
+            <span><small>Get it on</small><b>Google Play</b></span>
+          </a>
+          <a class="btn btn--glass btn--lg" href="https://www.ridecheck.id/" target="_blank" rel="noopener">ridecheck.id <svg class="i i--up-right" aria-hidden="true"><use href="#i-arrow-up-right" /></svg></a>
+        </div>
+      </div>
+
+      <div class="rc-hero__stage" aria-hidden="true">
+        <div class="rc-hero__phone rc-hero__phone--l" data-parallax="0.1"><img src="Assets/web/ridecheck/ss-components.webp" alt="" width="1000" height="2071"></div>
+        <div class="rc-hero__phone rc-hero__phone--c" data-parallax="0.04"><img src="Assets/web/ridecheck/ss-bike-dashboard.webp" alt="" width="1000" height="2071" fetchpriority="high"></div>
+        <div class="rc-hero__phone rc-hero__phone--r" data-parallax="0.1"><img src="Assets/web/ridecheck/ss-car-alert.webp" alt="" width="1000" height="2071"></div>
+        <div class="rc-hero__fade"></div>
+      </div>
     </section>
 
-    <!-- Content Section -->
-    <section class="py-12 px-6 bg-white">
-        <div class="max-w-4xl mx-auto space-y-16">
+    <div class="container rc-meta">
+      <dl class="meta-row" data-stagger>
+        <div><dt>My role</dt><dd>Head of Product · front-end &amp; mobile engineer</dd></div>
+        <div><dt>Team</dt><dd>Four — product, design, front end, back end</dd></div>
+        <div><dt>Timeline</dt><dd>2025 — present</dd></div>
+        <div><dt>Platforms</dt><dd>iOS · Android · Web</dd></div>
+      </dl>
+    </div>
 
-            <!-- Overview -->
+    <!-- ═══ Numbers ════════════════════════════════════════════════════════ -->
+    <section class="section" id="numbers">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">01</span><span class="eyebrow__rule"></span>By the numbers</p>
+          <h2 class="h2" data-split>From a class project <span class="dim">to 160,000 downloads.</span></h2>
+        </header>
+
+        <div class="rc-bento">
+          <div class="rc-tile rc-tile--hero" data-reveal>
+            <p class="rc-tile__label"><svg class="i" aria-hidden="true"><use href="#i-download" /></svg>Total downloads</p>
             <div>
-                <h2 class="text-2xl font-bold mb-4">Project Overview</h2>
-                <p class="text-gray-600 leading-relaxed">
-                    RideCheck is a cross-platform mobile application available on iOS and Android designed to simplify vehicle ownership by
-                    automating maintenance tracking. Addressing the common issue of neglected vehicle care, the app
-                    utilizes device sensors to automatically track mileage and predict component wear-and-tear in
-                    real-time. It serves as a digital health monitor for motorcycles and cars, ensuring timely servicing
-                    to prolong vehicle lifespan and ensure rider safety.
-                </p>
+              <p class="rc-tile__value" data-count="160" data-suffix="K+">160K+</p>
+              <p class="rc-tile__note">Across the App Store and Google Play — grown largely through short-form video.</p>
             </div>
+            <img class="rc-tile__mark" src="Assets/web/ridecheck/mark.webp" alt="" width="400" height="277" aria-hidden="true">
+          </div>
 
-            <!-- The Problem & Solution -->
+          <div class="rc-tile" data-reveal style="--d:80">
+            <p class="rc-tile__label"><svg class="i" aria-hidden="true"><use href="#i-users" /></svg>Monthly active</p>
             <div>
-                <h2 class="text-2xl font-bold mb-4">The Problem & Solution</h2>
-                <div class="space-y-6">
-                    <div>
-                        <h3 class="font-bold text-lg mb-2">The Problem</h3>
-                        <p class="text-gray-600 leading-relaxed">
-                            Vehicle owners often forget maintenance intervals, relying on manual odometer checks or
-                            paper stickers, leading to preventable breakdowns and expensive repairs.
-                        </p>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-lg mb-2">The Solution</h3>
-                        <p class="text-gray-600 leading-relaxed">
-                            RideCheck automates this process using Core Motion and Core Location to detect when a user
-                            is driving. It updates the vehicle's digital odometer automatically and alerts the user when
-                            specific parts (oil, tires, brakes, etc.) reach their lifespan limit.
-                        </p>
-                    </div>
-                </div>
+              <p class="rc-tile__value" data-count="29" data-suffix="K">29K</p>
+              <p class="rc-tile__note">Riders active in the last 30 days — after peaking above 50K in August.</p>
             </div>
+          </div>
 
-            <!-- Key Features -->
+          <div class="rc-tile" data-reveal style="--d:160">
+            <p class="rc-tile__label"><svg class="i" aria-hidden="true"><use href="#i-card" /></svg>Paying users</p>
             <div>
-                <h2 class="text-2xl font-bold mb-6">Key Features</h2>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-600">
-                            <i data-lucide="activity" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Automated Mileage Tracking</h3>
-                        <p class="text-sm text-gray-600">Utilizes background location services and motion activity to
-                            detect trips and update the vehicle's odometer without manual input.</p>
-                    </div>
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mb-4 text-green-600">
-                            <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Component Lifespan Monitoring</h3>
-                        <p class="text-sm text-gray-600">Tracks the health of individual vehicle parts (e.g., Engine
-                            Oil, Brake Pads, Tires) using visual progress bars and color-coded health indicators.</p>
-                    </div>
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mb-4 text-purple-600">
-                            <i data-lucide="truck" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Multi-Vehicle Support</h3>
-                        <p class="text-sm text-gray-600">Architecture supports managing multiple vehicles with distinct
-                            maintenance profiles and odometers.</p>
-                    </div>
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mb-4 text-orange-600">
-                            <i data-lucide="map" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Trip Logs & Analytics</h3>
-                        <p class="text-sm text-gray-600">Detailed history of recent trips, including distance traveled
-                            and route snapshots, providing users with transparency on their vehicle usage.</p>
-                    </div>
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mb-4 text-indigo-600">
-                            <i data-lucide="layout" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Home Screen Widgets</h3>
-                        <p class="text-sm text-gray-600">Built with WidgetKit to provide at-a-glance status updates on
-                            vehicle health directly from the iPhone Home Screen.</p>
-                    </div>
-                    <div class="p-6 bg-gray-50 rounded-2xl">
-                        <div
-                            class="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center mb-4 text-teal-600">
-                            <i data-lucide="settings" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">Customizable Maintenance</h3>
-                        <p class="text-sm text-gray-600">Users can add custom components and define their own
-                            distance-based service intervals.</p>
-                    </div>
-                </div>
+              <p class="rc-tile__value" data-count="2.3" data-decimals="1" data-suffix="K+">2.3K+</p>
+              <p class="rc-tile__note">Subscribers and lifetime buyers of RideCheck Pro — 2,300 and counting.</p>
             </div>
+          </div>
 
-            <!-- Technical Architecture -->
+          <div class="rc-tile rc-tile--chart" data-reveal>
+            <div class="rc-chart-head">
+              <div>
+                <p class="rc-tile__label"><svg class="i" aria-hidden="true"><use href="#i-trending" /></svg>New riders per month, 2026</p>
+                <p class="rc-tile__value">35.6K</p>
+                <p class="rc-tile__note">Onboarded in August alone.</p>
+              </div>
+              <span class="rc-growth-pill"><svg class="i" aria-hidden="true"><use href="#i-arrow-up-right" /></svg>6× since May</span>
+            </div>
+            <div class="rc-chart" data-reveal="fade" role="img" aria-label="New riders per month: May 5,800; June 11,000; July 19,700; August 35,600.">
+              <div class="rc-chart__col" style="--i:0; --h:16.3%"><span class="rc-chart__val">5.8K</span><div class="rc-chart__bar"></div><span class="rc-chart__month">May</span></div>
+              <div class="rc-chart__col" style="--i:1; --h:31%"><span class="rc-chart__val">11.0K</span><div class="rc-chart__bar"></div><span class="rc-chart__month">Jun</span></div>
+              <div class="rc-chart__col" style="--i:2; --h:55.3%"><span class="rc-chart__val">19.7K</span><div class="rc-chart__bar"></div><span class="rc-chart__month">Jul</span></div>
+              <div class="rc-chart__col" style="--i:3; --h:100%"><span class="rc-chart__val">35.6K</span><div class="rc-chart__bar"></div><span class="rc-chart__month">Aug</span></div>
+            </div>
+          </div>
+
+          <div class="rc-tile" data-reveal style="--d:80">
+            <p class="rc-tile__label"><svg class="i" aria-hidden="true"><use href="#i-bike" /></svg>Vehicles</p>
             <div>
-                <h2 class="text-2xl font-bold mb-6">Technical Architecture</h2>
-                <div class="space-y-8">
-                    <!-- iOS Tech Stack -->
-                    <div>
-                        <h3 class="text-xl font-bold mb-4 text-blue-600">iOS Architecture</h3>
-                        <div class="space-y-4">
-                            <div class="flex flex-col md:flex-row md:items-start gap-2">
-                                <span class="font-semibold min-w-[150px]">Language:</span>
-                                <span class="text-gray-600">Swift</span>
-                            </div>
-                            <div class="flex flex-col md:flex-row md:items-start gap-2">
-                                <span class="font-semibold min-w-[150px]">UI Framework:</span>
-                                <span class="text-gray-600">SwiftUI</span>
-                            </div>
-                            <div class="flex flex-col md:flex-row md:items-start gap-2">
-                                <span class="font-semibold min-w-[150px]">Data Persistence:</span>
-                                <span class="text-gray-600">CoreData / UserDefaults</span>
-                            </div>
-                            <div class="flex flex-col md:flex-row md:items-start gap-2">
-                                <span class="font-semibold min-w-[150px]">Core Frameworks:</span>
-                                <div class="text-gray-600">
-                                    <ul class="list-disc list-inside space-y-1">
-                                        <li><strong>CoreLocation & CoreMotion:</strong> For background trip detection and automatic odometer updates.</li>
-                                        <li><strong>WidgetKit:</strong> For interactive Home Screen widgets.</li>
-                                        <li><strong>MapKit:</strong> For generating trip visual snapshots.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Android Tech Stack -->
-                    <div>
-                        <h3 class="text-xl font-bold mb-4 text-[#01875F]">Android Architecture</h3>
-                        <div class="space-y-4">
-                            <div class="flex flex-col md:flex-row md:items-start gap-2">
-                                <span class="font-semibold min-w-[150px]">Language:</span>
-                                <span class="text-gray-600">TypeScript</span>
-                            </div>
-                            <div class="flex flex-col md:flex-row md:items-start gap-2">
-                                <span class="font-semibold min-w-[150px]">Framework:</span>
-                                <span class="text-gray-600">React Native / Expo</span>
-                            </div>
-                            <div class="flex flex-col md:flex-row md:items-start gap-2">
-                                <span class="font-semibold min-w-[150px]">Data & Backend:</span>
-                                <span class="text-gray-600">Firebase (Auth, Firestore), SQLite with Drizzle ORM</span>
-                            </div>
-                            <div class="flex flex-col md:flex-row md:items-start gap-2">
-                                <span class="font-semibold min-w-[150px]">Key Modules:</span>
-                                <div class="text-gray-600">
-                                    <ul class="list-disc list-inside space-y-1">
-                                        <li><strong>Expo Location & TaskManager:</strong> For background GPS tracking.</li>
-                                        <li><strong>React Native Android Widget:</strong> For native Android home screen widgets.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              <p class="rc-tile__value" data-count="63" data-suffix="K+">63K+</p>
+              <p class="rc-tile__note">Registered — about 54K motorcycles and 9K cars.</p>
             </div>
+          </div>
 
-            <!-- Market Impact & Achievements -->
+          <div class="rc-tile" data-reveal style="--d:160">
+            <p class="rc-tile__label"><svg class="i" aria-hidden="true"><use href="#i-route" /></svg>Distance logged</p>
             <div>
-                <h2 class="text-2xl font-bold mb-6">Market Impact & Achievements</h2>
-                <div class="bg-gray-50 rounded-2xl p-8">
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        RideCheck moved beyond a theoretical project to achieve significant real-world traction:
-                    </p>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div>
-                            <h3 class="text-3xl font-bold text-blue-600 mb-2">90,000+</h3>
-                            <p class="font-medium mb-1">Total Downloads</p>
-                            <p class="text-sm text-gray-500">Achieved through strategic marketing with over 2M+ engagements and 200k+ visits.</p>
-                        </div>
-                        <div>
-                            <h3 class="text-3xl font-bold text-blue-600 mb-2">20,000+</h3>
-                            <p class="font-medium mb-1">Registered Vehicles</p>
-                            <p class="text-sm text-gray-500">Across a diverse base of 5,000+ MAU with 2,000+ paying users.</p>
-                        </div>
-                        <div>
-                            <h3 class="text-3xl font-bold text-blue-600 mb-2">Top 9</h3>
-                            <p class="font-medium mb-1">Utilities Category</p>
-                            <p class="text-sm text-gray-500">Also reached Top 5 Grossing and #7 Top Free in Auto & Vehicles on Google Play.</p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Partnerships & Press</h3>
-                            <p class="text-sm text-gray-600 mb-1">Featured in <a href="https://www.bloombergtechnoz.com/businessweek/062026/249/cerdik-membabat-jalan-kala-lamaran-kerja-terus-terpental" target="_blank" class="text-blue-600 hover:underline font-medium">Bloomberg Technoz</a>.</p>
-                            <p class="text-sm text-gray-600">B2B partnerships with auto workshops and F4 Indonesia. Competed in Astranauts Competition.</p>
-                        </div>
-                    </div>
-                </div>
+              <p class="rc-tile__value"><span data-count="2" data-suffix="M+">2M+</span><span class="faint" style="font-size:.4em;letter-spacing:-.02em"> km</span></p>
+              <p class="rc-tile__note">Of trips recorded since May 2026.</p>
             </div>
+          </div>
 
-            <!-- What I Did -->
+          <div class="rc-tile" data-reveal style="--d:80">
+            <p class="rc-tile__label"><svg class="i" aria-hidden="true"><use href="#i-map" /></svg>Trips</p>
             <div>
-                <h2 class="text-2xl font-bold mb-6">What I Did</h2>
-                <div class="grid gap-6">
-                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
-                        <div
-                            class="w-10 h-10 bg-blue-100 rounded-full flex-shrink-0 flex items-center justify-center text-blue-600 mt-1">
-                            <i data-lucide="lightbulb" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-1">Product Strategy</h3>
-                            <p class="text-gray-600 leading-relaxed">Conceptualized the original idea for RideCheck,
-                                moving it from a raw concept to a roadmap presented to government officials.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
-                        <div
-                            class="w-10 h-10 bg-indigo-100 rounded-full flex-shrink-0 flex items-center justify-center text-indigo-600 mt-1">
-                            <i data-lucide="code-2" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-1">Core Engineering</h3>
-                            <p class="text-gray-600 leading-relaxed">Co-Engineered the proprietary background tracking
-                                algorithm, optimizing the balance between GPS precision and battery efficiency.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
-                        <div
-                            class="w-10 h-10 bg-purple-100 rounded-full flex-shrink-0 flex items-center justify-center text-purple-600 mt-1">
-                            <i data-lucide="smartphone" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-1">Frontend Development</h3>
-                            <p class="text-gray-600 leading-relaxed">Developed the polished SwiftUI frontend, ensuring
-                                high fidelity to the original designs and smooth animations.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
-                        <div
-                            class="w-10 h-10 bg-pink-100 rounded-full flex-shrink-0 flex items-center justify-center text-pink-600 mt-1">
-                            <i data-lucide="pen-tool" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-1">UX/UI Design</h3>
-                            <p class="text-gray-600 leading-relaxed">Designed key user flows and low-fidelity prototypes
-                                to streamline the vehicle management process.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4 items-start p-4 rounded-xl hover:bg-gray-50 transition-colors">
-                        <div
-                            class="w-10 h-10 bg-green-100 rounded-full flex-shrink-0 flex items-center justify-center text-green-600 mt-1">
-                            <i data-lucide="check-circle-2" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-1">System Validation</h3>
-                            <p class="text-gray-600 leading-relaxed">Validated the system through extensive field
-                                testing, ensuring the app performs flawlessly under real-world driving conditions.</p>
-                        </div>
-                    </div>
-                </div>
+              <p class="rc-tile__value" data-count="209" data-suffix="K+">209K+</p>
+              <p class="rc-tile__note">Rides recorded since May 2026, most of them without a single tap.</p>
             </div>
+          </div>
 
-            <!-- Gallery -->
+          <div class="rc-tile" data-reveal style="--d:160">
+            <p class="rc-tile__label"><svg class="i" aria-hidden="true"><use href="#i-globe" /></svg>Reach</p>
             <div>
-                <h2 class="text-2xl font-bold mb-6">Gallery</h2>
-                <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-                    <!-- RideCheck Screenshots -->
-                    <div
-                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-                        <img src="Assets/RideCheckPics/RideCheckScreenshot1.png" alt="Dashboard & Mileage Tracking"
-                            class="w-full h-auto object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-sm font-medium">App Screenshot </p>
-                        </div>
-                    </div>
-                    <div
-                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-                        <img src="Assets/RideCheckPics/RideCheckScreenshot2.png" alt="Component Health Monitoring"
-                            class="w-full h-auto object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-sm font-medium">App Screenshot</p>
-                        </div>
-                    </div>
-                    <div
-                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-                        <img src="Assets/RideCheckPics/RideCheckScreenshot3.png" alt="Trip Logs & Analytics"
-                            class="w-full h-auto object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-sm font-medium">App Screenshot</p>
-                        </div>
-                    </div>
-                    <div
-                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-                        <img src="Assets/RideCheckPics/RideCheckScreenshot4.png" alt="Vehicle Settings"
-                            class="w-full h-auto object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-sm font-medium">App Screenshot</p>
-                        </div>
-                    </div>
-                    <div
-                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-                        <img src="Assets/RideCheckPics/RideCheckScreenshot5.png" alt="Home Screen Widgets"
-                            class="w-full h-auto object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-sm font-medium">App Screenshot</p>
-                        </div>
-                    </div>
-
-                    <!-- Testing & Prototype -->
-                    <div
-                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-                        <img src="Assets/RideCheckPics/AutoTrackingTesting1.PNG" alt="Auto Tracking Testing"
-                            class="w-full h-auto object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-sm font-medium">Auto Tracking Testing Results</p>
-                        </div>
-                    </div>
-                    <div
-                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-                        <img src="Assets/RideCheckPics/AutoTrackingTesting2.PNG" alt="Auto Tracking Testing Results"
-                            class="w-full h-auto object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-sm font-medium">Auto Tracking Testing</p>
-                        </div>
-                    </div>
-                    <div
-                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-                        <img src="Assets/RideCheckPics/Lo-Fi_Prototype.png" alt="Lo-Fi Prototype"
-                            class="w-full h-auto object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-sm font-medium">Lo-Fi Prototype</p>
-                        </div>
-                    </div>
-
-                    <!-- Team & Events -->
-                    <div
-                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-                        <img src="Assets/RideCheckPics/RideCheckTeamPic.jpeg" alt="The RideCheck Team"
-                            class="w-full h-auto object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-sm font-medium">The RideCheck Team</p>
-                        </div>
-                    </div>
-                    <div
-                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-                        <img src="Assets/RideCheckPics/withKomdigi1.jpeg" alt="Presentation to Komdigi"
-                            class="w-full h-auto object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-sm font-medium">Presentation to Deputy minister of Komdigi</p>
-                        </div>
-                    </div>
-                    <div
-                        class="break-inside-avoid mb-6 group relative bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-                        <img src="Assets/RideCheckPics/withKomdigi2.jpeg" alt="Komdigi Event"
-                            class="w-full h-auto object-cover">
-                        <div
-                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-sm font-medium">Presentation to Deputy minister of Komdigi</p>
-                        </div>
-                    </div>
-                </div>
+              <p class="rc-tile__value" data-count="60" data-suffix="+">60+</p>
+              <p class="rc-tile__note">Countries with active riders. Most of them in Indonesia.</p>
             </div>
+          </div>
 
+          <div class="rc-tile rc-tile--wide" data-reveal>
+            <div class="rc-ranks">
+              <div class="rc-rank">
+                <p class="rc-rank__num"><sup>#</sup>2</p>
+                <p class="rc-rank__text"><b>Top Free</b>Auto &amp; Vehicles, Google Play</p>
+              </div>
+              <div class="rc-rank">
+                <p class="rc-rank__num"><sup>#</sup>3</p>
+                <p class="rc-rank__text"><b>Top Grossing</b>Auto &amp; Vehicles, Google Play</p>
+              </div>
+              <div class="rc-rank">
+                <p class="rc-rank__num"><sup>#</sup>9</p>
+                <p class="rc-rank__text"><b>Utilities</b>App Store, Indonesia</p>
+              </div>
+            </div>
+          </div>
         </div>
+        <p class="rc-footnote" data-reveal>Downloads, vehicles and paying users as of September 2026. Activity figures come from the app’s analytics (Mixpanel): monthly actives are unique users over the last 30 days; trips, distance and new riders are counted from May 2026, when event tracking began.</p>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <div id="app-footer"></div>
+    <!-- ═══ 3D explorer ════════════════════════════════════════════════════ -->
+    <section class="r3d" id="explore" aria-labelledby="explore-title">
+      <div class="container">
+        <header class="section-head section-head--center">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">02</span><span class="eyebrow__rule"></span>Interactive</p>
+          <h2 class="h2" id="explore-title" data-split>Every component, <span class="dim">in your hands.</span></h2>
+          <p class="lead" data-reveal style="--d:150">The same 3D vehicle that ships inside the app. Pick an area, watch it come apart, and tap any part to see what it does and how long it lasts.</p>
+        </header>
 
-    <script src="js/components.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        renderHeader({
-            logoHref: 'index.html',
-            links: [
-                { text: 'Home', href: 'index.html' },
-                { text: 'Work', href: 'index.html#work' },
-                { text: 'Experience', href: 'index.html#experience' },
-                { text: 'Contact', href: 'index.html#contact' }
-            ]
-        });
-        renderFooter();
-    </script>
+        <div data-reveal="scale">
+          <div class="r3d__stage" data-r3d>
+            <div class="r3d__canvas" data-r3d-canvas></div>
+            <div class="r3d__labels" data-r3d-labels></div>
+            <div class="r3d__loading" data-r3d-loading>
+              <span>Loading the vehicle…</span>
+              <span class="r3d__bar"><i data-r3d-bar></i></span>
+            </div>
+            <button class="r3d__gate" type="button" data-r3d-gate hidden><span class="rc-glass"><svg class="i" aria-hidden="true"><use href="#i-hand" /></svg>Tap to explore in 3D</span></button>
+            <button class="r3d__chip r3d__done rc-glass" type="button" data-r3d-done hidden><svg class="i" aria-hidden="true"><use href="#i-x" /></svg>Done</button>
+            <button class="r3d__chip r3d__reset rc-glass" type="button" data-r3d-reset hidden><svg class="i" aria-hidden="true"><use href="#i-rotate" /></svg>Reset view</button>
+            <div class="r3d__paint rc-glass is-hidden" data-r3d-paint role="group" aria-label="Paint colour"></div>
+          </div>
+          <div class="r3d__rail" data-r3d-zones role="group" aria-label="Vehicle areas"></div>
+          <p class="r3d__hint" data-r3d-hint>Drag to orbit · Pick an area</p>
+          <div class="r3d__detail" data-r3d-detail aria-live="polite"></div>
+        </div>
+
+        <div class="r3d-credit" data-reveal>
+          <span><svg class="i" aria-hidden="true"><use href="#i-box" /></svg>The app’s SceneKit model, converted to glTF</span>
+          <span><svg class="i" aria-hidden="true"><use href="#i-code" /></svg>Rendered here with three.js</span>
+          <span><svg class="i" aria-hidden="true"><use href="#i-layers" /></svg>51 parts across 6 assemblies</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Story ══════════════════════════════════════════════════════════ -->
+    <section class="section" id="story">
+      <div class="container">
+        <p class="eyebrow" data-reveal><span class="eyebrow__index">03</span><span class="eyebrow__rule"></span>The problem</p>
+        <h2 class="rc-quote mt-24" data-split>Nobody remembers when they last changed their oil. <span class="dim">So we stopped asking them to.</span></h2>
+
+        <div class="rc-pillars">
+          <article class="card rc-pillar" data-spotlight data-reveal>
+            <p class="rc-pillar__n">The problem</p>
+            <h3>Maintenance lives on stickers and memory.</h3>
+            <p>Most riders track service intervals with a sticker on the windscreen, or not at all. Parts get replaced when they fail — which is the most expensive time to find out.</p>
+          </article>
+          <article class="card rc-pillar" data-spotlight data-reveal style="--d:100">
+            <p class="rc-pillar__n">The insight</p>
+            <h3>Your phone already knows when you ride.</h3>
+            <p>Motion and location sensors can tell driving from walking. If the app measures distance on its own, the odometer — and every part’s wear — can update without anyone typing a number.</p>
+          </article>
+          <article class="card rc-pillar" data-spotlight data-reveal style="--d:200">
+            <p class="rc-pillar__n">The answer</p>
+            <h3>Reminders that arrive before the failure.</h3>
+            <p>Each component counts down by distance and by time. RideCheck warns you while it’s still cheap — then helps you find a workshop, and remembers the service.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Auto-tracking scene ════════════════════════════════════════════ -->
+    <section class="rc-track" id="tracking" data-scene data-track>
+      <div class="rc-track__sticky">
+        <div class="container">
+          <div class="rc-track__grid">
+            <div>
+              <p class="eyebrow"><span class="eyebrow__index">04</span><span class="eyebrow__rule"></span>Engineering</p>
+              <h2 class="h2 mt-24">Trips log themselves.</h2>
+              <p class="lead mt-20">The hard part was never the reminders. It was knowing how far someone rode without asking — and without draining their battery.</p>
+              <ol class="rc-steps">
+                <li class="rc-step" data-track-step>
+                  <span class="rc-step__icon"><svg class="i" aria-hidden="true"><use href="#i-activity" /></svg></span>
+                  <div><h3>Motion wakes the app</h3><p><code>CMMotionActivity</code> flags automotive movement with confidence, so walks never count.</p></div>
+                </li>
+                <li class="rc-step" data-track-step>
+                  <span class="rc-step__icon"><svg class="i" aria-hidden="true"><use href="#i-map-pin" /></svg></span>
+                  <div><h3>Location, only when it matters</h3><p>Significant Location Changes and a geofence at the last stop replace an always-on GPS radio.</p></div>
+                </li>
+                <li class="rc-step" data-track-step>
+                  <span class="rc-step__icon"><svg class="i" aria-hidden="true"><use href="#i-gauge" /></svg></span>
+                  <div><h3>The odometer moves</h3><p>Each trip’s distance lands on the vehicle — on Android, from an Expo background task.</p></div>
+                </li>
+                <li class="rc-step" data-track-step>
+                  <span class="rc-step__icon"><svg class="i" aria-hidden="true"><use href="#i-bell" /></svg></span>
+                  <div><h3>Parts wear, riders hear</h3><p>Every component’s remaining life drops with it, and a reminder goes out before “soon” becomes “now”.</p></div>
+                </li>
+              </ol>
+            </div>
+
+            <div class="rc-instrument" aria-hidden="true">
+              <svg viewBox="0 0 600 540" preserveAspectRatio="xMidYMid slice">
+                <rect class="rc-map-water" x="-20" y="360" width="260" height="240" rx="40" />
+                <rect class="rc-map-block" x="40" y="40" width="130" height="90" rx="10" />
+                <rect class="rc-map-block" x="200" y="40" width="160" height="70" rx="10" />
+                <rect class="rc-map-block" x="390" y="30" width="180" height="120" rx="10" />
+                <rect class="rc-map-block" x="40" y="160" width="100" height="150" rx="10" />
+                <rect class="rc-map-block" x="170" y="140" width="120" height="110" rx="10" />
+                <rect class="rc-map-block" x="320" y="180" width="110" height="90" rx="10" />
+                <rect class="rc-map-block" x="460" y="180" width="120" height="140" rx="10" />
+                <rect class="rc-map-block" x="280" y="300" width="150" height="100" rx="10" />
+                <rect class="rc-map-block" x="460" y="350" width="120" height="140" rx="10" />
+                <path class="rc-map-road" stroke-width="14" d="M-10 145 H620 M-10 330 H620 M185 -10 V560 M445 -10 V560 M305 -10 V560" />
+                <path class="rc-map-road" stroke-width="7" d="M-10 440 C120 420 200 470 300 440 S480 410 620 450 M20 -10 C60 120 30 220 90 330" />
+                <circle class="rc-fence" data-track-fence cx="112" cy="452" r="42" />
+                <path class="rc-route-bg" d="M112 452 C150 440 170 400 185 360 L185 330 L305 330 L305 145 L445 145 C470 145 500 170 520 200 L540 250" />
+                <path class="rc-route" data-track-route d="M112 452 C150 440 170 400 185 360 L185 330 L305 330 L305 145 L445 145 C470 145 500 170 520 200 L540 250" />
+                <circle class="rc-dot-halo" data-track-halo cx="112" cy="452" r="10" />
+                <circle data-track-dot cx="112" cy="452" r="7" fill="#fff" stroke="#4aa3f5" stroke-width="4" />
+              </svg>
+
+              <div class="rc-status">
+                <span class="rc-pill rc-pill--motion" data-track-motion><svg class="i" aria-hidden="true"><use href="#i-activity" /></svg><span data-track-motion-label>Stationary</span></span>
+                <span class="rc-pill rc-pill--notify" data-track-notify><svg class="i" aria-hidden="true"><use href="#i-bell" /></svg>Engine oil: check soon</span>
+              </div>
+
+              <div class="rc-hud">
+                <div class="rc-hud__card">
+                  <p class="rc-hud__k"><svg class="i" aria-hidden="true"><use href="#i-gauge" /></svg>Odometer</p>
+                  <p class="rc-hud__odo"><span data-track-odo>25,600</span><small>km</small></p>
+                </div>
+                <div class="rc-hud__card">
+                  <p class="rc-hud__k"><svg class="i" aria-hidden="true"><use href="#i-wrench" /></svg>Component life</p>
+                  <div class="rc-wear">
+                    <div class="rc-wear__row" data-wear="0.31" data-wear-to="0.16"><span>Engine oil</span><span class="rc-wear__track"><span class="rc-wear__fill"></span></span><span class="rc-wear__pct">31%</span></div>
+                    <div class="rc-wear__row" data-wear="0.72" data-wear-to="0.66"><span>Brake pads</span><span class="rc-wear__track"><span class="rc-wear__fill"></span></span><span class="rc-wear__pct">72%</span></div>
+                    <div class="rc-wear__row" data-wear="0.88" data-wear-to="0.85"><span>Tires</span><span class="rc-wear__track"><span class="rc-wear__fill"></span></span><span class="rc-wear__pct">88%</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="rc-evidence" data-reveal>
+          <div class="phone"><div class="phone__screen"><img src="Assets/web/ridecheck/field-test-route.webp" alt="A test ride in Bali traced on a map by the tracker" width="900" height="1951" loading="lazy" data-lightbox="field" data-caption="Field test: a real ride in Bali, traced by the background tracker."></div></div>
+          <div class="phone"><div class="phone__screen"><img src="Assets/web/ridecheck/field-test-debug.webp" alt="A debug screen with toggles for geofencing, significant location changes, location updates and activity monitoring" width="900" height="1951" loading="lazy" data-lightbox="field" data-caption="The debug build: geofence, SLC, location updates and activity monitoring, each switchable mid-ride."></div></div>
+          <div class="rc-evidence__text">
+            <p class="eyebrow">Proof, not pixels</p>
+            <h3 class="mt-16">Tuned on real roads.</h3>
+            <p>Battery and accuracy pull in opposite directions, so we tuned the tracker on actual rides around Bali with a debug build that could switch geofencing, significant-location changes, continuous updates and activity monitoring on and off mid-ride — then kept the combination that stayed accurate without keeping GPS awake.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Feature tour ═══════════════════════════════════════════════════ -->
+    <section class="section" id="features">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">05</span><span class="eyebrow__rule"></span>The app</p>
+          <h2 class="h2" data-split>Built to be opened <span class="dim">a lot less.</span></h2>
+          <p class="lead" data-reveal style="--d:150">The best maintenance app is the one you forget about until it matters. Everything here is designed to be read in a glance.</p>
+        </header>
+
+        <div class="rc-tour" data-tour>
+          <div class="rc-tour__device" aria-hidden="true">
+            <div class="rc-tour__glow"></div>
+            <div class="rc-tour__screens">
+              <img class="is-active" src="Assets/web/ridecheck/ss-bike-dashboard.webp" alt="" width="1000" height="2071" loading="lazy">
+              <img src="Assets/web/ridecheck/ss-component-detail.webp" alt="" width="1000" height="2071" loading="lazy">
+              <img src="Assets/web/ridecheck/ss-bike-alert.webp" alt="" width="1000" height="2071" loading="lazy">
+              <img src="Assets/web/ridecheck/ss-history.webp" alt="" width="1000" height="2071" loading="lazy">
+              <img src="Assets/web/ridecheck/widget-dark.webp" alt="" width="1000" height="2071" loading="lazy">
+              <img src="Assets/web/ridecheck/ss-settings.webp" alt="" width="1000" height="2071" loading="lazy">
+            </div>
+          </div>
+
+          <div class="rc-tour__steps">
+            <article class="rc-tour__step is-active" data-tour-step>
+              <span class="rc-step__icon"><svg class="i" aria-hidden="true"><use href="#i-gauge" /></svg></span>
+              <h3>Your vehicle, at a glance.</h3>
+              <p>A 3D model of your actual bike or car, its live odometer, and one line that tells you whether anything needs you today.</p>
+              <img class="rc-tour__inline" src="Assets/web/ridecheck/ss-bike-dashboard.webp" alt="The RideCheck dashboard for a Honda Scoopy with a 3D model and all components on track" width="1000" height="2071" loading="lazy">
+            </article>
+            <article class="rc-tour__step" data-tour-step>
+              <span class="rc-step__icon"><svg class="i" aria-hidden="true"><use href="#i-clock" /></svg></span>
+              <h3>Two clocks per part.</h3>
+              <p>Every component tracks kilometres used and calendar time, and shows whichever runs out first — so a bike that sits in the garage still gets its oil changed.</p>
+              <img class="rc-tour__inline" src="Assets/web/ridecheck/ss-component-detail.webp" alt="Engine oil detail showing 41% of its distance left and its time limit" width="1000" height="2071" loading="lazy">
+            </article>
+            <article class="rc-tour__step" data-tour-step>
+              <span class="rc-step__icon"><svg class="i" aria-hidden="true"><use href="#i-bell" /></svg></span>
+              <h3>Warned before it fails.</h3>
+              <p>Parts move from On Track to Check Soon to Need Replace — and the 3D vehicle glows exactly where the problem lives.</p>
+              <img class="rc-tour__inline" src="Assets/web/ridecheck/ss-bike-alert.webp" alt="A Vario 160 with its brake pad and drive chain flagged Need Replace" width="1000" height="2071" loading="lazy">
+            </article>
+            <article class="rc-tour__step" data-tour-step>
+              <span class="rc-step__icon"><svg class="i" aria-hidden="true"><use href="#i-qr" /></svg></span>
+              <h3>A history workshops can write to.</h3>
+              <p>Every service lands in one timeline. Partner workshops scan the rider’s QR code and stamp the service straight into it.</p>
+              <img class="rc-tour__inline" src="Assets/web/ridecheck/ss-history.webp" alt="A service history with entries stamped by a RideCheck partner workshop" width="1000" height="2071" loading="lazy">
+            </article>
+            <article class="rc-tour__step" data-tour-step>
+              <span class="rc-step__icon"><svg class="i" aria-hidden="true"><use href="#i-grid" /></svg></span>
+              <h3>One glance from the Home Screen.</h3>
+              <p>WidgetKit widgets and Live Activities keep the next service in view without opening the app at all.</p>
+              <img class="rc-tour__inline" src="Assets/web/ridecheck/widget-dark.webp" alt="A RideCheck widget on the Home Screen warning that engine oil needs planning" width="1000" height="2071" loading="lazy">
+            </article>
+            <article class="rc-tour__step" data-tour-step>
+              <span class="rc-step__icon"><svg class="i" aria-hidden="true"><use href="#i-sliders" /></svg></span>
+              <h3>Tracking that stays out of the way.</h3>
+              <p>Auto-Track, Auto-Stop and reminders are on from the first ride — and every one of them can be switched off.</p>
+              <img class="rc-tour__inline" src="Assets/web/ridecheck/ss-settings.webp" alt="Garage settings with Auto-Track, Auto-Stop and reminder switches" width="1000" height="2071" loading="lazy">
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Share ══════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <div class="rc-share">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">06</span><span class="eyebrow__rule"></span>Trips</p>
+            <h2 class="h2 mt-24" data-split>Rides worth <span class="dim">showing off.</span></h2>
+            <p class="lead mt-20" data-reveal>Every trip becomes a card built for Stories — distance, time and average speed over a photo from the ride. Riders have shared <strong>3,800+</strong> of them since May.</p>
+          </div>
+          <div class="rc-fan" data-reveal="scale">
+            <div class="rc-fan__card" style="--r:-12; --x:-96"><img src="Assets/web/ridecheck/share-dash.webp" alt="A trip card over a dashboard photo" width="720" height="1080" loading="lazy" data-lightbox="share"></div>
+            <div class="rc-fan__card" style="--r:-4; --x:-34"><img src="Assets/web/ridecheck/share-mirror.webp" alt="A trip card over a wing-mirror photo" width="720" height="1080" loading="lazy" data-lightbox="share"></div>
+            <div class="rc-fan__card" style="--r:4; --x:34"><img src="Assets/web/ridecheck/share-night.webp" alt="A trip card over a night photo" width="720" height="1080" loading="lazy" data-lightbox="share"></div>
+            <div class="rc-fan__card" style="--r:12; --x:96"><img src="Assets/web/ridecheck/share-taillight.webp" alt="A trip card over a tail-light photo" width="720" height="1080" loading="lazy" data-lightbox="share"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Platforms ══════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="stack">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">07</span><span class="eyebrow__rule"></span>Architecture</p>
+          <h2 class="h2" data-split>One product. <span class="dim">Three platforms.</span></h2>
+          <p class="lead" data-reveal style="--d:150">RideCheck started as a SwiftUI app. At the Apple Developer Institute I led the rebuild for Android and helped build the web portal our partner workshops use — one product, one data model, the same behaviour everywhere.</p>
+        </header>
+
+        <div class="rc-platforms">
+          <article class="card rc-platform" data-spotlight data-reveal>
+            <div class="rc-platform__head"><span class="rc-platform__icon"><svg class="i" aria-hidden="true"><use href="#i-apple" /></svg></span></div>
+            <h3>iOS</h3>
+            <p class="rc-platform__lang">Swift · SwiftUI</p>
+            <p>The original. Background trip detection, a SceneKit vehicle, widgets and Live Activities, and StoreKit subscriptions.</p>
+            <ul><li>SwiftData</li><li>CoreLocation</li><li>CoreMotion</li><li>MapKit</li><li>WidgetKit</li><li>ActivityKit</li><li>SceneKit</li><li>StoreKit</li><li>Firebase</li></ul>
+          </article>
+          <article class="card rc-platform" data-spotlight data-reveal style="--d:100">
+            <div class="rc-platform__head"><span class="rc-platform__icon"><svg class="i" aria-hidden="true"><use href="#i-play-store" /></svg></span><span class="rc-led">Led by me</span></div>
+            <h3>Android</h3>
+            <p class="rc-platform__lang">TypeScript · React Native</p>
+            <p>A ground-up migration with feature parity: background location tasks, a local SQLite store, native widgets and in-app purchases.</p>
+            <ul><li>Expo Router</li><li>expo-location</li><li>TaskManager</li><li>SQLite</li><li>Drizzle ORM</li><li>expo-iap</li><li>Android widgets</li><li>Firebase</li></ul>
+          </article>
+          <article class="card rc-platform" data-spotlight data-reveal style="--d:200">
+            <div class="rc-platform__head"><span class="rc-platform__icon"><svg class="i" aria-hidden="true"><use href="#i-globe" /></svg></span></div>
+            <h3>Web</h3>
+            <p class="rc-platform__lang">TypeScript · Next.js</p>
+            <p>A portal where partner workshops scan a rider’s QR code and record the service — plus ridecheck.id and its 3D explorer.</p>
+            <ul><li>Next.js</li><li>React</li><li>Firebase</li><li>Leaflet</li><li>QR hand-off</li><li>Three.js</li><li>Tailwind</li></ul>
+          </article>
+        </div>
+
+        <div class="rc-commits" data-reveal>
+          <div><b data-count="215">215</b><span>of my commits in the iOS app</span></div>
+          <div><b data-count="174">174</b><span>in the Android app</span></div>
+          <div><b data-count="38">38</b><span>across the website and portals</span></div>
+          <div><b data-count="5">5</b><span>codebases, one product</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ My role ════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="role">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">08</span><span class="eyebrow__rule"></span>My role</p>
+            <h2 class="h2 mt-24" data-split>What I owned.</h2>
+          </div>
+          <p class="lead" data-reveal>Four people built RideCheck. I’m its Head of Product and its front-end engineer, which in a team of four means a lot more than either title.</p>
+        </header>
+
+        <ol class="roles" data-stagger>
+          <li class="role"><span class="role__n">01</span><h3>Head of Product</h3><p>Conceptualised RideCheck, shaped it from an Academy challenge into the roadmap we presented to Indonesia’s Deputy Minister of Communication and Digital Affairs, and still set the direction: what we build next, and why.</p></li>
+          <li class="role"><span class="role__n">02</span><h3>Auto-tracking</h3><p>Co-engineered the background tracker on CoreLocation, CoreMotion and MapKit — trading GPS precision against battery until both were good enough to forget about.</p></li>
+          <li class="role"><span class="role__n">03</span><h3>The iOS front end</h3><p>Built the SwiftUI app with adaptive layouts that run on older iOS versions as well as the newest, and the animations that make it feel alive.</p></li>
+          <li class="role"><span class="role__n">04</span><h3>Android, from scratch</h3><p>Led the migration to React Native and Expo — background tracking, local storage, widgets and purchases — to reach riders on the platform most of Indonesia uses.</p></li>
+          <li class="role"><span class="role__n">05</span><h3>Web &amp; workshops</h3><p>Helped build the partner-workshop portal, where mechanics scan a rider’s QR code to log a service, and the ridecheck.id website.</p></li>
+          <li class="role"><span class="role__n">06</span><h3>Design &amp; validation</h3><p>Drew the early user flows and lo-fi prototypes, then validated the product on real rides and in interviews with riders.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ═══ Journey ════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="journey">
+      <div class="container">
+        <div class="split" style="align-items:start">
+          <header class="rc-journey-head">
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">09</span><span class="eyebrow__rule"></span>Journey</p>
+            <h2 class="h2 mt-24" data-split>Built step <span class="dim">by step.</span></h2>
+            <p class="lead mt-20" data-reveal>From Academy challenge to Apple Developer Institute, with most of the growth earned in public — through short videos on TikTok and Instagram.</p>
+          </header>
+
+          <div class="rc-journey" data-journey>
+            <div class="rc-journey__line" aria-hidden="true"><i></i></div>
+            <div class="rc-mile" data-reveal><p class="rc-mile__when">Feb 2025</p><div><h3>Apple Developer Academy, Bali</h3><p>Four of us meet in the same cohort. RideCheck starts as a challenge project about forgotten service intervals.</p></div></div>
+            <div class="rc-mile" data-reveal><p class="rc-mile__when">Jul 2025</p><div><h3>Growth through video</h3><p>We start posting short videos — oil changes, bikes, and building the app in public. Views turn into downloads.</p></div></div>
+            <div class="rc-mile" data-reveal><p class="rc-mile__when">Dec 2025</p><div><h3>3,200 organic downloads</h3><p>A 29% conversion from impressions, a five-star rating, and a roadmap presented to the Deputy Minister of Komdigi.</p></div></div>
+            <div class="rc-mile" data-reveal><p class="rc-mile__when">Mar 2026</p><div><h3>Apple Developer Institute</h3><p>RideCheck is selected for the Institute for Entrepreneurship. The Android rebuild begins.</p></div></div>
+            <div class="rc-mile" data-reveal><p class="rc-mile__when">Jun 2026</p><div><h3>Android, and the press</h3><p>RideCheck lands on Google Play and is featured in Bloomberg Technoz.</p></div></div>
+            <div class="rc-mile" data-reveal><p class="rc-mile__when">Aug 2026</p><div><h3>35,600 new riders in a month</h3><p>The biggest month yet. Monthly actives peak above 50,000.</p></div></div>
+            <div class="rc-mile" data-reveal><p class="rc-mile__when">Sep 2026</p><div><h3>160,000 downloads</h3><p>63,000 vehicles, 2,300 paying users, and partner workshops writing service records into the app.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Beyond the code ════════════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="recognition">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">10</span><span class="eyebrow__rule"></span>Beyond the code</p>
+          <h2 class="h2" data-split>Pitched, featured, <span class="dim">and shared.</span></h2>
+        </header>
+
+        <div class="rc-beyond">
+          <a class="card card--link rc-press rc-beyond__press" href="https://www.bloombergtechnoz.com/businessweek/062026/249/cerdik-membabat-jalan-kala-lamaran-kerja-terus-terpental" target="_blank" rel="noopener" data-spotlight data-reveal>
+            <p class="rc-press__source"><span class="rc-press__logo">Bloomberg Technoz</span>Businessweek · June 2026</p>
+            <blockquote>RideCheck’s story, told in <span>Bloomberg Technoz’s</span> Businessweek edition.</blockquote>
+            <div class="rc-press__foot">
+              <span class="chip">Press</span><span class="chip">Astranauts pitch</span><span class="chip">Formula 4 Indonesia talks</span><span class="chip">Workshop partners</span>
+              <span class="arrow-link" style="margin-left:auto">Read the article <svg class="i i--up-right" aria-hidden="true"><use href="#i-arrow-up-right" /></svg></span>
+            </div>
+          </a>
+
+          <figure class="card rc-photo rc-beyond__komdigi" data-reveal style="--d:100">
+            <img src="Assets/web/ridecheck/komdigi-1.webp" alt="The RideCheck team presenting to Indonesia's Deputy Minister of Communication and Digital Affairs" width="1800" height="1350" loading="lazy" data-lightbox="people" data-caption="Presenting RideCheck’s roadmap to the Deputy Minister of Komdigi.">
+            <figcaption class="rc-photo__cap rc-glass"><b>Presented to the Deputy Minister of Komdigi</b><span>The roadmap and the technical architecture, at the Academy.</span></figcaption>
+          </figure>
+
+          <div class="card rc-reach rc-beyond__reach" data-reveal>
+            <div class="rc-reach__text">
+              <p class="eyebrow">Reach · TikTok &amp; Instagram</p>
+              <h3 class="h4 mt-16">Grown one short video at a time — oil changes, bikes, and the build.</h3>
+              <div class="rc-reach__stats">
+                <div><b data-count="30" data-suffix="M+">30M+</b><span>video views on TikTok &amp; Instagram</span></div>
+                <div><b data-count="2" data-suffix="M+">2M+</b><span>likes, comments and shares</span></div>
+                <div><b data-count="200" data-suffix="K+">200K+</b><span>profile visits</span></div>
+              </div>
+            </div>
+            <div class="rc-reach__img"><img src="Assets/web/ridecheck/tracktion.webp" alt="A grid of RideCheck videos with view counts from 66K to 1M" width="1024" height="688" loading="lazy" data-lightbox="people" data-caption="Some of the videos that grew RideCheck — one passed a million views."></div>
+          </div>
+
+          <figure class="card rc-team-card rc-beyond__team" data-reveal style="--d:100">
+            <h3>The team</h3>
+            <p>Dhafin on product, Fazry on design, Tio on the back end, and me on the front end.</p>
+            <img src="Assets/web/ridecheck/academy-team.webp" alt="The RideCheck team at the Apple Developer Academy" width="1800" height="1350" loading="lazy" data-lightbox="people" data-caption="The RideCheck team at the Apple Developer Academy.">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA ════════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <div class="rc-cta" data-reveal="scale">
+          <div>
+            <h2>Try it on your own ride. <span>It’s free to start.</span></h2>
+            <div class="btn-row">
+              <a class="store-btn" href="https://apps.apple.com/id/app/ridecheck/id6748782930" target="_blank" rel="noopener">
+                <svg class="i" aria-hidden="true"><use href="#i-apple" /></svg>
+                <span><small>Download on the</small><b>App Store</b></span>
+              </a>
+              <a class="store-btn store-btn--dark" href="https://play.google.com/store/apps/details?id=com.ridecheck.android" target="_blank" rel="noopener">
+                <svg class="i" aria-hidden="true"><use href="#i-play-store" /></svg>
+                <span><small>Get it on</small><b>Google Play</b></span>
+              </a>
+            </div>
+          </div>
+          <div class="rc-qr">
+            <img src="Assets/web/ridecheck/qr.png" alt="QR code to download RideCheck" width="474" height="474" loading="lazy">
+            Scan to download
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <site-footer next="swisekai"></site-footer>
+
+  <script src="js/main.js" defer></script>
+  <script type="module" src="js/pages/ridecheck.js"></script>
 </body>
 
 </html>
