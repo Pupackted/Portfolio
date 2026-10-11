@@ -1,0 +1,479 @@
+/* ==========================================================================
+   A place to rant
+   Warm near-black paper and amber ink, taken from the app itself.
+   ========================================================================== */
+
+.theme-rant {
+  --accent: #d8a566;
+  --accent-2: #ecc493;
+  --rant-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --rant-good: #84ad8c;
+  --rant-mid: #d8a566;
+  --rant-bad: #c8776c;
+}
+
+.rant-serif {
+  font-family: var(--rant-serif);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* ── Hero ────────────────────────────────────────────────────────────────── */
+
+.rant-hero .browser {
+  box-shadow:
+    0 50px 120px -40px rgba(0, 0, 0, 0.9),
+    0 0 120px -30px rgba(216, 165, 102, 0.28);
+}
+
+.rant-chip {
+  position: absolute;
+  left: 50%;
+  bottom: -18px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  white-space: nowrap;
+  color: var(--accent-2);
+  background: rgba(19, 18, 16, 0.86);
+  border: 1px solid rgba(216, 165, 102, 0.32);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 14px 40px -12px rgba(0, 0, 0, 0.7);
+}
+
+/* ── The hand-off ────────────────────────────────────────────────────────── */
+
+.rant-flow {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  counter-reset: none;
+}
+
+.rant-flow__step {
+  position: relative;
+  padding: 22px 20px 24px;
+  border-radius: var(--r-m);
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+/* A hairline joins each step to the next. */
+.rant-flow__step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 42px;
+  right: -13px;
+  width: 14px;
+  height: 1px;
+  background: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+.rant-flow__step--out {
+  border-style: dashed;
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  background: color-mix(in srgb, var(--accent) 6%, var(--surface));
+}
+
+.rant-flow__n {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-4);
+}
+
+.rant-flow__icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 13%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 24%, transparent);
+}
+
+.rant-flow__icon .i {
+  font-size: 18px;
+}
+
+.rant-flow__step h3 {
+  margin-top: 18px;
+  font-size: 16.5px;
+  letter-spacing: -0.02em;
+}
+
+.rant-flow__step p {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--fg-2);
+}
+
+@media (max-width: 1060px) {
+  .rant-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rant-flow__step:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .rant-flow__step::after {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .rant-flow {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.rant-why {
+  display: grid;
+  gap: 20px;
+  margin-top: 26px;
+}
+
+.rant-why li {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 14px;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--fg-2);
+}
+
+.rant-why li .i {
+  margin-top: 4px;
+  font-size: 18px;
+  color: var(--accent);
+}
+
+.rant-why strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+/* ── Demo ────────────────────────────────────────────────────────────────── */
+
+.rant-demo {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.rant-demo__in,
+.rant-demo__out {
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+}
+
+.rant-demo__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.rant-demo__label {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+.rant-demo__samples {
+  display: flex;
+  gap: 6px;
+}
+
+.rant-demo__samples button {
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--fg-2);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  transition: color 0.25s, background-color 0.25s, border-color 0.25s;
+}
+
+.rant-demo__samples button:hover {
+  color: var(--fg);
+}
+
+.rant-demo__samples button[aria-pressed="true"] {
+  color: var(--accent-2);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+.rant-demo__text {
+  flex: 1;
+  min-height: 300px;
+  margin-top: 16px;
+  padding: 16px 18px;
+  resize: vertical;
+  border-radius: 12px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: #e3ddd2;
+  background: #111010;
+  border: 1px solid var(--line);
+  outline: none;
+  transition: border-color 0.25s;
+}
+
+.rant-demo__text:focus {
+  border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+.rant-demo__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.theme-rant .btn--accent {
+  color: #191512;
+  background: var(--accent);
+}
+
+.theme-rant .btn--accent:hover {
+  background: var(--accent-2);
+}
+
+.rant-demo__result {
+  flex: 1;
+  margin-top: 16px;
+}
+
+/* The steps the parser took, ticked off one by one. */
+.rant-log {
+  display: grid;
+  gap: 8px;
+}
+
+.rant-log li {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--fg-2);
+  animation: rant-in 0.5s var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+
+.rant-log li .i {
+  margin-top: 3px;
+  color: var(--rant-good);
+}
+
+.rant-log li.is-fix .i {
+  color: var(--accent);
+}
+
+.rant-log li.is-bad .i {
+  color: var(--rant-bad);
+}
+
+@keyframes rant-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+/* A small, honest rendering of the parsed chapter. */
+.rant-mini {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 14px;
+  background: #171614;
+  border: 1px solid #2c2925;
+  color: #ece8e1;
+  animation: rant-in 0.6s var(--ease-out) 0.3s both;
+}
+
+.rant-mini__kicker {
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9c968c;
+}
+
+.rant-mini__title {
+  margin-top: 6px;
+  font-family: var(--rant-serif);
+  font-size: 26px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.rant-mini__headline {
+  margin-top: 8px;
+  font-family: var(--rant-serif);
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.45;
+  color: #c8c2b8;
+}
+
+.rant-mini__row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.rant-ring {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+}
+
+.rant-ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.rant-ring b {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.rant-mini__themes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.rant-mini__themes span {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: #c8c2b8;
+  border: 1px solid #2c2925;
+}
+
+.rant-mini__themes i {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 6px;
+  border-radius: 50%;
+  vertical-align: 1px;
+}
+
+.rant-error {
+  padding: 16px 18px;
+  border-radius: 12px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #f1d5d0;
+  background: rgba(200, 119, 108, 0.1);
+  border: 1px solid rgba(200, 119, 108, 0.3);
+}
+
+.rant-repair {
+  margin-top: 16px;
+}
+
+.rant-repair p {
+  font-size: 13.5px;
+  color: var(--fg-3);
+}
+
+.rant-repair pre {
+  margin-top: 8px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  white-space: pre-wrap;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  color: #d6d0c4;
+  background: #111010;
+  border: 1px solid var(--line);
+}
+
+@media (max-width: 900px) {
+  .rant-demo {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ── Chapter screenshots ─────────────────────────────────────────────────── */
+
+.rant-shots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.rant-shot {
+  border-radius: var(--r-m);
+  overflow: hidden;
+  background: #111010;
+  border: 1px solid var(--line);
+}
+
+.rant-shot--wide {
+  grid-column: 1 / -1;
+}
+
+.rant-shot img {
+  width: 100%;
+  cursor: zoom-in;
+  transition: transform 1.2s var(--ease-out);
+}
+
+.rant-shot:hover img {
+  transform: scale(1.015);
+}
+
+.rant-shot figcaption {
+  padding: 14px 18px 16px;
+  font-size: 14px;
+  color: var(--fg-2);
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 760px) {
+  .rant-shots {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rant-log li,
+  .rant-mini {
+    animation: none;
+  }
+}

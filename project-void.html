@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Void — Case study · Adrian Rachman</title>
+  <meta name="description" content="Void: my own new tab page for Brave. A clock with something to say, search with bangs, my links and a dock of small tools, over a slow aurora and a particle field that follows the cursor. No build step, no dependencies, no accounts. A case study by Adrian Rachman.">
+  <meta name="theme-color" content="#131418">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Void — Case study · Adrian Rachman">
+  <meta property="og:description" content="The new tab page I actually wanted: aurora, particles with depth, a clock with something to say, and every shortcut I use. Two files and a manifest.">
+  <meta property="og:image" content="https://portfolio-adrian-rachman.vercel.app/Assets/web/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="Assets/web/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/workshop.css">
+  <link rel="stylesheet" href="css/pages/void.css">
+  <script src="js/site.js"></script>
+  <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
+</head>
+
+<body class="ws theme-void">
+  <site-header current="work"></site-header>
+
+  <main id="main">
+
+    <!-- ═══ Hero ═══════════════════════════════════════════════════════════ -->
+    <section class="ws-hero">
+      <div class="container">
+        <a class="back-link" href="index.html#lab"><svg class="i" aria-hidden="true"><use href="#i-arrow-left" /></svg>The workshop</a>
+
+        <div class="ws-hero__grid">
+          <div>
+            <span class="ws-status" data-reveal><i aria-hidden="true"></i>My Brave new tab</span>
+            <h1 class="h1" style="view-transition-name: void-title">Void</h1>
+            <p class="ws-promise" data-reveal style="--d:160">The new tab page I actually wanted.</p>
+            <p class="lead" data-reveal style="--d:260">A custom new tab page for Brave: a clock with something to say, search with bangs, the links I use and a small dock of tools — over a slow aurora and a field of particles that drifts on its own and reacts to the cursor. Settings, notes and tasks stay in the browser. No accounts, no tracking.</p>
+            <div class="btn-row mt-32" data-reveal style="--d:360">
+              <a class="btn btn--primary" href="#field" data-magnetic="0.2">Play with the particles <svg class="i i--arrow-down" aria-hidden="true"><use href="#i-arrow-down" /></svg></a>
+            </div>
+          </div>
+
+          <div class="ws-visual void-hero" data-reveal="scale" style="--d:200">
+            <figure class="browser">
+              <div class="browser__bar"><div class="browser__dots"><span></span><span></span><span></span></div><div class="browser__url void-url" aria-hidden="true"><i class="void-url__caret"></i></div><span></span></div>
+              <img src="Assets/web/void/home.webp" alt="Void at 21:47: a large thin clock with the date and a ‘Standing by’ greeting, a search bar with a shell prompt, a row of letter-tile links, and a two-column dock of browser shortcuts, a picture, progress bars, notes, tasks and a focus timer, over a dark blue starfield" width="2000" height="1163" fetchpriority="high">
+            </figure>
+            <span class="void-chip"><svg class="i" aria-hidden="true"><use href="#i-shield" /></svg>Manifest V3 · no permissions</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <dl class="meta-row" data-stagger>
+        <div><dt>Role</dt><dd>Design &amp; development, solo</dd></div>
+        <div><dt>Built for</dt><dd>Me, and my browser</dd></div>
+        <div><dt>Built</dt><dd>August–September 2026</dd></div>
+        <div><dt>Stack</dt><dd>HTML · CSS · JS, no dependencies</dd></div>
+      </dl>
+    </div>
+
+    <!-- ═══ Why ════════════════════════════════════════════════════════════ -->
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow" data-reveal><span class="eyebrow__index">01</span><span class="eyebrow__rule"></span>Why it exists</p>
+        <h2 class="pullquote mt-24" data-split>It’s a nice-to-have, honestly. <span>But I see it every time I open a tab.</span></h2>
+
+        <div class="ws-story">
+          <div data-reveal>
+            <p>Void is my own homepage for Brave. It doesn’t solve a big problem. I wanted nice backgrounds, some effects and particles, and my shortcuts one keystroke away — on the page every new tab opens to. It makes browsing a little better.</p>
+            <p>The first version was a single <strong>4,274-line HTML file</strong>. The same day, I moved the script into its own file and added a manifest, so Brave loads it as an extension and the new tab opens with an empty address bar, ready to type into.</p>
+          </div>
+          <div data-reveal style="--d:120">
+            <p>I’m a developer, so it leans that way. <strong>Developer style</strong> is on by default: monospace chrome, a <span class="ws-c">❯</span> prompt in the search bar, an ISO date if you want one, and greetings like “Working directory clean”.</p>
+            <p>One later change: the small hours got their own voice. At 2 am a joke about caffeine isn’t what lands, so between midnight and four the greeting gets quieter — “It’s late, not final.” “Rest counts as progress.”</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ The particle field ═════════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="field">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">02</span><span class="eyebrow__rule"></span>The particle field</p>
+            <h2 class="h2 mt-24" data-split>Move the cursor. <span class="dim">The field leans with it.</span></h2>
+          </div>
+          <p class="lead" data-reveal style="--d:150">Every particle gets a depth, <span class="ws-c">z</span>, between 0.2 and 1. It sets the size, the brightness and how far that particle shifts as the cursor moves — near ones more, far ones less. That one number is all the 3D there is: plain Canvas 2D, no WebGL.</p>
+        </header>
+
+        <div class="void-demo" data-void-demo data-reveal="scale">
+          <div class="void-stage" data-stage>
+            <p class="sr-only">A live particle field drawn on a canvas, with Void’s clock, date and greeting on top. Use the controls below to change it.</p>
+            <div class="void-stage__aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+            <canvas class="void-stage__canvas" aria-hidden="true"></canvas>
+            <div class="void-stage__grain" aria-hidden="true"></div>
+            <div class="void-stage__vignette" aria-hidden="true"></div>
+            <div class="void-stage__hero">
+              <p class="void-clock" aria-hidden="true"><span data-hm>--:--</span><span class="void-clock__sec" data-sec></span></p>
+              <p class="void-date" data-date></p>
+              <button class="void-greet" type="button" data-greet title="Another greeting"><span class="sr-only">Greeting: </span><span data-greet-text></span></button>
+            </div>
+            <span class="void-stage__hint" aria-hidden="true"><span class="void-hint--mouse">Move your cursor over it</span><span class="void-hint--touch">Touch and drag across it</span></span>
+          </div>
+
+          <div class="void-controls">
+            <div class="void-controls__top">
+              <div class="void-ctl">
+                <span class="void-ctl__label" id="void-mode-label">Field</span>
+                <div class="void-modes" role="group" aria-labelledby="void-mode-label">
+                  <button type="button" data-mode="stars" aria-pressed="true">Starfield</button>
+                  <button type="button" data-mode="constellation" aria-pressed="false">Constellation</button>
+                  <button type="button" data-mode="fireflies" aria-pressed="false">Fireflies</button>
+                  <button type="button" data-mode="orbit" aria-pressed="false">Swarm</button>
+                </div>
+              </div>
+              <div class="void-controls__status">
+                <p class="void-readout" data-readout>—</p>
+                <button class="void-pause" type="button" data-pause aria-pressed="false"><svg class="i void-pause__pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 5v14M15.5 5v14" /></svg><svg class="i void-pause__play" aria-hidden="true"><use href="#i-play" /></svg><span class="void-pause__label">Pause</span></button>
+              </div>
+            </div>
+
+            <div class="void-controls__bottom">
+              <div class="void-ctl">
+                <span class="void-ctl__label" id="void-theme-label">Theme</span>
+                <div class="void-themes" role="group" aria-labelledby="void-theme-label">
+                  <button type="button" class="void-tc" data-theme="ink" aria-pressed="true"><i></i><b>Ink</b></button>
+                  <button type="button" class="void-tc" data-theme="tokyo" aria-pressed="false"><i></i><b>Tokyo Night</b></button>
+                  <button type="button" class="void-tc" data-theme="deepsea" aria-pressed="false"><i></i><b>Deep sea</b></button>
+                  <button type="button" class="void-tc" data-theme="ember" aria-pressed="false"><i></i><b>Ember</b></button>
+                  <button type="button" class="void-tc" data-theme="terminal" aria-pressed="false"><i></i><b>Terminal</b></button>
+                  <button type="button" class="void-tc" data-theme="nebula" aria-pressed="false"><i></i><b>Nebula</b></button>
+                </div>
+              </div>
+              <div class="void-ranges">
+                <div class="void-range"><label class="void-ctl__label" for="void-density">Density</label><output for="void-density" aria-hidden="true" data-out="density">150</output><input id="void-density" type="range" min="5" max="300" step="5" value="150" data-knob="density"></div>
+                <div class="void-range"><label class="void-ctl__label" for="void-speed">Speed</label><output for="void-speed" aria-hidden="true" data-out="speed">100%</output><input id="void-speed" type="range" min="0" max="300" step="5" value="100" data-knob="speed"></div>
+                <div class="void-range"><label class="void-ctl__label" for="void-pull">Cursor pull</label><output for="void-pull" aria-hidden="true" data-out="parallax">100%</output><input id="void-pull" type="range" min="0" max="300" step="5" value="100" data-knob="parallax"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="ws-note" data-reveal>Ported from <span class="ws-c">void.js</span>: the same draw routines and knobs, with the browser window swapped for this box. The real page has 15 modes. When your cursor isn’t over the field, an invisible one drifts in a slow loop so there’s something to follow. The clock and greeting lines are the real ones; this greeting just doesn’t know about your weather, tasks or visits.</p>
+      </div>
+    </section>
+
+    <!-- ═══ Screenshots ════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">03</span><span class="eyebrow__rule"></span>In the browser</p>
+            <h2 class="h2 mt-24" data-split>Eighteen themes. <span class="dim">One click each.</span></h2>
+          </div>
+          <p class="lead" data-reveal>A theme sets the background, accent, aurora, particle mode, grain and vignette together. It can also follow the clock, with its own pick for dawn, day, dusk and night.</p>
+        </header>
+
+        <div class="void-shots">
+          <figure class="void-shot" data-reveal>
+            <img src="Assets/web/void/terminal.webp" alt="The Terminal theme: green accent, a constellation of linked points, and the Segment clock face reading 23:08 with faint unlit eights behind the digits" width="2000" height="1163" loading="lazy" data-lightbox="void" data-caption="Terminal, with the Segment face: the unlit 88:88 sits behind the digits.">
+            <figcaption>Terminal, with the Segment face and its unlit 88:88.</figcaption>
+          </figure>
+          <figure class="void-shot" data-reveal style="--d:100">
+            <img src="Assets/web/void/ember.webp" alt="The Ember theme: a warm brown-black background with glowing orange fireflies, a serif clock reading 19:12 and the greeting ‘Good evening’" width="2000" height="1163" loading="lazy" data-lightbox="void" data-caption="Ember: fireflies, film grain and the Serif face.">
+            <figcaption>Ember: fireflies, film grain and the Serif face.</figcaption>
+          </figure>
+          <figure class="void-shot" data-reveal>
+            <img src="Assets/web/void/themes.webp" alt="The settings drawer on the Look tab: eighteen theme cards in a three-column grid with Nebula selected, then a ‘Follow the time of day’ switch with a theme chosen for dawn, day, dusk and night" width="2000" height="1163" loading="lazy" data-lightbox="void" data-caption="Settings → Look: eighteen themes, and one for each part of the day.">
+            <figcaption>Settings: eighteen themes, and one for each part of the day.</figcaption>
+          </figure>
+          <figure class="void-shot" data-reveal style="--d:100">
+            <img src="Assets/web/void/palette.webp" alt="The command palette with the letter n typed: Notion, Linear and Calendar links mixed with commands like ‘New greeting’, ‘Copy Extensions’ and ‘Add a link’" width="2000" height="1163" loading="lazy" data-lightbox="void" data-caption="⌘K: one fuzzy search over every link and command.">
+            <figcaption><kbd>⌘</kbd> <kbd>K</kbd>: one fuzzy search over links and commands.</figcaption>
+          </figure>
+        </div>
+        <p class="ws-note" data-reveal>Real screenshots of the app, filled with demo data: invented links, notes and tasks, and a staged time of day.</p>
+      </div>
+    </section>
+
+    <!-- ═══ Features ═══════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">04</span><span class="eyebrow__rule"></span>What it does</p>
+          <h2 class="h2" data-split>Small things, <span class="dim">a keystroke away.</span></h2>
+        </header>
+        <div class="feature-grid" data-stagger>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-clock" /></svg></span><h3>A clock with something to say</h3><p>Twelve faces, from ultra-light to a seven-segment LED. Under it, a greeting drawn from 33 weighted rules that notice the hour, the weekday, the weather, open tasks and how long you’ve been away.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-search" /></svg></span><h3>Search with bangs</h3><p>Eleven engines, each with a prefix — <span class="ws-c">!g</span>, <span class="ws-c">!gh</span> and the rest. Type an address instead and it just goes there.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-grid" /></svg></span><h3>Links, in groups</h3><p>Drag to reorder, right-click to edit. Letter tiles get a colour from the hostname. It imports Brave’s bookmarks: folders become groups, duplicates are skipped.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-palette" /></svg></span><h3>Your own backdrop</h3><p>Eighteen themes and twelve accents — or any colour, or your own image, fitted, darkened and blurred to taste.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-layers" /></svg></span><h3>A dock of small tools</h3><p>Notes, tasks with undo, a focus timer with a ring, day / week / year progress, and a canvas for your own images and GIFs.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-command" /></svg></span><h3>Keyboard first</h3><p><kbd>⌘</kbd> <kbd>K</kbd> for the palette, <kbd>⌘</kbd> <kbd>,</kbd> for settings, <kbd>/</kbd> to search, <kbd>⌥</kbd> <kbd>1–9</kbd> to open a link. Start typing anywhere and it lands in search.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Build ══════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">05</span><span class="eyebrow__rule"></span>How it’s built</p>
+            <h2 class="h2 mt-24" data-split>No build step. <span class="dim">No dependencies.</span></h2>
+          </div>
+          <p class="lead" data-reveal style="--d:150">Two files and a manifest. No libraries, no web fonts — every clock face uses fonts that ship with macOS. Manifest V3 forbids inline scripts on extension pages, so the script lives in its own file.</p>
+        </header>
+        <div class="split void-build">
+          <div>
+            <div class="spec" data-reveal>
+              <div class="spec__row"><span class="spec__key">Files</span><span class="spec__val"><strong>index.html</strong>, 1,439 lines of markup and CSS. <strong>void.js</strong>, 3,059 lines in one IIFE. A manifest that overrides the new tab and asks for no permissions.</span></div>
+              <div class="spec__row"><span class="spec__key">Storage</span><span class="spec__val">Settings in one <strong>localStorage</strong> record; images in IndexedDB. Export, import, and reset with undo.</span></div>
+              <div class="spec__row"><span class="spec__key">Network</span><span class="spec__val">Link tiles load each site’s favicon, then DuckDuckGo’s icon service, then fall back to a letter. Weather calls Open-Meteo — <strong>off by default</strong>.</span></div>
+              <div class="spec__row"><span class="spec__key">Clock</span><span class="spec__val">Writes to the page only when a value changes, and skips its tick in hidden tabs.</span></div>
+            </div>
+          </div>
+          <figure class="window" data-reveal="scale">
+            <div class="window__bar"><span class="window__dot"></span><span class="window__dot"></span><span class="window__dot"></span><span class="window__title">void.js — FIELD_DRAW.stars()</span></div>
+<pre class="ws-code"><code><span class="f">stars</span>(f, t, sp, par){
+  <span class="k">for</span> (<span class="k">const</span> p <span class="k">of</span> parts){
+    p.y -= sp * <span class="n">.28</span> * p.z * (p.r + <span class="n">.4</span>);
+    <span class="k">if</span> (p.y &lt; <span class="n">-4</span>){ p.y = <span class="p">innerHeight</span> + <span class="n">4</span>; p.x = <span class="t">Math</span>.<span class="f">random</span>() * <span class="p">innerWidth</span>; }
+    <span class="k">const</span> x = p.x + tx * p.z * <span class="n">26</span> * par;
+    <span class="k">const</span> y = p.y + ty * p.z * <span class="n">20</span> * par;
+    ctx.globalAlpha = (<span class="n">.45</span> + <span class="n">.55</span> * <span class="t">Math</span>.<span class="f">abs</span>(<span class="t">Math</span>.<span class="f">sin</span>(t / <span class="n">1400</span> + p.p))) * p.z * <span class="n">.8</span>;
+    ctx.fillStyle = <span class="f">partColor</span>(f, p);
+    ctx.<span class="f">beginPath</span>(); ctx.<span class="f">arc</span>(x, y, p.r * p.z, <span class="n">0</span>, <span class="t">Math</span>.PI * <span class="n">2</span>); ctx.<span class="f">fill</span>();
+  }
+},</code></pre>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Build notes ════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">06</span><span class="eyebrow__rule"></span>Build notes</p>
+          <h2 class="h2" data-split>Pretty, <span class="dim">but not at any price.</span></h2>
+        </header>
+        <div class="ws-problems" data-stagger>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">01</span>
+            <h3>Asking about the GPU without waiting for it</h3>
+            <p>Lite mode drops the blur, glow, grain and particles when hardware acceleration is off. No browser says that directly, so Void asks WebGL twice: is the renderer a software one, like SwiftShader or llvmpipe — and is a context requested with <span class="ws-c">failIfMajorPerformanceCaveat</span> refused? Brave’s fingerprinting protection can hide the first answer, but not the second. The check runs when the browser is idle, so first paint uses the saved setting, and it hands its WebGL contexts back afterwards.</p>
+          </article>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">02</span>
+            <h3>Particles priced per pixel</h3>
+            <p>The canvas never renders above <strong>1.5×</strong> the screen’s pixels. Particle count scales with screen area, with caps for the expensive modes. Bokeh stamps one pre-rendered soft sprite instead of building a gradient for every particle. When the field is off, lite mode is on or the tab is hidden, the canvas memory is handed back — and the mousemove handler does nothing at all.</p>
+          </article>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">03</span>
+            <h3>A dock that checks its own layout</h3>
+            <p>On wide screens the dock wraps into two columns. CSS column-wrap can’t be told “at most two”, so on a short window a third column would quietly swallow cards. The code turns wrapping on, measures, and turns it off again if any card spilled out.</p>
+          </article>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">04</span>
+            <h3>Living inside five megabytes</h3>
+            <p>Images go to IndexedDB, with localStorage as the fallback when the page runs from a file. GIFs and WebPs are stored untouched so their animation survives; background photos are scaled down to 2,560 px. When a save fails, the message says whether storage is full or blocked — they have different fixes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <site-footer next="ridecheck"></site-footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/pages/void.js" defer></script>
+</body>
+
+</html>

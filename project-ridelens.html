@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>RideLens — Case study · Adrian Rachman</title>
+  <meta name="description" content="RideLens: an iPhone photo editor made for cars — Lightroom-style tools, car-aware masks, and posters and stickers that sit behind the car. An in-progress case study by Adrian Rachman.">
+  <meta name="theme-color" content="#131418">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="RideLens — Case study · Adrian Rachman">
+  <meta property="og:description" content="Car edits, without the learning curve. An iPhone editor built around the car.">
+  <meta property="og:image" content="https://portfolio-adrian-rachman.vercel.app/Assets/web/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="Assets/web/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/workshop.css">
+  <link rel="stylesheet" href="css/pages/ridelens.css">
+  <script src="js/site.js"></script>
+  <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
+</head>
+
+<body class="ws theme-ridelens">
+  <site-header current="work"></site-header>
+
+  <main id="main">
+
+    <!-- ═══ Hero ═══════════════════════════════════════════════════════════ -->
+    <section class="ws-hero rl-hero">
+      <div class="container">
+        <a class="back-link" href="index.html#work"><svg class="i" aria-hidden="true"><use href="#i-arrow-left" /></svg>All work</a>
+
+        <div class="ws-hero__grid">
+          <div>
+            <span class="ws-status ws-status--wip" data-reveal><i aria-hidden="true"></i>In progress · early days</span>
+            <h1 class="h1 rl-title" style="view-transition-name: ridelens-title"><img class="rl-title__icon" src="Assets/web/ridelens/icon.webp" alt="" width="256" height="256">RideLens</h1>
+            <p class="ws-promise" data-reveal style="--d:160">Car edits, without the learning curve.</p>
+            <p class="lead" data-reveal style="--d:260">An iPhone photo editor made for cars. Proper light and colour tools, masks that already know where the car is, and posters and stickers that sit <em>behind</em> it — because I kept seeing incredible car edits, and I can’t edit to save my life.</p>
+            <div class="btn-row mt-32" data-reveal style="--d:360">
+              <a class="btn btn--primary" href="#posters" data-magnetic="0.2">See what it makes <svg class="i i--arrow-down" aria-hidden="true"><use href="#i-arrow-down" /></svg></a>
+            </div>
+          </div>
+
+          <div class="ws-visual rl-fan" data-reveal="scale" style="--d:200" aria-hidden="true">
+            <img class="rl-fan__card rl-fan__card--l" src="Assets/web/ridelens/poster-01.webp" alt="" width="720" height="1280" fetchpriority="high">
+            <img class="rl-fan__card rl-fan__card--r" src="Assets/web/ridelens/poster-03.webp" alt="" width="720" height="1280" fetchpriority="high">
+            <img class="rl-fan__card rl-fan__card--c" src="Assets/web/ridelens/poster-02.webp" alt="" width="720" height="1280" fetchpriority="high">
+            <span class="rl-fan__chip"><svg class="i"><use href="#i-sparkles" /></svg>Real exports from RideLens</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <dl class="meta-row" data-stagger>
+        <div><dt>Role</dt><dd>Design &amp; development, solo</dd></div>
+        <div><dt>Started</dt><dd>October 2026</dd></div>
+        <div><dt>Status</dt><dd>In progress, iPhone</dd></div>
+        <div><dt>Stack</dt><dd>Swift · SwiftUI · Core Image · Vision</dd></div>
+      </dl>
+    </div>
+
+    <!-- ═══ Why ════════════════════════════════════════════════════════════ -->
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow" data-reveal><span class="eyebrow__index">01</span><span class="eyebrow__rule"></span>Why it exists</p>
+        <h2 class="pullquote mt-24" data-split>I kept saving other people’s car edits. <span>I couldn’t make one of my own.</span></h2>
+
+        <div class="ws-story">
+          <div data-reveal>
+            <p>My feed is full of car photos that look like magazine covers. Mine looked like car photos. The people who make those edits use Lightroom — a subscription, and a tool built for people who already know what a “luminance range mask” is.</p>
+            <p>I don’t want a general editor. I want one that knows the car is the point: where it is, what colour it is, which part is the sky, where the plate is.</p>
+          </div>
+          <div data-reveal style="--d:120">
+            <p>RideLens grew out of the photo studio I built inside <a class="link" href="project-ridecheck.html">RideCheck</a>, where every trip becomes a card for Stories. I split it into its own app so it could become a real editor, not a feature.</p>
+            <p>The first spark came much earlier, with a tiny <a class="link" href="project-filter-generator.html">Python filter app</a> — the day I realised a photo is just numbers, and numbers are something I can change.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Before / after ═════════════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="compare">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">02</span><span class="eyebrow__rule"></span>Before / after</p>
+            <h2 class="h2 mt-24" data-split>Same photo. <span class="dim">Better light.</span></h2>
+          </div>
+          <p class="lead" data-reveal style="--d:150">My own photos, before and after an edit in RideLens: the scene pulled down, the car brought forward with its reflections intact, and the plate covered on the phone. Drag to compare.</p>
+        </header>
+
+        <div class="rl-compare" data-rl-compare data-reveal="scale">
+          <div class="rl-compare__frame" style="--pos: 50%">
+            <img class="rl-compare__img" src="Assets/web/ridelens/cayman-day-before.webp" alt="Before: a silver Porsche Cayman on a brick forecourt in flat afternoon light, trees and an office block behind" width="1800" height="1200" loading="lazy" data-before-img>
+            <div class="rl-compare__after" data-after>
+              <img class="rl-compare__img" src="Assets/web/ridelens/cayman-day-after.webp" alt="After: the same Cayman with the scene darkened around it, the body bright and glossy, and the plate covered" width="1800" height="1200" loading="lazy" data-after-img>
+            </div>
+            <span class="rl-compare__tag rl-compare__tag--before">Before</span>
+            <span class="rl-compare__tag rl-compare__tag--after" data-after-label>Stealth</span>
+            <span class="rl-compare__handle" aria-hidden="true"><svg class="i"><use href="#i-chevron-left" /></svg><svg class="i"><use href="#i-chevron-right" /></svg></span>
+            <label class="sr-only" for="rl-pos">Compare before and after</label>
+            <input class="rl-compare__range" id="rl-pos" type="range" min="0" max="100" value="50" data-range>
+          </div>
+          <div class="rl-compare__bar">
+            <div class="rl-seg" role="group" aria-label="Choose an edit">
+              <button type="button" aria-pressed="true" data-before="Assets/web/ridelens/cayman-day-before.webp" data-before-alt="Before: a silver Porsche Cayman on a brick forecourt in flat afternoon light, trees and an office block behind" data-variant="Assets/web/ridelens/cayman-day-after.webp" data-label="Stealth" data-alt="After: the same Cayman with the scene darkened around it, the body bright and glossy, and the plate covered">Stealth</button>
+              <button type="button" aria-pressed="false" data-before="Assets/web/ridelens/cayman-night-before.webp" data-before-alt="Before: the Cayman at night beside a green-lit dragon sculpture, the car dim and flat" data-variant="Assets/web/ridelens/cayman-night-after.webp" data-label="Neon night" data-alt="After: the same night shot with the dragon glowing brighter, the car lifted out of the dark, and the plate covered">Neon night</button>
+            </div>
+            <p class="rl-credit">My own photos, cropped to fit. In the edits, RideLens covered the Cayman’s plate itself; every other plate here is blurred by hand.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Posters ════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="posters">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">03</span><span class="eyebrow__rule"></span>Posters</p>
+            <h2 class="h2 mt-24" data-split>The car comes forward. <span class="dim">The type goes behind it.</span></h2>
+          </div>
+          <p class="lead" data-reveal style="--d:150">Every poster is drawn in code, so it fills itself in: the car, the drive, the distance and top speed. Because the car is lifted onto its own layer, the headline can sit between the car and the background — the look the edits I admired all had.</p>
+        </header>
+      </div>
+
+      <div class="rail rl-rail" data-reveal="fade" tabindex="0" aria-label="Posters made in RideLens — scroll sideways">
+        <figure class="rl-poster"><img src="Assets/web/ridelens/poster-01.webp" alt="‘Series’ poster: a silver Porsche Cayman at sunset under a red 718 outline and ‘Cayman ’17’ script" width="720" height="1280" loading="lazy" data-lightbox="rl" data-caption="Series — Cayman at sunset."></figure>
+        <figure class="rl-poster"><img src="Assets/web/ridelens/poster-02.webp" alt="‘Issue’ poster: a magazine cover titled RIDELENS with the Cayman and drive stats" width="720" height="1280" loading="lazy" data-lightbox="rl" data-caption="Issue — the drive as a magazine cover."></figure>
+        <figure class="rl-poster"><img src="Assets/web/ridelens/poster-03.webp" alt="‘Rally’ poster: the Cayman at night beside a glowing green dragon sculpture" width="720" height="1280" loading="lazy" data-lightbox="rl" data-caption="Rally — Cayman and the neon dragon."></figure>
+        <figure class="rl-poster"><img src="Assets/web/ridelens/poster-04.webp" alt="‘Wanted’ poster: a BMW 3 Series with glowing angel-eye headlights, collaged in strips" width="720" height="1280" loading="lazy" data-lightbox="rl" data-caption="Wanted — BMW angel eyes."></figure>
+        <figure class="rl-poster"><img src="Assets/web/ridelens/poster-05.webp" alt="‘Night’ poster: huge distressed 718 numerals over the Cayman at night, the dragon glowing white behind it" width="720" height="1280" loading="lazy" data-lightbox="rl" data-caption="Night — built for the night."></figure>
+        <figure class="rl-poster"><img src="Assets/web/ridelens/poster-06.webp" alt="‘Gothic’ poster: blackletter ‘Cayman’ over the car in evening light" width="720" height="1280" loading="lazy" data-lightbox="rl" data-caption="Gothic — Cayman at dusk."></figure>
+        <figure class="rl-poster"><img src="Assets/web/ridelens/poster-07.webp" alt="‘Race’ poster: the Cayman’s rear light bar glowing red under race-weekend type" width="720" height="1280" loading="lazy" data-lightbox="rl" data-caption="Race — taillights and a chequered stat bar."></figure>
+        <figure class="rl-poster"><img src="Assets/web/ridelens/poster-08.webp" alt="‘Wildstyle’ poster: graffiti Porsche lettering and a blue paint stroke behind the car" width="720" height="1280" loading="lazy" data-lightbox="rl" data-caption="Wildstyle — graffiti behind the car."></figure>
+        <figure class="rl-poster"><img src="Assets/web/ridelens/poster-09.webp" alt="‘Timeless’ poster: a torn-paper collage of the BMW in a car park" width="720" height="1280" loading="lazy" data-lightbox="rl" data-caption="Timeless — torn-paper collage."></figure>
+        <figure class="rl-poster"><img src="Assets/web/ridelens/poster-10.webp" alt="‘Touge’ poster: the Cayman with a sharp diagonal crop and big stats along the bottom" width="720" height="1280" loading="lazy" data-lightbox="rl" data-caption="Touge — distance, speed and time, big."></figure>
+        <figure class="rl-poster"><img src="Assets/web/ridelens/poster-11.webp" alt="‘Speed Cam’ poster: the BMW from above framed like a speed-camera capture with red readouts" width="720" height="1280" loading="lazy" data-lightbox="rl" data-caption="Speed Cam — shot from above."></figure>
+        <figure class="rl-poster"><img src="Assets/web/ridelens/poster-12.webp" alt="‘Outline’ poster: BMW 320I in outlined type behind the silver BMW, shot through the leaves" width="720" height="1280" loading="lazy" data-lightbox="rl" data-caption="Outline — BMW through the leaves."></figure>
+        <figure class="rl-poster"><img src="Assets/web/ridelens/poster-13.webp" alt="‘Catalog’ poster: a clean product-sheet layout of the Cayman with detail crops" width="720" height="1280" loading="lazy" data-lightbox="rl" data-caption="Catalog — a spec sheet for your car."></figure>
+        <figure class="rl-poster"><img src="Assets/web/ridelens/poster-14.webp" alt="‘Livery’ poster: yellow and pink race-livery type over the Cayman’s taillights" width="720" height="1280" loading="lazy" data-lightbox="rl" data-caption="Livery — taillights at night."></figure>
+        <figure class="rl-poster"><img src="Assets/web/ridelens/poster-15.webp" alt="‘Arcade’ poster: neon arcade-game styling around the Cayman and the dragon" width="720" height="1280" loading="lazy" data-lightbox="rl" data-caption="Arcade — neon dragon."></figure>
+        <figure class="rl-poster"><img src="Assets/web/ridelens/poster-16.webp" alt="‘Legend’ poster: a ‘3 Series’ script over a big 320i, the BMW’s angel eyes glowing in a dark car park" width="720" height="1280" loading="lazy" data-lightbox="rl" data-caption="Legend — BMW in a car park."></figure>
+      </div>
+
+      <div class="container">
+        <div class="rl-rail-foot">
+          <p class="ws-note">Sixteen of the thirty poster styles. Real exports from the app, made from my own photos; plates are hidden by RideLens itself.</p>
+          <div class="rail-controls" data-rail-controls>
+            <button class="rl-arrow" type="button" data-rail-prev aria-label="Scroll posters left"><svg class="i" aria-hidden="true"><use href="#i-chevron-left" /></svg></button>
+            <button class="rl-arrow" type="button" data-rail-next aria-label="Scroll posters right"><svg class="i" aria-hidden="true"><use href="#i-chevron-right" /></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Stickers + Reel ════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <div class="rl-duo">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">04</span><span class="eyebrow__rule"></span>Stickers &amp; Reels</p>
+            <h2 class="h2 mt-24" data-split>The drive, <span class="dim">on top of the photo.</span></h2>
+            <p class="lead mt-20" data-reveal>Stickers turn a drive into graphics — a lap time, a speedometer, a boarding pass from Jakarta to Jakarta. And any edit can leave as a vertical Reel that reveals itself from the original.</p>
+            <div class="rl-stickers" data-stagger>
+              <img src="Assets/web/ridelens/sticker-1.webp" alt="Lap sticker: a big 1:12:00 lap time over the Cayman" width="1000" height="1250" loading="lazy" data-lightbox="rl-s" data-caption="Lap — the drive as a lap time.">
+              <img src="Assets/web/ridelens/sticker-3.webp" alt="Speedo sticker: a speedometer reading 132 over the Cayman at night" width="1000" height="1250" loading="lazy" data-lightbox="rl-s" data-caption="Speedo — top speed at a glance.">
+              <img src="Assets/web/ridelens/sticker-5.webp" alt="Pass sticker: a boarding pass for a drive from JKT to JKT beside the BMW" width="1000" height="667" loading="lazy" data-lightbox="rl-s" data-caption="Pass — the drive as a boarding pass.">
+              <img src="Assets/web/ridelens/sticker-2.webp" alt="Cover sticker: distance, duration and top speed over a big PORSCHE headline" width="1000" height="1250" loading="lazy" data-lightbox="rl-s" data-caption="Cover — stats above the headline.">
+            </div>
+          </div>
+          <figure class="rl-reel" data-reveal="scale">
+            <div class="phone" style="--pw: 290px">
+              <div class="phone__screen">
+                <video class="rl-reel__video" src="Assets/web/ridelens/reel-reveal.mp4" poster="Assets/web/ridelens/reel-reveal-poster.webp" muted loop playsinline preload="none" data-reel aria-label="A Reel exported from RideLens: the original photo of a Cayman, then the finished poster revealed over it"></video>
+              </div>
+            </div>
+            <figcaption>A “Reveal” Reel: 1080 × 1920 video, exported straight from the app.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Tools ══════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">05</span><span class="eyebrow__rule"></span>The editor</p>
+          <h2 class="h2" data-split>Fourteen tools, <span class="dim">all thinking about the car.</span></h2>
+        </header>
+        <div class="feature-grid" data-stagger>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-sun" /></svg></span><h3>Light and colour</h3><p>Exposure, contrast, highlights and shadows, a tone curve, an 8-band HSL mixer, colour-grading wheels, black and white — and an Auto that exposes for the car.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-layers" /></svg></span><h3>Masks that know the car</h3><p>Car, background and sky, plus linear, radial, brush and colour or luminance ranges. One-tap moves like “Pop the car” and “Moody sky”, and Paint to rewrap the body.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-route" /></svg></span><h3>Motion</h3><p>A rolling-shot blur behind the car only, in the direction you choose, and Wheel Spin that finds the wheels and spins them — brake calipers held still.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-shield" /></svg></span><h3>Plates and clean-up</h3><p>Plates are found on the device and covered with a blank in the plate’s own colour, your own lettering, or pixels. Remove, Heal and Clone tidy the rest.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-palette" /></svg></span><h3>Posters and stickers</h3><p>Thirty poster styles and fifteen sticker formats, drawn in code with the car’s details, the drive’s stats and maker badges.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-share" /></svg></span><h3>Out the door</h3><p>JPEG, HEIC or PNG up to full resolution, Instagram Story and Post sizes, a 2–5 slide carousel, and a vertical Reel video.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Build ══════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <div class="split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">06</span><span class="eyebrow__rule"></span>How it’s built</p>
+            <h2 class="h2 mt-24" data-split>Apple’s frameworks, <span class="dim">no dependencies.</span></h2>
+            <p class="lead mt-20" data-reveal>Pure Swift and SwiftUI on Core Image and Vision. No third-party packages, and no Metal on purpose — custom kernels would need the Metal toolchain at build time.</p>
+            <div class="spec mt-40" data-reveal>
+              <div class="spec__row"><span class="spec__key">Pipeline</span><span class="spec__val">A non-destructive <strong>Core Image</strong> develop chain — white balance, exposure, dehaze, shadows and highlights — then one colour cube for everything per-pixel.</span></div>
+              <div class="spec__row"><span class="spec__key">Car</span><span class="spec__val"><strong>Vision</strong> lifts the car out as its own layer; plates are found with on-device text and rectangle detection.</span></div>
+              <div class="spec__row"><span class="spec__key">Edits</span><span class="spec__val">One value type holds the whole edit, so undo is a stack of values and copy-paste works by group.</span></div>
+              <div class="spec__row"><span class="spec__key">Export</span><span class="spec__val">Full resolution in blocks and half-float stages, retried smaller if memory runs out. Reels are H.264 at 1080 × 1920.</span></div>
+            </div>
+          </div>
+          <figure class="window" data-reveal="scale">
+            <div class="window__bar"><span class="window__dot"></span><span class="window__dot"></span><span class="window__dot"></span><span class="window__title">PhotoStudioProcessor+Develop.swift</span></div>
+<pre class="ws-code"><code><span class="k">if</span> d.temperature != <span class="n">0</span> || d.tint != <span class="n">0</span> {
+    image = <span class="f">whiteBalanced</span>(image, temperature: d.temperature, tint: d.tint)
+}
+<span class="k">if</span> d.exposure != <span class="n">0</span> {
+    image = image.<span class="f">applyingFilter</span>(<span class="s">"CIExposureAdjust"</span>, parameters: [<span class="p">kCIInputEVKey</span>: d.exposure])
+}
+<span class="k">if</span> d.dehaze != <span class="n">0</span> {
+    image = <span class="f">dehazed</span>(image, amount: d.dehaze / <span class="n">100</span>)
+}
+<span class="k">if</span> d.shadows != <span class="n">0</span> || d.highlights &lt; <span class="n">0</span> {
+    image = <span class="f">shadowsAndHighlights</span>(image, shadows: d.shadows / <span class="n">100</span>, highlights: <span class="f">min</span>(<span class="n">0</span>, d.highlights / <span class="n">100</span>))
+}
+<span class="k">let</span> global = <span class="t">DevelopLUT</span>.<span class="t">Global</span>(d)
+<span class="k">if</span> !global.isIdentity {
+    image = <span class="f">cubed</span>(image, <span class="t">DevelopLUT</span>.<span class="f">cube</span>(for: global))
+}</code></pre>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Build notes ════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">07</span><span class="eyebrow__rule"></span>Build notes</p>
+          <h2 class="h2" data-split>Making it feel <span class="dim">like a real editor.</span></h2>
+        </header>
+        <div class="ws-problems" data-stagger>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">01</span>
+            <h3>The car as its own layer</h3>
+            <p>Vision’s foreground mask is cleaned up — shrunk a pixel, then softened — and the develop chain renders <strong>once</strong>. Both layers are cut from that single render, which is how a poster can slide between the background and the car without the two drifting apart in colour.</p>
+          </article>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">02</span>
+            <h3>One colour cube for every slider</h3>
+            <p>Contrast, curves, the HSL mixer, grading and black and white are baked into one 33³ lookup table, built across all cores. The maths happens in <strong>Oklab</strong>, and out-of-gamut colours are pulled in by reducing chroma rather than clipping channels, so hues don’t shift. Recent cubes are cached, so dragging one slider rebuilds only one.</p>
+          </article>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">03</span>
+            <h3>Previews that never queue up</h3>
+            <p>The whole edit is one comparable value, and undo is just a stack of them, with each drag grouped into a single step. Rendering is latest-wins: while a render is running, new changes only mark it stale, so a fast slider never builds a backlog.</p>
+          </article>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">04</span>
+            <h3>Classic computer vision, not a model</h3>
+            <p>Remove uses PatchMatch, coarse to fine. The wheel finder votes for circles, fits an ellipse and re-checks it up close — and declines when it isn’t sure. Wheel Spin then blurs each wheel in its own polar space. All of it runs on the phone.</p>
+          </article>
+        </div>
+        <div class="rl-next card card--pad" data-reveal>
+          <p class="rl-next__label"><svg class="i" aria-hidden="true"><use href="#i-flag" /></svg>Honest status</p>
+          <p>RideLens is days old, iPhone-only and English-only, and not on the App Store yet. Removal is patch-based, so busy backgrounds can come out looking collaged. Next on the list: sky and background replacement, wet-road reflections, and connecting it back to RideCheck.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <site-footer next="waypoint"></site-footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/pages/ridelens.js" defer></script>
+</body>
+
+</html>

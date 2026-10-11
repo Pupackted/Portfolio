@@ -598,7 +598,7 @@
     ];
 
     projects.forEach(function (p) {
-      items.push({ group: 'Projects', label: p.name, hint: p.kind, img: p.icon, icon: 'box', href: p.href, keywords: p.line });
+      items.push({ group: p.group || 'Projects', label: p.name, hint: p.kind, img: p.icon, icon: p.glyph || 'box', href: p.href, keywords: p.line });
     });
 
     items.push(

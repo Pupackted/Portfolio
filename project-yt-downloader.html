@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>YT Playlist Downloader — Case study · Adrian Rachman</title>
+  <meta name="description" content="YT Playlist Downloader: an Android app that saves a whole YouTube playlist to the phone, skips what it already has, and tags every song so Samsung Music shows it properly. yt-dlp running on the phone itself. A case study by Adrian Rachman.">
+  <meta name="theme-color" content="#131418">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="YT Playlist Downloader — Case study · Adrian Rachman">
+  <meta property="og:description" content="A whole playlist, offline, tagged properly. An Android app with yt-dlp running on the phone.">
+  <meta property="og:image" content="https://portfolio-adrian-rachman.vercel.app/Assets/web/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="Assets/web/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/workshop.css">
+  <link rel="stylesheet" href="css/pages/yt.css">
+  <script src="js/site.js"></script>
+  <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
+</head>
+
+<body class="ws theme-yt">
+  <site-header current="work"></site-header>
+
+  <!-- Material icons used inside the phone recreations. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="ya-download" viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z" /></symbol>
+    <symbol id="ya-queue" viewBox="0 0 24 24"><path d="M15 6H3v2h12V6zm0 4H3v2h12v-2zM3 16h8v-2H3v2zM17 6v8.18c-.31-.11-.65-.18-1-.18-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3V8h3V6h-5z" /></symbol>
+    <symbol id="ya-library" viewBox="0 0 24 24"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 5h-3v5.5c0 1.38-1.12 2.5-2.5 2.5S10 13.88 10 12.5s1.12-2.5 2.5-2.5c.57 0 1.08.19 1.5.51V5h4v2zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6z" /></symbol>
+    <symbol id="ya-note" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" /></symbol>
+    <symbol id="ya-video" viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></symbol>
+    <symbol id="ya-close" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" /></symbol>
+    <symbol id="ya-check" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></symbol>
+    <symbol id="ya-error" viewBox="0 0 24 24"><path d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" /></symbol>
+    <symbol id="ya-search" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" /></symbol>
+    <symbol id="ya-more" viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" /></symbol>
+    <symbol id="ya-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></symbol>
+    <symbol id="ya-wifi" viewBox="0 0 24 24"><path d="M12.01 21.49 23.64 7c-.45-.34-4.93-4-11.64-4C5.28 3 .81 6.66.36 7l11.63 14.49.01.01.01-.01z" /></symbol>
+    <symbol id="ya-signal" viewBox="0 0 24 24"><path d="M2 22h20V2z" /></symbol>
+    <symbol id="ya-battery" viewBox="0 0 24 24"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z" /></symbol>
+  </svg>
+
+  <main id="main">
+
+    <!-- ═══ Hero ═══════════════════════════════════════════════════════════ -->
+    <section class="ws-hero">
+      <div class="container">
+        <a class="back-link" href="index.html#work"><svg class="i" aria-hidden="true"><use href="#i-arrow-left" /></svg>All work</a>
+
+        <div class="ws-hero__grid">
+          <div>
+            <span class="ws-status" data-reveal><i aria-hidden="true"></i>Sideloaded onto her phone</span>
+            <h1 class="h1 yt-title" style="view-transition-name: yt-title">YT Playlist Downloader</h1>
+            <p class="ws-promise" data-reveal style="--d:160">A whole playlist, offline, tagged properly.</p>
+            <p class="lead" data-reveal style="--d:260">An Android app I built for my girlfriend. Share a YouTube playlist into it and every song lands on her phone — skipping the ones she already has, and tagged with its title, artist and cover so Samsung Music shows them properly.</p>
+            <div class="btn-row mt-32" data-reveal style="--d:360">
+              <a class="btn btn--primary" href="#demo" data-magnetic="0.2">Run a playlist <svg class="i i--arrow-down" aria-hidden="true"><use href="#i-arrow-down" /></svg></a>
+            </div>
+          </div>
+
+          <div class="ws-visual yt-hero" data-reveal="scale" style="--d:200">
+            <div class="ya-phone yt-hero__phone" role="img" aria-label="The app’s Download screen mid-run: a maroon card asking ‘What are we saving today?’, a YouTube playlist link, Music selected, and a progress card reading Downloading, 2 of 4, Young and Beautiful, 62 percent, with 6 already in the library being skipped.">
+              <div class="ya-screen" aria-hidden="true">
+                <div class="ya-status"><span>10:24</span><i class="ya-cam"></i><span class="ya-status__icons"><svg><use href="#ya-wifi" /></svg><svg><use href="#ya-signal" /></svg><svg class="ya-batt"><use href="#ya-battery" /></svg></span></div>
+                <div class="ya-body">
+                  <div class="ya-view">
+                    <div class="ya-hero"><p class="ya-hero__kicker">Offline, the way it should be</p><p class="ya-hero__title">What are we<br>saving today?</p></div>
+                    <div class="ya-field"><span class="ya-field__label">YouTube link</span><span class="ya-field__value">https://youtube.com/playlist?list=PLq7Xc2RtB8kd</span><span class="ya-field__icon"><svg><use href="#ya-close" /></svg></span></div>
+                    <p class="ya-label">Save as</p>
+                    <div class="ya-formats">
+                      <div class="ya-format is-on"><svg><use href="#ya-note" /></svg><b>Music</b><span>Audio only</span></div>
+                      <div class="ya-format"><svg><use href="#ya-video" /></svg><b>Video</b><span>With picture</span></div>
+                    </div>
+                    <div class="ya-dl is-busy"><svg><use href="#ya-download" /></svg>Downloading…</div>
+                    <div class="ya-card ya-progress">
+                      <div class="ya-progress__top"><b>Downloading</b><span>2 of 4</span></div>
+                      <p class="ya-progress__title">Young and Beautiful</p>
+                      <div class="ya-bar"><i class="yt-hero__bar"></i></div>
+                      <div class="ya-progress__row"><span>62% · 2.4 MB/s</span><span class="ya-tbtn">Stop</span></div>
+                      <p class="ya-progress__skip">6 already in your library — skipping</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="ya-nav">
+                  <span class="ya-nav__item is-on"><span class="ya-nav__pill"><svg><use href="#ya-download" /></svg></span>Download</span>
+                  <span class="ya-nav__item"><span class="ya-nav__pill"><svg><use href="#ya-queue" /></svg></span>Playlists</span>
+                  <span class="ya-nav__item"><span class="ya-nav__pill"><svg><use href="#ya-library" /></svg></span>Library</span>
+                </div>
+                <div class="ya-gesture"><i></i></div>
+              </div>
+            </div>
+            <div class="yt-notif" aria-hidden="true">
+              <p class="yt-notif__top"><span class="yt-notif__ico"><svg><use href="#ya-download" /></svg></span>YT Downloader · now</p>
+              <p class="yt-notif__title">Young and Beautiful</p>
+              <p class="yt-notif__text">2 of 4</p>
+              <span class="yt-notif__bar"><i></i></span>
+              <p class="yt-notif__act">Stop</p>
+            </div>
+            <span class="yt-chip"><svg class="i" aria-hidden="true"><use href="#i-cpu" /></svg>yt-dlp, running on the phone</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <dl class="meta-row" data-stagger>
+        <div><dt>Role</dt><dd>Design &amp; development, solo</dd></div>
+        <div><dt>Built for</dt><dd>My girlfriend</dd></div>
+        <div><dt>Built</dt><dd>June 2026 · rebuilt end of August</dd></div>
+        <div><dt>Stack</dt><dd>Kotlin · Jetpack Compose · Python</dd></div>
+      </dl>
+    </div>
+
+    <!-- ═══ Why ════════════════════════════════════════════════════════════ -->
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow" data-reveal><span class="eyebrow__index">01</span><span class="eyebrow__rule"></span>Why it exists</p>
+        <h2 class="pullquote mt-24" data-split>She wanted a whole playlist offline. <span>One video at a time was never going to happen.</span></h2>
+
+        <div class="ws-story">
+          <div data-reveal>
+            <p>My girlfriend loves saving things from YouTube — music, mostly. She had a playlist she wanted on her phone so she could listen offline, and downloading it one video at a time was such a hassle.</p>
+            <p>So I made a playlist downloader. Paste the link, or share it straight from the YouTube app, and it fetches the whole thing.</p>
+          </div>
+          <div data-reveal style="--d:120">
+            <p>It also checks what we’ve already downloaded, so nothing comes down twice, and it writes each song’s title, artist and cover into the file. It plays straight away in <strong>Samsung Music</strong>, looking like it belongs there. The short version: she doesn’t have to pay for Spotify.</p>
+            <p>The first version, in June, was one screen that dropped files into Downloads. At the end of August I rebuilt it as a proper app — downloads that carry on in the background, a library, and playlists.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Demo: run it twice ═════════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="demo">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">02</span><span class="eyebrow__rule"></span>Try it</p>
+          <h2 class="h2" data-split>Run it once. <span class="dim">Then run it again.</span></h2>
+          <p class="lead" data-reveal style="--d:150">Ten songs in the playlist, six already on her phone. Press <strong>Download</strong> on the phone and follow each song through the app — then press it again. Delete a song in between and see what comes back.</p>
+        </header>
+
+        <div class="yt-demo" data-yt-demo>
+          <div class="yt-demo__device" data-reveal>
+            <div class="ya-phone yt-demo__phone">
+              <div class="ya-screen">
+                <div class="ya-status" aria-hidden="true"><span>10:24</span><i class="ya-cam"></i><span class="ya-status__icons"><svg><use href="#ya-wifi" /></svg><svg><use href="#ya-signal" /></svg><svg class="ya-batt"><use href="#ya-battery" /></svg></span></div>
+                <div class="ya-body">
+
+                  <!-- Download tab -->
+                  <div class="ya-view ya-view--scroll" data-view="home">
+                    <div class="ya-hero" aria-hidden="true"><p class="ya-hero__kicker">Offline, the way it should be</p><p class="ya-hero__title">What are we<br>saving today?</p></div>
+                    <div class="ya-field"><span class="ya-field__label" id="ya-link-label">YouTube link</span><span class="ya-field__value" aria-labelledby="ya-link-label">https://youtube.com/playlist?list=PLq7Xc2RtB8kd</span><span class="ya-field__icon" aria-hidden="true"><svg><use href="#ya-close" /></svg></span></div>
+                    <p class="ya-label" id="ya-saveas">Save as</p>
+                    <div class="ya-formats" role="group" aria-labelledby="ya-saveas">
+                      <button type="button" class="ya-format is-on" data-format="audio" aria-pressed="true"><svg aria-hidden="true"><use href="#ya-note" /></svg><b>Music</b><span>Audio only</span></button>
+                      <button type="button" class="ya-format" data-format="video" aria-pressed="false"><svg aria-hidden="true"><use href="#ya-video" /></svg><b>Video</b><span>With picture</span></button>
+                    </div>
+                    <button type="button" class="ya-dl" data-download><svg aria-hidden="true"><use href="#ya-download" /></svg><span data-dl-label>Download</span></button>
+                    <div data-slot></div>
+                    <p class="ya-foot">Music is saved to your Music folder, so it shows up in Samsung Music. Videos go to your Movies folder. Everything is listed in Library.</p>
+                  </div>
+
+                  <!-- Playlists tab -->
+                  <div class="ya-view ya-view--list" data-view="playlists" hidden>
+                    <p class="ya-display">Playlists</p>
+                    <p class="ya-sub">1 playlist</p>
+                    <div class="ya-pl" data-playlist></div>
+                  </div>
+
+                  <!-- Library tab -->
+                  <div class="ya-view ya-view--list" data-view="library" hidden>
+                    <p class="ya-display">Library</p>
+                    <p class="ya-sub" data-lib-count>6 downloads</p>
+                    <div class="ya-field ya-field--search" aria-hidden="true"><span class="ya-field__lead"><svg><use href="#ya-search" /></svg></span><span class="ya-field__ph">Search your downloads</span></div>
+                    <div class="ya-chips" aria-hidden="true"><span class="ya-chip is-on">All</span><span class="ya-chip">Music</span><span class="ya-chip">Video</span><span class="ya-sort">Newest first</span></div>
+                    <ul class="ya-rows" data-lib-rows></ul>
+                  </div>
+                </div>
+
+                <nav class="ya-nav" aria-label="App tabs">
+                  <button type="button" class="ya-nav__item is-on" data-tab="home" aria-pressed="true"><span class="ya-nav__pill"><svg aria-hidden="true"><use href="#ya-download" /></svg></span>Download</button>
+                  <button type="button" class="ya-nav__item" data-tab="playlists" aria-pressed="false"><span class="ya-nav__pill"><svg aria-hidden="true"><use href="#ya-queue" /></svg></span>Playlists</button>
+                  <button type="button" class="ya-nav__item" data-tab="library" aria-pressed="false"><span class="ya-nav__pill"><svg aria-hidden="true"><use href="#ya-library" /></svg></span>Library</button>
+                </nav>
+                <div class="ya-gesture" aria-hidden="true"><i></i></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="yt-demo__panel" data-reveal style="--d:120">
+            <div class="yt-toolbar">
+              <p class="yt-hint" data-hint>Press <strong>Download</strong> on the phone.</p>
+              <div class="yt-toolbar__btns">
+                <button type="button" class="yt-btn" data-delete><svg class="i" aria-hidden="true"><use href="#i-x" /></svg><span data-delete-label>Delete a song from her phone</span></button>
+                <button type="button" class="yt-btn yt-btn--quiet" data-reset><svg class="i" aria-hidden="true"><use href="#i-rotate" /></svg>Reset</button>
+              </div>
+            </div>
+
+            <div class="card yt-run">
+              <div class="yt-run__head">
+                <div>
+                  <p class="yt-label">What the app sees</p>
+                  <p class="yt-run__title">Late Night Drives <span>· 10 videos</span></p>
+                </div>
+                <dl class="yt-counts">
+                  <div><dt>Already have</dt><dd data-count-skip>–</dd></div>
+                  <div><dt>To fetch</dt><dd data-count-todo>–</dd></div>
+                  <div><dt>Saved</dt><dd data-count-saved>–</dd></div>
+                </dl>
+              </div>
+              <div class="yt-bridge"><span class="yt-bridge__k" data-bridge-k>Python → Kotlin</span><code class="yt-bridge__v" data-bridge-v>Waiting for a link.</code></div>
+              <ol class="yt-queue" data-queue></ol>
+            </div>
+
+            <div class="yt-pair">
+              <div class="card yt-tags">
+                <p class="yt-label" data-tags-label>Last song saved</p>
+                <p class="yt-tags__file" data-tags-file></p>
+                <dl class="yt-atoms" data-atoms></dl>
+              </div>
+              <div class="card yt-albums">
+                <div class="yt-albums__head">
+                  <p class="yt-label">Samsung Music · Albums</p>
+                  <button type="button" class="yt-switch" data-aart aria-pressed="true"><span class="yt-switch__track" aria-hidden="true"><i></i></span>Shared album artist</button>
+                </div>
+                <div class="yt-album-grid" data-albums></div>
+                <p class="yt-albums__note" data-albums-note></p>
+              </div>
+            </div>
+          </div>
+          <p class="sr-only" aria-live="polite" data-live></p>
+        </div>
+        <p class="ws-note" data-reveal>Illustration rebuilt in HTML from the app’s own colours, layout and wording, with a mostly invented playlist — not a screenshot. The order of steps, the skip rule and the messages on the phone are the app’s; the line above the headline and the download speeds are made up. The progress text only changes every 400 ms, because that’s how often the real app reads it.</p>
+      </div>
+    </section>
+
+    <!-- ═══ Features ═══════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">03</span><span class="eyebrow__rule"></span>What it does</p>
+          <h2 class="h2" data-split>Everything she needs. <span class="dim">Nothing to sign up for.</span></h2>
+        </header>
+        <div class="feature-grid" data-stagger>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-share" /></svg></span><h3>Share it from YouTube</h3><p>The app is a share target: tap Share in the YouTube app, pick it, and the link is pulled out of whatever text came with it. Or paste with one tap.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-bell" /></svg></span><h3>Keeps going in the background</h3><p>A foreground service carries on with the screen off. A notification shows progress with a Stop button, then a summary when it’s done.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg></span><h3>Never the same song twice</h3><p>Every download is remembered by video and format. A song she deleted no longer counts as saved, so it comes back on the next run.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-disc" /></svg></span><h3>Tagged for her music app</h3><p>Title, artist, album and cover go into every song — and a playlist stays together as one album instead of one per singer.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-play" /></svg></span><h3>Music, or video when it can</h3><p>Music is YouTube’s own AAC audio, kept as .m4a with no re-encoding. Video works when YouTube offers sound and picture in one stream; when it doesn’t, the app says so and suggests Music.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-layers" /></svg></span><h3>Library and playlists</h3><p>Search, filter by music or video, five ways to sort, play with any app, delete with a confirm. Each playlist gets a 2×2 cover made from its songs.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Build ══════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <div class="split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">04</span><span class="eyebrow__rule"></span>How it’s built</p>
+            <h2 class="h2 mt-24" data-split>Kotlin outside. <span class="dim">Python inside.</span></h2>
+            <p class="lead mt-20" data-reveal>The app is Kotlin and Jetpack Compose, but the downloading is done by <span class="ws-c">yt-dlp</span> — a Python program — running on the phone itself. About 2,370 lines of Kotlin and 300 of Python.</p>
+            <div class="spec mt-40" data-reveal>
+              <div class="spec__row"><span class="spec__key">Python</span><span class="spec__val">The Chaquopy Gradle plugin embeds <strong>CPython 3.11</strong>; pip installs yt-dlp and mutagen at build time. Kotlin calls in with <span class="ws-c">module.callAttr(…)</span>, and every Python function answers with a JSON string.</span></div>
+              <div class="spec__row"><span class="spec__key">Audio</span><span class="spec__val"><span class="ws-c">bestaudio[ext=m4a]</span> — YouTube’s own AAC, saved as it comes. There’s no ffmpeg on the phone, so nothing is converted.</span></div>
+              <div class="spec__row"><span class="spec__key">Shape</span><span class="spec__val">One activity with three tabs → a foreground service → the Python bridge → MediaStore and Room. The service and the screens share state through one <strong>StateFlow</strong>.</span></div>
+              <div class="spec__row"><span class="spec__key">Failures</span><span class="spec__val">Five retries, plus five per fragment. Failures are counted per song; if nothing was saved, the last reason is shown instead of a shrug.</span></div>
+              <div class="spec__row"><span class="spec__key">Install</span><span class="spec__val">An APK, sideloaded onto her phone. Not on the Play Store — no accounts, no API keys, no subscription.</span></div>
+            </div>
+          </div>
+          <figure class="window" data-reveal="scale">
+            <div class="window__bar"><span class="window__dot"></span><span class="window__dot"></span><span class="window__dot"></span><span class="window__title">downloader.py — _write_tags()</span></div>
+<pre class="ws-code"><code>audio[<span class="s">"\xa9nam"</span>] = [title]
+<span class="k">if</span> artist:
+    audio[<span class="s">"\xa9ART"</span>] = [artist]
+<span class="c"># Album artist is what music apps group an album by. Setting it per</span>
+<span class="c"># track splits one playlist into one album per singer, so for a</span>
+<span class="c"># playlist every track must share the same value.</span>
+<span class="k">if</span> album_artist:
+    audio[<span class="s">"aART"</span>] = [album_artist]
+    <span class="c"># Marks it a compilation, which helps players keep it together.</span>
+    audio[<span class="s">"cpil"</span>] = <span class="k">True</span>
+<span class="k">elif</span> artist:
+    audio[<span class="s">"aART"</span>] = [artist]
+<span class="k">if</span> album:
+    audio[<span class="s">"\xa9alb"</span>] = [album]
+<span class="k">if</span> cover_data:
+    audio[<span class="s">"covr"</span>] = [<span class="t">MP4Cover</span>(
+        cover_data,
+        imageformat=<span class="t">MP4Cover</span>.<span class="p">FORMAT_PNG</span> <span class="k">if</span> cover_is_png
+        <span class="k">else</span> <span class="t">MP4Cover</span>.<span class="p">FORMAT_JPEG</span>,
+    )]</code></pre>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Build notes ════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">05</span><span class="eyebrow__rule"></span>Build notes</p>
+          <h2 class="h2" data-split>The fiddly bits, <span class="dim">done properly.</span></h2>
+        </header>
+        <div class="ws-problems" data-stagger>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">01</span>
+            <h3>Progress across two languages</h3>
+            <p>yt-dlp holds Python’s interpreter lock for long stretches, so calling back into Kotlin on every chunk wasn’t an option. Instead the progress hook writes a small JSON file — atomically, at most every 0.4 s — and Kotlin polls it every <strong>400 ms</strong>. Stop works in reverse: the hook raises on the next chunk.</p>
+          </article>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">02</span>
+            <h3>Tags Samsung Music actually reads</h3>
+            <p>Android’s media index takes the artist from the file’s own tags, so setting the MediaStore column alone wasn’t enough. mutagen writes real MP4 atoms, and every song from a playlist shares <strong>one album artist</strong> so the playlist stays a single album.</p>
+          </article>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">03</span>
+            <h3>Scoped storage, done properly</h3>
+            <p>Songs go into MediaStore under <span class="ws-c">Music/YT Downloader</span>, staged behind <span class="ws-c">IS_PENDING=1</span> until the copy finishes — a crash can’t leave a half-written track that looks playable. If the insert is refused, it falls back to Download/. Filenames are capped at 150 bytes.</p>
+          </article>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">04</span>
+            <h3>Dedupe that survives deletes</h3>
+            <p>A Room table with a unique index on <span class="ws-c">(videoId, format)</span> remembers every download. Before skipping one, the app checks the file is still in MediaStore — so if she deletes a song, it simply comes back next time.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <site-footer next="cv"></site-footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/pages/yt.js" defer></script>
+</body>
+
+</html>

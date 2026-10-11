@@ -1,0 +1,333 @@
+/* ==========================================================================
+   The workshop — shared template for the smaller case studies
+   Each page sets --accent / --accent-2 on its body class and adds its own art
+   in css/pages/<project>.css. Everything structural lives here.
+   ========================================================================== */
+
+.ws ::selection {
+  background: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+/* ── Hero ────────────────────────────────────────────────────────────────── */
+
+.ws-hero {
+  position: relative;
+  padding-top: calc(var(--nav-h) + 56px);
+  padding-bottom: clamp(56px, 7vw, 96px);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.ws-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(48% 55% at 78% 52%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 70%),
+    radial-gradient(30% 40% at 8% 18%, color-mix(in srgb, var(--accent-2) 7%, transparent), transparent 70%);
+}
+
+.ws-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+  margin-top: 36px;
+}
+
+.ws-hero h1 {
+  margin-top: 22px;
+}
+
+.ws-promise {
+  margin-top: 18px;
+  font-size: clamp(22px, 2.3vw, 30px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--accent-2);
+}
+
+.ws-hero .lead {
+  margin-top: 22px;
+}
+
+.ws-visual {
+  position: relative;
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .ws-hero__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Status pill: live, in daily use, in progress. */
+.ws-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--accent-2);
+  background: color-mix(in srgb, var(--accent) 11%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+.ws-status i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+  animation: ws-breathe 2.4s var(--ease-in-out) infinite;
+}
+
+.ws-status--wip {
+  color: #ffd08a;
+  background: rgba(255, 179, 64, 0.1);
+  border-color: rgba(255, 179, 64, 0.3);
+}
+
+.ws-status--wip i {
+  background: var(--amber);
+  box-shadow: 0 0 10px var(--amber);
+}
+
+@keyframes ws-breathe {
+  50% {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+}
+
+/* ── Story ───────────────────────────────────────────────────────────────── */
+
+.ws-story {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 96px);
+  margin-top: clamp(32px, 4vw, 56px);
+}
+
+.ws-story p {
+  font-size: 17.5px;
+  line-height: 1.65;
+  color: var(--fg-2);
+}
+
+.ws-story p + p {
+  margin-top: 1em;
+}
+
+.ws-story strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+@media (max-width: 860px) {
+  .ws-story {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Before / after: the itch, then the fix. */
+.ws-versus {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+  margin-top: clamp(40px, 5vw, 64px);
+}
+
+.ws-versus__col {
+  padding: clamp(24px, 3vw, 32px);
+}
+
+.ws-versus__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+.ws-versus__col--good .ws-versus__tag {
+  color: var(--accent-2);
+}
+
+.ws-versus__col h3 {
+  margin-top: 14px;
+  font-size: 20px;
+  letter-spacing: -0.024em;
+}
+
+.ws-versus__col ul {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.ws-versus__col li {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 10px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--fg-2);
+}
+
+.ws-versus__col li .i {
+  margin-top: 3px;
+  color: var(--fg-4);
+}
+
+.ws-versus__col--good li .i {
+  color: var(--accent);
+}
+
+@media (max-width: 760px) {
+  .ws-versus {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ── Code ────────────────────────────────────────────────────────────────── */
+
+.ws-code {
+  margin: 0;
+  padding: 22px 24px;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: #d4d4dc;
+  background: #16171c;
+  tab-size: 4;
+}
+
+.ws-code .k { color: #ff7ab2; }
+.ws-code .t { color: #dabaff; }
+.ws-code .f { color: #67b7a4; }
+.ws-code .s { color: #ff8170; }
+.ws-code .c { color: #7f8c98; font-style: italic; }
+.ws-code .p { color: #6bdfff; }
+.ws-code .n { color: #d9c97c; }
+
+/* Footnotes: what's an illustration, what's real. */
+.ws-note {
+  margin-top: 16px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--fg-3);
+}
+
+.ws-note--center {
+  text-align: center;
+}
+
+/* ── Build notes: numbered problems, each with how it was solved ─────────── */
+
+.ws-problems {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.ws-problems--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 1000px) {
+  .ws-problems--3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .ws-problems,
+  .ws-problems--3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.ws-problem {
+  padding: clamp(24px, 3vw, 32px);
+}
+
+.ws-problem__n {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+}
+
+.ws-problem h3 {
+  margin-top: 14px;
+  font-size: 19px;
+  letter-spacing: -0.022em;
+  line-height: 1.3;
+}
+
+.ws-problem p {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--fg-2);
+}
+
+.ws-problem p strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+/* Inline code inside prose. */
+.ws-c {
+  padding: 1px 6px;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  color: var(--fg);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--line);
+}
+
+/* ── Feature grid tint ───────────────────────────────────────────────────── */
+
+.ws .feature {
+  --tone: var(--accent);
+}
+
+/* Six features read best as a 3 × 2 block, never 4 + 2. */
+.ws .feature-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 1000px) {
+  .ws .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .ws .feature-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ── Small screens: let wide art scroll inside itself, never the page ────── */
+
+.ws-scroll {
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.ws-scroll::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Filter Generator — Case study · Adrian Rachman</title>
+  <meta name="description" content="Filter Generator: a small Python desktop app that gives a whole pile of photos a retro film look, and the aha moment behind it — a picture is just numbers. Includes a byte-for-byte port of the filter you can try in the browser. A case study by Adrian Rachman.">
+  <meta name="theme-color" content="#131418">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Filter Generator — Case study · Adrian Rachman">
+  <meta property="og:description" content="A picture is just numbers. Seven sliders, eight steps, every photo in the pile — try the real filter in your browser.">
+  <meta property="og:image" content="https://portfolio-adrian-rachman.vercel.app/Assets/web/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="Assets/web/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/workshop.css">
+  <link rel="stylesheet" href="css/pages/filter.css">
+  <script src="js/site.js"></script>
+  <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
+</head>
+
+<body class="ws theme-filter">
+  <site-header current="work"></site-header>
+
+  <main id="main">
+
+    <!-- ═══ Hero ═══════════════════════════════════════════════════════════ -->
+    <section class="ws-hero">
+      <div class="container">
+        <a class="back-link" href="index.html#lab"><svg class="i" aria-hidden="true"><use href="#i-arrow-left" /></svg>The workshop</a>
+
+        <div class="ws-hero__grid">
+          <div>
+            <span class="ws-status" data-reveal><i aria-hidden="true"></i>Built in an afternoon</span>
+            <h1 class="h1" style="view-transition-name: filter-title">Filter Generator</h1>
+            <p class="ws-promise" data-reveal style="--d:160">A picture is just numbers.</p>
+            <p class="lead" data-reveal style="--d:260">A small desktop app that gives a whole pile of photos a retro film look in one go: seven sliders, a before and after, and one button that runs the batch in the background. It came from an aha moment — an image is a grid of numbers, and numbers are something I can change with code.</p>
+            <div class="btn-row mt-32" data-reveal style="--d:360">
+              <a class="btn btn--primary" href="#demo" data-magnetic="0.2">Try the filter <svg class="i i--arrow-down" aria-hidden="true"><use href="#i-arrow-down" /></svg></a>
+              <a class="btn btn--glass" href="https://github.com/Pupackted/Pixelated-Kisses" target="_blank" rel="noopener">Pixelated Kisses on GitHub <svg class="i i--up-right" aria-hidden="true"><use href="#i-external" /></svg><span class="sr-only">(opens in a new tab)</span></a>
+            </div>
+          </div>
+
+          <div class="ws-visual fg-hero" data-reveal="scale" style="--d:200">
+            <figure class="window fg-app" role="img" aria-label="Filter Generator’s window: a dark sidebar headed ‘Adrian’s Pic Filter’ in red, with a red Select Image(s) button and seven sliders at their defaults — Grain Intensity 100, Color Warmth 60, Brightness −20, Shadow Fade 75, Lens Softness 70, Glow / Bloom 40, Vignette 40. The main panel shows the After view of a silver BMW by a garden, warmer, softer and grainy, with Prev and Next buttons and ‘Image 1 of 3’.">
+              <div class="window__bar"><span class="window__dot"></span><span class="window__dot"></span><span class="window__dot"></span><span class="window__title">Adrian’s Pic Filter</span></div>
+              <div class="fg-app__body" aria-hidden="true">
+                <div class="fg-app__side">
+                  <p class="fg-app__logo">ADRIAN’S<br>PIC FILTER</p>
+                  <p class="fg-app__hint">Drop Images Anywhere</p>
+                  <span class="fg-app__btn">Select Image(s)</span>
+                  <p class="fg-app__cap">FILTER SETTINGS</p>
+                  <div class="fg-app__sl" style="--v:.5"><span>Grain Intensity: 100</span><i></i></div>
+                  <div class="fg-app__sl" style="--v:.6"><span>Color Warmth: 60</span><i></i></div>
+                  <div class="fg-app__sl" style="--v:.4"><span>Brightness: -20</span><i></i></div>
+                  <div class="fg-app__sl" style="--v:.375"><span>Shadow Fade: 75</span><i></i></div>
+                  <div class="fg-app__sl" style="--v:.35"><span>Lens Softness: 70</span><i></i></div>
+                  <div class="fg-app__sl" style="--v:.4"><span>Glow / Bloom: 40</span><i></i></div>
+                  <div class="fg-app__sl" style="--v:.4"><span>Vignette: 40</span><i></i></div>
+                  <span class="fg-app__btn fg-app__btn--go">Process Image(s)</span>
+                  <span class="fg-app__spacer"></span>
+                  <span class="fg-app__btn">Save Result(s)</span>
+                  <span class="fg-app__btn fg-app__btn--ghost">Restart</span>
+                </div>
+                <div class="fg-app__main">
+                  <div class="fg-app__seg"><span>Before</span><span class="is-on">After</span></div>
+                  <div class="fg-app__pic"><img src="Assets/web/filter/bmw-after.webp" alt="" width="900" height="600" fetchpriority="high"></div>
+                  <div class="fg-app__nav"><span>&lt; Prev</span><em>Image 1 of 3</em><span>Next &gt;</span></div>
+                </div>
+              </div>
+            </figure>
+
+            <figure class="fg-pk" role="img" aria-label="Pixelated Kisses, the earlier app: the same photo mapped to black, a warm grey and red, with grain and large square pixels.">
+              <img src="Assets/web/filter/pk-after.webp" alt="" width="900" height="600" fetchpriority="low">
+              <figcaption aria-hidden="true"><b>PIXELATED<br>KISSES</b><span>Grain 25 · Pixel 12</span></figcaption>
+            </figure>
+
+            <span class="fg-chip"><svg class="i" aria-hidden="true"><use href="#i-grid" /></svg>img_arr.shape&nbsp;<b>(600, 900, 3)</b></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <dl class="meta-row" data-stagger>
+        <div><dt>Role</dt><dd>Design &amp; development, solo</dd></div>
+        <div><dt>Built for</dt><dd>Me, for fun</dd></div>
+        <div><dt>Built</dt><dd>May 2026, two afternoons</dd></div>
+        <div><dt>Stack</dt><dd>Python · NumPy · Pillow</dd></div>
+      </dl>
+    </div>
+
+    <!-- ═══ Why ════════════════════════════════════════════════════════════ -->
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow" data-reveal><span class="eyebrow__index">01</span><span class="eyebrow__rule"></span>Why it exists</p>
+        <h2 class="pullquote mt-24" data-split>A picture is just data. <span>And data is something I can change with code.</span></h2>
+
+        <div class="ws-story">
+          <div data-reveal>
+            <p>I made this for fun: I wanted to put filters on my own photos. Somewhere along the way it clicked that a picture is just data — numbers for every pixel, arranged so that our eyes read them as an image. Everything on a screen is code, and if it’s code, I can change it. That was my <strong>aha moment</strong>.</p>
+            <p>The first try was <strong>Pixelated Kisses</strong>, made for one look: a Joji album cover. It turns a photo into black, a warm grey and a hot red, adds grain, and can pixelate it. It’s on <a class="link" href="https://github.com/Pupackted/Pixelated-Kisses" target="_blank" rel="noopener">GitHub<span class="sr-only"> (opens in a new tab)</span></a>, with ready-made downloads for Mac and Windows.</p>
+          </div>
+          <div data-reveal style="--d:120">
+            <p>Two weeks later I wanted something more general — a retro film look I could tune — and I wanted it for a whole folder at once, not one photo at a time. That became Filter Generator: <strong>seven sliders, eight steps, one click</strong> for the whole pile.</p>
+            <p>It stayed with me, too. This little app is one of the things that started <a class="link" href="project-ridelens.html">RideLens</a>, the car photo editor I’m building for iOS.</p>
+          </div>
+        </div>
+
+        <div class="ws-versus">
+          <article class="card ws-versus__col" data-reveal>
+            <span class="ws-versus__tag"><svg class="i" aria-hidden="true"><use href="#i-calendar" /></svg>8 May · Pixelated Kisses</span>
+            <h3>One look, two sliders</h3>
+            <ul>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg><span>A gradient map: each pixel’s brightness picks a colour from black, through a warm grey, to red</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg><span>Colour grain — separate noise on red, green and blue</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg><span>A pixel size from 1 to 50, filled with the average of each block</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg><span>Released as macOS and Windows downloads, built by GitHub Actions</span></li>
+            </ul>
+          </article>
+          <article class="card ws-versus__col ws-versus__col--good" data-reveal style="--d:120">
+            <span class="ws-versus__tag"><svg class="i" aria-hidden="true"><use href="#i-calendar" /></svg>23 May · Filter Generator</span>
+            <h3>A film look you can tune</h3>
+            <ul>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg><span>Eight steps, from a colour lookup table to a glow around highlights</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg><span>Seven sliders, with defaults that already give the look</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg><span>Monochrome grain, like film</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg><span>A whole batch on a background thread, with a progress bar</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Demo: the real filter, in the browser ═════════════════════════ -->
+    <section class="section section--flush-top" id="demo">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">02</span><span class="eyebrow__rule"></span>Try it</p>
+          <h2 class="h2" data-split>Move a slider. <span class="dim">Watch the numbers move.</span></h2>
+          <p class="lead" data-reveal style="--d:150">This is the app’s filter, ported line by line from Python and running on your device: the same eight steps, in the same order, rounded the same way after every one. Point at the photo to follow one pixel through the whole pipeline.</p>
+        </header>
+
+        <div class="fg-demo" data-filter-demo data-mode-now="fg" data-reveal>
+          <div class="fg-demo__top">
+            <div class="fg-tabs" role="group" aria-label="Which app’s filter">
+              <button type="button" data-mode="fg" aria-pressed="true">Filter Generator <span>23 May</span></button>
+              <button type="button" data-mode="pk" aria-pressed="false">Pixelated Kisses <span>8 May</span></button>
+            </div>
+            <div class="fg-seg" role="group" aria-label="Preview">
+              <button type="button" data-view="before" aria-pressed="false">Before</button>
+              <button type="button" data-view="after" aria-pressed="true">After</button>
+            </div>
+          </div>
+
+          <div class="fg-demo__stage" data-stage>
+            <canvas width="900" height="600" data-canvas tabindex="0" role="img" aria-label="Photo" aria-describedby="fg-hint"></canvas>
+            <span class="fg-probe" data-probe hidden aria-hidden="true"></span>
+            <span class="fg-badge" data-badge aria-hidden="true">After</span>
+            <p class="fg-loading" data-loading hidden>Loading the photo…</p>
+            <noscript><p class="fg-loading">The live filter needs JavaScript.</p></noscript>
+          </div>
+
+          <div class="fg-demo__bar">
+            <div class="fg-photos" role="group" aria-label="Photo">
+              <button type="button" data-photo="bmw" aria-pressed="true">BMW</button>
+              <button type="button" data-photo="cayman" aria-pressed="false">Cayman</button>
+              <button type="button" data-own aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-image" /></svg>Your photo</button>
+              <input type="file" accept="image/*" data-file hidden>
+            </div>
+            <div class="fg-demo__meta">
+              <span class="fg-stat" data-stat>Preview size</span>
+              <button type="button" class="fg-link" data-save><svg class="i" aria-hidden="true"><use href="#i-download" /></svg>Save result</button>
+            </div>
+          </div>
+
+          <div class="fg-demo__side">
+            <div class="fg-side__head">
+              <p class="fg-logo" data-logo>Adrian’s<br>pic filter</p>
+              <button type="button" class="fg-link" data-reset><svg class="i" aria-hidden="true"><use href="#i-rotate" /></svg>Reset<span class="sr-only"> to the app’s defaults</span></button>
+            </div>
+            <p class="fg-cap">Filter settings</p>
+
+            <div class="fg-sliders" data-group="fg">
+              <div class="fg-slider">
+                <div class="fg-slider__row"><label for="fg-grain">Grain Intensity</label><output for="fg-grain">100</output></div>
+                <input class="fg-range" type="range" id="fg-grain" min="0" max="200" step="1" value="100" data-default="100" data-key="grain" data-mode-of="fg">
+              </div>
+              <div class="fg-slider">
+                <div class="fg-slider__row"><label for="fg-warmth">Color Warmth</label><output for="fg-warmth">60</output></div>
+                <input class="fg-range" type="range" id="fg-warmth" min="0" max="100" step="1" value="60" data-default="60" data-key="warmth" data-mode-of="fg">
+              </div>
+              <div class="fg-slider">
+                <div class="fg-slider__row"><label for="fg-brightness">Brightness</label><output for="fg-brightness">−20</output></div>
+                <input class="fg-range" type="range" id="fg-brightness" min="-100" max="100" step="1" value="-20" data-default="-20" data-key="brightness" data-mode-of="fg">
+              </div>
+              <div class="fg-slider">
+                <div class="fg-slider__row"><label for="fg-fade">Shadow Fade</label><output for="fg-fade">75</output></div>
+                <input class="fg-range" type="range" id="fg-fade" min="0" max="200" step="1" value="75" data-default="75" data-key="fade" data-mode-of="fg">
+              </div>
+              <div class="fg-slider">
+                <div class="fg-slider__row"><label for="fg-softness">Lens Softness</label><output for="fg-softness">70</output></div>
+                <input class="fg-range" type="range" id="fg-softness" min="0" max="200" step="1" value="70" data-default="70" data-key="softness" data-mode-of="fg">
+              </div>
+              <div class="fg-slider">
+                <div class="fg-slider__row"><label for="fg-glow">Glow / Bloom</label><output for="fg-glow">40</output></div>
+                <input class="fg-range" type="range" id="fg-glow" min="0" max="100" step="1" value="40" data-default="40" data-key="glow" data-mode-of="fg">
+              </div>
+              <div class="fg-slider">
+                <div class="fg-slider__row"><label for="fg-vignette">Vignette</label><output for="fg-vignette">40</output></div>
+                <input class="fg-range" type="range" id="fg-vignette" min="0" max="100" step="1" value="40" data-default="40" data-key="vignette" data-mode-of="fg">
+              </div>
+            </div>
+
+            <div class="fg-sliders" data-group="pk" hidden>
+              <div class="fg-slider">
+                <div class="fg-slider__row"><label for="pk-grain">Grain Intensity</label><output for="pk-grain">25</output></div>
+                <input class="fg-range" type="range" id="pk-grain" min="0" max="100" step="1" value="25" data-default="25" data-key="pkgrain" data-mode-of="pk">
+              </div>
+              <div class="fg-slider">
+                <div class="fg-slider__row"><label for="pk-pixel">Pixel Size</label><output for="pk-pixel">1</output></div>
+                <input class="fg-range" type="range" id="pk-pixel" min="1" max="50" step="1" value="1" data-default="1" data-key="pixel" data-mode-of="pk">
+              </div>
+              <p class="fg-side__note">Only two controls. The colours are fixed: black, a warm grey, then red.</p>
+            </div>
+
+            <div class="fg-side__foot">
+              <button type="button" class="fg-link" data-reroll><svg class="i" aria-hidden="true"><use href="#i-refresh" /></svg>New grain</button>
+              <span class="fg-side__order">Listed as in the app — applied in pipeline order.</span>
+            </div>
+          </div>
+
+          <div class="fg-demo__pipe">
+            <div class="fg-pipe__head">
+              <p class="fg-cap">Pipeline · one pixel, step by step</p>
+              <p class="fg-pipe__px" data-px>Pixel —</p>
+            </div>
+            <ol class="fg-pipe" data-pipe aria-label="Pipeline steps, in order. Choose one to see the photo at that step."></ol>
+            <p class="fg-math" data-math></p>
+            <p class="fg-hint" id="fg-hint">Hover or tap the photo to read a pixel; arrow keys move it one pixel at a time (Shift for ten).</p>
+          </div>
+
+          <p class="sr-only" aria-live="polite" data-live></p>
+        </div>
+        <p class="ws-note" data-reveal>A line-for-line port of the app’s <span class="ws-c">apply_filter_logic()</span> and of Pixelated Kisses’ filter, checked byte for byte against NumPy and Pillow, running in a background worker. It runs the same maths at preview size (900 px wide), so blur, grain and glow — all measured in pixels — look stronger than on a full-size photo. The grain is random as in the app, but drawn once per photo and rescaled as you drag, so it doesn’t flicker; “New grain” draws a fresh set. Your own photo never leaves this page.</p>
+      </div>
+    </section>
+
+    <!-- ═══ Features ═══════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">03</span><span class="eyebrow__rule"></span>What it does</p>
+          <h2 class="h2" data-split>Small app. <span class="dim">Whole pile.</span></h2>
+        </header>
+        <div class="feature-grid" data-stagger>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-layers" /></svg></span><h3>Drop a pile</h3><p>Drag photos anywhere onto the window, or pick them: JPG, PNG, BMP and WebP. Phone photos are turned upright from their EXIF data as they load.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-sliders" /></svg></span><h3>Seven sliders</h3><p>Grain, warmth, brightness, shadow fade, lens softness, glow and vignette — each with its value printed above it, and sensible defaults.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-zap" /></svg></span><h3>One click for all of them</h3><p>Every photo runs through the filter on a background thread while a red progress bar fills, so the window stays responsive.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-eye" /></svg></span><h3>Before and after</h3><p>Flip between the original and the result, and step through the batch with Prev and Next — “Image 2 of 5”.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-save" /></svg></span><h3>Save one, or a folder</h3><p>One photo opens a Save dialog. Several go into a folder you choose, each as <span class="ws-c">name_filtered.jpg</span>. Restart clears the lot.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-download" /></svg></span><h3>The first one shipped</h3><p>Pixelated Kisses went out as zipped builds for macOS and Windows on GitHub Releases, made by GitHub Actions with PyInstaller.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Build ══════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <div class="split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">04</span><span class="eyebrow__rule"></span>How it’s built</p>
+            <h2 class="h2 mt-24" data-split>NumPy in. <span class="dim">uint8 out.</span></h2>
+            <p class="lead mt-20" data-reveal>One Python file of 535 lines. Pillow opens, blurs, resizes and saves the photos; everything else is arithmetic on a NumPy array of pixels.</p>
+            <div class="spec mt-40" data-reveal>
+              <div class="spec__row"><span class="spec__key">Interface</span><span class="spec__val"><strong>CustomTkinter</strong> in dark mode, with <strong>tkinterdnd2</strong> for drag and drop. Dropped paths with spaces arrive wrapped in braces; a regex splits them.</span></div>
+              <div class="spec__row"><span class="spec__key">Pixels</span><span class="spec__val">Each photo is an array of shape (height, width, 3). Warmth, brightness, fade, vignette and grain are <strong>array maths</strong>; blur, aberration and glow go through Pillow.</span></div>
+              <div class="spec__row"><span class="spec__key">Precision</span><span class="spec__val">Every step ends with <strong>astype(np.uint8)</strong> — back to whole numbers from 0 to 255 before the next one starts.</span></div>
+              <div class="spec__row"><span class="spec__key">Threads</span><span class="spec__val">Processing runs on a daemon thread and reports progress through Tkinter’s <span class="ws-c">after()</span>, back on the UI thread.</span></div>
+            </div>
+            <div class="chip-row mt-32" data-reveal>
+              <span class="chip">Python 3.12</span><span class="chip">NumPy</span><span class="chip">Pillow</span><span class="chip">CustomTkinter</span><span class="chip">tkinterdnd2</span>
+            </div>
+          </div>
+          <figure class="window" data-reveal="scale">
+            <div class="window__bar"><span class="window__dot"></span><span class="window__dot"></span><span class="window__dot"></span><span class="window__title">main.py — apply_filter_logic()</span></div>
+<pre class="ws-code"><code><span class="c"># 4. Vignette</span>
+<span class="k">if</span> vignette &gt; <span class="n">0</span>:
+    v_factor = vignette / <span class="n">100.0</span>
+    h, w, _ = img_arr.shape
+    y_coords = np.<span class="f">linspace</span>(<span class="n">-1.0</span>, <span class="n">1.0</span>, h)
+    x_coords = np.<span class="f">linspace</span>(<span class="n">-1.0</span>, <span class="n">1.0</span>, w)
+    Y, X = np.<span class="f">meshgrid</span>(y_coords, x_coords, indexing=<span class="s">'ij'</span>)
+    dist = np.<span class="f">sqrt</span>(X**<span class="n">2</span> + Y**<span class="n">2</span>) / np.<span class="f">sqrt</span>(<span class="n">2.0</span>)
+    mask = np.<span class="f">clip</span>(<span class="n">1.0</span> - (v_factor * <span class="n">0.45</span>) * (dist ** <span class="n">2</span>), <span class="n">0.0</span>, <span class="n">1.0</span>)
+    img_arr = (img_arr.<span class="f">astype</span>(np.<span class="t">float32</span>) * mask[:, :, np.newaxis])
+    img_arr = np.<span class="f">clip</span>(img_arr, <span class="n">0</span>, <span class="n">255</span>).<span class="f">astype</span>(np.<span class="t">uint8</span>)
+
+<span class="c"># 5. Film Grain (Monochromatic Noise)</span>
+<span class="k">if</span> grain &gt; <span class="n">0</span>:
+    h, w, _ = img_arr.shape
+    noise_scale = (grain / <span class="n">100.0</span>) * <span class="n">20.0</span>
+    noise = np.random.<span class="f">normal</span>(loc=<span class="n">0</span>, scale=noise_scale, size=(h, w, <span class="n">1</span>))
+    img_arr = np.<span class="f">clip</span>(img_arr.<span class="f">astype</span>(np.<span class="t">float32</span>) + noise, <span class="n">0</span>, <span class="n">255</span>).<span class="f">astype</span>(np.<span class="t">uint8</span>)</code></pre>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Build notes ════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">05</span><span class="eyebrow__rule"></span>Build notes</p>
+          <h2 class="h2" data-split>Eight steps, <span class="dim">all of them arithmetic.</span></h2>
+        </header>
+        <div class="ws-problems" data-stagger>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">01</span>
+            <h3>The colour grade is a lookup table</h3>
+            <p>Warmth doesn’t visit pixels one by one. The app works out <strong>256 answers per channel</strong> once — a straight line blended with a retro curve — then applies them with NumPy indexing: <span class="ws-c">lut_r[img_arr[:, :, 0]]</span>. Even at warmth 0, floating point leaves 24 of those 256 values one lower than they went in.</p>
+          </article>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">02</span>
+            <h3>Film grain is monochrome</h3>
+            <p>Filter Generator draws <strong>one</strong> random number per pixel and adds it to red, green and blue alike, so the grain changes brightness, not colour. Pixelated Kisses drew separate noise for each channel, which speckles the image with colour.</p>
+          </article>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">03</span>
+            <h3>Lens fringes from resizing</h3>
+            <p>Chromatic aberration is the three channels pulled apart: red scaled up by as much as 1.4% and cropped back, blue scaled down and centred on black, green left alone. It rides on the Lens Softness slider, so a softer lens also fringes more.</p>
+          </article>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">04</span>
+            <h3>Glow only from the highlights</h3>
+            <p>Only pixels with a luma above 180 feed the bloom. That layer is blurred by 5 to 25 pixels and added back at up to 75% strength — so a halo forms around bright paint and lights, not over the whole picture.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <site-footer next="photo"></site-footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/pages/filter.js" defer></script>
+</body>
+
+</html>

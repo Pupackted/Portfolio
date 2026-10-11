@@ -1,0 +1,1630 @@
+/* ==========================================================================
+   YT Playlist Downloader
+   Maroon, mocha and blush — the app's own palette. The phone screens are
+   drawn in "dp": one unit is 1/360 of the screen width, so every size below
+   is the number from the Compose source.
+   ========================================================================== */
+
+.theme-yt {
+  --accent: #d17f8c;
+  --accent-2: #f1c9cf;
+  --yt-maroon: #2c0a0f;
+  --yt-rose: #b4626f;
+}
+
+/* "YT Playlist Downloader" is longer than most workshop titles. */
+.yt-title {
+  font-size: clamp(44px, 6.4vw, 92px);
+}
+
+/* ── The Android phone ───────────────────────────────────────────────────── */
+
+.ya-phone {
+  --pw: 340px;
+  --dp: calc(var(--pw) * 0.94 / 360);
+  --maroon: #2c0a0f;
+  --maroon-soft: #5f3339;
+  --mocha: #cbb9a2;
+  --mocha-light: #e7dccc;
+  --mocha-deep: #9c866b;
+  --blush: #fdf6f5;
+  --cream: #fffbfa;
+  --rose: #b4626f;
+  --rose-light: #f3e1e3;
+  --ink: #2c0a0f;
+  --ink-muted: #7a6165;
+  --err: #b3261e;
+  --err-c: #f9dedc;
+  --on-err-c: #410e0b;
+  position: relative;
+  width: var(--pw);
+  padding: calc(var(--pw) * 0.03);
+  border-radius: calc(var(--pw) * 0.135);
+  background: linear-gradient(150deg, #47424a, #1b191c 38%, #121113 70%, #2b282d);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07),
+    inset 0 0 0 calc(var(--pw) * 0.012) #0b0a0c,
+    0 50px 110px -34px rgba(0, 0, 0, 0.9);
+  flex-shrink: 0;
+}
+
+/* Power and volume keys. */
+.ya-phone::before,
+.ya-phone::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(90deg, #252327, #3c3940);
+}
+
+.ya-phone::before {
+  top: 21%;
+  height: 13%;
+}
+
+.ya-phone::after {
+  top: 38%;
+  height: 7%;
+}
+
+.ya-screen {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 360 / 780;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: calc(var(--pw) * 0.105);
+  background: var(--blush);
+  color: var(--ink);
+  font-family: Roboto, "Google Sans", Inter, system-ui, -apple-system, sans-serif;
+  font-size: calc(14 * var(--dp));
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ya-screen svg {
+  width: calc(24 * var(--dp));
+  height: calc(24 * var(--dp));
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.ya-screen button {
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: inherit;
+  color: inherit;
+}
+
+.ya-screen button:focus-visible {
+  outline: 2px solid var(--rose);
+  outline-offset: 2px;
+}
+
+/* Status bar with a punch-hole camera. */
+.ya-status {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: calc(36 * var(--dp));
+  padding: 0 calc(22 * var(--dp));
+  font-size: calc(13.5 * var(--dp));
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.ya-cam {
+  width: calc(11 * var(--dp));
+  height: calc(11 * var(--dp));
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 38%, #2b3140 0 22%, #08080a 30%);
+  box-shadow: 0 0 0 calc(1.5 * var(--dp)) #141316;
+}
+
+.ya-status__icons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: calc(3 * var(--dp));
+}
+
+.ya-status__icons svg {
+  width: calc(15 * var(--dp));
+  height: calc(15 * var(--dp));
+}
+
+.ya-status__icons .ya-batt {
+  width: calc(17 * var(--dp));
+  height: calc(17 * var(--dp));
+}
+
+.ya-body {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+.ya-view {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  padding: calc(4 * var(--dp)) calc(20 * var(--dp)) 0;
+}
+
+/* The Download tab is a scrolling column, as in the app. */
+.ya-view--scroll {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+
+.ya-view--scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* The app swaps tabs with a 110 ms crossfade. */
+.ya-view.is-entering {
+  animation: ya-fade 0.11s linear both;
+}
+
+@keyframes ya-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* ── Download screen ─────────────────────────────────────────────────────── */
+
+.ya-hero {
+  padding: calc(24 * var(--dp));
+  border-radius: calc(32 * var(--dp));
+  color: #fff;
+  background: linear-gradient(90deg, var(--maroon-soft), var(--maroon));
+}
+
+.ya-hero__kicker {
+  font-size: calc(12 * var(--dp));
+  line-height: calc(17 * var(--dp));
+  color: var(--mocha);
+}
+
+.ya-hero__title {
+  margin-top: calc(6 * var(--dp));
+  font-size: calc(26 * var(--dp));
+  line-height: calc(32 * var(--dp));
+  font-weight: 700;
+  letter-spacing: calc(-0.4 * var(--dp));
+  text-wrap: initial;
+}
+
+.ya-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: calc(56 * var(--dp));
+  margin-top: calc(24 * var(--dp));
+  padding: 0 calc(4 * var(--dp)) 0 calc(16 * var(--dp));
+  border-radius: calc(18 * var(--dp));
+  border: calc(1 * var(--dp)) solid var(--mocha);
+}
+
+.ya-field__label {
+  position: absolute;
+  top: calc(-8 * var(--dp));
+  left: calc(12 * var(--dp));
+  padding: 0 calc(4 * var(--dp));
+  font-size: calc(12 * var(--dp));
+  line-height: calc(16 * var(--dp));
+  color: var(--ink-muted);
+  background: var(--blush);
+}
+
+.ya-field__value {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: calc(16 * var(--dp));
+}
+
+.ya-field__icon,
+.ya-field__lead {
+  display: grid;
+  place-items: center;
+  width: calc(48 * var(--dp));
+  height: calc(48 * var(--dp));
+  color: var(--ink-muted);
+}
+
+.ya-label {
+  margin: calc(20 * var(--dp)) 0 calc(10 * var(--dp)) calc(4 * var(--dp));
+  font-size: calc(12 * var(--dp));
+  line-height: calc(16 * var(--dp));
+  font-weight: 500;
+  letter-spacing: calc(0.4 * var(--dp));
+  color: var(--ink-muted);
+}
+
+.ya-formats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(12 * var(--dp));
+}
+
+.ya-format {
+  display: block;
+  width: 100%;
+  padding: calc(16 * var(--dp));
+  border-radius: calc(18 * var(--dp));
+  background: var(--cream);
+  box-shadow: 0 calc(1 * var(--dp)) calc(2 * var(--dp)) rgba(44, 10, 15, 0.12), 0 calc(1 * var(--dp)) calc(3 * var(--dp)) calc(1 * var(--dp)) rgba(44, 10, 15, 0.06);
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.ya-format svg {
+  display: block;
+  color: var(--ink-muted);
+}
+
+.ya-format b {
+  display: block;
+  margin-top: calc(10 * var(--dp));
+  font-size: calc(16 * var(--dp));
+  line-height: calc(22 * var(--dp));
+  font-weight: 600;
+}
+
+.ya-format span {
+  display: block;
+  font-size: calc(12 * var(--dp));
+  line-height: calc(17 * var(--dp));
+  color: var(--ink-muted);
+}
+
+.ya-format.is-on {
+  background: var(--rose-light);
+  box-shadow: inset 0 0 0 calc(2 * var(--dp)) var(--maroon);
+}
+
+.ya-format.is-on svg,
+.ya-format.is-on b {
+  color: var(--maroon);
+}
+
+button.ya-format:disabled {
+  cursor: default;
+}
+
+.ya-dl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(10 * var(--dp));
+  width: 100%;
+  height: calc(58 * var(--dp));
+  margin-top: calc(24 * var(--dp));
+  border-radius: calc(18 * var(--dp));
+  font-size: calc(15 * var(--dp));
+  line-height: calc(20 * var(--dp));
+  font-weight: 600;
+  letter-spacing: calc(0.1 * var(--dp));
+  color: var(--blush);
+  background: var(--maroon);
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.ya-screen .ya-dl {
+  color: var(--blush);
+}
+
+.ya-dl svg {
+  width: calc(20 * var(--dp));
+  height: calc(20 * var(--dp));
+}
+
+.ya-dl.is-busy,
+.ya-screen .ya-dl:disabled {
+  color: var(--maroon-soft);
+  background: var(--mocha);
+  cursor: default;
+}
+
+button.ya-dl:not(:disabled):active {
+  transform: scale(0.985);
+}
+
+button.ya-dl:not(:disabled):hover {
+  background: #45161d;
+}
+
+/* Until it's pressed once, the button breathes a little. */
+.ya-dl.is-invite {
+  animation: ya-invite 2.2s var(--ease-in-out) infinite;
+}
+
+@keyframes ya-invite {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(180, 98, 111, 0.55);
+  }
+
+  60% {
+    box-shadow: 0 0 0 calc(9 * var(--dp)) rgba(180, 98, 111, 0);
+  }
+}
+
+/* Progress and result cards. */
+.ya-card {
+  margin-top: calc(20 * var(--dp));
+  padding: calc(20 * var(--dp));
+  border-radius: calc(24 * var(--dp));
+  background: var(--cream);
+  box-shadow: 0 calc(1 * var(--dp)) calc(2 * var(--dp)) rgba(44, 10, 15, 0.14), 0 calc(2 * var(--dp)) calc(6 * var(--dp)) calc(2 * var(--dp)) rgba(44, 10, 15, 0.07);
+}
+
+.ya-card.is-new {
+  animation: ya-expand 0.36s var(--ease-out) both;
+}
+
+@keyframes ya-expand {
+  from {
+    opacity: 0;
+    transform: translateY(calc(-6 * var(--dp)));
+  }
+}
+
+.ya-progress__top {
+  display: flex;
+  align-items: center;
+  gap: calc(8 * var(--dp));
+}
+
+.ya-progress__top b {
+  flex: 1;
+  font-size: calc(14 * var(--dp));
+  line-height: calc(20 * var(--dp));
+  font-weight: 600;
+  color: var(--maroon);
+}
+
+.ya-progress__top span {
+  font-size: calc(12 * var(--dp));
+  line-height: calc(16 * var(--dp));
+  font-weight: 500;
+  letter-spacing: calc(0.4 * var(--dp));
+  color: var(--ink-muted);
+}
+
+.ya-progress__title {
+  display: -webkit-box;
+  margin-top: calc(8 * var(--dp));
+  overflow: hidden;
+  font-size: calc(14 * var(--dp));
+  line-height: calc(20 * var(--dp));
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.ya-bar {
+  position: relative;
+  height: calc(6 * var(--dp));
+  margin-top: calc(14 * var(--dp));
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--mocha-light);
+}
+
+.ya-bar i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  border-radius: inherit;
+  background: var(--maroon);
+  transition: width 0.38s var(--ease-out);
+}
+
+.ya-bar.is-indeterminate i {
+  width: 38%;
+  transition: none;
+  animation: ya-indeterminate 1.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes ya-indeterminate {
+  from {
+    transform: translateX(-110%);
+  }
+
+  to {
+    transform: translateX(270%);
+  }
+}
+
+.ya-progress__row {
+  display: flex;
+  align-items: center;
+  gap: calc(8 * var(--dp));
+  margin-top: calc(10 * var(--dp));
+}
+
+.ya-progress__row > span:first-child {
+  flex: 1;
+  font-size: calc(12 * var(--dp));
+  line-height: calc(17 * var(--dp));
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.ya-tbtn {
+  display: inline-flex;
+  align-items: center;
+  height: calc(40 * var(--dp));
+  padding: 0 calc(12 * var(--dp));
+  border-radius: 999px;
+  font-size: calc(15 * var(--dp));
+  font-weight: 600;
+  color: var(--maroon);
+  transition: background-color 0.2s;
+}
+
+.ya-screen .ya-tbtn {
+  color: var(--maroon);
+}
+
+button.ya-tbtn:hover {
+  background: rgba(44, 10, 15, 0.07);
+}
+
+.ya-progress__skip {
+  font-size: calc(12 * var(--dp));
+  line-height: calc(17 * var(--dp));
+  color: var(--ink-muted);
+}
+
+.ya-result {
+  background: var(--rose-light);
+  box-shadow: none;
+}
+
+.ya-result--error {
+  background: var(--err-c);
+}
+
+.ya-result__top {
+  display: flex;
+  align-items: center;
+  gap: calc(10 * var(--dp));
+  font-size: calc(16 * var(--dp));
+  line-height: calc(22 * var(--dp));
+  font-weight: 600;
+  color: var(--maroon);
+}
+
+.ya-result--error .ya-result__top {
+  color: var(--on-err-c);
+}
+
+.ya-result--error .ya-result__top svg {
+  color: var(--err);
+}
+
+.ya-result__body {
+  margin-top: calc(8 * var(--dp));
+  font-size: calc(14 * var(--dp));
+  line-height: calc(20 * var(--dp));
+  color: var(--maroon);
+}
+
+.ya-result--error .ya-result__body,
+.ya-screen .ya-result--error .ya-tbtn {
+  color: var(--on-err-c);
+}
+
+.ya-result__btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: calc(6 * var(--dp));
+}
+
+.ya-result__btns .ya-tbtn:only-child {
+  margin-left: auto;
+}
+
+.ya-foot {
+  margin-top: calc(28 * var(--dp));
+  padding: 0 calc(4 * var(--dp)) calc(24 * var(--dp));
+  font-size: calc(12 * var(--dp));
+  line-height: calc(17 * var(--dp));
+  color: var(--ink-muted);
+}
+
+/* ── Library and Playlists ───────────────────────────────────────────────── */
+
+.ya-view--list {
+  padding-top: calc(8 * var(--dp));
+}
+
+.ya-display {
+  font-size: calc(32 * var(--dp));
+  line-height: calc(38 * var(--dp));
+  font-weight: 700;
+  letter-spacing: calc(-0.5 * var(--dp));
+  color: var(--maroon);
+}
+
+.ya-sub {
+  font-size: calc(14 * var(--dp));
+  line-height: calc(20 * var(--dp));
+  color: var(--ink-muted);
+}
+
+.ya-field--search {
+  margin-top: calc(16 * var(--dp));
+  padding-left: calc(4 * var(--dp));
+}
+
+.ya-field__ph {
+  font-size: calc(16 * var(--dp));
+  color: var(--ink-muted);
+}
+
+.ya-chips {
+  display: flex;
+  align-items: center;
+  gap: calc(8 * var(--dp));
+  margin-top: calc(12 * var(--dp));
+}
+
+.ya-chip {
+  display: inline-flex;
+  align-items: center;
+  height: calc(32 * var(--dp));
+  padding: 0 calc(14 * var(--dp));
+  border-radius: calc(12 * var(--dp));
+  font-size: calc(14 * var(--dp));
+  font-weight: 500;
+  border: calc(1 * var(--dp)) solid var(--mocha);
+}
+
+.ya-chip.is-on {
+  background: var(--mocha);
+  border-color: var(--mocha);
+}
+
+.ya-sort {
+  margin-left: auto;
+  font-size: calc(12 * var(--dp));
+  font-weight: 500;
+  letter-spacing: calc(0.4 * var(--dp));
+  color: var(--maroon);
+}
+
+.ya-rows {
+  display: grid;
+  gap: calc(10 * var(--dp));
+  margin-top: calc(16 * var(--dp));
+}
+
+.ya-row {
+  display: flex;
+  align-items: center;
+  gap: calc(12 * var(--dp));
+  padding: calc(10 * var(--dp));
+  border-radius: calc(18 * var(--dp));
+  background: var(--cream);
+  box-shadow: 0 calc(1 * var(--dp)) calc(2 * var(--dp)) rgba(44, 10, 15, 0.12), 0 calc(1 * var(--dp)) calc(3 * var(--dp)) calc(1 * var(--dp)) rgba(44, 10, 15, 0.06);
+}
+
+.ya-row.is-new {
+  animation: ya-expand 0.4s var(--ease-out) both;
+}
+
+.ya-thumb {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: calc(78 * var(--dp));
+  height: calc(58 * var(--dp));
+  flex-shrink: 0;
+  border-radius: calc(12 * var(--dp));
+  overflow: hidden;
+  color: #fff;
+  background: var(--art);
+}
+
+.ya-thumb::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.ya-thumb svg {
+  position: relative;
+  width: calc(26 * var(--dp));
+  height: calc(26 * var(--dp));
+}
+
+.ya-row__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.ya-row__text b {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: calc(14 * var(--dp));
+  line-height: calc(20 * var(--dp));
+  font-weight: 600;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.ya-row__text span {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: calc(12 * var(--dp));
+  line-height: calc(17 * var(--dp));
+  color: var(--ink-muted);
+}
+
+.ya-row__meta {
+  display: flex !important;
+  align-items: center;
+  gap: calc(4 * var(--dp));
+  margin-top: calc(3 * var(--dp));
+}
+
+.ya-row__meta svg {
+  width: calc(13 * var(--dp));
+  height: calc(13 * var(--dp));
+}
+
+.ya-row > svg {
+  color: var(--ink-muted);
+  margin-right: calc(4 * var(--dp));
+}
+
+.ya-pl {
+  margin-top: calc(16 * var(--dp));
+}
+
+.ya-pl__card {
+  display: flex;
+  align-items: center;
+  gap: calc(14 * var(--dp));
+  padding: calc(12 * var(--dp));
+  border-radius: calc(18 * var(--dp));
+  background: var(--cream);
+  box-shadow: 0 calc(1 * var(--dp)) calc(2 * var(--dp)) rgba(44, 10, 15, 0.12), 0 calc(1 * var(--dp)) calc(3 * var(--dp)) calc(1 * var(--dp)) rgba(44, 10, 15, 0.06);
+}
+
+.ya-mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: calc(72 * var(--dp));
+  height: calc(72 * var(--dp));
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: calc(14 * var(--dp));
+}
+
+.ya-mosaic i {
+  background: var(--art);
+  background-size: cover;
+}
+
+.ya-pl__card b {
+  display: block;
+  font-size: calc(16 * var(--dp));
+  line-height: calc(22 * var(--dp));
+  font-weight: 600;
+}
+
+.ya-pl__card span {
+  display: block;
+  margin-top: calc(4 * var(--dp));
+  font-size: calc(12 * var(--dp));
+  line-height: calc(17 * var(--dp));
+  color: var(--ink-muted);
+}
+
+/* ── Bottom navigation ───────────────────────────────────────────────────── */
+
+.ya-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: calc(80 * var(--dp));
+  padding-top: calc(12 * var(--dp));
+  background: var(--cream);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.ya-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(4 * var(--dp));
+  font-size: calc(12 * var(--dp));
+  line-height: calc(16 * var(--dp));
+  font-weight: 500;
+  letter-spacing: calc(0.4 * var(--dp));
+  color: var(--ink-muted);
+}
+
+.ya-screen .ya-nav__item {
+  color: var(--ink-muted);
+  text-align: center;
+}
+
+.ya-nav__pill {
+  display: grid;
+  place-items: center;
+  width: calc(64 * var(--dp));
+  height: calc(32 * var(--dp));
+  border-radius: 999px;
+  transition: background-color 0.2s;
+}
+
+.ya-screen .ya-nav__item.is-on {
+  color: var(--maroon);
+}
+
+.ya-nav__item.is-on .ya-nav__pill {
+  color: var(--blush);
+  background: var(--maroon);
+}
+
+button.ya-nav__item:not(.is-on):hover .ya-nav__pill {
+  background: rgba(44, 10, 15, 0.06);
+}
+
+.ya-gesture {
+  display: grid;
+  place-items: center;
+  height: calc(18 * var(--dp));
+  background: var(--cream);
+  flex-shrink: 0;
+}
+
+.ya-gesture i {
+  width: calc(108 * var(--dp));
+  height: calc(4 * var(--dp));
+  border-radius: 999px;
+  background: rgba(44, 10, 15, 0.42);
+}
+
+/* ── Hero ────────────────────────────────────────────────────────────────── */
+
+.yt-hero {
+  --pw: min(340px, calc(100vw - 64px));
+  --nudge: 0px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 28px;
+}
+
+/* Wide screens: the phone sits right of centre to leave room for the notification. */
+@media (min-width: 1101px) {
+  .yt-hero {
+    --nudge: 6%;
+    justify-content: flex-end;
+    padding-right: var(--nudge);
+  }
+}
+
+.yt-hero__phone {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07),
+    inset 0 0 0 calc(var(--pw) * 0.012) #0b0a0c,
+    0 60px 120px -40px rgba(0, 0, 0, 0.9),
+    0 0 140px -30px rgba(209, 127, 140, 0.35);
+}
+
+.yt-hero__bar {
+  width: 62% !important;
+}
+
+/* The foreground service's progress notification, floating off the phone. */
+.yt-notif {
+  position: absolute;
+  top: 47%;
+  right: calc(var(--nudge) + var(--pw) - 56px);
+  z-index: 2;
+  width: 236px;
+  padding: 14px 16px 6px;
+  border-radius: 22px;
+  color: #201a1b;
+  background: rgba(250, 242, 241, 0.94);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  font-family: Roboto, "Google Sans", Inter, system-ui, sans-serif;
+  letter-spacing: 0;
+  transform: rotate(-2deg);
+}
+
+.yt-notif svg {
+  width: 13px;
+  height: 13px;
+  fill: currentColor;
+}
+
+.yt-notif__top {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11.5px;
+  color: #6d5d60;
+}
+
+.yt-notif__ico {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: #fdf6f5;
+  background: var(--yt-maroon);
+}
+
+.yt-notif__title {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.yt-notif__text {
+  font-size: 12.5px;
+  color: #6d5d60;
+}
+
+.yt-notif__bar {
+  display: block;
+  height: 4px;
+  margin-top: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e7dccc;
+}
+
+.yt-notif__bar i {
+  display: block;
+  width: 62%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--yt-maroon);
+}
+
+.yt-notif__act {
+  margin-top: 4px;
+  padding: 8px 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--yt-rose);
+}
+
+@media (max-width: 1100px) {
+  .yt-notif {
+    display: none;
+  }
+}
+
+.yt-chip {
+  position: absolute;
+  right: calc(var(--nudge) + var(--pw) / 2);
+  bottom: 0;
+  transform: translateX(50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  white-space: nowrap;
+  color: var(--accent-2);
+  background: rgba(26, 20, 22, 0.88);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 14px 40px -12px rgba(0, 0, 0, 0.7);
+}
+
+/* ── Demo layout ─────────────────────────────────────────────────────────── */
+
+.yt-demo {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: start;
+}
+
+.yt-demo__device {
+  display: flex;
+  justify-content: center;
+}
+
+.yt-demo__phone {
+  --pw: min(340px, calc(100vw - 40px));
+}
+
+.yt-demo__panel {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+@media (max-width: 980px) {
+  .yt-demo {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.yt-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 16px;
+  min-height: 40px;
+}
+
+.yt-hint {
+  font-size: 15px;
+  color: var(--fg-2);
+}
+
+.yt-hint strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.yt-toolbar__btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.yt-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--fg);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
+  transition: background-color 0.25s, border-color 0.25s, opacity 0.25s;
+}
+
+.yt-btn .i {
+  font-size: 15px;
+  color: var(--accent-2);
+}
+
+.yt-btn:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.yt-btn--quiet {
+  color: var(--fg-2);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--line-2);
+}
+
+.yt-btn--quiet .i {
+  color: var(--fg-3);
+}
+
+.yt-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.yt-label {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+/* The run: what probe() returned and what happened to each video. */
+.yt-run {
+  padding: 22px;
+}
+
+.yt-run__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px 24px;
+}
+
+.yt-run__title {
+  margin-top: 6px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.yt-run__title span {
+  color: var(--fg-3);
+  font-weight: 500;
+}
+
+.yt-counts {
+  display: flex;
+  gap: 22px;
+}
+
+.yt-counts dt {
+  font-size: 12px;
+  color: var(--fg-3);
+}
+
+.yt-counts dd {
+  margin-top: 2px;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.yt-counts div:last-child dd {
+  color: var(--accent-2);
+}
+
+.yt-bridge {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: baseline;
+  gap: 4px 12px;
+  margin-top: 16px;
+  padding: 11px 14px;
+  border-radius: 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.55;
+  background: #111114;
+  border: 1px solid var(--line);
+}
+
+.yt-bridge__k {
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.yt-bridge__v {
+  min-width: 0;
+  color: #d7d2d4;
+  overflow-wrap: anywhere;
+}
+
+.yt-bridge__v.is-tick {
+  animation: yt-tick 0.4s var(--ease-out);
+}
+
+@keyframes yt-tick {
+  from {
+    color: var(--accent-2);
+  }
+}
+
+.yt-queue {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 20px;
+  margin-top: 14px;
+}
+
+@media (max-width: 1180px) {
+  .yt-queue {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 980px) and (min-width: 700px) {
+  .yt-queue {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.yt-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 20px 40px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--line);
+  transition: opacity 0.3s;
+}
+
+.yt-row__n {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-4);
+}
+
+.yt-row__art {
+  width: 40px;
+  height: 26px;
+  border-radius: 6px;
+  background: var(--art);
+}
+
+.yt-row__text {
+  min-width: 0;
+}
+
+.yt-row__text b,
+.yt-row__text span {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.yt-row__text b {
+  font-size: 14px;
+  font-weight: 550;
+  letter-spacing: -0.01em;
+}
+
+.yt-row__text span {
+  font-size: 12px;
+  color: var(--fg-3);
+}
+
+.yt-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 24px;
+  padding: 0 9px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--fg-3);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  font-variant-numeric: tabular-nums;
+}
+
+.yt-pill .i {
+  font-size: 12px;
+}
+
+/* A thin line under the row fills while that video downloads. */
+.yt-row__bar {
+  position: absolute;
+  left: 30px;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  transform-origin: left;
+  transform: scaleX(var(--p, 0));
+  background: var(--accent);
+  opacity: 0;
+  transition: transform 0.38s var(--ease-out), opacity 0.3s;
+}
+
+.yt-row[data-state="idle"] .yt-row__text,
+.yt-row[data-state="idle"] .yt-row__art {
+  opacity: 0.55;
+}
+
+.yt-row[data-state="lib"] .yt-row__text,
+.yt-row[data-state="lib"] .yt-row__art {
+  opacity: 0.5;
+}
+
+.yt-row[data-state="lib"] .yt-pill {
+  color: var(--fg-2);
+}
+
+.yt-row[data-state="queued"] .yt-pill,
+.yt-row[data-state="back"] .yt-pill {
+  color: var(--accent-2);
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.yt-row[data-state="down"] .yt-row__bar {
+  opacity: 1;
+}
+
+.yt-row[data-state="down"] .yt-pill,
+.yt-row[data-state="tag"] .yt-pill,
+.yt-row[data-state="save"] .yt-pill {
+  color: #fff;
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+.yt-row[data-state="saved"] .yt-pill {
+  color: #1a0d10;
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+}
+
+.yt-row[data-state="gone"] .yt-row__text b {
+  text-decoration: line-through;
+  text-decoration-color: color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+.yt-row[data-state="gone"] .yt-row__art {
+  opacity: 0.3;
+  filter: grayscale(1);
+}
+
+.yt-row[data-state="gone"] .yt-pill {
+  color: #f4b9b2;
+  border-color: rgba(244, 185, 178, 0.3);
+  background: rgba(244, 185, 178, 0.06);
+}
+
+.yt-row[data-state="failed"] .yt-pill {
+  color: #f4b9b2;
+  border-color: rgba(244, 185, 178, 0.3);
+}
+
+.yt-row.is-flash {
+  animation: yt-flash 0.6s var(--ease-out);
+}
+
+@keyframes yt-flash {
+  from {
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+  }
+}
+
+/* Tags and albums side by side. */
+.yt-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 720px) {
+  .yt-pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.yt-tags,
+.yt-albums {
+  padding: 22px;
+}
+
+.yt-tags__file {
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--fg-2);
+  overflow-wrap: anywhere;
+}
+
+.yt-tags__file b {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+.yt-atoms {
+  display: grid;
+  margin-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.yt-atoms div {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  min-height: 34px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.yt-atoms dt {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--accent);
+}
+
+.yt-atoms dd {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  font-size: 14px;
+  color: var(--fg);
+}
+
+.yt-atoms dd small {
+  font-size: 12px;
+  color: var(--fg-3);
+}
+
+.yt-atoms .is-fresh dd {
+  animation: yt-in 0.5s var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 60ms);
+}
+
+@keyframes yt-in {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+}
+
+.yt-cover {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: var(--art);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.yt-tags__empty {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--fg-2);
+}
+
+.yt-albums__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.yt-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  color: var(--fg-2);
+}
+
+.yt-switch__track {
+  position: relative;
+  width: 34px;
+  height: 20px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  transition: background-color 0.25s;
+}
+
+.yt-switch__track i {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s var(--ease-spring);
+}
+
+.yt-switch[aria-pressed="true"] {
+  color: var(--fg);
+}
+
+.yt-switch[aria-pressed="true"] .yt-switch__track {
+  background: var(--accent);
+}
+
+.yt-switch[aria-pressed="true"] .yt-switch__track i {
+  transform: translateX(14px);
+}
+
+.yt-album-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px 12px;
+  margin-top: 16px;
+  min-height: 150px;
+  align-content: start;
+}
+
+.yt-album {
+  min-width: 0;
+  animation: yt-pop 0.45s var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 50ms);
+}
+
+@keyframes yt-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+}
+
+.yt-album__cover {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  background: var(--art);
+  box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.8), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.yt-album__count {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  min-width: 22px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  font-variant-numeric: tabular-nums;
+}
+
+.yt-album b,
+.yt-album span {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.yt-album b {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.yt-album > span {
+  font-size: 12px;
+  color: var(--fg-3);
+}
+
+/* One album: the cover and its track list, like the album page. */
+.yt-album-grid.is-one {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+}
+
+.yt-album--one {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+}
+
+.yt-album--one .yt-album__cover {
+  width: 92px;
+}
+
+.yt-album__meta b {
+  margin: 0;
+  color: var(--fg);
+  font-size: 17px;
+  letter-spacing: -0.015em;
+}
+
+.yt-album__meta > span {
+  display: block;
+  font-size: 13.5px;
+  color: var(--fg-2);
+}
+
+.yt-album__meta .yt-album__sub {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--fg-3);
+}
+
+.yt-album__tracks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5px 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.yt-album__tracks li {
+  display: flex;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 12.5px;
+  color: var(--fg-2);
+  animation: yt-in 0.4s var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 30ms);
+}
+
+.yt-album__tracks li span {
+  width: 14px;
+  flex-shrink: 0;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.75;
+  color: var(--fg-4);
+}
+
+.yt-albums__note {
+  margin-top: 14px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--fg-2);
+}
+
+@media (max-width: 560px) {
+  .yt-run,
+  .yt-tags,
+  .yt-albums {
+    padding: 18px;
+  }
+
+  .yt-counts {
+    gap: 16px;
+  }
+
+  .yt-row {
+    grid-template-columns: 16px 36px minmax(0, 1fr) auto;
+    gap: 8px;
+  }
+
+  .yt-row__art {
+    width: 36px;
+    height: 24px;
+  }
+
+  .yt-row__bar {
+    left: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ya-bar.is-indeterminate i {
+    animation: none;
+    width: 100%;
+    opacity: 0.35;
+  }
+
+  .yt-album,
+  .yt-album__tracks li,
+  .yt-atoms .is-fresh dd,
+  .ya-card.is-new,
+  .ya-row.is-new,
+  .yt-row.is-flash {
+    animation: none;
+  }
+}

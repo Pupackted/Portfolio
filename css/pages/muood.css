@@ -1,0 +1,461 @@
+/* ==========================================================================
+   MUOOD
+   Black glass and the app icon's ring: orange → pink → purple → blue.
+   ========================================================================== */
+
+.theme-muood {
+  --accent: #ff4f7b;
+  --accent-2: #ffb08f;
+  --mu-ring: linear-gradient(90deg, #ff9f0a, #ff375f 38%, #bf5af2 68%, #0a84ff);
+  --mu-green: #30d158;
+}
+
+.mu-gradient-text {
+  background: var(--mu-ring);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.mu-hero::before {
+  background:
+    radial-gradient(40% 50% at 70% 45%, rgba(255, 55, 95, 0.16), transparent 70%),
+    radial-gradient(35% 45% at 88% 70%, rgba(10, 132, 255, 0.14), transparent 70%),
+    radial-gradient(30% 40% at 55% 30%, rgba(255, 159, 10, 0.1), transparent 70%);
+}
+
+.mu-title {
+  display: flex;
+  align-items: center;
+  gap: 0.22em;
+}
+
+.mu-title__icon {
+  width: 0.78em;
+  height: 0.78em;
+  border-radius: 22%;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 18px 40px -16px rgba(255, 55, 95, 0.5);
+}
+
+/* ── A landscape phone, drawn ────────────────────────────────────────────── */
+
+.mu-phone {
+  position: relative;
+  padding: 2.2%;
+  border-radius: clamp(20px, 3.4vw, 40px);
+  background: linear-gradient(150deg, #3a3b40, #121214 46%, #2a2b30);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 60px 120px -40px rgba(0, 0, 0, 0.85);
+}
+
+/* The camera sits in the left bezel, the way an old phone held sideways has it. */
+.mu-phone::after {
+  content: "";
+  position: absolute;
+  left: 1.1%;
+  top: 50%;
+  width: 0.7%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: #0b0b0d;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.mu-phone__screen {
+  position: relative;
+  aspect-ratio: 800 / 360;
+  border-radius: clamp(12px, 2vw, 24px);
+  overflow: hidden;
+  background: #000;
+}
+
+.mu-phone__screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mu-phone--hero {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 60px 120px -40px rgba(0, 0, 0, 0.85),
+    0 0 140px -30px rgba(191, 90, 242, 0.35);
+}
+
+/* USB — Mac — Wi-Fi, under the hero phone. */
+.mu-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 26px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-3);
+}
+
+.mu-links span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+}
+
+.mu-links__mac {
+  color: var(--fg);
+}
+
+.mu-links i {
+  width: 34px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  background-size: 200% 100%;
+  animation: mu-flow 2.4s linear infinite;
+}
+
+@keyframes mu-flow {
+  from { background-position: 100% 0; }
+  to { background-position: -100% 0; }
+}
+
+/* ── The tour ────────────────────────────────────────────────────────────── */
+
+.mu-tour {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+  justify-items: center;
+}
+
+.mu-phone--tour {
+  width: min(100%, 980px);
+}
+
+.mu-tour__track {
+  display: flex;
+  height: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  outline: none;
+}
+
+.mu-tour__track::-webkit-scrollbar {
+  display: none;
+}
+
+.mu-tour__track:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+
+.mu-tour__slide {
+  flex: 0 0 100%;
+  height: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.mu-tour__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mu-tour__ui {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  justify-items: center;
+  width: min(100%, 980px);
+}
+
+.mu-tour__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.mu-tour__arrow {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  color: var(--fg-2);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line);
+  transition: color 0.25s, background-color 0.25s;
+}
+
+.mu-tour__arrow:hover {
+  color: var(--fg);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.mu-tour__tabs {
+  display: flex;
+  min-width: 0;
+  gap: 4px;
+  padding: 4px;
+  overflow-x: auto;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  scrollbar-width: none;
+}
+
+.mu-tour__tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.mu-tour__tabs button {
+  height: 30px;
+  padding: 0 12px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fg-3);
+  white-space: nowrap;
+  transition: color 0.25s, background-color 0.3s;
+}
+
+.mu-tour__tabs button:hover {
+  color: var(--fg);
+}
+
+.mu-tour__tabs button[aria-pressed="true"] {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.mu-tour__caption {
+  max-width: 640px;
+  min-height: 3.2em;
+  text-align: center;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--fg-2);
+}
+
+.mu-tour__caption b {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+/* ── Handoff simulation ──────────────────────────────────────────────────── */
+
+.mu-handoff {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 28px;
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.mu-handoff__stage {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+}
+
+.mu-node {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  width: 112px;
+  text-align: center;
+}
+
+.mu-node__icon {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  background: #0b0b0d;
+  border: 1px solid var(--line-2);
+}
+
+.mu-node__icon .i {
+  font-size: 24px;
+  color: var(--fg);
+}
+
+.mu-node b {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.mu-node__state {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-3);
+  transition: color 0.3s;
+}
+
+.mu-node--phone[data-state="offline"] .mu-node__state {
+  color: #ff9f0a;
+}
+
+.mu-routes {
+  display: grid;
+  gap: 22px;
+}
+
+.mu-route {
+  display: grid;
+  gap: 8px;
+  transition: opacity 0.4s;
+}
+
+.mu-route__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  color: var(--fg-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mu-route__label .mono {
+  font-size: 11.5px;
+}
+
+.mu-route__wire {
+  position: relative;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+/* The packets: visible only on the route currently in use. */
+.mu-route__wire i {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: repeating-linear-gradient(90deg, transparent 0 18px, var(--mu-green) 18px 30px);
+  background-size: 60px 100%;
+  animation: mu-packets 0.9s linear infinite;
+  transition: opacity 0.3s;
+}
+
+@keyframes mu-packets {
+  from { background-position: 0 0; }
+  to { background-position: 60px 0; }
+}
+
+.mu-route.is-active .mu-route__label {
+  color: var(--fg);
+}
+
+.mu-route.is-active .mu-route__wire i {
+  opacity: 1;
+}
+
+.mu-route.is-down {
+  opacity: 0.4;
+}
+
+.mu-route.is-down .mu-route__wire {
+  background: repeating-linear-gradient(90deg, rgba(255, 69, 58, 0.5) 0 6px, transparent 6px 12px);
+}
+
+.mu-route.is-trying .mu-route__wire i {
+  opacity: 1;
+  background: repeating-linear-gradient(90deg, transparent 0 18px, #ff9f0a 18px 30px);
+  background-size: 60px 100%;
+}
+
+.mu-handoff__side {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+}
+
+.mu-handoff__side .btn[aria-pressed="true"] {
+  color: #ffb08f;
+  border-color: rgba(255, 79, 123, 0.4);
+  background: rgba(255, 79, 123, 0.1);
+}
+
+.mu-log {
+  display: grid;
+  gap: 8px;
+  min-height: 190px;
+  align-content: start;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--fg-2);
+}
+
+.mu-log li {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 10px;
+  animation: mu-in 0.4s var(--ease-out) both;
+}
+
+.mu-log li time {
+  color: var(--fg-4);
+}
+
+.mu-log li.is-good {
+  color: var(--mu-green);
+}
+
+.mu-log li.is-warn {
+  color: #ff9f0a;
+}
+
+@keyframes mu-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+
+@media (max-width: 900px) {
+  .mu-handoff {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .mu-handoff__stage {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+  }
+
+  .mu-routes {
+    width: 100%;
+  }
+
+  .mu-node {
+    width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mu-links i,
+  .mu-route__wire i,
+  .mu-log li {
+    animation: none;
+  }
+}

@@ -19,12 +19,24 @@
 
   /* Order matters: it is the "next project" chain in every footer. */
   var PROJECTS = [
+    // Selected work, ranked: the order Adrian is proudest of them.
     { id: 'ridecheck', name: 'RideCheck', href: 'project-ridecheck.html', kind: 'iOS · Android · Web', line: 'Vehicle maintenance, tracked automatically.', color: 'rgba(74, 163, 245, 0.55)', icon: 'Assets/web/ridecheck/icon.webp' },
-    { id: 'swisekai', name: 'SwiSekai', href: 'project-swisekai.html', kind: 'macOS', line: 'Learn Swift in another world.', color: 'rgba(255, 122, 61, 0.5)', icon: 'Assets/web/swisekai/icon.webp' },
-    { id: 'bomboclat', name: 'BomBocLat', href: 'project-bomboclat.html', kind: 'iOS game', line: 'Pass the bomb. Don’t hold it.', color: 'rgba(255, 138, 0, 0.5)', icon: 'Assets/BomBocLatLogo.png' },
+    { id: 'ridelens', name: 'RideLens', href: 'project-ridelens.html', kind: 'iOS · In progress', line: 'Car photo edits, without the learning curve.', color: 'rgba(62, 167, 253, 0.5)', icon: 'Assets/web/ridelens/icon.webp' },
+    { id: 'waypoint', glyph: 'compass', name: 'Waypoint', href: 'project-waypoint.html', kind: 'Web · RideCheck internal', line: 'Paste anything. Ask Claude to sort it.', color: 'rgba(74, 163, 245, 0.5)' },
     { id: 'reporthink', name: 'Reporthink Editor', href: 'project-reporthink.html', kind: 'Web · Django', line: 'Static templates, made editable.', color: 'rgba(52, 211, 153, 0.45)' },
-    { id: 'recipe', name: 'Recipe App', href: 'project-recipe-app.html', kind: 'UI/UX · Figma', line: 'Cook with what you already have.', color: 'rgba(123, 216, 143, 0.45)' },
-    { id: 'journal', name: 'AI Journal', href: 'project-ai-journal.html', kind: 'iPadOS · MLX', line: 'A journal that thinks, offline.', color: 'rgba(167, 139, 250, 0.5)' },
+    { id: 'rant', glyph: 'pen', name: 'A place to rant', href: 'project-rant.html', kind: 'Web · Journal', line: 'For when your head is loud.', color: 'rgba(216, 165, 102, 0.5)' },
+    { id: 'yt', name: 'YT Playlist Downloader', href: 'project-yt-downloader.html', kind: 'Android', line: 'A whole playlist, offline, tagged properly.', color: 'rgba(180, 98, 111, 0.5)', icon: 'Assets/web/yt/icon.webp' },
+    { id: 'cv', glyph: 'file-check', name: 'CV Maker', href: 'project-cv-maker.html', kind: 'Web · PDF export', line: 'A CV builder with no paywall at the end.', color: 'rgba(99, 102, 241, 0.5)' },
+    // From the Apple Developer Academy.
+    { id: 'swisekai', group: 'Academy', name: 'SwiSekai', href: 'project-swisekai.html', kind: 'macOS', line: 'Learn Swift in another world.', color: 'rgba(255, 122, 61, 0.5)', icon: 'Assets/web/swisekai/icon.webp' },
+    { id: 'bomboclat', group: 'Academy', name: 'BomBocLat', href: 'project-bomboclat.html', kind: 'iOS game', line: 'Pass the bomb. Don’t hold it.', color: 'rgba(255, 138, 0, 0.5)', icon: 'Assets/BomBocLatLogo.png' },
+    { id: 'recipe', group: 'Academy', name: 'Recipe App', href: 'project-recipe-app.html', kind: 'UI/UX · Figma', line: 'Cook with what you already have.', color: 'rgba(123, 216, 143, 0.45)' },
+    { id: 'journal', group: 'Academy', name: 'AI Journal', href: 'project-ai-journal.html', kind: 'iPadOS · MLX · Shelved', line: 'A journal that thinks, offline.', color: 'rgba(167, 139, 250, 0.5)' },
+    // The workshop: smaller things, in the order they appear on the home page.
+    { id: 'muood', group: 'Workshop', name: 'MUOOD', href: 'project-muood.html', kind: 'macOS · Old phones', line: 'An old phone, reborn as a Mac companion.', color: 'rgba(255, 55, 95, 0.45)', icon: 'Assets/web/muood/icon.webp' },
+    { id: 'filter', group: 'Workshop', glyph: 'image', name: 'Filter Generator', href: 'project-filter-generator.html', kind: 'Desktop · Python', line: 'A picture is just numbers.', color: 'rgba(247, 57, 48, 0.42)' },
+    { id: 'photo', group: 'Workshop', name: 'Photo Widget', href: 'project-photo-widget.html', kind: 'iOS · WidgetKit', line: 'My photo, my crop, my home screen.', color: 'rgba(255, 107, 74, 0.5)', icon: 'Assets/web/photo-widget/icon.webp' },
+    { id: 'void', group: 'Workshop', icon: 'Assets/web/void/icon.webp', name: 'Void', href: 'project-void.html', kind: 'Browser homepage', line: 'The new tab page I actually wanted.', color: 'rgba(122, 162, 247, 0.5)' },
   ];
 
   window.SITE = { EMAIL: EMAIL, CV: CV, LINKEDIN: LINKEDIN, GITHUB: GITHUB, PROJECTS: PROJECTS };

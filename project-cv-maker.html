@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+ <title>CV Maker — Case study · Adrian Rachman</title>
+ <meta name="description" content="CV Maker: one clean CV template, a design panel to tune it, a live A4 preview that paginates as you type, and a real PDF at the end — with no paywall. A case study by Adrian Rachman.">
+ <meta name="theme-color" content="#131418">
+ <meta property="og:type" content="article">
+ <meta property="og:title" content="CV Maker — Case study · Adrian Rachman">
+ <meta property="og:description" content="A CV builder with no paywall at the end — and a preview that breaks pages exactly where the PDF will.">
+ <meta property="og:image" content="https://portfolio-adrian-rachman.vercel.app/Assets/web/og.png">
+ <meta name="twitter:card" content="summary_large_image">
+ <link rel="icon" href="Assets/web/favicon.svg" type="image/svg+xml">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=JetBrains+Mono:wght@400;500;600&family=Arimo:ital,wght@0,400;0,700;1,400&family=Carlito:ital,wght@0,400;0,700;1,400&family=Gelasio:ital,wght@0,400;0,700;1,400&display=swap">
+ <link rel="stylesheet" href="css/styles.css">
+ <link rel="stylesheet" href="css/pages/workshop.css">
+ <link rel="stylesheet" href="css/pages/cv-maker.css">
+ <script src="js/site.js"></script>
+ <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
+</head>
+<body class="ws theme-cv">
+ <site-header current="work"></site-header>
+ <main id="main">
+  <section class="ws-hero">
+   <div class="container">
+    <a class="back-link" href="index.html#work"><svg class="i" aria-hidden="true"><use href="#i-arrow-left" /></svg>All work</a>
+    <div class="ws-hero__grid">
+     <div>
+      <span class="ws-status" data-reveal><i aria-hidden="true"></i>Built in a day</span>
+      <h1 class="h1" style="view-transition-name: cv-title">CV Maker</h1>
+      <p class="ws-promise" data-reveal style="--d:160">A real PDF. No paywall at the end.</p>
+      <p class="lead" data-reveal style="--d:260">One clean template, a design panel to tune it, and a real PDF at the end — built after one too many CV sites that let you design the whole thing and then charge you to download it.</p>
+      <div class="btn-row mt-32" data-reveal style="--d:360">
+       <a class="btn btn--primary" href="#fit" data-magnetic="0.2">Fit a CV on one page <svg class="i i--arrow-down" aria-hidden="true"><use href="#i-arrow-down" /></svg></a>
+      </div>
+     </div>
+     <div class="ws-visual cv-hero" data-reveal="scale" style="--d:200">
+      <figure class="browser cv-browser" role="img" aria-label="Illustration of the CV builder in dark mode: a top bar with the CV’s name, a Saved status and an Export PDF button; on the left, the Content tab with header fields and an entry whose nested bullets have a floating bold, italic and underline toolbar; on the right, a live A4 preview of the CV with a page count.">
+       <div class="browser__bar"><div class="browser__dots"><span></span><span></span><span></span></div><div class="browser__url"><svg class="i" aria-hidden="true"><use href="#i-lock" /></svg>CV Maker</div><span></span></div>
+       <div class="cvx-frame">
+        <div class="cvx">
+         <div class="cvx-top">
+          <span class="cvx-ib"><svg class="i" aria-hidden="true"><use href="#i-arrow-left" /></svg></span>
+          <span class="cvx-name">Alex Morgan — Product</span>
+          <span class="cvx-saved"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg>Saved</span>
+          <span class="cvx-tools">
+           <span class="cvx-ib"><svg class="i" aria-hidden="true"><use href="#i-rotate" /></svg></span>
+           <span class="cvx-ib cvx-ib--flip"><svg class="i" aria-hidden="true"><use href="#i-rotate" /></svg></span>
+           <span class="cvx-export"><svg class="i" aria-hidden="true"><use href="#i-download" /></svg>Export PDF</span>
+          </span>
+         </div>
+         <div class="cvx-main">
+          <div class="cvx-left">
+           <div class="cvx-segbar"><span class="cvx-seg"><span class="is-on"><svg class="i" aria-hidden="true"><use href="#i-file" /></svg>Content</span><span><svg class="i" aria-hidden="true"><use href="#i-palette" /></svg>Design</span></span></div>
+           <div class="cvx-form">
+            <div class="cvx-card">
+             <b class="cvx-card__t">Header</b>
+             <span class="cvx-field"><small>Full name</small><span class="cvx-input">Alex Morgan</span></span>
+             <span class="cvx-field"><small>Headline</small><span class="cvx-input">Product Engineer — mobile and web</span></span>
+            </div>
+            <div class="cvx-card">
+             <b class="cvx-card__t">Working Experience <i>Detailed</i></b>
+             <span class="cvx-two">
+              <span class="cvx-field"><small>Organisation</small><span class="cvx-input">Tandem Freight</span></span>
+              <span class="cvx-field"><small>Date</small><span class="cvx-input">Mar 2023 – Present</span></span>
+             </span>
+             <span class="cvx-field"><small>Bullets</small></span>
+             <span class="cvx-bullets">
+              <span class="cvx-fmt"><b>B</b><i>I</i><u>U</u></span>
+              <span class="cvx-b">Led the <mark>rebuild</mark> of the driver app in React Native</span>
+              <span class="cvx-b cvx-b--1">Introduced a shared design system</span>
+              <span class="cvx-b cvx-b--1">Set up release trains and staged rollouts</span>
+              <span class="cvx-b">Designed and shipped live delivery tracking</span>
+             </span>
+            </div>
+           </div>
+          </div>
+          <div class="cvx-right">
+           <div class="cvx-pbar"><span>2 pages</span><span class="cvx-zoom"><b>−</b><b>Fit</b><b>+</b></span></div>
+           <div class="cvx-canvas">
+            <div class="cvx-sheet" data-cv-hero></div>
+            <span class="cvx-plabel">1 / 2</span>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </figure>
+      <span class="cv-chip"><svg class="i" aria-hidden="true"><use href="#i-file-check" /></svg>Alex_Morgan.pdf · real, selectable text</span>
+     </div>
+    </div>
+   </div>
+  </section>
+  <div class="container">
+   <dl class="meta-row" data-stagger>
+    <div><dt>Role</dt><dd>Design &amp; development</dd></div>
+    <div><dt>Built for</dt><dd>Me</dd></div>
+    <div><dt>Built</dt><dd>July 2026, in about a day</dd></div>
+    <div><dt>Stack</dt><dd>Next.js · Postgres · Puppeteer</dd></div>
+   </dl>
+  </div>
+  <section class="section">
+   <div class="container">
+    <p class="eyebrow" data-reveal><span class="eyebrow__index">01</span><span class="eyebrow__rule"></span>Why it exists</p>
+    <h2 class="pullquote mt-24" data-split>Why pay for something <span>I can build myself?</span></h2>
+    <div class="ws-story">
+     <div data-reveal>
+      <p>A lot of CV sites work the same way. You pick a look, type in your whole working life, tune it until it’s right — and only then does the download button ask you to pay.</p>
+      <p>I didn’t want a subscription. I wanted a template, some boxes to fill in, and a PDF.</p>
+     </div>
+     <div data-reveal style="--d:120">
+      <p>If I can make exactly what they’re selling, why pay for it? So I built my own, in about a day. It’s <strong>deliberately simple</strong>: one clean template, a panel to adjust it, and a real PDF at the end.</p>
+      <p>You do sign in — your CVs are saved to your account — but the download is just a download.</p>
+     </div>
+    </div>
+    <div class="ws-versus" data-stagger>
+     <div class="card ws-versus__col">
+      <span class="ws-versus__tag"><svg class="i" aria-hidden="true"><use href="#i-x" /></svg>The usual CV site</span>
+      <h3>Free until the last step</h3>
+      <ul>
+       <li><svg class="i" aria-hidden="true"><use href="#i-arrow-right" /></svg><span>Pick a template from the gallery</span></li>
+       <li><svg class="i" aria-hidden="true"><use href="#i-arrow-right" /></svg><span>Fill in everything and tune it until it’s right</span></li>
+       <li><svg class="i" aria-hidden="true"><use href="#i-x" /></svg><span>“Download PDF” turns out to be a payment page</span></li>
+      </ul>
+     </div>
+     <div class="card ws-versus__col ws-versus__col--good">
+      <span class="ws-versus__tag"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg>CV Maker</span>
+      <h3>Type, tune, export</h3>
+      <ul>
+       <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg><span>One clean template, and a Design panel to make it yours</span></li>
+       <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg><span>A live A4 preview that shows exactly where each page breaks</span></li>
+       <li><svg class="i" aria-hidden="true"><use href="#i-check" /></svg><span>A real PDF, with selectable text and working links</span></li>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="section section--flush-top" id="fit">
+   <div class="container">
+    <header class="section-head section-head--split">
+     <div>
+      <p class="eyebrow" data-reveal><span class="eyebrow__index">02</span><span class="eyebrow__rule"></span>Try it</p>
+      <h2 class="h2 mt-24" data-split>Two pages? <span class="dim">Pull it back onto one.</span></h2>
+     </div>
+     <p class="lead" data-reveal style="--d:150">This CV runs a page and a bit. Every block is measured at the printed width and dealt onto A4 sheets, the way the app does it — so change the density, the font or the spacing and watch the page count.</p>
+    </header>
+    <div class="cvd" data-cv-demo>
+     <div class="cvd-top">
+      <span class="cvd-ib" aria-hidden="true"><svg class="i"><use href="#i-arrow-left" /></svg></span>
+      <span class="cvd-title">Alex Morgan — Product</span>
+      <span class="cvd-save" data-save aria-live="polite"><svg class="i" aria-hidden="true"><use href="#i-check" /></svg><span>Saved</span></span>
+      <span class="cvd-tools">
+       <button type="button" class="cvd-ib" data-undo aria-label="Undo" title="Undo (⌘Z)" disabled><svg class="i" aria-hidden="true"><use href="#i-rotate" /></svg></button>
+       <button type="button" class="cvd-ib cvd-ib--flip" data-redo aria-label="Redo" title="Redo (⇧⌘Z)" disabled><svg class="i" aria-hidden="true"><use href="#i-rotate" /></svg></button>
+       <button type="button" class="cvd-export" data-export><svg class="i" aria-hidden="true"><use href="#i-download" /></svg><span data-export-label>Export PDF</span></button>
+      </span>
+     </div>
+     <div class="cvd-main">
+      <div class="cvd-left">
+       <div class="cvd-segbar">
+        <div class="cvd-seg" role="tablist" aria-label="Editor">
+         <button type="button" role="tab" id="cvd-tab-content" aria-controls="cvd-pane-content" aria-selected="false" tabindex="-1" data-pane="content"><svg class="i" aria-hidden="true"><use href="#i-file" /></svg>Content</button>
+         <button type="button" role="tab" id="cvd-tab-design" aria-controls="cvd-pane-design" aria-selected="true" data-pane="design"><svg class="i" aria-hidden="true"><use href="#i-palette" /></svg>Design</button>
+        </div>
+       </div>
+       <div class="cvd-scroll">
+        <div class="cvd-pane" id="cvd-pane-design" role="tabpanel" aria-labelledby="cvd-tab-design" data-pane-body="design">
+         <div class="cvd-card">
+          <div class="cvd-card__head"><h3>Density</h3><span data-pages-small>2 pages</span></div>
+          <p class="cvd-hint">The quickest way to pull a CV back onto one page — adjusts size, leading, spacing and margins together.</p>
+          <div class="cvd-density" role="group" aria-label="Density">
+           <button type="button" data-density="compact" aria-pressed="false">Compact</button>
+           <button type="button" data-density="normal" aria-pressed="true">Normal</button>
+           <button type="button" data-density="roomy" aria-pressed="false">Roomy</button>
+          </div>
+         </div>
+         <div class="cvd-card">
+          <h3>Typography</h3>
+          <label class="cvd-field"><span>Font</span>
+           <select data-font>
+            <option value="arial">Arial</option>
+            <option value="calibri">Calibri</option>
+            <option value="georgia">Georgia</option>
+           </select>
+          </label>
+          <label class="cvd-slider"><span>Text size <b data-out="fontSize"></b></span><input type="range" min="7" max="16" step="0.5" data-design="fontSize"></label>
+          <label class="cvd-slider"><span>Line height <b data-out="lineHeight"></b></span><input type="range" min="1" max="2" step="0.05" data-design="lineHeight"></label>
+          <div class="cvd-field"><span id="cvd-accent-label">Heading colour</span>
+           <div class="cvd-swatches" role="group" aria-labelledby="cvd-accent-label" data-accents></div>
+          </div>
+          <label class="cvd-toggle"><input type="checkbox" data-toggle="uppercaseHeadings"><span class="cvd-switch" aria-hidden="true"></span>Uppercase section headings</label>
+          <label class="cvd-toggle"><input type="checkbox" data-toggle="showDividers"><span class="cvd-switch" aria-hidden="true"></span>Rule under section headings</label>
+         </div>
+         <div class="cvd-card">
+          <h3>Spacing</h3>
+          <label class="cvd-slider"><span>Side margins <b data-out="marginX"></b></span><input type="range" min="5" max="40" step="1" data-design="marginX"></label>
+          <label class="cvd-slider"><span>Top and bottom margins <b data-out="marginY"></b></span><input type="range" min="5" max="40" step="1" data-design="marginY"></label>
+          <label class="cvd-slider"><span>Space between sections <b data-out="sectionGap"></b></span><input type="range" min="0" max="30" step="1" data-design="sectionGap"></label>
+          <label class="cvd-slider"><span>Space between items <b data-out="entryGap"></b></span><input type="range" min="0" max="24" step="1" data-design="entryGap"></label>
+         </div>
+         <button type="button" class="cvd-reset" data-reset-design><svg class="i" aria-hidden="true"><use href="#i-rotate" /></svg>Reset to defaults</button>
+        </div>
+        <div class="cvd-pane" id="cvd-pane-content" role="tabpanel" aria-labelledby="cvd-tab-content" data-pane-body="content" hidden>
+         <div class="cvd-card">
+          <h3>Header</h3>
+          <label class="cvd-field"><span>Full name</span><input type="text" data-header="fullName" maxlength="120" autocomplete="off"></label>
+          <label class="cvd-field"><span>Headline</span><input type="text" data-header="headline" maxlength="160" autocomplete="off"></label>
+          <label class="cvd-field"><span>Summary</span><textarea rows="6" data-header="summary" maxlength="2000"></textarea></label>
+          <p class="cvd-hint">Write more and watch it spill onto the next page. <span class="ws-c">&lt;b&gt;</span>, <span class="ws-c">&lt;i&gt;</span> and <span class="ws-c">&lt;u&gt;</span> work; any other tag is kept as text.</p>
+         </div>
+         <div class="cvd-card">
+          <h3>Links</h3>
+          <label class="cvd-field"><span>Portfolio</span><input type="url" data-header="portfolio" maxlength="200" autocomplete="off"></label>
+          <label class="cvd-field"><span>Shown as</span><input type="text" data-header="portfolioLabel" maxlength="80" autocomplete="off" placeholder="The address, shortened"></label>
+          <p class="cvd-hint">A named link prints the name; the PDF still links to the full address.</p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="cvd-right">
+       <div class="cvd-pbar">
+        <span class="cvd-count" data-page-count aria-live="polite"><i aria-hidden="true"></i><span data-page-count-text>2 pages</span></span>
+        <span class="cvd-zoom">
+         <button type="button" data-zoom="out" aria-label="Zoom out"><span aria-hidden="true">−</span></button>
+         <button type="button" data-zoom="fit" class="cvd-zoom__fit" aria-label="Zoom to 100%">Fit</button>
+         <button type="button" data-zoom="in" aria-label="Zoom in"><svg class="i" aria-hidden="true"><use href="#i-plus" /></svg></button>
+        </span>
+       </div>
+       <div class="cvd-canvas" data-canvas tabindex="0" aria-label="Preview of the CV on A4 pages">
+        <div class="cvd-pages" data-pages></div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <p class="ws-note" data-reveal>A working miniature of the builder: the renderer, the block measuring and the pagination are ported from the app, with three of its six metric-matched fonts loaded from Google Fonts. Simplified: pages sit side by side instead of stacked, nothing is saved anywhere (the status only mimics the 900 ms autosave), and Export opens your browser’s print dialog with the app’s print CSS, standing in for the server’s Chromium. Alex Morgan is invented.</p>
+   </div>
+  </section>
+  <section class="section section--flush-top">
+   <div class="container">
+    <header class="section-head">
+     <p class="eyebrow" data-reveal><span class="eyebrow__index">03</span><span class="eyebrow__rule"></span>What it does</p>
+     <h2 class="h2" data-split>Small app, <span class="dim">careful details.</span></h2>
+    </header>
+    <div class="feature-grid" data-stagger>
+     <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-eye" /></svg></span><h3>A preview you can trust</h3><p>Real A4 sheets that paginate as you type, with a page count, “1 / 2” labels and zoom from 25% to 200%, or Fit.</p></article>
+     <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-save" /></svg></span><h3>Saves as you go</h3><p>900 ms after you stop, and again when the tab is hidden or closed. The status reads Saving, Unsaved or Saved — or Retry, if a save fails.</p></article>
+     <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-rotate" /></svg></span><h3>Undo in whole thoughts</h3><p>Sixty steps. Typing in one field merges into a single step while the keystrokes are under 700 ms apart. <kbd>⌘</kbd> <kbd>Z</kbd>, <kbd>⇧</kbd> <kbd>⌘</kbd> <kbd>Z</kbd> and <kbd>⌘</kbd> <kbd>S</kbd> work as you’d expect.</p></article>
+     <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-align-left" /></svg></span><h3>Bullets like an outliner</h3><p>Three levels deep. Tab and Shift-Tab indent a bullet with everything under it; deleting one promotes its children instead of losing them. Paste an indented list and it splits into bullets.</p></article>
+     <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-type" /></svg></span><h3>Bold, italic, named links</h3><p>One floating toolbar follows your selection. A link can have a name, so the CV prints “Portfolio” while pointing at the full address.</p></article>
+     <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-phone" /></svg></span><h3>Your sections, any screen</h3><p>Detailed, Simple or Label-list sections, named as you like, and up to 50 CVs per account. On a phone it becomes Edit, Design and Preview tabs, with 16 px inputs so iOS doesn’t zoom.</p></article>
+    </div>
+   </div>
+  </section>
+  <section class="section section--flush-top">
+   <div class="container">
+    <div class="split cv-built">
+     <div>
+      <p class="eyebrow" data-reveal><span class="eyebrow__index">04</span><span class="eyebrow__rule"></span>How it’s built</p>
+      <h2 class="h2 mt-24" data-split>Rows in Postgres, <span class="dim">Chromium on demand.</span></h2>
+      <p class="lead mt-20" data-reveal>A Next.js app on Vercel. The editor keeps the whole CV in memory and saves it as plain database rows; the PDF is printed by a real browser on the server.</p>
+      <div class="spec mt-40" data-reveal>
+       <div class="spec__row"><span class="spec__key">App</span><span class="spec__val"><strong>Next.js 16</strong> App Router, React 19, TypeScript, Tailwind v4, Zustand.</span></div>
+       <div class="spec__row"><span class="spec__key">Data</span><span class="spec__val"><strong>Prisma 6 on PostgreSQL</strong> (Supabase). A CV is rows, not a JSON blob: Resume → Section → Entry → Bullet, each with an order, bullets with an indent level from 0 to 2.</span></div>
+       <div class="spec__row"><span class="spec__key">Saving</span><span class="spec__val">A full replace in one transaction, using createMany with IDs made in the app — a fixed <strong>five statements</strong> however big the CV is, which matters when the database is in another region.</span></div>
+       <div class="spec__row"><span class="spec__key">Accounts</span><span class="spec__val">NextAuth v4 with JWTs: email and password (bcrypt, cost 12), or GitHub and Google. An unknown email still runs a dummy bcrypt check, so the response time doesn’t reveal who has an account.</span></div>
+       <div class="spec__row"><span class="spec__key">PDF</span><span class="spec__val"><strong>puppeteer-core</strong> with @sparticuz/chromium, in a Node function allowed up to 60 seconds.</span></div>
+      </div>
+     </div>
+     <div>
+      <figure class="window" data-reveal="scale">
+       <div class="window__bar"><span class="window__dot"></span><span class="window__dot"></span><span class="window__dot"></span><span class="window__title">src/app/api/export/route.ts</span></div>
+<pre class="ws-code"><code><span class="k">async function</span> <span class="f">launchBrowser</span>(): <span class="t">Promise</span>&lt;<span class="t">Browser</span>&gt; {
+  <span class="k">const</span> puppeteer = (<span class="k">await import</span>(<span class="s">"puppeteer-core"</span>)).<span class="p">default</span>;
+
+  <span class="k">if</span> (isServerless) {
+    <span class="k">const</span> chromium = (<span class="k">await import</span>(<span class="s">"@sparticuz/chromium"</span>)).<span class="p">default</span>;
+    <span class="c">// No WebGL in a CV. Skipping it avoids unpacking swiftshader, which is a</span>
+    <span class="c">// meaningful chunk of an already slow cold start.</span>
+    chromium.<span class="p">setGraphicsMode</span> = <span class="k">false</span>;
+
+    <span class="k">return</span> puppeteer.<span class="f">launch</span>({
+      <span class="p">args</span>: [...chromium.<span class="p">args</span>, <span class="s">"--font-render-hinting=none"</span>],
+      <span class="p">executablePath</span>: <span class="k">await</span> chromium.<span class="f">executablePath</span>(),
+      <span class="p">headless</span>: <span class="k">true</span>,
+    });
+  }</code></pre>
+      </figure>
+      <p class="ws-note" data-reveal>The start of the export route, as it is in the repo. The browser is always closed in a <span class="ws-c">finally</span> block, so a failed render can’t leave Chromium running.</p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="section section--flush-top">
+   <div class="container">
+    <header class="section-head">
+     <p class="eyebrow" data-reveal><span class="eyebrow__index">05</span><span class="eyebrow__rule"></span>Build notes</p>
+     <h2 class="h2" data-split>Where a day <span class="dim">actually went.</span></h2>
+    </header>
+    <div class="ws-problems" data-stagger>
+     <article class="card ws-problem">
+      <span class="ws-problem__n">01</span>
+      <h3>The preview and the PDF break in the same places</h3>
+      <p>One pure-string renderer feeds both. It writes the CV as a flat list of blocks — the header, each section heading, each entry. The preview measures every block off-screen at the exact printed text width and deals them onto A4 sheets, collapsing margins the way CSS does and keeping a heading with its first entry. It measures again once the fonts arrive. In print, margins come from <span class="ws-c">@page</span> rather than padding, so page two gets a top margin too.</p>
+     </article>
+     <article class="card ws-problem">
+      <span class="ws-problem__n">02</span>
+      <h3>Fonts that measure the same everywhere</h3>
+      <p>Vercel’s Chromium ships with Open Sans and nothing else, and a different font means different line breaks — so different page breaks. The app uses open fonts with the same metrics as Arial, Calibri, Georgia, Times and Cambria: Arimo, Carlito, Gelasio, Tinos and Caladea, with EB Garamond standing in for Garamond. The same files go to the browser and, inlined as base64, into the PDF’s HTML, because <span class="ws-c">setContent()</span> has no base URL to load them from.</p>
+     </article>
+     <article class="card ws-problem">
+      <span class="ws-problem__n">03</span>
+      <h3>Chromium in a serverless function</h3>
+      <p>puppeteer-core drives a compressed Chromium, with graphics off to shorten cold starts and the binary explicitly included in the function bundle. Export waits for a save to finish, then posts the CV to <span class="ws-c">/api/export</span>; the file comes back named after the person — <strong>Alex_Morgan.pdf</strong>.</p>
+     </article>
+     <article class="card ws-problem">
+      <span class="ws-problem__n">04</span>
+      <h3>No keystroke left behind</h3>
+      <p>Undo steps coalesce, saves queue so only one runs at a time, and anything typed during a save stays marked unsaved until the next one. A small sanitiser keeps bold, italic and underline and escapes every other tag, so <span class="ws-c">List&lt;String&gt;</span> survives instead of disappearing.</p>
+     </article>
+    </div>
+   </div>
+  </section>
+ </main>
+ <site-footer next="swisekai"></site-footer>
+ <script src="js/main.js" defer></script>
+ <script src="js/pages/cv-maker.js" defer></script>
+</body>
+</html>

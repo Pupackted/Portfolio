@@ -1,0 +1,1093 @@
+/* ==========================================================================
+   Filter Generator (and Pixelated Kisses before it)
+   The apps' own red on CustomTkinter charcoal, set into the portfolio.
+   ========================================================================== */
+
+.theme-filter {
+  --accent: #f73930;
+  --accent-2: #ff8178;
+  --app-red: #f73930;
+  --app-red-hi: #c42d26;
+  --app-ink: #121212;
+  --app-win: #242424;
+  --app-side: #2b2b2b;
+  --app-seg: #4a4a4a;
+  --app-track: #4a4d50;
+  --app-fill: #aab0b5;
+  --app-text: #dce4ee;
+  --app-gray: #9b9b9b;
+  --app-font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ── Hero: the app's window, rebuilt in HTML ─────────────────────────────── */
+
+.fg-hero {
+  padding-bottom: 26px;
+  margin-bottom: 40px;
+}
+
+.fg-app {
+  container-type: inline-size;
+  box-shadow:
+    0 0 0 0.5px rgba(0, 0, 0, 0.8),
+    0 50px 120px -40px rgba(0, 0, 0, 0.9),
+    0 0 140px -36px rgba(247, 57, 48, 0.32);
+}
+
+/* Everything inside is measured in the app's own pixels: 1100 across. */
+.fg-app__body {
+  --u: calc(100cqi / 1100);
+  display: grid;
+  grid-template-columns: calc(var(--u) * 280) minmax(0, 1fr);
+  aspect-ratio: 1100 / 760;
+  background: var(--app-win);
+  font-family: var(--app-font);
+  font-size: calc(var(--u) * 13);
+  line-height: 1.25;
+  letter-spacing: 0;
+  color: var(--app-text);
+  user-select: none;
+}
+
+.fg-app__side {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: calc(var(--u) * 30) calc(var(--u) * 20) calc(var(--u) * 20);
+  background: var(--app-side);
+}
+
+.fg-app__logo {
+  text-align: center;
+  font-size: calc(var(--u) * 24);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--app-red);
+}
+
+.fg-app__hint {
+  margin-top: calc(var(--u) * 16);
+  text-align: center;
+  font-size: calc(var(--u) * 11);
+  font-style: italic;
+  color: var(--app-gray);
+}
+
+.fg-app__btn {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: calc(var(--u) * 140);
+  height: calc(var(--u) * 28);
+  margin: calc(var(--u) * 14) auto 0;
+  border-radius: calc(var(--u) * 6);
+  font-weight: 600;
+  color: #fff;
+  background: var(--app-red);
+}
+
+.fg-app__btn--go {
+  margin-top: calc(var(--u) * 16);
+}
+
+.fg-app__btn--ghost {
+  margin-top: calc(var(--u) * 8);
+  color: var(--app-gray);
+  background: transparent;
+  box-shadow: inset 0 0 0 max(1px, calc(var(--u) * 1)) #808080;
+}
+
+.fg-app__spacer {
+  flex: 1;
+}
+
+.fg-app__cap {
+  margin-top: calc(var(--u) * 22);
+  font-size: calc(var(--u) * 12);
+  font-weight: 700;
+  color: var(--app-gray);
+}
+
+.fg-app__sl {
+  margin-top: calc(var(--u) * 8);
+}
+
+.fg-app__sl span {
+  display: block;
+}
+
+.fg-app__sl i {
+  position: relative;
+  display: block;
+  width: calc(var(--u) * 200);
+  height: calc(var(--u) * 16);
+  margin: calc(var(--u) * 2) auto 0;
+}
+
+.fg-app__sl i::before,
+.fg-app__sl i::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+}
+
+.fg-app__sl i::before {
+  left: 0;
+  right: 0;
+  height: calc(var(--u) * 4);
+  border-radius: 99px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, var(--app-fill) calc(var(--v) * 100%), var(--app-track) 0);
+}
+
+.fg-app__sl i::after {
+  left: calc(var(--v) * 100%);
+  width: calc(var(--u) * 16);
+  height: calc(var(--u) * 16);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--app-red);
+}
+
+.fg-app__main {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  min-width: 0;
+  min-height: 0;
+  margin: calc(var(--u) * 20);
+  padding: calc(var(--u) * 15) calc(var(--u) * 20);
+  border-radius: calc(var(--u) * 15);
+  background: var(--app-ink);
+}
+
+.fg-app__seg {
+  justify-self: center;
+  display: flex;
+  padding: calc(var(--u) * 2);
+  border-radius: calc(var(--u) * 6);
+  background: var(--app-seg);
+}
+
+.fg-app__seg span {
+  display: grid;
+  place-items: center;
+  height: calc(var(--u) * 24);
+  padding: 0 calc(var(--u) * 14);
+  border-radius: calc(var(--u) * 5);
+}
+
+.fg-app__seg .is-on {
+  color: #fff;
+  background: var(--app-red);
+}
+
+.fg-app__pic {
+  position: relative;
+  min-height: 0;
+}
+
+.fg-app__pic img {
+  position: absolute;
+  inset: calc(var(--u) * 12) 0;
+  width: 100%;
+  height: calc(100% - var(--u) * 24);
+  object-fit: contain;
+}
+
+.fg-app__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fg-app__nav span {
+  display: grid;
+  place-items: center;
+  width: calc(var(--u) * 70);
+  height: calc(var(--u) * 28);
+  border-radius: calc(var(--u) * 6);
+  background: #333;
+}
+
+.fg-app__nav em {
+  font-style: normal;
+  color: var(--app-gray);
+}
+
+/* The earlier app, pinned to the corner like a print. */
+.fg-pk {
+  position: absolute;
+  left: -6%;
+  bottom: -9%;
+  z-index: 2;
+  width: 30%;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 30px 60px -18px rgba(0, 0, 0, 0.85), 0 0 60px -20px rgba(247, 57, 48, 0.35);
+  transform: rotate(-5deg);
+}
+
+.fg-pk img {
+  width: 100%;
+}
+
+.fg-pk figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 4px 8px;
+  padding: 8px 10px 9px;
+}
+
+.fg-pk b {
+  font-family: var(--app-font);
+  font-size: 10.5px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: 0;
+  color: var(--app-red);
+}
+
+.fg-pk span {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  color: var(--app-gray);
+  white-space: nowrap;
+}
+
+.fg-chip {
+  position: absolute;
+  right: 5%;
+  bottom: 0;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  white-space: nowrap;
+  color: var(--fg-2);
+  background: rgba(18, 18, 18, 0.86);
+  border: 1px solid rgba(247, 57, 48, 0.34);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 14px 40px -12px rgba(0, 0, 0, 0.7);
+}
+
+.fg-chip .i {
+  color: var(--app-red);
+}
+
+.fg-chip b {
+  font-weight: 500;
+  color: var(--accent-2);
+}
+
+@media (max-width: 900px) {
+  .fg-hero {
+    margin-top: 12px;
+  }
+
+  .fg-pk {
+    left: -1%;
+  }
+}
+
+@media (max-width: 560px) {
+  .fg-hero {
+    padding-bottom: 58px;
+    margin-bottom: 8px;
+  }
+
+  .fg-pk {
+    left: 1%;
+    bottom: 46px;
+    width: 36%;
+  }
+
+  .fg-pk figcaption {
+    padding: 6px 8px 7px;
+  }
+
+  .fg-pk b {
+    font-size: 9px;
+  }
+
+  .fg-chip {
+    right: auto;
+    left: 50%;
+    bottom: 0;
+    height: 32px;
+    padding: 0 12px;
+    font-size: 11px;
+    transform: translateX(-50%);
+  }
+}
+
+/* ── The live filter ─────────────────────────────────────────────────────── */
+
+.fg-demo {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  grid-template-areas:
+    "top   top"
+    "stage side"
+    "bar   side"
+    "pipe  pipe";
+  gap: 14px 16px;
+  padding: 16px;
+  border-radius: var(--r-l);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 40%),
+    #1c1c1e;
+  border: 1px solid var(--line);
+  box-shadow: 0 40px 100px -50px rgba(0, 0, 0, 0.9);
+  transition: border-color 0.3s;
+}
+
+.fg-demo.is-drop {
+  border-color: rgba(247, 57, 48, 0.6);
+}
+
+.fg-demo__top {
+  grid-area: top;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  min-width: 0;
+}
+
+/* Which app: quiet tabs. */
+.fg-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 0;
+}
+
+.fg-tabs button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 550;
+  color: var(--fg-2);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  transition: color 0.25s, background-color 0.25s, border-color 0.25s;
+}
+
+.fg-tabs button span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--fg-3);
+}
+
+.fg-tabs button:hover {
+  color: var(--fg);
+}
+
+.fg-tabs button[aria-pressed="true"] {
+  color: var(--fg);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: var(--line-2);
+}
+
+.fg-tabs button[aria-pressed="true"] span {
+  color: var(--accent-2);
+}
+
+/* Before | After: the app's own segmented control. */
+.fg-seg {
+  display: inline-flex;
+  padding: 3px;
+  border-radius: 10px;
+  background: #3a3a3c;
+}
+
+.fg-seg button {
+  min-width: 76px;
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 7px;
+  font-size: 13.5px;
+  font-weight: 550;
+  color: var(--app-text);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.fg-seg button:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.fg-seg button[aria-pressed="true"] {
+  color: #fff;
+  background: var(--app-red);
+}
+
+.fg-seg button[aria-pressed="true"]:hover {
+  background: var(--app-red-hi);
+}
+
+/* The photo. */
+.fg-demo__stage {
+  grid-area: stage;
+  position: relative;
+  aspect-ratio: 3 / 2;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--app-ink);
+}
+
+.fg-demo__stage canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: crosshair;
+  touch-action: pan-y;
+  border-radius: inherit;
+}
+
+.fg-demo__stage canvas:focus-visible {
+  outline: 2px solid var(--app-red);
+  outline-offset: -2px;
+}
+
+.fg-probe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.fg-probe::before,
+.fg-probe::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.fg-probe::before {
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid #fff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(0, 0, 0, 0.55);
+}
+
+.fg-probe::after {
+  width: 3px;
+  height: 3px;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6);
+}
+
+.fg-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  max-width: calc(100% - 20px);
+  padding: 5px 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--app-text);
+  background: rgba(18, 18, 18, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+}
+
+.fg-loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  text-align: center;
+  font-size: 15px;
+  color: var(--app-gray);
+  background: rgba(18, 18, 18, 0.55);
+  pointer-events: none;
+}
+
+.fg-loading[hidden] {
+  display: none;
+}
+
+/* Under the photo: which photo, how long it took, save. */
+.fg-demo__bar {
+  grid-area: bar;
+  align-self: start;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  min-width: 0;
+}
+
+.fg-photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.fg-photos button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 32px;
+  padding: 0 13px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--fg-2);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  transition: color 0.25s, background-color 0.25s, border-color 0.25s;
+}
+
+.fg-photos button:hover {
+  color: var(--fg);
+}
+
+.fg-photos button[aria-pressed="true"] {
+  color: var(--fg);
+  border-color: rgba(247, 57, 48, 0.55);
+  background: rgba(247, 57, 48, 0.1);
+}
+
+.fg-photos .i {
+  font-size: 14px;
+}
+
+.fg-demo__meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.fg-stat {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--fg-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.fg-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 4px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fg-2);
+  transition: color 0.2s;
+}
+
+.fg-link:hover {
+  color: var(--fg);
+}
+
+.fg-link .i {
+  font-size: 14px;
+}
+
+/* The sidebar, as in the app. */
+.fg-demo__side {
+  grid-area: side;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 20px 20px 16px;
+  border-radius: 18px;
+  background: var(--app-side);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.fg-side__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.fg-logo {
+  font-family: var(--app-font);
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  color: var(--app-red);
+}
+
+.fg-cap {
+  margin-top: 18px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+.fg-sliders {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.fg-slider__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.fg-slider label {
+  font-size: 13.5px;
+  color: var(--app-text);
+}
+
+.fg-slider output {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+  color: var(--fg-2);
+}
+
+.fg-range {
+  --p: 50%;
+  display: block;
+  width: 100%;
+  height: 26px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.fg-range:focus-visible {
+  outline-offset: 0;
+}
+
+.fg-range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--app-fill) var(--p), var(--app-track) var(--p));
+}
+
+.fg-range::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  margin-top: -6px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--app-red);
+  box-shadow: 0 0 0 0 rgba(247, 57, 48, 0);
+  transition: box-shadow 0.2s, background-color 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.fg-range:hover::-webkit-slider-thumb {
+  background: var(--app-red-hi);
+}
+
+.fg-range:focus-visible::-webkit-slider-thumb,
+.fg-range:active::-webkit-slider-thumb {
+  box-shadow: 0 0 0 5px rgba(247, 57, 48, 0.28);
+}
+
+.fg-range::-moz-range-track {
+  height: 4px;
+  border-radius: 4px;
+  background: var(--app-track);
+}
+
+.fg-range::-moz-range-progress {
+  height: 4px;
+  border-radius: 4px;
+  background: var(--app-fill);
+}
+
+.fg-range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--app-red);
+}
+
+@media (pointer: coarse) {
+  .fg-range {
+    height: 34px;
+  }
+
+  .fg-range::-webkit-slider-thumb {
+    width: 22px;
+    height: 22px;
+    margin-top: -9px;
+  }
+
+  .fg-range::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.fg-side__note {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fg-3);
+}
+
+.fg-side__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 12px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.fg-side__order {
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: var(--fg-3);
+}
+
+.fg-demo[data-mode-now="pk"] .fg-side__order {
+  display: none;
+}
+
+/* The pipeline: one pixel, step by step. */
+.fg-demo__pipe {
+  grid-area: pipe;
+  min-width: 0;
+  padding: 16px 16px 14px;
+  border-radius: 18px;
+  background: #161617;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.fg-pipe__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 16px;
+}
+
+.fg-pipe__head .fg-cap {
+  margin-top: 0;
+}
+
+.fg-pipe__px {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-3);
+}
+
+.fg-pipe__px b {
+  margin-left: 6px;
+  font-weight: 500;
+  color: var(--fg);
+}
+
+.fg-pipe {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.fg-pipe--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.fg-pipe li {
+  position: relative;
+  min-width: 0;
+}
+
+/* A hairline arrow from each step to the next. */
+.fg-pipe li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -7px;
+  width: 6px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.fg-step {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px 11px;
+  border-radius: 12px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: border-color 0.2s, background-color 0.2s, opacity 0.2s;
+}
+
+.fg-step:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.fg-step__n {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--fg-4);
+  transition: color 0.2s;
+}
+
+.fg-step__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+}
+
+.fg-step__sw {
+  height: 22px;
+  border-radius: 6px;
+  background: #2a2a2c;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.fg-step__rgb {
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: var(--fg-3);
+}
+
+.fg-step__rgb b {
+  font-weight: 500;
+  color: var(--fg);
+}
+
+.fg-step__rgb b.is-same {
+  color: var(--fg-3);
+}
+
+.fg-step__skip {
+  font-style: italic;
+  color: var(--fg-4);
+}
+
+.fg-step.is-off .fg-step__name,
+.fg-step.is-off .fg-step__sw {
+  opacity: 0.4;
+}
+
+/* The step a slider is moving right now. */
+.fg-step.is-active {
+  border-color: rgba(247, 57, 48, 0.45);
+  box-shadow: inset 0 2px 0 var(--app-red);
+}
+
+.fg-step.is-active .fg-step__n {
+  color: var(--app-red);
+}
+
+/* The step the photo is showing. */
+.fg-step[aria-pressed="true"] {
+  background: rgba(247, 57, 48, 0.09);
+  border-color: rgba(247, 57, 48, 0.7);
+}
+
+.fg-step[aria-pressed="true"] .fg-step__n {
+  color: var(--accent-2);
+}
+
+.fg-math {
+  min-height: 3.2em;
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--fg-2);
+}
+
+.fg-math__n {
+  color: var(--accent-2);
+}
+
+.fg-hint {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--fg-3);
+}
+
+@media (hover: none) {
+  .fg-step:hover {
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+}
+
+@media (max-width: 1100px) {
+  .fg-pipe:not(.fg-pipe--4) {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .fg-pipe li:nth-child(5)::after {
+    display: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .fg-demo {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "top"
+      "stage"
+      "bar"
+      "side"
+      "pipe";
+  }
+
+  .fg-sliders[data-group="fg"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+  }
+
+  .fg-side__foot {
+    margin-top: 14px;
+  }
+}
+
+@media (max-width: 620px) {
+  .fg-demo {
+    gap: 12px;
+    padding: 10px;
+    border-radius: 22px;
+  }
+
+  .fg-demo__stage {
+    border-radius: 12px;
+  }
+
+  /* Two up, so the photo and all seven sliders fit on one phone screen. */
+  .fg-sliders[data-group="fg"] {
+    column-gap: 18px;
+  }
+
+  .fg-slider label {
+    font-size: 13px;
+  }
+
+  .fg-logo {
+    font-size: 16px;
+  }
+
+  .fg-cap {
+    margin-top: 12px;
+  }
+
+  .fg-demo__side,
+  .fg-demo__pipe {
+    padding: 16px 14px 14px;
+    border-radius: 16px;
+  }
+
+  .fg-pipe:not(.fg-pipe--4) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .fg-pipe--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fg-pipe li::after {
+    display: none;
+  }
+
+  .fg-demo__top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .fg-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fg-tabs button {
+    justify-content: center;
+    height: 36px;
+    padding: 0 8px;
+    font-size: 13px;
+  }
+
+  .fg-tabs button span {
+    display: none;
+  }
+
+  .fg-seg {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fg-step__name {
+    overflow: visible;
+    white-space: normal;
+    font-size: 12.5px;
+    line-height: 1.25;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fg-step,
+  .fg-seg button,
+  .fg-tabs button,
+  .fg-photos button {
+    transition: none;
+  }
+}
+
+@media (max-width: 359px) {
+  .fg-sliders[data-group="fg"] {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

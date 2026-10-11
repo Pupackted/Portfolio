@@ -1,0 +1,765 @@
+/* ==========================================================================
+   Void
+   Black glass, a periwinkle accent and system type — taken from the page
+   itself. The demo below borrows Void's own tokens (glass, lines, mono labels).
+   ========================================================================== */
+
+.theme-void {
+  --accent: #7aa2f7;
+  --accent-2: #a9c1fb;
+  /* Void ships no web fonts: system families only. */
+  --void-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Inter, system-ui, sans-serif;
+  --void-mono: ui-monospace, "SF Mono", SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
+  --void-ease: cubic-bezier(0.22, 0.9, 0.28, 1);
+  --void-spring: cubic-bezier(0.2, 1.4, 0.4, 1);
+  --void-t2: rgba(255, 255, 255, 0.58);
+  --void-t3: rgba(255, 255, 255, 0.36);
+  --void-line: rgba(255, 255, 255, 0.09);
+  --void-line-strong: rgba(255, 255, 255, 0.16);
+  --void-surface: rgba(255, 255, 255, 0.045);
+  --void-surface-h: rgba(255, 255, 255, 0.085);
+}
+
+/* ── Hero ────────────────────────────────────────────────────────────────── */
+
+.void-hero .browser {
+  box-shadow:
+    0 50px 120px -40px rgba(0, 0, 0, 0.9),
+    0 0 120px -30px rgba(122, 162, 247, 0.3);
+}
+
+/* Loaded as an extension, the new tab opens with an empty address bar. */
+.void-url__caret {
+  display: block;
+  width: 1px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.void-chip {
+  position: absolute;
+  left: 50%;
+  bottom: -18px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  white-space: nowrap;
+  color: var(--accent-2);
+  background: rgba(14, 14, 16, 0.86);
+  border: 1px solid rgba(122, 162, 247, 0.32);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 14px 40px -12px rgba(0, 0, 0, 0.7);
+}
+
+/* ── The particle field ──────────────────────────────────────────────────── */
+
+.void-demo {
+  --vd-accent: #7aa2f7;
+  position: relative;
+  border-radius: var(--r-l);
+  overflow: hidden;
+  background: #0b0c0f;
+  border: 1px solid var(--line-2);
+  box-shadow:
+    0 50px 120px -50px rgba(0, 0, 0, 0.9),
+    0 0 160px -60px color-mix(in srgb, var(--vd-accent) 55%, transparent);
+  transition: box-shadow 0.8s var(--ease-out);
+}
+
+.void-stage {
+  --vd-bg: #000;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  isolation: isolate;
+  container-type: inline-size;
+  background: var(--vd-bg);
+  color: rgba(255, 255, 255, 0.95);
+  /* Vertical swipes still scroll the page on a phone. */
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.void-stage > * {
+  position: absolute;
+}
+
+/* Void darkens every theme with a black tint before the effects go on top. */
+.void-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: var(--vd-dim, 0.4);
+  pointer-events: none;
+}
+
+/* Three blurred blobs blended with `screen`, drifting over 34, 44 and 52 s —
+   the same recipe as Void's aurora, sized to the box instead of the window. */
+.void-stage__aurora {
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.void-stage__aurora i {
+  position: absolute;
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(44px);
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+
+.void-stage__aurora i:nth-child(1) {
+  width: 46%;
+  left: -6%;
+  top: -18%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--vd-accent) 70%, transparent), transparent 68%);
+  animation: void-drift1 34s var(--void-ease) infinite alternate;
+  opacity: 0.32;
+}
+
+.void-stage__aurora i:nth-child(2) {
+  width: 38%;
+  right: -4%;
+  top: 22%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--vd-accent) 45%, #ff4ecd), transparent 68%);
+  animation: void-drift2 44s var(--void-ease) infinite alternate;
+  opacity: 0.22;
+}
+
+.void-stage__aurora i:nth-child(3) {
+  width: 44%;
+  left: 26%;
+  bottom: -32%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--vd-accent) 55%, #00d3a7), transparent 68%);
+  animation: void-drift3 52s var(--void-ease) infinite alternate;
+  opacity: 0.2;
+}
+
+@keyframes void-drift1 {
+  to { transform: translate3d(30%, 22%, 0) scale(1.25); }
+}
+
+@keyframes void-drift2 {
+  to { transform: translate3d(-42%, -30%, 0) scale(1.15); }
+}
+
+@keyframes void-drift3 {
+  to { transform: translate3d(22%, -30%, 0) scale(1.3); }
+}
+
+/* Paused, off-screen or reduced motion: everything holds still. */
+.void-stage.is-still .void-stage__aurora i {
+  animation-play-state: paused;
+}
+
+.void-stage__canvas {
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.void-stage__grain {
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
+  transition: opacity 0.5s var(--void-ease);
+}
+
+.void-stage.has-grain .void-stage__grain {
+  opacity: 0.5;
+}
+
+.void-stage__vignette {
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 42%, rgba(0, 0, 0, 0.72) 100%);
+}
+
+/* Void's hero: thin clock, mono date, a greeting with a shell prompt. */
+.void-stage__hero {
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.void-clock {
+  display: flex;
+  align-items: baseline;
+  gap: 0.06em;
+  font-family: var(--void-sans);
+  font-size: clamp(46px, 11cqw, 136px);
+  font-weight: 200;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: normal;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+}
+
+.void-clock__sec {
+  align-self: flex-start;
+  margin-top: 0.55em;
+  font-family: var(--void-mono);
+  font-size: 0.24em;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--vd-accent);
+  opacity: 0.9;
+}
+
+.void-date {
+  font-family: var(--void-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.34);
+}
+
+.void-greet {
+  margin-top: 2px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-family: var(--void-mono);
+  font-size: 13.5px;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  color: var(--void-t2);
+  pointer-events: auto;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.void-greet::before {
+  content: "❯ ";
+  content: "❯ " / "";
+  color: var(--vd-accent);
+  opacity: 0.75;
+}
+
+.void-greet:hover {
+  color: rgba(255, 255, 255, 0.95);
+  background: var(--void-surface);
+}
+
+.void-greet:focus-visible {
+  outline: 2px solid var(--vd-accent);
+  outline-offset: 2px;
+}
+
+.void-stage__hint {
+  left: 16px;
+  bottom: 16px;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-family: var(--void-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--void-t3);
+  background: rgba(14, 14, 16, 0.55);
+  border: 1px solid var(--void-line);
+  pointer-events: none;
+  transition: opacity 0.6s var(--void-ease);
+}
+
+.void-stage.is-touched .void-stage__hint,
+.void-stage.is-still .void-stage__hint {
+  opacity: 0;
+}
+
+.void-hint--touch {
+  display: none;
+}
+
+@media (hover: none) {
+  .void-hint--mouse {
+    display: none;
+  }
+
+  .void-hint--touch {
+    display: inline;
+  }
+}
+
+/* ── Controls, in Void's settings style ──────────────────────────────────── */
+
+.void-controls {
+  display: grid;
+  gap: 22px;
+  padding: 22px 24px 24px;
+  background: rgba(14, 14, 16, 0.72);
+  border-top: 1px solid var(--void-line);
+}
+
+.void-controls__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 24px;
+}
+
+.void-controls__bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 22px 48px;
+  align-items: end;
+}
+
+.void-ctl {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+
+.void-ctl__label {
+  font-family: var(--void-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--void-t3);
+}
+
+/* Mode pills: Void's group pills, with the glowing dot on the active one. */
+.void-modes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.void-modes button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 34px;
+  padding: 0 15px;
+  border-radius: 999px;
+  font-family: var(--void-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--void-t2);
+  background: var(--void-surface);
+  border: 1px solid var(--void-line);
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+.void-modes button::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.35;
+  transition: background-color 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+
+.void-modes button:hover {
+  color: rgba(255, 255, 255, 0.95);
+  background: var(--void-surface-h);
+}
+
+.void-modes button[aria-pressed="true"] {
+  color: rgba(255, 255, 255, 0.95);
+  background: color-mix(in srgb, var(--vd-accent) 14%, transparent);
+  border-color: color-mix(in srgb, var(--vd-accent) 50%, transparent);
+}
+
+.void-modes button[aria-pressed="true"]::before {
+  background: var(--vd-accent);
+  box-shadow: 0 0 8px var(--vd-accent);
+  opacity: 1;
+}
+
+.void-controls__status {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.void-readout {
+  font-family: var(--void-mono);
+  font-size: 10px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  color: var(--void-t3);
+}
+
+/* Void's `.mini` button. */
+.void-pause {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-family: var(--void-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--void-t2);
+  background: var(--void-surface);
+  border: 1px solid var(--void-line);
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+.void-pause .i {
+  font-size: 12px;
+}
+
+.void-pause:hover {
+  color: rgba(255, 255, 255, 0.95);
+  background: var(--void-surface-h);
+  border-color: var(--void-line-strong);
+}
+
+.void-pause__play,
+.void-pause[aria-pressed="true"] .void-pause__pause {
+  display: none;
+}
+
+.void-pause[aria-pressed="true"] .void-pause__play {
+  display: block;
+  fill: currentColor;
+  stroke: none;
+}
+
+.void-pause[aria-pressed="true"] {
+  color: #04060c;
+  font-weight: 600;
+  background: var(--vd-accent);
+  border-color: var(--vd-accent);
+}
+
+/* Theme cards: the same little previews as Void's theme gallery. */
+.void-themes {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.void-tc {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #000;
+  border: 1.5px solid var(--void-line);
+  transition: transform 0.2s var(--void-spring), border-color 0.2s, box-shadow 0.2s;
+}
+
+.void-tc:hover {
+  transform: translateY(-2px);
+}
+
+.void-tc[aria-pressed="true"] {
+  border-color: #fff;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12);
+}
+
+.void-tc i {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 8px currentColor;
+}
+
+.void-tc b {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 4px 5px;
+  overflow: hidden;
+  font-family: var(--void-mono);
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: rgba(255, 255, 255, 0.88);
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+}
+
+.void-ranges {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px 22px;
+}
+
+.void-range {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 4px 10px;
+  min-width: 0;
+}
+
+.void-range output {
+  font-family: var(--void-mono);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: var(--void-t3);
+}
+
+.void-range input {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 22px;
+  margin: 0;
+  background: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.void-range input::-webkit-slider-runnable-track {
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.void-range input::-moz-range-track {
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.void-range input::-webkit-slider-thumb {
+  width: 15px;
+  height: 15px;
+  margin-top: -6px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--vd-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--vd-accent) 16%, transparent);
+  transition: transform 0.2s var(--void-spring);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.void-range input::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--vd-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--vd-accent) 16%, transparent);
+}
+
+.void-range input:hover::-webkit-slider-thumb {
+  transform: scale(1.18);
+}
+
+.void-modes button:focus-visible,
+.void-pause:focus-visible,
+.void-tc:focus-visible,
+.void-range input:focus-visible {
+  outline: 2px solid var(--vd-accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .void-controls__bottom {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .void-stage {
+    aspect-ratio: 4 / 5;
+  }
+
+  /* A tall box: size the aurora to it, not to its width alone. */
+  .void-stage__aurora i:nth-child(1) {
+    width: 90%;
+    left: -24%;
+    top: -14%;
+  }
+
+  .void-stage__aurora i:nth-child(2) {
+    width: 76%;
+    right: -30%;
+    top: 30%;
+  }
+
+  .void-stage__aurora i:nth-child(3) {
+    width: 90%;
+    left: 6%;
+    bottom: -26%;
+  }
+
+  .void-date {
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+  }
+
+  .void-greet {
+    font-size: 12.5px;
+  }
+
+  .void-controls {
+    padding: 18px 16px 20px;
+  }
+
+  .void-controls__top > .void-ctl,
+  .void-controls__status {
+    width: 100%;
+  }
+
+  .void-controls__status {
+    justify-content: space-between;
+  }
+
+  .void-readout {
+    font-size: 9.5px;
+    letter-spacing: 0.06em;
+  }
+
+  /* Icon only on a phone; the label stays for screen readers. */
+  .void-pause {
+    width: 36px;
+    padding: 0;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .void-pause__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .void-modes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .void-modes button {
+    padding: 0 8px;
+  }
+
+  .void-themes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .void-tc b {
+    font-size: 9px;
+  }
+
+  .void-ranges {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+}
+
+/* ── How it's built: give the code room for its longest line ─────────────── */
+
+@media (min-width: 901px) {
+  .void-build {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(40px, 5vw, 72px);
+  }
+}
+
+.void-build .ws-code {
+  font-size: 12px;
+}
+
+/* ── Screenshots ─────────────────────────────────────────────────────────── */
+
+.void-shots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.void-shot {
+  border-radius: var(--r-m);
+  overflow: hidden;
+  background: #0b0c0f;
+  border: 1px solid var(--line);
+}
+
+.void-shot img {
+  width: 100%;
+  cursor: zoom-in;
+  transition: transform 1.2s var(--ease-out);
+}
+
+.void-shot:hover img {
+  transform: scale(1.015);
+}
+
+.void-shot figcaption {
+  position: relative;
+  padding: 14px 18px 16px;
+  font-size: 14px;
+  color: var(--fg-2);
+  background: #0b0c0f;
+  border-top: 1px solid var(--line);
+}
+
+.void-shot figcaption kbd {
+  min-width: 20px;
+  height: 20px;
+  font-size: 11px;
+}
+
+@media (max-width: 760px) {
+  .void-shots {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .void-stage__aurora i {
+    animation: none;
+  }
+}

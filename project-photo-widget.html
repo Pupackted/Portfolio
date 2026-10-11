@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Photo Widget — Case study · Adrian Rachman</title>
+  <meta name="description" content="Photo Widget: an iOS app for putting my own photos on my home screen — my pick, my crop, on a schedule I choose. One crop model for every widget shape, a schedule the app and widget agree on without talking, and nothing uploaded. A case study by Adrian Rachman.">
+  <meta name="theme-color" content="#131418">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Photo Widget — Case study · Adrian Rachman">
+  <meta property="og:description" content="My photo, my crop, my home screen. An iOS widget app with no ads, no paywall and no network code.">
+  <meta property="og:image" content="https://portfolio-adrian-rachman.vercel.app/Assets/web/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="Assets/web/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/workshop.css">
+  <link rel="stylesheet" href="css/pages/photo-widget.css">
+  <script src="js/site.js"></script>
+  <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
+</head>
+
+<body class="ws theme-photo-widget">
+  <site-header current="work"></site-header>
+
+  <!-- Small glyphs for the iOS recreations. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="pw-signal" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" /><rect x="5" y="5.5" width="3" height="6.5" rx="1" /><rect x="10" y="3" width="3" height="9" rx="1" /><rect x="15" y="0" width="3" height="12" rx="1" /></symbol>
+    <symbol id="pw-wifi" viewBox="0 0 16 12"><path d="M8 2.4c2.3 0 4.4.9 6 2.4l1.2-1.3A10.2 10.2 0 0 0 8 .6 10.2 10.2 0 0 0 .8 3.5L2 4.8a8.4 8.4 0 0 1 6-2.4zm0 3.5c1.3 0 2.5.5 3.5 1.4l1.2-1.3A6.6 6.6 0 0 0 8 4.1c-1.8 0-3.5.7-4.7 1.9l1.2 1.3c1-.9 2.2-1.4 3.5-1.4zm0 3.4c-.6 0-1.1.2-1.5.6L8 11.6l1.5-1.7c-.4-.4-.9-.6-1.5-.6z" /></symbol>
+    <symbol id="pw-battery" viewBox="0 0 27 13"><rect x="0.5" y="0.5" width="23" height="12" rx="3.6" fill="none" stroke="currentColor" opacity=".4" /><rect x="2" y="2" width="20" height="9" rx="2.2" /><path d="M25 4.5v4c.8-.3 1.3-1.1 1.3-2s-.5-1.7-1.3-2z" opacity=".45" /></symbol>
+    <symbol id="pw-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" /></symbol>
+    <symbol id="pw-addwidget" viewBox="0 0 24 24"><rect x="3.5" y="2" width="12" height="20" rx="2.6" /><path d="M7 6.5h1.5M10.5 6.5H12M7 10h1.5M10.5 10H12" /><circle cx="18" cy="17.5" r="3.8" /><path d="M18 15.8v3.4M16.3 17.5h3.4" /></symbol>
+  </svg>
+
+  <main id="main">
+
+    <!-- ═══ Hero ═══════════════════════════════════════════════════════════ -->
+    <section class="ws-hero">
+      <div class="container">
+        <a class="back-link" href="index.html#lab"><svg class="i" aria-hidden="true"><use href="#i-arrow-left" /></svg>The workshop</a>
+
+        <div class="ws-hero__grid">
+          <div>
+            <span class="ws-status" data-reveal><i aria-hidden="true"></i>On my home screen</span>
+            <h1 class="h1" style="view-transition-name: photo-title">Photo Widget</h1>
+            <p class="ws-promise" data-reveal style="--d:160">My photo, my crop, my home screen.</p>
+            <p class="lead" data-reveal style="--d:260">Apple’s photo widget won’t let me pick the one picture I want, and the App Store alternatives come with ads or a paywall. So I built my own: my photos, my crop, on a schedule I choose.</p>
+            <div class="btn-row mt-32" data-reveal style="--d:360">
+              <a class="btn btn--primary" href="#demo" data-magnetic="0.2">Move the crop <svg class="i i--arrow-down" aria-hidden="true"><use href="#i-arrow-down" /></svg></a>
+            </div>
+          </div>
+
+          <div class="ws-visual pw-hero" data-reveal="scale" style="--d:200">
+            <div class="phone pw-hero__phone" role="img" aria-label="The Photo Widget app’s library: a large ‘Photo Widget’ title over a soft colour wash, and glass cards for three widgets — Golden hour, five photos, hourly, on the Home Screen; Night drives, three photos, every three hours; and Through the leaves — with a coral New Widget button floating at the bottom.">
+              <div class="phone__screen pw-lib" aria-hidden="true">
+                <div class="pw-statusbar"><span>9:41</span><span class="pw-statusbar__icons"><svg><use href="#pw-signal" /></svg><svg><use href="#pw-wifi" /></svg><svg class="pw-batt"><use href="#pw-battery" /></svg></span></div>
+                <div class="pw-lib__bar"><span class="pw-glass pw-glass--round"><svg class="i"><use href="#pw-gear" /></svg></span><span class="pw-glass pw-glass--round"><svg class="i"><use href="#pw-addwidget" /></svg></span></div>
+                <p class="pw-lib__title">Photo Widget</p>
+                <div class="pw-lib__cards">
+                  <div class="pw-card">
+                    <img class="pw-card__bg" src="Assets/web/photo-widget/sunset.webp" alt="" width="960" height="1200">
+                    <div class="pw-mini"><img src="Assets/web/photo-widget/sunset.webp" alt="" width="960" height="1200" style="object-position: 50% 52%" fetchpriority="high"></div>
+                    <div class="pw-card__row"><div><b>Golden hour</b><span>5 photos · Hourly</span></div><span class="pw-badge"><svg class="i"><use href="#i-check" /></svg>On Home Screen</span></div>
+                  </div>
+                  <div class="pw-card">
+                    <img class="pw-card__bg" src="Assets/web/photo-widget/dragon.webp" alt="" width="960" height="1200">
+                    <div class="pw-mini pw-mini--border" style="--mat:#242426"><img src="Assets/web/photo-widget/dragon.webp" alt="" width="960" height="1200" style="object-position: 50% 46%"></div>
+                    <div class="pw-card__row"><div><b>Night drives</b><span>3 photos · Daily</span></div><span class="pw-badge"><svg class="i"><use href="#i-check" /></svg>On Home Screen</span></div>
+                  </div>
+                  <div class="pw-card">
+                    <img class="pw-card__bg" src="Assets/web/photo-widget/leaves.webp" alt="" width="1440" height="960">
+                    <div class="pw-mini pw-mini--instant" style="--mat:#f5f0e3"><img src="Assets/web/photo-widget/leaves.webp" alt="" width="1440" height="960" style="object-position: 42% 50%"><span>Through the leaves</span></div>
+                    <div class="pw-card__row"><div><b>Through the leaves</b><span>1 photo</span></div></div>
+                  </div>
+                </div>
+                <span class="pw-newbtn"><svg class="i"><use href="#i-plus" /></svg>New Widget</span>
+                <span class="pw-homebar"></span>
+              </div>
+              <div class="phone__island"></div>
+            </div>
+
+            <div class="pw-floater" aria-hidden="true">
+              <div class="pw-floater__face"><img src="Assets/web/photo-widget/taillights.webp" alt="" width="960" height="1200" style="object-position: 62% 46%"><span>After dark</span></div>
+            </div>
+            <span class="pw-chip"><svg class="i" aria-hidden="true"><use href="#i-lock" /></svg>Nothing is uploaded, ever.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <dl class="meta-row" data-stagger>
+        <div><dt>Role</dt><dd>Design &amp; development, solo</dd></div>
+        <div><dt>Built for</dt><dd>My own home screen</dd></div>
+        <div><dt>Built</dt><dd>June 2026 · rebuilt in September</dd></div>
+        <div><dt>Stack</dt><dd>Swift · SwiftUI · WidgetKit</dd></div>
+      </dl>
+    </div>
+
+    <!-- ═══ Why ════════════════════════════════════════════════════════════ -->
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow" data-reveal><span class="eyebrow__index">01</span><span class="eyebrow__rule"></span>Why it exists</p>
+        <h2 class="pullquote mt-24" data-split>I wanted one picture on my home screen. <span>Framed the way I’d frame it.</span></h2>
+
+        <div class="ws-story">
+          <div data-reveal>
+            <p>That’s really all this is: putting an image on my iPhone’s home screen. Apple’s own photo widget wouldn’t let me choose what it shows. I couldn’t give it just one picture — it had to be several — and in my opinion it just isn’t intuitive.</p>
+            <p>I didn’t want to go shopping on the App Store either. I just know some of those apps come with a payment, ads, or something else not to my liking.</p>
+          </div>
+          <div data-reveal style="--d:120">
+            <p>So I made it myself. The first version, in June, did exactly one thing: put one photo of my choosing on the home screen.</p>
+            <p>In September I rebuilt it as a proper app. Now there can be several widgets, each with up to 50 photos that rotate on a schedule or shuffle, with filters, frames and captions. And it has no network code at all — <strong>nothing leaves the phone</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Demo: one crop, every shape ════════════════════════════════════ -->
+    <section class="section section--flush-top" id="demo">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">02</span><span class="eyebrow__rule"></span>Try it</p>
+          <h2 class="h2" data-split>One crop. <span class="dim">Every shape.</span></h2>
+          <p class="lead" data-reveal style="--d:150">A crop isn’t saved as a rectangle. It’s a centre point and a zoom, and each widget shape is cut from that pair when it’s drawn. Drag the photo — or any widget on the phone — and all three follow.</p>
+        </header>
+
+        <div class="pw-demo" data-pw-demo>
+          <div class="card pw-src-card" data-reveal>
+            <div class="pw-src-card__top">
+              <p class="pw-label">The photo</p>
+              <div class="pw-strip" role="group" aria-label="Choose a photo" data-strip></div>
+            </div>
+
+            <div class="pw-stage" data-stage>
+              <div class="pw-src" data-src>
+                <img data-src-img alt="" width="960" height="1200">
+                <div class="pw-win pw-win--large" data-win="large"><span>Large</span></div>
+                <div class="pw-win pw-win--small" data-win="small"><span>Small</span></div>
+                <div class="pw-win pw-win--medium" data-win="medium"><span>Medium</span></div>
+                <button type="button" class="pw-focus" data-focus aria-describedby="pw-focus-help"><span class="sr-only" data-focus-label>Crop centre</span></button>
+              </div>
+            </div>
+            <p class="sr-only" id="pw-focus-help">Arrow keys move the centre; hold Shift for bigger steps. Plus and minus zoom.</p>
+
+            <div class="pw-controls">
+              <div class="pw-control pw-control--zoom">
+                <label class="pw-label" for="pw-zoom">Zoom</label>
+                <input type="range" id="pw-zoom" min="1" max="5" step="0.01" value="1" data-zoom>
+                <output for="pw-zoom" data-zoom-out>1.0×</output>
+                <button type="button" class="pw-btn" data-smart><svg class="i" aria-hidden="true"><use href="#i-sparkles" /></svg>Smart Frame</button>
+              </div>
+              <code class="pw-readout" data-readout>CropState(centerX: 0.50, centerY: 0.50, zoom: 1.00)</code>
+
+              <div class="pw-control">
+                <span class="pw-label" id="pw-frame-l">Frame</span>
+                <div class="pw-seg" role="group" aria-labelledby="pw-frame-l" data-frames>
+                  <button type="button" data-frame="fullBleed" aria-pressed="true">Full Bleed</button>
+                  <button type="button" data-frame="border" aria-pressed="false">Border</button>
+                  <button type="button" data-frame="polaroid" aria-pressed="false">Instant</button>
+                </div>
+              </div>
+              <div class="pw-control">
+                <span class="pw-label" id="pw-mat-l">Mat</span>
+                <div class="pw-mats" role="group" aria-labelledby="pw-mat-l" data-mats></div>
+              </div>
+              <div class="pw-control">
+                <span class="pw-label" id="pw-cap-l">Caption</span>
+                <div class="pw-caption">
+                  <button type="button" class="pw-toggle" data-cap-toggle aria-pressed="false" aria-labelledby="pw-cap-l"><span aria-hidden="true"><i></i></span></button>
+                  <label class="sr-only" for="pw-cap-text">Caption text</label>
+                  <input type="text" id="pw-cap-text" class="pw-input" value="Golden hour" maxlength="24" data-cap-text disabled>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pw-home-wrap" data-reveal style="--d:120">
+            <div class="phone pw-home-phone">
+              <div class="phone__screen pw-home" data-home>
+                <div class="pw-statusbar pw-statusbar--light" aria-hidden="true"><span>9:41</span><span class="pw-statusbar__icons"><svg><use href="#pw-signal" /></svg><svg><use href="#pw-wifi" /></svg><svg class="pw-batt"><use href="#pw-battery" /></svg></span></div>
+
+                <div class="pw-w" data-size="small" style="--x:38; --y:68; --w:170; --h:170" aria-hidden="true"></div>
+                <div class="pw-apps" aria-hidden="true">
+                  <span class="pw-app"><i style="--tile:linear-gradient(160deg,#5ac8fa,#2f7fe0)"><svg class="i"><use href="#i-sun" /></svg></i>Weather</span>
+                  <span class="pw-app"><i style="--tile:linear-gradient(160deg,#fff,#ececf0)" class="is-light"><svg class="i"><use href="#i-calendar" /></svg></i>Calendar</span>
+                  <span class="pw-app"><i style="--tile:linear-gradient(160deg,#2c2c2e,#0c0c0e)"><svg class="i"><use href="#i-clock" /></svg></i>Clock</span>
+                  <span class="pw-app"><i class="is-img"><img src="Assets/web/photo-widget/icon.webp" alt="" width="256" height="256" loading="lazy"></i>Photo Widget</span>
+                </div>
+                <div class="pw-w" data-size="medium" style="--x:38; --y:256; --w:364; --h:170" aria-hidden="true"></div>
+                <div class="pw-w" data-size="large" style="--x:38; --y:444; --w:364; --h:382" aria-hidden="true"></div>
+                <span class="pw-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <div class="pw-dock" aria-hidden="true">
+                  <i style="--tile:linear-gradient(160deg,#5cdb6e,#28b446)"><svg class="i"><use href="#i-phone" /></svg></i>
+                  <i style="--tile:linear-gradient(160deg,#5cdb6e,#28b446)"><svg class="i"><use href="#i-message" /></svg></i>
+                  <i style="--tile:linear-gradient(160deg,#6ac6ff,#1f7cf0)"><svg class="i"><use href="#i-compass" /></svg></i>
+                  <i style="--tile:linear-gradient(160deg,#ff6a7f,#f2385a)"><svg class="i"><use href="#i-disc" /></svg></i>
+                </div>
+                <span class="pw-homebar pw-homebar--light" aria-hidden="true"></span>
+              </div>
+              <div class="phone__island"></div>
+            </div>
+            <p class="pw-home-hint"><svg class="i" aria-hidden="true"><use href="#i-hand" /></svg>Drag a widget, or double-click to zoom.</p>
+          </div>
+        </div>
+        <p class="ws-note" data-reveal>Interactive illustration of the crop model, rebuilt for the web: the projection, clamping, rubber-banding and centre-snapping follow the app’s Swift. In the app each widget size can also keep a crop of its own; here all three share one so you can watch the projection. The starting points stand in for Vision’s, and the photos are mine.</p>
+      </div>
+    </section>
+
+    <!-- ═══ Schedule ═══════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="timing">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">03</span><span class="eyebrow__rule"></span>Timing</p>
+            <h2 class="h2 mt-24" data-split>Every photo once, <span class="dim">before any repeats.</span></h2>
+          </div>
+          <p class="lead" data-reveal style="--d:150">The app and the widget never talk to each other. Both run the same pure function — the slot on the clock, plus a seeded shuffle — and get the same answer. Below is that function, ported line for line, planning a five-photo widget from now on.</p>
+        </header>
+
+        <div class="pw-sched card" data-pw-schedule data-reveal>
+          <div class="pw-sched__side">
+            <div class="pw-wall">
+              <button type="button" class="pw-w pw-w--tap" data-sched-widget aria-describedby="pw-sched-now" style="--x:0; --y:0; --w:170; --h:170"></button>
+            </div>
+            <p class="pw-sched__now" id="pw-sched-now" aria-live="polite" data-sched-now></p>
+            <p class="pw-sched__tip"><svg class="i" aria-hidden="true"><use href="#i-pointer" /></svg>Tap the widget to skip ahead, like the real one.</p>
+            <button type="button" class="pw-btn pw-btn--quiet" data-sched-reset hidden><svg class="i" aria-hidden="true"><use href="#i-rotate" /></svg>Forget the taps</button>
+          </div>
+
+          <div class="pw-sched__main">
+            <div class="pw-sched__controls">
+              <div class="pw-control">
+                <span class="pw-label" id="pw-every-l">Change every</span>
+                <div class="pw-seg pw-seg--wrap" role="group" aria-labelledby="pw-every-l" data-intervals>
+                  <button type="button" data-every="900" aria-pressed="false">15 min</button>
+                  <button type="button" data-every="1800" aria-pressed="false">30 min</button>
+                  <button type="button" data-every="3600" aria-pressed="true">Hourly</button>
+                  <button type="button" data-every="10800" aria-pressed="false">3 hours</button>
+                  <button type="button" data-every="21600" aria-pressed="false">6 hours</button>
+                </div>
+              </div>
+              <div class="pw-control">
+                <span class="pw-label" id="pw-order-l">Order</span>
+                <div class="pw-seg" role="group" aria-labelledby="pw-order-l" data-orders>
+                  <button type="button" data-order="inOrder" aria-pressed="false">In Order</button>
+                  <button type="button" data-order="shuffle" aria-pressed="true">Shuffle</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="pw-rounds" data-rounds></div>
+            <p class="pw-sched__legend" data-legend></p>
+          </div>
+        </div>
+        <p class="ws-note" data-reveal>Computed live in your browser, in your time zone, with the app’s own <span class="ws-c">PhotoSchedule</span> — SplitMix64 and all — for a demo widget with five of my photos. Each one is cropped the way you left it above.</p>
+      </div>
+    </section>
+
+    <!-- ═══ Features ═══════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">04</span><span class="eyebrow__rule"></span>What it does</p>
+          <h2 class="h2" data-split>Small app. <span class="dim">No catch.</span></h2>
+        </header>
+        <div class="feature-grid" data-stagger>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-grid" /></svg></span><h3>As many widgets as I like</h3><p>Each widget on the home screen picks which one it shows from the Edit Widget menu, with thumbnails. One photo is still the simplest case; a widget can hold up to 50.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-target" /></svg></span><h3>Smart Frame, then my hands</h3><p>Photos arrive framed by Vision — faces first, then whatever stands out. From there: drag, pinch, double-tap, or a 1–5× slider, per photo and per size.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-clock" /></svg></span><h3>On a schedule</h3><p>Every 15 or 30 minutes, hourly, every 3 or 6 hours, daily, or never — in order or shuffled. Tap the widget to move on to the next photo.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-palette" /></svg></span><h3>Filters, frames, captions</h3><p>Ten Core Image filters with an intensity slider. Full Bleed, Border or Instant frames on six mats, two coloured from the photo. Captions: my own text, the date it was taken, or “time ago”, in five fonts.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-sliders" /></svg></span><h3>Part of the system</h3><p>A Shuffle Photos control in Control Center, a Siri shortcut, deep links, tinted Home Screen support, and an “On Home Screen” badge read from WidgetCenter.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-lock" /></svg></span><h3>Nothing leaves the phone</h3><p>No StoreKit, no network code, no analytics — so no ads, no subscription and no account. The app says it plainly: “Your photos never leave your device.”</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Build ══════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <div class="split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">05</span><span class="eyebrow__rule"></span>How it’s built</p>
+            <h2 class="h2 mt-24" data-split>The app does the work. <span class="dim">The widget just shows it.</span></h2>
+            <p class="lead mt-20" data-reveal>About 4,400 lines of Swift, designed for iOS 26’s Liquid Glass. It runs on my phone straight from Xcode — it isn’t on the App Store.</p>
+            <div class="spec mt-40" data-reveal>
+              <div class="spec__row"><span class="spec__key">App</span><span class="spec__val">SwiftUI with <strong>Liquid Glass</strong> controls, Observation for state, PhotosUI for picking photos.</span></div>
+              <div class="spec__row"><span class="spec__key">Widget</span><span class="spec__val">WidgetKit timelines, with <strong>App Intents</strong> for choosing a widget, tap-to-advance, the Control Center control and the Siri shortcut.</span></div>
+              <div class="spec__row"><span class="spec__key">Images</span><span class="spec__val">ImageIO decodes, Vision frames, Core Image filters. Every photo is pre-rendered for every size into the shared App Group.</span></div>
+              <div class="spec__row"><span class="spec__key">Pipeline</span><span class="spec__val">Edits re-render after a <strong>350 ms</strong> pause, skip anything a render manifest says hasn’t changed, then reload the widget’s timelines. Writes are atomic, so the widget never reads half a file.</span></div>
+              <div class="spec__row"><span class="spec__key">Tests</span><span class="spec__val">12 Swift Testing tests: scheduling, shuffle fairness, crop maths and JSON round-trips.</span></div>
+            </div>
+          </div>
+          <figure class="window" data-reveal="scale">
+            <div class="window__bar"><span class="window__dot"></span><span class="window__dot"></span><span class="window__dot"></span><span class="window__title">PhotoSchedule.swift</span></div>
+<pre class="ws-code"><code><span class="c">/// Decides which photo a widget shows at any moment. Pure and deterministic, so the app's</span>
+<span class="c">/// previews and the widget extension always agree without sharing any runtime state.</span>
+<span class="k">nonisolated enum</span> <span class="t">PhotoSchedule</span> {
+
+    <span class="k">static func</span> <span class="f">index</span>(for config: <span class="t">PhotoWidgetConfig</span>, at date: <span class="t">Date</span>, offset: <span class="t">Int</span> = <span class="n">0</span>) -> <span class="t">Int</span> {
+        <span class="k">let</span> count = config.<span class="p">photos</span>.<span class="p">count</span>
+        <span class="k">guard</span> count > <span class="n">1</span> <span class="k">else</span> { <span class="k">return</span> <span class="n">0</span> }
+
+        <span class="c">// A widget that never rotates stays on its cover until tapped.</span>
+        <span class="k">guard</span> config.<span class="p">rotation</span> != .<span class="p">never</span> <span class="k">else</span> { <span class="k">return</span> <span class="f">mod</span>(offset, count) }
+
+        <span class="k">let</span> step = <span class="f">slot</span>(at: date, interval: config.<span class="p">rotation</span>) + offset
+        <span class="k">switch</span> config.<span class="p">order</span> {
+        <span class="k">case</span> .<span class="p">inOrder</span>:
+            <span class="k">return</span> <span class="f">mod</span>(step, count)
+        <span class="k">case</span> .<span class="p">shuffle</span>:
+            <span class="k">let</span> cycle = <span class="f">floorDiv</span>(step, count)
+            <span class="k">return</span> <span class="f">shuffled</span>(count: count, seed: <span class="f">seed</span>(for: config.<span class="p">id</span>), cycle: cycle)[<span class="f">mod</span>(step, count)]
+        }
+    }</code></pre>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Build notes ════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">06</span><span class="eyebrow__rule"></span>Build notes</p>
+          <h2 class="h2" data-split>The parts <span class="dim">you don’t see.</span></h2>
+        </header>
+        <div class="ws-problems" data-stagger>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">01</span>
+            <h3>A widget gets very little memory</h3>
+            <p>Widget extensions run on a tight memory budget, so the heavy work — decoding, cropping, Lanczos scaling, filters — happens in the app, which pre-renders a finished JPEG for each photo and size. The widget only ever opens one small file, falling back to a thumbnail, then the photo’s average colour. Import decodes once, through an ImageIO thumbnail, to a <strong>2,560 px</strong> master, a 540 px thumb and a 120 px blurred glow.</p>
+          </article>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">02</span>
+            <h3>One crop that fits every shape</h3>
+            <p>A crop is stored as a <strong>centre point and a zoom</strong>, not a fixed rectangle, so it projects onto a small square, a wide medium or a tall large — and changing the frame style never loses the framing. Vision picks the starting point.</p>
+          </article>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">03</span>
+            <h3>App and widget agree without talking</h3>
+            <p>Both work out the current photo with the same pure function: clock-aligned time slots plus a seeded shuffle (SplitMix64) that shows every photo once per cycle and never repeats one across a cycle boundary. It’s the code above.</p>
+          </article>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">04</span>
+            <h3>A crop that feels right under a finger</h3>
+            <p>Past the edges it rubber-bands on the same curve as <span class="ws-c">UIScrollView</span>. Near the middle it snaps to centre with a haptic tick, and pinch-zoom stays anchored under the fingers.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <site-footer next="void"></site-footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/pages/photo-widget.js" defer></script>
+</body>
+
+</html>

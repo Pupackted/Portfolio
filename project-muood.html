@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>MUOOD — Case study · Adrian Rachman</title>
+  <meta name="description" content="MUOOD (Making Use Of Old Device): an old phone becomes a live companion display for the Mac — now playing with synced lyrics, Mac controls, a button deck, vitals and more. A case study by Adrian Rachman.">
+  <meta name="theme-color" content="#131418">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="MUOOD — Case study · Adrian Rachman">
+  <meta property="og:description" content="An old phone from a drawer, reborn as a StandBy-style companion screen for the Mac.">
+  <meta property="og:image" content="https://portfolio-adrian-rachman.vercel.app/Assets/web/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="Assets/web/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/workshop.css">
+  <link rel="stylesheet" href="css/pages/muood.css">
+  <script src="js/site.js"></script>
+  <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
+</head>
+
+<body class="ws theme-muood">
+  <site-header current="work"></site-header>
+
+  <main id="main">
+
+    <!-- ═══ Hero ═══════════════════════════════════════════════════════════ -->
+    <section class="ws-hero mu-hero">
+      <div class="container">
+        <a class="back-link" href="index.html#lab"><svg class="i" aria-hidden="true"><use href="#i-arrow-left" /></svg>The workshop</a>
+
+        <div class="ws-hero__grid">
+          <div>
+            <span class="ws-status" data-reveal><i aria-hidden="true"></i>On my desk, every day</span>
+            <h1 class="h1 mu-title" style="view-transition-name: muood-title"><img class="mu-title__icon" src="Assets/web/muood/icon.webp" alt="" width="256" height="256">MUOOD</h1>
+            <p class="ws-promise mu-gradient-text" data-reveal style="--d:160">Making Use Of Old Device.</p>
+            <p class="lead" data-reveal style="--d:260">The phone in your drawer becomes a live companion screen for your Mac: now playing with synced lyrics, a deck of buttons, Mac controls, vitals, your repos, the weather and a clock. Apple’s StandBy, if StandBy did a lot more — over a USB cable or Wi-Fi.</p>
+            <div class="btn-row mt-32" data-reveal style="--d:360">
+              <a class="btn btn--primary" href="#screens" data-magnetic="0.2">Swipe through it <svg class="i i--arrow-down" aria-hidden="true"><use href="#i-arrow-down" /></svg></a>
+            </div>
+          </div>
+
+          <div class="ws-visual mu-hero__visual" data-reveal="scale" style="--d:200">
+            <div class="mu-phone mu-phone--hero" data-tilt="4">
+              <div class="mu-phone__screen">
+                <img src="Assets/web/muood/nowplaying-lyrics.webp" alt="MUOOD on a landscape phone: a stand-in album cover, ILLENIUM’s ‘Reverie’ with playback controls, and synced lyrics with the current line lit" width="1600" height="720" fetchpriority="high">
+              </div>
+            </div>
+            <div class="mu-links" aria-hidden="true">
+              <span><svg class="i"><use href="#i-zap" /></svg>USB</span>
+              <i></i>
+              <span class="mu-links__mac"><svg class="i"><use href="#i-monitor" /></svg>Mac</span>
+              <i></i>
+              <span><svg class="i"><use href="#i-globe" /></svg>Wi-Fi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <dl class="meta-row" data-stagger>
+        <div><dt>Role</dt><dd>Design &amp; development, solo</dd></div>
+        <div><dt>Built for</dt><dd>My own desk</dd></div>
+        <div><dt>Built</dt><dd>September 2026</dd></div>
+        <div><dt>Stack</dt><dd>Svelte 5 · Node · SwiftUI</dd></div>
+      </dl>
+    </div>
+
+    <!-- ═══ Why ════════════════════════════════════════════════════════════ -->
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow" data-reveal><span class="eyebrow__index">01</span><span class="eyebrow__rule"></span>Why it exists</p>
+        <h2 class="pullquote mt-24" data-split>I wanted a Stream Deck. <span>I had an old phone that did more.</span></h2>
+
+        <div class="ws-story">
+          <div data-reveal>
+            <p>A Stream Deck gives you buttons. Apple’s StandBy gives you a clock and a widget or two. What I actually wanted beside my Mac was both, and more: the song that’s playing and its lyrics, a way to change the volume or kill the mic without hunting for it, and a glance at whether my laptop was struggling.</p>
+            <p>Meanwhile there was a perfectly good phone sitting in a drawer, doing nothing.</p>
+          </div>
+          <div data-reveal style="--d:120">
+            <p>So MUOOD is a web app. The Mac runs a small server; the old phone just opens a page. No app store, no install on the phone — a browser and a cable, or the same Wi-Fi, is enough. Plug it in and the Mac opens MUOOD on the phone by itself.</p>
+            <p>Hence the name: <strong>Making Use Of Old Device</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Screens ════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="screens">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">02</span><span class="eyebrow__rule"></span>The screens</p>
+            <h2 class="h2 mt-24" data-split>Swipe sideways. <span class="dim">Every page is live.</span></h2>
+          </div>
+          <p class="lead" data-reveal style="--d:150">Eleven full-screen pages, each one switchable and reorderable from the Mac. Swipe the phone, use the arrow keys, or pick a page.</p>
+        </header>
+
+        <div class="mu-tour" data-mu-tour>
+          <div class="mu-phone mu-phone--tour" data-reveal="scale">
+            <div class="mu-phone__screen">
+              <div class="mu-tour__track" data-track tabindex="0" aria-label="MUOOD screens — scroll sideways or use the arrow keys" role="region">
+                <figure class="mu-tour__slide" data-name="Now Playing"><img src="Assets/web/muood/nowplaying.webp" alt="Now Playing: album art, title and artist, a seek bar, playback controls, shuffle, volume and repeat, over colours sampled from the cover" width="1600" height="720" loading="lazy"></figure>
+                <figure class="mu-tour__slide" data-name="Lyrics"><img src="Assets/web/muood/nowplaying-lyrics.webp" alt="Now Playing with synced lyrics: the current line is bright, the lines around it fade" width="1600" height="720" loading="lazy"></figure>
+                <figure class="mu-tour__slide" data-name="Controls"><img src="Assets/web/muood/controls.webp" alt="Controls: choose the sound output, mute the microphone, toggle Dark Mode, Keep Awake, Mute and Display Off, and vertical sliders for sound and display brightness" width="1600" height="720" loading="lazy"></figure>
+                <figure class="mu-tour__slide" data-name="Vitals"><img src="Assets/web/muood/vitals.webp" alt="Vitals for a MacBook Pro: CPU at 23 percent with per-core bars, 21.4 GB memory used with normal pressure, battery at 78 percent charging, network, GPU, storage and the busiest apps" width="1600" height="720" loading="lazy"></figure>
+                <figure class="mu-tour__slide" data-name="Deck"><img src="Assets/web/muood/deck.webp" alt="Deck: twelve buttons such as Terminal, Code, Browser and Mail; Quiet Mode and Keep Awake are lit; Deploy and Lock Mac need a hold to confirm" width="1600" height="720" loading="lazy"></figure>
+                <figure class="mu-tour__slide" data-name="Clock"><img src="Assets/web/muood/clock.webp" alt="Clock: a large 10:24 with the date, the weather and the next meeting, beside a month calendar with today’s agenda" width="1600" height="720" loading="lazy"></figure>
+                <figure class="mu-tour__slide" data-name="Weather"><img src="Assets/web/muood/weather.webp" alt="Weather in Jakarta: 31 degrees and partly cloudy, an hourly strip, a seven-day forecast, UV, air quality and sunset" width="1600" height="720" loading="lazy"></figure>
+                <figure class="mu-tour__slide" data-name="Focus"><img src="Assets/web/muood/focus.webp" alt="Focus: a pomodoro ring at 14:26 beside today’s task list with two of four done" width="1600" height="720" loading="lazy"></figure>
+                <figure class="mu-tour__slide" data-name="Today"><img src="Assets/web/muood/today.webp" alt="Today: five and a half hours of screen time, an hourly chart, the week, and time per app" width="1600" height="720" loading="lazy"></figure>
+                <figure class="mu-tour__slide" data-name="Photos"><img src="Assets/web/muood/photos.webp" alt="Photos: a landscape picture with the time over it, drifting slowly" width="1600" height="720" loading="lazy"></figure>
+                <figure class="mu-tour__slide" data-name="Night Stand"><img src="Assets/web/muood/nightstand.webp" alt="Night Stand: a dim amber 23:18, time until sunrise, the moon, tomorrow morning’s weather, the phone’s charge and the first event tomorrow" width="1600" height="720" loading="lazy"></figure>
+              </div>
+            </div>
+          </div>
+
+          <div class="mu-tour__ui">
+            <div class="mu-tour__nav">
+              <button class="mu-tour__arrow" type="button" data-prev aria-label="Previous screen"><svg class="i" aria-hidden="true"><use href="#i-chevron-left" /></svg></button>
+              <div class="mu-tour__tabs" role="group" aria-label="Choose a screen" data-tabs></div>
+              <button class="mu-tour__arrow" type="button" data-next aria-label="Next screen"><svg class="i" aria-hidden="true"><use href="#i-chevron-right" /></svg></button>
+            </div>
+            <p class="mu-tour__caption" aria-live="polite" data-caption></p>
+          </div>
+        </div>
+        <p class="ws-note ws-note--center" data-reveal>Real screenshots of MUOOD’s phone UI, running on invented demo data. The song is a real favourite of mine; the cover art is a stand-in.</p>
+      </div>
+    </section>
+
+    <!-- ═══ Handoff demo ═══════════════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="handoff">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">03</span><span class="eyebrow__rule"></span>Try it</p>
+            <h2 class="h2 mt-24" data-split>Pull the cable. <span class="dim">It doesn’t notice.</span></h2>
+          </div>
+          <p class="lead" data-reveal style="--d:150">The phone can reach the Mac two ways. While it’s on one, it remembers the other. If the current route has been silent for five seconds, it asks both at once and moves to whichever answers first.</p>
+        </header>
+
+        <div class="mu-handoff card" data-mu-handoff data-reveal>
+          <div class="mu-handoff__stage" aria-hidden="true">
+            <div class="mu-node mu-node--phone">
+              <span class="mu-node__icon"><svg class="i"><use href="#i-phone" /></svg></span>
+              <b>Old phone</b>
+              <span class="mu-node__state" data-phone-state>Connected</span>
+            </div>
+            <div class="mu-routes">
+              <div class="mu-route" data-route="usb">
+                <span class="mu-route__label"><svg class="i"><use href="#i-zap" /></svg>USB · <span class="mono">localhost:6663</span></span>
+                <span class="mu-route__wire"><i></i></span>
+              </div>
+              <div class="mu-route" data-route="wifi">
+                <span class="mu-route__label"><svg class="i"><use href="#i-globe" /></svg>Wi-Fi · <span class="mono">192.168.1.20:6663</span></span>
+                <span class="mu-route__wire"><i></i></span>
+              </div>
+            </div>
+            <div class="mu-node mu-node--mac">
+              <span class="mu-node__icon"><svg class="i"><use href="#i-monitor" /></svg></span>
+              <b>Mac</b>
+              <span class="mu-node__state">MUOOD server</span>
+            </div>
+          </div>
+
+          <div class="mu-handoff__side">
+            <div class="btn-row">
+              <button class="btn btn--glass btn--sm" type="button" data-toggle="usb" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-zap" /></svg><span>Unplug USB</span></button>
+              <button class="btn btn--glass btn--sm" type="button" data-toggle="wifi" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-globe" /></svg><span>Drop Wi-Fi</span></button>
+            </div>
+            <ol class="mu-log" data-log aria-live="polite"></ol>
+          </div>
+        </div>
+        <p class="ws-note" data-reveal>A simulation of the real logic, in real time. The address is an example; the timings — five seconds of silence, a check every three — are the app’s.</p>
+      </div>
+    </section>
+
+    <!-- ═══ Features ═══════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">04</span><span class="eyebrow__rule"></span>What it does</p>
+          <h2 class="h2" data-split>The Mac, <span class="dim">one glance away.</span></h2>
+        </header>
+        <div class="feature-grid" data-stagger>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-disc" /></svg></span><h3>Now playing, with lyrics</h3><p>Apple Music in near real time: play, skip, seek, shuffle, favourite. Lyrics are time-synced; tap a line to jump to it. The background takes its colours from the cover.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-sliders" /></svg></span><h3>Mac controls</h3><p>Volume and output device, mic mute, Dark Mode, Keep Awake, Display Off and brightness. A dot appears when the mic or camera is in use.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-grid" /></svg></span><h3>A deck of buttons</h3><p>Open an app, a link or a folder; run a Shortcut, a shell command or an AppleScript; flip a toggle. Risky ones need a hold to confirm.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-cpu" /></svg></span><h3>Vitals</h3><p>CPU per core, memory pressure, battery, network, GPU, storage and the busiest apps — read from macOS’s own tools, no admin password.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-branch" /></svg></span><h3>Repos and deploys</h3><p>Local git repos, GitHub CI and Vercel deploys, with a toast when something goes live or fails.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-moon" /></svg></span><h3>And the quiet ones</h3><p>Clock and calendar, weather, a focus timer, screen time, a photo frame, and a dim Night Stand that warns you if the phone stops charging.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Build ══════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <div class="split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">05</span><span class="eyebrow__rule"></span>How it’s built</p>
+            <h2 class="h2 mt-24" data-split>A page, a server, <span class="dim">and a helper.</span></h2>
+            <p class="lead mt-20" data-reveal>Three parts, each doing only what it’s good at — and nothing at all while no phone is connected.</p>
+            <div class="spec mt-40" data-reveal>
+              <div class="spec__row"><span class="spec__key">Phone</span><span class="spec__val">A <strong>Svelte 5</strong> single-page app. One server-sent-events stream in, small POSTs out. Swiping between pages is the browser’s own scroll-snap.</span></div>
+              <div class="spec__row"><span class="spec__key">Mac server</span><span class="spec__val"><strong>Node</strong> with nothing but <span class="ws-c">node:http</span>. Data is split into slices, and a slice is only sent when its JSON actually changed.</span></div>
+              <div class="spec__row"><span class="spec__key">Mac app</span><span class="spec__val">A <strong>SwiftUI</strong> menu-bar app that runs the server, restarts it if it crashes, and shows a live preview of the phone.</span></div>
+              <div class="spec__row"><span class="spec__key">Helper</span><span class="spec__val">A small native Swift program for what Node can’t reach: <strong>Core Audio</strong>, the calendar, the camera-in-use signal, brightness.</span></div>
+              <div class="spec__row"><span class="spec__key">Pairing</span><span class="spec__val">A 6-digit code or QR, a pairing key, rate limits, and a Host check against DNS rebinding.</span></div>
+            </div>
+          </div>
+          <figure class="window" data-reveal="scale">
+            <div class="window__bar"><span class="window__dot"></span><span class="window__dot"></span><span class="window__dot"></span><span class="window__title">live.svelte.ts — tryOtherRoute()</span></div>
+<pre class="ws-code"><code><span class="k">async function</span> <span class="f">tryOtherRoute</span>() {
+  <span class="k">if</span> (switching || isPreview || !link.key || link.status !== <span class="s">'offline'</span> || <span class="t">Date</span>.<span class="f">now</span>() - offlineSince &lt; <span class="p">SWITCH_AFTER_MS</span>) <span class="k">return</span>;
+  <span class="k">const</span> others = link.via === <span class="s">'usb'</span> ? <span class="f">savedWifi</span>() : [<span class="s">`http://localhost:${location.port || '80'}`</span>];
+  <span class="k">if</span> (!others.length) <span class="k">return</span>;
+  switching = <span class="k">true</span>;
+  <span class="k">try</span> {
+    <span class="k">const</span> base = <span class="k">await</span> <span class="t">Promise</span>.<span class="f">any</span>(others.<span class="f">map</span>(answers));
+    <span class="k">if</span> (link.status !== <span class="s">'offline'</span>) <span class="k">return</span> (switching = <span class="k">false</span>); <span class="c">// came back by itself meanwhile</span>
+    location.<span class="f">replace</span>(<span class="s">`${base}/#k=${link.key}`</span>);
+  } <span class="k">catch</span> {
+    switching = <span class="k">false</span>; <span class="c">// nowhere else to go (yet)</span>
+  }
+}
+
+<span class="f">setInterval</span>(() => <span class="k">void</span> <span class="f">tryOtherRoute</span>(), <span class="n">3000</span>);</code></pre>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Build notes ════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">06</span><span class="eyebrow__rule"></span>Build notes</p>
+          <h2 class="h2" data-split>Old hardware <span class="dim">is unforgiving.</span></h2>
+        </header>
+        <div class="ws-problems" data-stagger>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">01</span>
+            <h3>A cable that sets itself up</h3>
+            <p>Every few seconds the Mac checks for Android phones over <span class="ws-c">adb</span> and opens a reverse tunnel, so the phone’s own <span class="ws-c">localhost</span> reaches the Mac. If no MUOOD tab shows up, it opens Chrome on the phone for you, reusing the same tab. Each tab has a stable id, so stale connections get closed.</p>
+          </article>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">02</span>
+            <h3>Apple Music, without polling it to death</h3>
+            <p>A long-running JavaScript-for-Automation process listens for Music’s own change notifications, with a light poll to fill gaps. The playhead is sent as a position plus a timestamp, and the phone animates it every frame, corrected for the gap between the two clocks.</p>
+          </article>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">03</span>
+            <h3>Lyrics that actually match</h3>
+            <p>An exact lookup on LRCLIB first, then a search with “feat.” and “remaster” stripped, matching the length within four seconds and preferring synced lyrics. Results are cached; the current line is found by binary search and lit <strong>0.35 s early</strong>, so it feels on time.</p>
+          </article>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">04</span>
+            <h3>Kind to slow phones and old screens</h3>
+            <p>Animations touch only transform and opacity, album colours come from a 24 × 24 thumbnail, and hidden pages stop animating. The whole UI drifts three pixels every two minutes against burn-in, and a blank page reloads itself with a growing back-off.</p>
+          </article>
+        </div>
+        <p class="ws-note" data-reveal>Fair print: USB mode is for Android phones, now playing works with Apple Music, and the phone needs a reasonably current browser — old hardware, not an old browser.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <site-footer next="filter"></site-footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/pages/muood.js" defer></script>
+</body>
+
+</html>

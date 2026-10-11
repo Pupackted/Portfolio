@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+ <title>Waypoint — Case study · Adrian Rachman</title>
+ <meta name="description" content="Waypoint: RideCheck’s internal workspace — docs, roadmap, meetings, notes, a live whiteboard, and a paste bin that Claude organises over MCP. A case study by Adrian Rachman.">
+ <meta name="theme-color" content="#131418">
+ <meta property="og:type" content="article">
+ <meta property="og:title" content="Waypoint — Case study · Adrian Rachman">
+ <meta property="og:description" content="RideCheck’s Notion and Jira in one. Paste anything, then ask Claude to sort it.">
+ <meta property="og:image" content="https://portfolio-adrian-rachman.vercel.app/Assets/web/og.png">
+ <meta name="twitter:card" content="summary_large_image">
+ <link rel="icon" href="Assets/web/favicon.svg" type="image/svg+xml">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+ <link rel="stylesheet" href="css/styles.css">
+ <link rel="stylesheet" href="css/pages/workshop.css">
+ <link rel="stylesheet" href="css/pages/waypoint.css">
+ <script src="js/site.js"></script>
+ <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
+</head>
+<body class="ws theme-waypoint">
+ <site-header current="work"></site-header>
+ <main id="main">
+  <section class="ws-hero">
+   <div class="container">
+    <a class="back-link" href="index.html#work"><svg class="i" aria-hidden="true"><use href="#i-arrow-left" /></svg>All work</a>
+    <div class="ws-hero__grid">
+     <div>
+      <span class="ws-status" data-reveal><i aria-hidden="true"></i>In use at RideCheck</span>
+      <h1 class="h1" style="view-transition-name: waypoint-title">Waypoint</h1>
+      <p class="ws-promise" data-reveal style="--d:160">Paste anything. Ask Claude to sort it.</p>
+      <p class="lead" data-reveal style="--d:260">RideCheck’s Notion and Jira in one: docs, roadmap, meetings, partners, notes and a live whiteboard. Anyone pastes an idea, a bug or a rant; ask Claude to organise, and it labels each one, maps it to the product, and turns it into tasks for whoever owns that area.</p>
+      <div class="btn-row mt-32" data-reveal style="--d:360">
+       <a class="btn btn--primary" href="#organise" data-magnetic="0.2">Watch it organise <svg class="i i--arrow-down" aria-hidden="true"><use href="#i-arrow-down" /></svg></a>
+      </div>
+     </div>
+     <div class="ws-visual wp-hero" data-reveal="scale" style="--d:200">
+      <figure class="browser wp-browser" role="img" aria-label="Illustration of Waypoint’s Paste bin in dark mode: the tab bar, a box to paste anything into, and two pastes — one already organised by Claude with kind labels, a title, a summary and tags, and one still raw.">
+       <div class="browser__bar"><div class="browser__dots"><span></span><span></span><span></span></div><div class="browser__url"><svg class="i" aria-hidden="true"><use href="#i-lock" /></svg>Waypoint · team only</div><span></span></div>
+       <div class="wpx-frame">
+        <div class="wpx">
+         <div class="wpx-head">
+          <span class="wpx-logo"><span class="wp-mark"><svg class="i" aria-hidden="true"><use href="#i-compass" /></svg></span></span>
+          <span class="wpx-tabs"><span>Docs</span><span>Schematic</span><span>Studio</span><span class="is-on">Paste bin</span><span>Notes</span><span>Finance</span><span>Canvas</span></span>
+          <span class="wpx-search"><svg class="i" aria-hidden="true"><use href="#i-search" /></svg><b>⌘K</b></span>
+          <span class="wpx-online"><span class="wpa" style="--c:#f59e0b">D</span><span class="wpa" style="--c:#8b5cf6">T</span><span class="wpa" style="--c:#10b981">A</span></span>
+         </div>
+         <div class="wpx-body">
+          <div class="wpx-title">
+           <span class="wpx-title__icon"><svg class="i" aria-hidden="true"><use href="#i-copy" /></svg></span>
+           <span><b>Paste bin</b><small>Ideas, bugs, rambles, screenshots — drop anything here, and Claude organizes it. Everyone on the team sees it.</small></span>
+          </div>
+          <div class="wpx-composer">
+           <p>Paste or type anything — an idea, a bug, a screenshot, a link… <span>@mention</span> someone to give them a heads-up</p>
+           <div class="wpx-composer__foot"><span class="wpx-label"><svg class="i" aria-hidden="true"><use href="#i-plus" /></svg>Label</span><small>optional — Claude sorts the rest</small><span class="wpx-post">Post <b>⌘↵</b></span></div>
+          </div>
+          <div class="wpx-bar">
+           <span class="wpx-seg"><span class="is-on">All pastes <i>24</i></span><span><svg class="i" aria-hidden="true"><use href="#i-sparkles" /></svg>Organized</span></span>
+           <span class="wp-organize"><svg class="i" aria-hidden="true"><use href="#i-sparkles" /></svg>Copy prompt to organize<i>2</i></span>
+          </div>
+          <div class="wpx-grid">
+           <article class="wpc">
+            <header class="wpc-head">
+             <span class="wpa" style="--c:#06b6d4">F</span>
+             <span class="wpc-who"><b>Fazry</b><small>2 hours ago</small></span>
+             <span class="wpc-kinds"><span class="wpk" style="--k:#ec4899">🗣️ User feedback</span><span class="wpk" style="--k:#ef4444">🐞 Bug</span></span>
+            </header>
+            <div class="wpc-prods"><span class="wpp" style="--p:#4aa3f5">📱 RideCheck app</span></div>
+            <div class="wpc-org"><p class="wpc-org__t"><svg class="i" aria-hidden="true"><use href="#i-sparkles" /></svg>Trip map loses the route on zoom-out</p><p class="wpc-org__s">A rider says the trip map jumps when he zooms out after a long ride, and the route line briefly disappears. Probably Android.</p></div>
+            <p class="wpc-text">a rider DM’d us on IG — says the trip map jumps around when he zooms out after a long ride and the route line disappears for a sec. he thinks he’s on android</p>
+            <div class="wpc-tags"><span>#trip-map</span><span>#android</span><span>#rider</span></div>
+           </article>
+           <article class="wpc">
+            <header class="wpc-head">
+             <span class="wpa" style="--c:#8b5cf6">T</span>
+             <span class="wpc-who"><b>Tio</b><small>48 minutes ago</small></span>
+             <span class="wpc-kinds"><span class="wpk" style="--k:#ef4444">🐞 Bug</span></span>
+            </header>
+            <p class="wpc-text">reminders firing twice on android 14?? got two “oil change due” notifs at 9:00 this morning. iOS fine</p>
+           </article>
+          </div>
+         </div>
+        </div>
+       </div>
+      </figure>
+      <span class="wp-chip"><svg class="i" aria-hidden="true"><use href="#i-bot" /></svg>Claude over MCP · 85 tools</span>
+     </div>
+    </div>
+   </div>
+  </section>
+  <div class="container">
+   <dl class="meta-row" data-stagger>
+    <div><dt>Role</dt><dd>Most of the design and build</dd></div>
+    <div><dt>Built for</dt><dd>RideCheck’s team of four, and our mentor</dd></div>
+    <div><dt>Built</dt><dd>September 2026 — still growing</dd></div>
+    <div><dt>Stack</dt><dd>Next.js · Firestore · MCP</dd></div>
+   </dl>
+   <p class="ws-note" data-reveal>Commits ship under Tio’s account — it’s the one our Vercel deploy builds from.</p>
+  </div>
+  <section class="section">
+   <div class="container">
+    <p class="eyebrow" data-reveal><span class="eyebrow__index">01</span><span class="eyebrow__rule"></span>Why it exists</p>
+    <h2 class="pullquote mt-24" data-split>Our own Notion and Jira — <span>one you can just talk to.</span></h2>
+    <div class="ws-story">
+     <div data-reveal>
+      <p>RideCheck is four of us — Tio, Dhafin, Fazry and me — with a mentor who looks in. Waypoint is where the company’s knowledge lives: the docs for every product and tool, the roadmap, the meetings, the partners, and a notebook anyone can write in.</p>
+      <p>It’s our own Notion and Jira, shaped around how we actually talk. Nobody has to decide where something goes before they write it down.</p>
+     </div>
+     <div data-reveal style="--d:120">
+      <p>The heart of it is the paste bin. Anyone posts anything — an idea, a bug, a rant — in plain words. Later, someone asks Claude to organise it: each paste gets labelled, filed under the part of the product it touches and, when we ask, turned into a task for whoever owns that area.</p>
+      <p>It <strong>genuinely changed how we work</strong>. If one of us has something to say, we post it in Waypoint, or tell Claude: “I have this idea — post it in Waypoint and ask Dhafin, Tio and Fazry about it.”</p>
+     </div>
+    </div>
+    <ol class="wp-grew" data-stagger aria-label="How it grew">
+     <li><time>10 Sep</time><span>Docs, the paste bin, Firebase</span></li>
+     <li><time>11 Sep</time><span>MCP server, whiteboard, map, organising over MCP, Schematic, inbox &amp; presence</span></li>
+     <li><time>12 Sep</time><span>Cheaper polling, Playwright tests</span></li>
+     <li><time>13 Sep</time><span>Studio</span></li>
+     <li><time>14 Sep</time><span>Partners &amp; mentors</span></li>
+     <li><time>25 Sep</time><span>Notes &amp; Canvas</span></li>
+     <li><time>Early Oct</time><span>Finance</span></li>
+    </ol>
+   </div>
+  </section>
+  <section class="section section--flush-top" id="organise">
+   <div class="container">
+    <header class="section-head section-head--split">
+     <div>
+      <p class="eyebrow" data-reveal><span class="eyebrow__index">02</span><span class="eyebrow__rule"></span>Try it</p>
+      <h2 class="h2 mt-24" data-split>Paste first. <span class="dim">Sort it later.</span></h2>
+     </div>
+     <p class="lead" data-reveal style="--d:150">Four pastes from an ordinary day, written the way people actually write. Ask Claude to organise them, open the map, then hand out the work — everything Claude does here, it does through Waypoint’s own tools.</p>
+    </header>
+    <div class="wpd" data-wp-demo>
+     <div class="wpd-claude" data-reveal>
+      <div class="wpd-claude__in">
+       <div class="wpd-claude__head">
+        <span class="wpd-claude__mark"><svg class="i" aria-hidden="true"><use href="#i-sparkles" /></svg></span>
+        <span><b>Claude</b><small><i aria-hidden="true"></i>Waypoint connector on</small></span>
+       </div>
+       <ol class="wpd-log" data-log aria-live="polite" aria-label="Conversation with Claude">
+        <li class="wpd-hint">Claude can read and write Waypoint through its MCP tools. Send the message below to start.</li>
+       </ol>
+       <div class="wpd-ask">
+        <p class="wpd-ask__text" id="wpd-prompt" data-prompt></p>
+        <div class="wpd-ask__row">
+         <span class="wpd-ask__tool"><svg class="i" aria-hidden="true"><use href="#i-compass" /></svg>Waypoint</span>
+         <button class="wpd-ask__send" type="button" data-send aria-describedby="wpd-prompt"><svg class="i" aria-hidden="true"><use href="#i-arrow-up-right" /></svg><span data-send-label>Ask Claude</span></button>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="wpd-app" data-reveal style="--d:120">
+      <div class="wpd-app__head">
+       <span class="wpx-logo"><span class="wp-mark"><svg class="i" aria-hidden="true"><use href="#i-compass" /></svg></span><span class="wpd-app__name">Waypoint</span></span>
+       <div class="wpd-tabs" role="tablist" aria-label="Waypoint panes">
+        <button type="button" role="tab" id="wpd-tab-tasks" aria-controls="wpd-view-tasks" aria-selected="false" tabindex="-1" data-tab="tasks">Schematic</button>
+        <button type="button" role="tab" id="wpd-tab-pastes" aria-controls="wpd-view-pastes" aria-selected="true" data-tab="pastes">Paste bin</button>
+        <button type="button" role="tab" id="wpd-tab-map" aria-controls="wpd-view-map" aria-selected="false" tabindex="-1" data-tab="map">Canvas<i class="wpd-dot" data-map-dot hidden aria-hidden="true"></i></button>
+       </div>
+       <span class="wpx-online wpd-app__online" aria-hidden="true"><span class="wpa" style="--c:#f59e0b">D</span><span class="wpa" style="--c:#8b5cf6">T</span><span class="wpa" style="--c:#06b6d4">F</span><span class="wpa" style="--c:#10b981">A</span></span>
+      </div>
+      <div class="wpd-view" id="wpd-view-pastes" role="tabpanel" aria-labelledby="wpd-tab-pastes" data-view="pastes">
+       <div class="wpd-bar">
+        <span class="wpd-bar__title"><b>Paste bin</b><small data-paste-count>4 pastes · 4 waiting</small></span>
+        <button type="button" class="wp-organize" data-copy-prompt><svg class="i" aria-hidden="true"><use href="#i-sparkles" /></svg><span data-copy-label>Copy prompt to organize</span><i data-waiting>4</i></button>
+       </div>
+       <div class="wpd-grid" data-pastes></div>
+      </div>
+      <div class="wpd-view" id="wpd-view-map" role="tabpanel" aria-labelledby="wpd-tab-map" data-view="map" hidden>
+       <div class="wpm">
+        <div class="wpm-stage" data-stage tabindex="0" aria-label="The product map. Use the list below it to read each part.">
+         <div class="wpm-canvas" data-canvas>
+          <div class="wpm-world" data-world>
+           <svg class="wpm-lines" width="1" height="1" aria-hidden="true" data-lines></svg>
+          </div>
+         </div>
+        </div>
+        <div class="wpm-info" data-map-info aria-live="polite"></div>
+       </div>
+      </div>
+      <div class="wpd-view" id="wpd-view-tasks" role="tabpanel" aria-labelledby="wpd-tab-tasks" data-view="tasks" hidden>
+       <div class="wpd-bar">
+        <span class="wpd-bar__title"><b>Schematic</b><small>My tasks · Roadmap · Calendar</small></span>
+       </div>
+       <div class="wpt" data-tasks></div>
+      </div>
+      <div class="wpd-toast" data-toast hidden>
+       <span class="wpd-toast__icon"><svg class="i" aria-hidden="true"><use href="#i-bell" /></svg></span>
+       <p><b>Claude · for Adrian</b><span data-toast-text></span></p>
+       <button type="button" class="wpd-toast__go" data-toast-go></button>
+       <button type="button" class="wpd-toast__x" data-toast-close aria-label="Dismiss"><svg class="i" aria-hidden="true"><use href="#i-x" /></svg></button>
+      </div>
+     </div>
+    </div>
+    <div class="wpd-foot" data-reveal>
+     <ol class="wpd-steps" data-steps aria-label="Progress">
+      <li class="is-on"><b>1</b>Organise the paste bin</li>
+      <li><b>2</b>See it on the map</li>
+      <li><b>3</b>Hand out the work</li>
+     </ol>
+     <button type="button" class="btn btn--glass btn--sm" data-reset><svg class="i" aria-hidden="true"><use href="#i-rotate" /></svg>Start over</button>
+    </div>
+    <p class="ws-note" data-reveal>Illustration rebuilt in HTML from Waypoint’s own colours and layout — not a screenshot. Every paste, task and product part is invented, and Claude’s replies are scripted. The map is placed by a port of the app’s own layout code, and Claude’s answer goes through a port of the same forgiving checks the real organiser uses.</p>
+   </div>
+  </section>
+  <section class="section section--flush-top">
+   <div class="container">
+    <header class="section-head section-head--split">
+     <div>
+      <p class="eyebrow" data-reveal><span class="eyebrow__index">03</span><span class="eyebrow__rule"></span>The connector</p>
+      <h2 class="h2 mt-24" data-split>Claude has the keys. <span class="dim">Every change is signed.</span></h2>
+     </div>
+     <p class="lead" data-reveal style="--d:150">Waypoint is also an MCP server. Connect it to Claude once and the whole team can ask for things in plain words, on our own Claude plan — Claude reads and writes the same data the app does.</p>
+    </header>
+    <div class="wp-conn">
+     <div class="card wp-ask" data-reveal>
+      <p class="wp-label">What one of us types</p>
+      <div class="wp-ask__msg">
+       <span class="wpa" style="--c:#10b981">A</span>
+       <p>hey, I have an idea — a monthly recap for riders: (a) km ridden, (b) the next service due, (c) fuel spent, (d) one tip. Can you post it in Waypoint and ask Dhafin, Tio and Fazry about it?</p>
+      </div>
+      <div class="wp-ask__call">
+       <span class="wp-ask__fn"><svg class="i" aria-hidden="true"><use href="#i-wrench" /></svg>create_paste</span>
+<pre><code>{ <span class="p">text</span>: <span class="s">"Monthly recap for riders … @dhafin @tio @fazry"</span>,
+  <span class="p">kinds</span>: [<span class="s">"idea"</span>], <span class="p">onBehalfOf</span>: <span class="s">"adrian"</span> }</code></pre>
+      </div>
+      <p class="wp-label mt-20">Three Inbox notes</p>
+      <ul class="wp-inbox" data-stagger>
+       <li><span class="wpa" style="--c:#f59e0b">D</span><p><b>Adrian mentioned you</b><small>Monthly recap for riders · via Claude</small></p></li>
+       <li><span class="wpa" style="--c:#8b5cf6">T</span><p><b>Adrian mentioned you</b><small>Monthly recap for riders · via Claude</small></p></li>
+       <li><span class="wpa" style="--c:#06b6d4">F</span><p><b>Adrian mentioned you</b><small>Monthly recap for riders · via Claude</small></p></li>
+      </ul>
+     </div>
+     <div class="card wp-tools" data-reveal style="--d:120">
+      <p class="wp-label">85 tools in 12 modules</p>
+      <ul class="wp-mods" data-stagger>
+       <li style="--n:15"><span>Schematic</span><i></i><b>15</b></li>
+       <li style="--n:15"><span>Studio</span><i></i><b>15</b></li>
+       <li style="--n:14"><span>Paste bin</span><i></i><b>14</b></li>
+       <li style="--n:8"><span>Docs</span><i></i><b>8</b></li>
+       <li style="--n:7"><span>Waypoints</span><i></i><b>7</b></li>
+       <li style="--n:5"><span>Whiteboard</span><i></i><b>5</b></li>
+       <li style="--n:5"><span>Partners</span><i></i><b>5</b></li>
+       <li style="--n:5"><span>Notes</span><i></i><b>5</b></li>
+       <li style="--n:4"><span>Finance</span><i></i><b>4</b></li>
+       <li style="--n:3"><span>Map</span><i></i><b>3</b></li>
+       <li style="--n:2"><span>Organise</span><i></i><b>2</b></li>
+       <li style="--n:2"><span>Team</span><i></i><b>2</b></li>
+      </ul>
+      <p class="wp-tools__foot">All over Streamable HTTP.</p>
+     </div>
+    </div>
+    <ul class="wp-rails" data-stagger>
+     <li><svg class="i" aria-hidden="true"><use href="#i-shield" /></svg><span><strong>Signed and announced.</strong> Every write by Claude is credited “on behalf of” whoever asked, and the team gets told. A unit test fails if any write tool is missing those fields.</span></li>
+     <li><svg class="i" aria-hidden="true"><use href="#i-lock" /></svg><span><strong>A secret that fails quietly.</strong> Two endpoints share one secret: a Bearer header, or a secret URL for claude.ai’s custom connectors. A wrong token gets a 404, not a 401, so clients don’t go hunting for a sign-in. Tokens are compared in constant time.</span></li>
+     <li><svg class="i" aria-hidden="true"><use href="#i-file-check" /></svg><span><strong>Errors that teach.</strong> A field a tool doesn’t take is rejected with an error naming the ones it does, so a misspelt argument gets fixed instead of silently ignored.</span></li>
+     <li><svg class="i" aria-hidden="true"><use href="#i-eye" /></svg><span><strong>Pastes are data.</strong> The organiser is told never to follow instructions found inside a paste — whatever anyone writes, it’s something to file, not something to obey.</span></li>
+    </ul>
+    <p class="ws-note" data-reveal>The message and the recap idea are invented; the tool call and the module counts are the real ones.</p>
+   </div>
+  </section>
+  <section class="section section--flush-top">
+   <div class="container">
+    <header class="section-head">
+     <p class="eyebrow" data-reveal><span class="eyebrow__index">04</span><span class="eyebrow__rule"></span>What it does</p>
+     <h2 class="h2" data-split>Everything RideCheck knows, <span class="dim">in one workspace.</span></h2>
+     <p class="lead" data-reveal style="--d:150">Plus Studio for our content — inspiration, ideas from draft to posted, and a kit of captions — and a Finance tab that reads straight from our Google Sheet.</p>
+    </header>
+    <div class="feature-grid" data-stagger>
+     <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-book" /></svg></span><h3>Docs you search first</h3><p>A page for every product and tool, found by an in-house search that handles word stems, synonyms and typos. Claude edits them over MCP, and every edit is a saved revision.</p></article>
+     <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-compass" /></svg></span><h3>Schematic, our own Notion</h3><p>My tasks, a roadmap as a timeline, table or board, a task tree, sprints and recurring tasks. Statuses include In review, Denied, Backlog and Forgotten — plus our own.</p></article>
+     <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-calendar" /></svg></span><h3>Meetings that leave tasks</h3><p>Minutes and action items on every meeting, a calendar with an iCal feed, and a pipeline for the partners we’re talking to.</p></article>
+     <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-copy" /></svg></span><h3>A paste bin with manners</h3><p>Twelve kinds plus our own, product labels, comments and linked threads. An @mention lands in that person’s Inbox, and deleting shows an Undo instead of asking “are you sure?”</p></article>
+     <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-edit" /></svg></span><h3>A shared notebook</h3><p>A rich editor that saves plain Markdown: tables, charts, callouts, [[links]] between notes, groups like folders, and PDFs in and out.</p></article>
+     <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-layers" /></svg></span><h3>Whiteboard and map, one tab</h3><p>A live whiteboard for stickies, shapes, arrows, drawings and images, with the product map next door. Named Waypoints pin any place; <kbd>⌘</kbd> <kbd>K</kbd> finds everything else.</p></article>
+    </div>
+   </div>
+  </section>
+  <section class="section section--flush-top">
+   <div class="container">
+    <div class="split wp-built">
+     <div>
+      <p class="eyebrow" data-reveal><span class="eyebrow__index">05</span><span class="eyebrow__rule"></span>How it’s built</p>
+      <h2 class="h2 mt-24" data-split>Next.js, Firestore, <span class="dim">and a lot of polling.</span></h2>
+      <p class="lead mt-20" data-reveal>A private web app on Vercel. The browser never talks to Firebase — every read and write goes through the server.</p>
+      <div class="spec mt-40" data-reveal>
+       <div class="spec__row"><span class="spec__key">App</span><span class="spec__val"><strong>Next.js 16</strong> App Router, React 19, TypeScript, Tailwind v4, Zod 4.</span></div>
+       <div class="spec__row"><span class="spec__key">Data</span><span class="spec__val"><strong>Firestore and Cloud Storage</strong> through the server-side admin SDK only. Attachments upload straight to storage with signed URLs.</span></div>
+       <div class="spec__row"><span class="spec__key">Sign-in</span><span class="spec__val">One shared team password, a separate one for our mentor, then a “Who’s this?” picker. Private and noindex.</span></div>
+       <div class="spec__row"><span class="spec__key">AI</span><span class="spec__val"><strong>Claude over MCP</strong>, on the team’s own Claude plan. The organiser runs on demand, in batches of eight pastes.</span></div>
+       <div class="spec__row"><span class="spec__key">Cost</span><span class="spec__val">Inside Firebase’s free tier: single-read polls, idle throttling, images shrunk in the browser, and a daily cleanup job.</span></div>
+       <div class="spec__row"><span class="spec__key">Tests</span><span class="spec__val">About <strong>278 unit cases</strong> across 32 files, and 35 Playwright tests in 10 specs.</span></div>
+      </div>
+     </div>
+     <div>
+      <figure class="window" data-reveal="scale">
+       <div class="window__bar"><span class="window__dot"></span><span class="window__dot"></span><span class="window__dot"></span><span class="window__title">lib/organizer/plan.ts — PlanSchema</span></div>
+<pre class="ws-code"><code><span class="k">export const</span> <span class="t">PlanSchema</span> = z.<span class="f">object</span>({
+  <span class="p">pastes</span>: z.<span class="f">array</span>(
+    z.<span class="f">object</span>({
+      <span class="p">id</span>: z.<span class="f">string</span>(),
+      <span class="p">kinds</span>: z.<span class="f">array</span>(z.<span class="f">string</span>()).<span class="f">describe</span>(<span class="s">"Kind ids from the list, main one first. 1-3."</span>),
+      <span class="p">title</span>: z.<span class="f">string</span>().<span class="f">describe</span>(<span class="s">"A short, specific title, at most 8 words"</span>),
+      <span class="p">summary</span>: z.<span class="f">string</span>().<span class="f">describe</span>(<span class="s">"1-2 sentences: what this means for RideCheck, in plain words"</span>),
+      <span class="p">tldr</span>: z.<span class="f">string</span>().<span class="f">nullable</span>().<span class="f">describe</span>(<span class="s">"Only for long pastes: one or two lines. null otherwise."</span>),
+      <span class="p">tags</span>: z.<span class="f">array</span>(z.<span class="f">string</span>()).<span class="f">describe</span>(<span class="s">"1-4 short lowercase tags"</span>),
+      <span class="p">topic</span>: z.<span class="f">string</span>().<span class="f">nullable</span>().<span class="f">describe</span>(<span class="s">"A topic grouping related pastes — reuse one from the list when it fits, or null"</span>),
+      <span class="p">products</span>: z.<span class="f">array</span>(z.<span class="f">string</span>()).<span class="f">describe</span>(<span class="s">"Product slugs from the list it's about; [] when unsure"</span>),
+      <span class="p">parts</span>: z.<span class="f">array</span>(z.<span class="f">string</span>()).<span class="f">describe</span>(<span class="s">"Map parts it's about, by exact name; [] when unsure"</span>),
+      <span class="c">// …</span>
+    }),
+  ),
+  <span class="p">newParts</span>: z.<span class="f">array</span>(z.<span class="f">object</span>({ <span class="p">name</span>: z.<span class="f">string</span>(), <span class="p">emoji</span>: z.<span class="f">string</span>(), <span class="p">note</span>: z.<span class="f">string</span>() })).<span class="f">describe</span>(<span class="s">"Parts to add to the map"</span>),
+  <span class="p">links</span>: z.<span class="f">array</span>(z.<span class="f">object</span>({ <span class="p">from</span>: z.<span class="f">string</span>(), <span class="p">to</span>: z.<span class="f">string</span>(), <span class="p">reason</span>: z.<span class="f">string</span>() })).<span class="f">describe</span>(<span class="s">"New links between parts that depend on each other"</span>),
+  <span class="p">announce</span>: z.<span class="f">string</span>().<span class="f">describe</span>(<span class="s">"The team notification"</span>),
+});</code></pre>
+      </figure>
+      <p class="ws-note" data-reveal>The shape Claude has to answer in, lightly trimmed: four lines are left out, and one description is shortened. Anything outside the lists — an unknown kind, a part nobody added — is dropped or filled in rather than failing the batch.</p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="section section--flush-top">
+   <div class="container">
+    <header class="section-head">
+     <p class="eyebrow" data-reveal><span class="eyebrow__index">06</span><span class="eyebrow__rule"></span>Build notes</p>
+     <h2 class="h2" data-split>Small team, <span class="dim">small bills, few surprises.</span></h2>
+    </header>
+    <div class="ws-problems" data-stagger>
+     <article class="card ws-problem">
+      <span class="ws-problem__n">01</span>
+      <h3>Live, without websockets</h3>
+      <p>Everything polls. One <span class="ws-c">meta/versions</span> document says which collections changed, so a quiet poll costs a <strong>single read</strong>. Polling pauses in hidden tabs and slows to once a minute when nobody’s doing anything. Writes save the data first and the version second, so a poll never sees old data under a new version.</p>
+     </article>
+     <article class="card ws-problem">
+      <span class="ws-problem__n">02</span>
+      <h3>An undo that knows whose change it is</h3>
+      <p>The whiteboard is 1,082 lines with no board library. Each tab sends only its own changes, applied in Firestore transactions; everyone else’s arrive by polling every 4 seconds. Every change Claude makes is logged with its inverse, so undo puts back only what it touched — and your own undo never reverts someone else’s work.</p>
+     </article>
+     <article class="card ws-problem">
+      <span class="ws-problem__n">03</span>
+      <h3>Placing things for a model that can’t see</h3>
+      <p>Claude can’t look at the board, so when it adds stickies, the server works out how much room the text needs. The map lays itself out deterministically: new parts land next to what they’re connected to, and a part someone dragged by hand never moves.</p>
+     </article>
+     <article class="card ws-problem">
+      <span class="ws-problem__n">04</span>
+      <h3>Tested the way Claude uses it</h3>
+      <p>In the Playwright suite, several teammates each get their own browser, and the tests call MCP tools exactly as Claude would. Each run gets its own isolated server, with JSON data wiped every time.</p>
+     </article>
+    </div>
+   </div>
+  </section>
+ </main>
+ <site-footer next="reporthink"></site-footer>
+ <script src="js/main.js" defer></script>
+ <script src="js/pages/waypoint.js" defer></script>
+</body>
+</html>

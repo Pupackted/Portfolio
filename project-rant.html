@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>A place to rant — Case study · Adrian Rachman</title>
+  <meta name="description" content="A place to rant: a private web journal that saves as you type and turns a stretch of entries into a chapter about you, using whichever AI you already have. No server, no API key. A case study by Adrian Rachman.">
+  <meta name="theme-color" content="#131418">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="A place to rant — Case study · Adrian Rachman">
+  <meta property="og:description" content="A private journal for when your head is loud. Bring your own AI; the page itself can't send a byte.">
+  <meta property="og:image" content="https://portfolio-adrian-rachman.vercel.app/Assets/web/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="Assets/web/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages/workshop.css">
+  <link rel="stylesheet" href="css/pages/rant.css">
+  <script src="js/site.js"></script>
+  <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
+</head>
+
+<body class="ws theme-rant">
+  <site-header current="work"></site-header>
+
+  <main id="main">
+
+    <!-- ═══ Hero ═══════════════════════════════════════════════════════════ -->
+    <section class="ws-hero">
+      <div class="container">
+        <a class="back-link" href="index.html#work"><svg class="i" aria-hidden="true"><use href="#i-arrow-left" /></svg>All work</a>
+
+        <div class="ws-hero__grid">
+          <div>
+            <span class="ws-status" data-reveal><i aria-hidden="true"></i>In use by my friends</span>
+            <h1 class="h1" style="view-transition-name: rant-title">A place to rant</h1>
+            <p class="ws-promise rant-serif" data-reveal style="--d:160">For when your head is loud.</p>
+            <p class="lead" data-reveal style="--d:260">A private journal on the web. Open it and the cursor is already waiting; it saves as you type. When you’ve written enough, it hands the whole stretch to whichever AI you already use — and turns the reply into a chapter about you.</p>
+            <div class="btn-row mt-32" data-reveal style="--d:360">
+              <a class="btn btn--primary" href="#handoff" data-magnetic="0.2">How the AI part works <svg class="i i--arrow-down" aria-hidden="true"><use href="#i-arrow-down" /></svg></a>
+            </div>
+          </div>
+
+          <div class="ws-visual rant-hero" data-reveal="scale" style="--d:200">
+            <figure class="browser">
+              <div class="browser__bar"><div class="browser__dots"><span></span><span></span><span></span></div><div class="browser__url"><svg class="i" aria-hidden="true"><use href="#i-lock" /></svg>a place to rant</div><span></span></div>
+              <img src="Assets/web/rant/sidebar.webp" alt="A place to rant: entries grouped by day in a sidebar, a summarised chapter titled ‘Waiting on other people’, and a half-written entry in a serif typeface on a dark page" width="1800" height="1125" fetchpriority="high">
+            </figure>
+            <span class="rant-chip"><svg class="i" aria-hidden="true"><use href="#i-cloud-off" /></svg>connect-src ’none’ · nothing sent</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <dl class="meta-row" data-stagger>
+        <div><dt>Role</dt><dd>Design &amp; development, solo</dd></div>
+        <div><dt>Built for</dt><dd>Me — then my friends</dd></div>
+        <div><dt>Built</dt><dd>September 2026, about a week</dd></div>
+        <div><dt>Stack</dt><dd>HTML · CSS · JS, no framework</dd></div>
+      </dl>
+    </div>
+
+    <!-- ═══ Why ════════════════════════════════════════════════════════════ -->
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow" data-reveal><span class="eyebrow__index">01</span><span class="eyebrow__rule"></span>Why it exists</p>
+        <h2 class="pullquote mt-24" data-split>I needed somewhere to put things down — <span>fast, and without an audience.</span></h2>
+
+        <div class="ws-story">
+          <div data-reveal>
+            <p>Some nights I just need to rant. Not to post it, not to send it to anyone — just to get whatever’s in my head down somewhere, quickly.</p>
+            <p>The idea started with my <a class="link" href="project-ai-journal.html">AI journal for the iPad</a>, which runs a language model on the device. That one lives on a single iPad. This is the version anyone can open: a web page, a link I can share.</p>
+          </div>
+          <div data-reveal style="--d:120">
+            <p>So I made the web version, for me. Then I sent the link to a few friends — and they <strong>actually use it</strong>. Not once to be polite, but as the place they go when their head is loud. Honestly, that was a “wow” moment for me.</p>
+            <p>Each person gets their own journal, kept in their own browser. Sharing it is just sending the link; nobody can read anybody else’s.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ The hand-off ═══════════════════════════════════════════════════ -->
+    <section class="section section--flush-top" id="handoff">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">02</span><span class="eyebrow__rule"></span>The key decision</p>
+            <h2 class="h2 mt-24" data-split>No API key. No server. <span class="dim">Any AI.</span></h2>
+          </div>
+          <p class="lead" data-reveal style="--d:150">The app never talks to a model. It writes the prompt; you carry it to whichever chatbot you already use, and paste the answer back. Two pastes instead of one click — and in exchange, the page itself is forbidden from sending anything anywhere.</p>
+        </header>
+
+        <ol class="rant-flow" data-stagger>
+          <li class="rant-flow__step">
+            <span class="rant-flow__n">1</span>
+            <span class="rant-flow__icon"><svg class="i" aria-hidden="true"><use href="#i-edit" /></svg></span>
+            <h3>Write</h3>
+            <p>Entries stay in your browser’s storage. Nothing to sign up for.</p>
+          </li>
+          <li class="rant-flow__step">
+            <span class="rant-flow__n">2</span>
+            <span class="rant-flow__icon"><svg class="i" aria-hidden="true"><use href="#i-copy" /></svg></span>
+            <h3>Copy the prompt</h3>
+            <p>Every entry, tagged <span class="ws-c">[E1]</span>…<span class="ws-c">[En]</span>, the last chapter’s scores, your notes, and the exact JSON schema to answer in.</p>
+          </li>
+          <li class="rant-flow__step rant-flow__step--out">
+            <span class="rant-flow__n">3</span>
+            <span class="rant-flow__icon"><svg class="i" aria-hidden="true"><use href="#i-message" /></svg></span>
+            <h3>Ask any AI</h3>
+            <p>Claude, ChatGPT, Gemini or anything else. Shortcut buttons copy the prompt and open the chat.</p>
+          </li>
+          <li class="rant-flow__step">
+            <span class="rant-flow__n">4</span>
+            <span class="rant-flow__icon"><svg class="i" aria-hidden="true"><use href="#i-file-check" /></svg></span>
+            <h3>Paste the reply</h3>
+            <p>The app finds the JSON, repairs what it can, and checks every field.</p>
+          </li>
+          <li class="rant-flow__step">
+            <span class="rant-flow__n">5</span>
+            <span class="rant-flow__icon"><svg class="i" aria-hidden="true"><use href="#i-book" /></svg></span>
+            <h3>Read your chapter</h3>
+            <p>Mood entry by entry, themes, patterns, blind spots, and an honest read.</p>
+          </li>
+        </ol>
+
+        <div class="split mt-64">
+          <figure class="browser" data-reveal="scale">
+            <div class="browser__bar"><div class="browser__dots"><span></span><span></span><span></span></div><div class="browser__url"><svg class="i" aria-hidden="true"><use href="#i-lock" /></svg>a place to rant</div><span></span></div>
+            <img src="Assets/web/rant/summarize.webp" alt="The ‘Close this chapter’ dialog: step one copies a prompt into any AI, step two pastes its reply back, with an optional box for context the entries don’t contain" width="1800" height="1125" loading="lazy" data-lightbox="rant" data-caption="Step 1 of closing a chapter: the prompt, ready to copy into any AI.">
+          </figure>
+          <div>
+            <h3 class="h4" data-reveal>Why do it the long way round?</h3>
+            <ul class="rant-why" data-stagger>
+              <li><svg class="i" aria-hidden="true"><use href="#i-shield" /></svg><span><strong>Privacy you can check.</strong> The hosted page ships a Content Security Policy with <span class="ws-c">connect-src 'none'</span>. The browser itself refuses to let it make a network request.</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-users" /></svg><span><strong>Free for my friends.</strong> No keys to buy, no bill to split. Everyone uses the AI they already have, on the plan they already pay for — or don’t.</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-refresh" /></svg><span><strong>Never out of date.</strong> When a better model comes out, the app gets better without a release.</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-edit" /></svg><span><strong>Context the entries can’t give.</strong> An optional note — “Mira is my best friend from uni” — goes into the prompt, and the AI is told to trust it over its own guesses.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Demo: the forgiving parser ═════════════════════════════════════ -->
+    <section class="section section--flush-top" id="demo">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">03</span><span class="eyebrow__rule"></span>Try it</p>
+          <h2 class="h2" data-split>Chatbots reply messily. <span class="dim">The parser doesn’t mind.</span></h2>
+          <p class="lead" data-reveal style="--d:150">The prompt is the API contract, and the reply is the response — except it arrives with a friendly preamble, code fences, trailing commas and curly quotes. Pick a reply and run it through the same function the app uses.</p>
+        </header>
+
+        <div class="rant-demo" data-rant-demo>
+          <div class="rant-demo__in card" data-reveal>
+            <div class="rant-demo__top">
+              <span class="rant-demo__label">What the AI sent back</span>
+              <div class="rant-demo__samples" role="group" aria-label="Sample replies">
+                <button type="button" data-reply="0" aria-pressed="true">Chatty</button>
+                <button type="button" data-reply="1" aria-pressed="false">Sloppy JSON</button>
+                <button type="button" data-reply="2" aria-pressed="false">No JSON at all</button>
+              </div>
+            </div>
+            <label class="sr-only" for="rant-reply">AI reply</label>
+            <textarea id="rant-reply" class="rant-demo__text" spellcheck="false" data-reply-text></textarea>
+            <div class="rant-demo__foot">
+              <span class="faint small">Edit it, break it, paste your own.</span>
+              <button class="btn btn--accent btn--sm" type="button" data-parse><svg class="i" aria-hidden="true"><use href="#i-file-check" /></svg>Read reply</button>
+            </div>
+          </div>
+
+          <div class="rant-demo__out card" data-reveal style="--d:120" aria-live="polite" data-parse-out>
+            <p class="rant-demo__label">What the app makes of it</p>
+            <div class="rant-demo__result" data-result>
+              <p class="faint">Press “Read reply”.</p>
+            </div>
+          </div>
+        </div>
+        <p class="ws-note" data-reveal>The parsing is the app’s own <span class="ws-c">extractJson</span>, lifted as-is. The chapter preview on the right is simplified; the real one renders every field.</p>
+      </div>
+    </section>
+
+    <!-- ═══ Chapter ════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">04</span><span class="eyebrow__rule"></span>A chapter</p>
+            <h2 class="h2 mt-24" data-split>The pile, <span class="dim">read back to you.</span></h2>
+          </div>
+          <p class="lead" data-reveal>Close a chapter whenever you like. What comes back is meant to be read slowly, on a bad day: plain words, your own quotes, and an honest guess at what you can’t see from inside it.</p>
+        </header>
+
+        <div class="rant-shots">
+          <figure class="rant-shot rant-shot--wide" data-reveal>
+            <img src="Assets/web/rant/chapter-1.webp" alt="Chapter one, ‘Waiting on other people’: a headline, an Improving trajectory, an overall wellbeing ring at 54, and the start of a mood-by-entry chart" width="1800" height="1210" loading="lazy" data-lightbox="rant" data-caption="The top of a chapter: a title, the one-line truth, and where you are out of 100.">
+            <figcaption>A title, the one-line truth, and where you are.</figcaption>
+          </figure>
+          <figure class="rant-shot" data-reveal>
+            <img src="Assets/web/rant/chapter-2.webp" alt="A radar chart of seven wellbeing scores beside four strain bars, and each entry’s date labelled with one feeling" width="1800" height="1210" loading="lazy" data-lightbox="rant" data-caption="Seven scores, four kinds of strain, and one word per entry.">
+            <figcaption>Seven scores, four strains, one word per entry.</figcaption>
+          </figure>
+          <figure class="rant-shot" data-reveal style="--d:100">
+            <img src="Assets/web/rant/chapter-3.webp" alt="Themes as weighted bars coloured by how they felt, then two pattern cards with evidence, a reading and a confidence level" width="1800" height="1210" loading="lazy" data-lightbox="rant" data-caption="Themes, and patterns with the evidence and a confidence level.">
+            <figcaption>Patterns come with evidence and a confidence level.</figcaption>
+          </figure>
+          <figure class="rant-shot" data-reveal>
+            <img src="Assets/web/rant/chapter-4.webp" alt="A blind spot backed by an exact quote, the honest read in serif paragraphs, and a pull quote of the writer’s own words" width="1800" height="1210" loading="lazy" data-lightbox="rant" data-caption="Blind spots quote you exactly. The honest read is the part you actually sit with.">
+            <figcaption>Blind spots quote you exactly.</figcaption>
+          </figure>
+          <figure class="rant-shot" data-reveal style="--d:100">
+            <img src="Assets/web/rant/mood-1.webp" alt="The Mood tab: ‘Lately it’s been a lot better’, an earlier and recent average side by side, and a timeline of entry dots with a rolling average" width="1800" height="1210" loading="lazy" data-lightbox="rant" data-caption="The Mood tab answers one question in plain words first: is it getting better?">
+            <figcaption>“Is it getting better?” — answered in words first.</figcaption>
+          </figure>
+        </div>
+        <p class="ws-note" data-reveal>Real screenshots of the app, filled with an invented journal. No one’s actual entries appear anywhere on this page.</p>
+      </div>
+    </section>
+
+    <!-- ═══ Features ═══════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">05</span><span class="eyebrow__rule"></span>Small things</p>
+          <h2 class="h2" data-split>Built for the moment <span class="dim">you open it.</span></h2>
+        </header>
+        <div class="feature-grid" data-stagger>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-edit" /></svg></span><h3>Always a blank page</h3><p>Every visit opens a fresh entry with the cursor in it and the sidebar closed. You land on a page, not on everything you wrote last time.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-save" /></svg></span><h3>Saves as you type</h3><p>450 ms after you stop, and again when you switch tabs or close the window. Empty entries quietly disappear.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-smile" /></svg></span><h3>One-tap mood</h3><p>Rough, low, okay, good, great — under the page, without stealing focus from the words.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-sparkles" /></svg></span><h3>Reflect on one entry</h3><p>A mirror, not advice: what’s underneath, what you keep circling, and one question to sit with.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-eye" /></svg></span><h3>Hide the screen</h3><p><kbd>⌘</kbd> <kbd>.</kbd> blanks the page and renames the tab “New Tab” — for when someone walks past.</p></article>
+          <article class="card card--pad feature"><span class="feature__icon"><svg class="i" aria-hidden="true"><use href="#i-download" /></svg></span><h3>Yours to keep</h3><p>JSON backup, Markdown export, and chapters as PDF. A reminder appears when your last backup gets old.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Build ══════════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <div class="split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__index">06</span><span class="eyebrow__rule"></span>How it’s built</p>
+            <h2 class="h2 mt-24" data-split>One file. <span class="dim">No dependencies.</span></h2>
+            <p class="lead mt-20" data-reveal>About 3,900 lines of HTML, CSS and JavaScript — no framework, no web fonts, every chart hand-drawn in SVG. It even runs straight from the file on disk.</p>
+            <div class="spec mt-40" data-reveal>
+              <div class="spec__row"><span class="spec__key">Storage</span><span class="spec__val">One versioned <strong>localStorage</strong> record with in-place migrations. Two open tabs merge each other’s saves.</span></div>
+              <div class="spec__row"><span class="spec__key">AI contract</span><span class="spec__val">The schema travels <strong>inside every prompt</strong>. Replies are extracted, repaired, clamped and coerced; a failure writes a ready-to-paste repair message.</span></div>
+              <div class="spec__row"><span class="spec__key">Privacy</span><span class="spec__val"><strong>CSP</strong> blocks every outgoing request; pages are marked noindex.</span></div>
+              <div class="spec__row"><span class="spec__key">Next</span><span class="spec__val">Ready for sync: UUIDs, tombstones, last-write-wins merges, and an export shaped like database rows.</span></div>
+            </div>
+          </div>
+          <figure class="window" data-reveal="scale">
+            <div class="window__bar"><span class="window__dot"></span><span class="window__dot"></span><span class="window__dot"></span><span class="window__title">index.html — moodPoints()</span></div>
+<pre class="ws-code"><code><span class="k">function</span> <span class="f">moodPoints</span>(){
+  <span class="k">const</span> ai = <span class="k">new</span> <span class="t">Map</span>();
+  <span class="f">liveCheckpoints</span>().<span class="f">forEach</span>(cp => (cp.data.entry_signals||[]).<span class="f">forEach</span>(sig => {
+    <span class="k">const</span> e = <span class="f">entryForSignal</span>(cp, sig.id);
+    <span class="k">if</span>(e && sig.mood != <span class="k">null</span>) ai.<span class="f">set</span>(e.id, { v:sig.mood, feel:sig.emotion });
+  }));
+  <span class="k">const</span> out = [];
+  <span class="f">entriesSorted</span>().<span class="f">forEach</span>(e => {
+    <span class="k">if</span>(!e.text.<span class="f">trim</span>()) <span class="k">return</span>;
+    <span class="k">const</span> self = <span class="f">levelOf</span>(e.selfMood), r = e.reflection, c = ai.<span class="f">get</span>(e.id);
+    <span class="k">let</span> p = <span class="k">null</span>;
+    <span class="k">if</span>(self) p = { v:self.v, src:<span class="s">"you"</span> };
+    <span class="k">else if</span>(r && r.mood != <span class="k">null</span>) p = { v:r.mood, src:<span class="s">"reflection"</span>, feel:r.feeling || <span class="k">null</span> };
+    <span class="k">else if</span>(c) p = { v:c.v, src:<span class="s">"chapter"</span>, feel:c.feel || <span class="k">null</span> };
+    <span class="k">if</span>(p){ p.t = e.createdAt; p.id = e.id; out.<span class="f">push</span>(p); }
+  });
+  <span class="k">return</span> out;
+}</code></pre>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Build notes ════════════════════════════════════════════════════ -->
+    <section class="section section--flush-top">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__index">07</span><span class="eyebrow__rule"></span>Build notes</p>
+          <h2 class="h2" data-split>The parts <span class="dim">worth getting right.</span></h2>
+        </header>
+        <div class="ws-problems" data-stagger>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">01</span>
+            <h3>You outrank the AI</h3>
+            <p>A mood can come from three places. Your own tap wins, then a reflection on that entry, then the chapter’s read of it — that’s the function above. On the chart your marks are filled dots and the AI’s are rings, so you can always tell who said what.</p>
+          </article>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">02</span>
+            <h3>A word and its colour never disagree</h3>
+            <p>The five mood words sit at 15, 35, 50, 65 and 85 — the middle of each colour band — and the same band edges turn numbers back into words. A dot labelled “okay” is always okay-coloured.</p>
+          </article>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">03</span>
+            <h3>Chapters that fit in one paste</h3>
+            <p>Past roughly <strong>45,000 characters</strong>, chat apps start refusing a paste or quietly dropping the oldest entries. When a chapter gets that long, the app offers to close a shorter one over the oldest entries and keep the rest queued.</p>
+          </article>
+          <article class="card ws-problem">
+            <span class="ws-problem__n">04</span>
+            <h3>Honest about the numbers</h3>
+            <p>The prompt tells the model to say when evidence is thin, never to diagnose, and never to label other people. In the app, a “Where these numbers come from” note says plainly that a small change in score is just how the AI read the words.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <site-footer next="yt"></site-footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/pages/rant.js" defer></script>
+</body>
+
+</html>

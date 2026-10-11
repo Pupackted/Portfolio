@@ -2333,7 +2333,9 @@ site-footer {
   line-height: 1.15;
 }
 
-.pullquote span {
+/* Only the authored second half dims. data-split wraps every word in
+   span.w, and those must keep inheriting from whatever they sit in. */
+.pullquote > span:not(.w) {
   color: var(--fg-3);
 }
 

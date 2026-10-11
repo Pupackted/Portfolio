@@ -1,0 +1,1482 @@
+/* ==========================================================================
+   Photo Widget
+   iOS 26 Liquid Glass with the app's coral tint. The phone screens are laid
+   out in points: --pt is 1/402 of the library screen, --u 1/440 of the home
+   screen (the size WidgetKit's reference widgets are drawn for).
+   ========================================================================== */
+
+.theme-photo-widget {
+  --accent: #ff6b4a;
+  --accent-2: #ffab95;
+  --pw-coral: #ff6b4a;
+  --pw-ink: #1f0b06;
+  --pw-sf: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", Inter, system-ui, sans-serif;
+  --pw-rounded: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, Inter, system-ui, sans-serif;
+  --pw-serif: ui-serif, "New York", "Iowan Old Style", Georgia, serif;
+  --pw-wallpaper:
+    radial-gradient(70% 45% at 20% 18%, rgba(255, 170, 140, 0.55), transparent 70%),
+    radial-gradient(60% 40% at 85% 60%, rgba(140, 120, 255, 0.45), transparent 70%),
+    linear-gradient(172deg, #1d2a5c 0%, #45478f 36%, #b97497 70%, #f0ad86 100%);
+}
+
+/* ── Shared iOS bits ─────────────────────────────────────────────────────── */
+
+.pw-statusbar {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: calc(54 * var(--sb));
+  padding: calc(6 * var(--sb)) calc(34 * var(--sb)) 0 calc(48 * var(--sb));
+  font-family: var(--pw-sf);
+  font-size: calc(17 * var(--sb));
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #000;
+}
+
+.pw-statusbar--light {
+  color: #fff;
+}
+
+.pw-statusbar__icons {
+  display: flex;
+  align-items: center;
+  gap: calc(6 * var(--sb));
+}
+
+.pw-statusbar svg {
+  width: calc(18 * var(--sb));
+  height: calc(12 * var(--sb));
+  fill: currentColor;
+}
+
+.pw-statusbar svg.pw-batt {
+  width: calc(27 * var(--sb));
+  height: calc(13 * var(--sb));
+}
+
+.pw-homebar {
+  position: absolute;
+  bottom: calc(8 * var(--sb));
+  left: 50%;
+  z-index: 3;
+  width: calc(134 * var(--sb));
+  height: calc(5 * var(--sb));
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.pw-homebar--light {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* ── Hero: the library screen ────────────────────────────────────────────── */
+
+.pw-hero {
+  --pw: min(330px, calc(100vw - 64px));
+  --nudge: 0px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 28px;
+}
+
+@media (min-width: 1101px) {
+  .pw-hero {
+    --nudge: 7%;
+    justify-content: flex-end;
+    padding-right: var(--nudge);
+  }
+}
+
+.pw-hero__phone {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 60px 120px -40px rgba(0, 0, 0, 0.9),
+    0 0 150px -30px rgba(255, 107, 74, 0.35);
+}
+
+.pw-lib {
+  --pt: calc(var(--pw) * 0.932 / 402);
+  --sb: var(--pt);
+  position: relative;
+  background: #f2f2f7;
+  color: #000;
+  font-family: var(--pw-sf);
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+/* The app's slow wash of photo colours, at 22 %. */
+.pw-lib::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.32;
+  background:
+    radial-gradient(65% 38% at 12% 12%, #ff9e73, transparent 70%),
+    radial-gradient(60% 40% at 92% 38%, #b899ff, transparent 70%),
+    radial-gradient(75% 40% at 25% 88%, #80c7ff, transparent 70%);
+}
+
+.pw-lib__bar {
+  position: absolute;
+  top: calc(58 * var(--pt));
+  left: calc(16 * var(--pt));
+  right: calc(16 * var(--pt));
+  display: flex;
+  justify-content: space-between;
+}
+
+.pw-glass {
+  background: rgba(255, 255, 255, 0.62);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  backdrop-filter: blur(10px) saturate(180%);
+  box-shadow:
+    inset 0 0 0 calc(0.6 * var(--pt)) rgba(255, 255, 255, 0.85),
+    inset 0 calc(1 * var(--pt)) 0 rgba(255, 255, 255, 0.9),
+    0 calc(2 * var(--pt)) calc(10 * var(--pt)) rgba(0, 0, 0, 0.08);
+}
+
+.pw-glass--round {
+  display: grid;
+  place-items: center;
+  width: calc(44 * var(--pt));
+  height: calc(44 * var(--pt));
+  border-radius: 50%;
+}
+
+.pw-glass--round .i {
+  width: calc(21 * var(--pt));
+  height: calc(21 * var(--pt));
+  stroke-width: 1.7;
+}
+
+.pw-lib__title {
+  position: absolute;
+  top: calc(108 * var(--pt));
+  left: calc(20 * var(--pt));
+  font-size: calc(34 * var(--pt));
+  line-height: calc(41 * var(--pt));
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.pw-lib__cards {
+  position: absolute;
+  top: calc(160 * var(--pt));
+  left: calc(20 * var(--pt));
+  right: calc(20 * var(--pt));
+  display: grid;
+  gap: calc(22 * var(--pt));
+}
+
+.pw-card {
+  position: relative;
+  padding: calc(18 * var(--pt));
+  border-radius: calc(32 * var(--pt));
+  overflow: hidden;
+  isolation: isolate;
+  color: #fff;
+  background: #4d4955;
+  box-shadow: inset 0 0 0 calc(0.75 * var(--pt)) rgba(255, 255, 255, 0.14);
+}
+
+/* Blurred, deepened colour from the photo so white text always reads. */
+.pw-card__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(calc(24 * var(--pt))) saturate(1.2);
+  transform: scale(1.25);
+}
+
+.pw-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.42));
+}
+
+/* A Medium widget preview, 314 pt wide. */
+.pw-mini {
+  --s: calc(var(--pt) * 314 / 364);
+  position: relative;
+  margin: 0 calc(6 * var(--pt));
+  aspect-ratio: 364 / 170;
+  overflow: hidden;
+  border-radius: calc(22 * var(--s));
+  background: var(--mat, #ddd);
+  box-shadow: 0 calc(12 * var(--pt)) calc(22 * var(--pt)) rgba(0, 0, 0, 0.3);
+}
+
+.pw-mini img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pw-mini--border {
+  padding: calc(10 * var(--s));
+}
+
+.pw-mini--border img {
+  border-radius: calc(12 * var(--s));
+}
+
+.pw-mini--instant {
+  padding: calc(10 * var(--s)) calc(10 * var(--s)) calc(30 * var(--s));
+}
+
+.pw-mini--instant img {
+  border-radius: calc(5 * var(--s));
+}
+
+.pw-mini--instant span {
+  position: absolute;
+  left: calc(12 * var(--s));
+  bottom: 0;
+  height: calc(30 * var(--s));
+  display: flex;
+  align-items: center;
+  font-family: var(--pw-rounded);
+  font-size: calc(13 * var(--s));
+  font-weight: 600;
+  color: #453b30;
+}
+
+.pw-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(12 * var(--pt));
+  margin-top: calc(18 * var(--pt));
+  padding: 0 calc(6 * var(--pt));
+}
+
+.pw-card__row b {
+  display: block;
+  font-size: calc(20 * var(--pt));
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.pw-card__row span {
+  display: block;
+  margin-top: calc(3 * var(--pt));
+  font-size: calc(15 * var(--pt));
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.pw-card__row .pw-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(4 * var(--pt));
+  margin: 0;
+  padding: calc(6 * var(--pt)) calc(10 * var(--pt));
+  border-radius: 999px;
+  font-size: calc(12 * var(--pt));
+  font-weight: 600;
+  white-space: nowrap;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.16);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: inset 0 0 0 calc(0.6 * var(--pt)) rgba(255, 255, 255, 0.35);
+}
+
+.pw-badge .i {
+  width: calc(11 * var(--pt));
+  height: calc(11 * var(--pt));
+  stroke-width: 3;
+}
+
+.pw-newbtn {
+  position: absolute;
+  bottom: calc(40 * var(--pt));
+  left: 50%;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: calc(6 * var(--pt));
+  height: calc(50 * var(--pt));
+  padding: 0 calc(22 * var(--pt));
+  transform: translateX(-50%);
+  border-radius: 999px;
+  font-size: calc(17 * var(--pt));
+  font-weight: 600;
+  white-space: nowrap;
+  color: #fff;
+  background: var(--pw-coral);
+  box-shadow:
+    inset 0 calc(1 * var(--pt)) 0 rgba(255, 255, 255, 0.45),
+    inset 0 0 0 calc(0.6 * var(--pt)) rgba(255, 255, 255, 0.25),
+    0 calc(8 * var(--pt)) calc(20 * var(--pt)) rgba(255, 107, 74, 0.4);
+}
+
+.pw-newbtn .i {
+  width: calc(18 * var(--pt));
+  height: calc(18 * var(--pt));
+  stroke-width: 2.6;
+}
+
+/* A Small widget that has escaped onto the page. */
+.pw-floater {
+  position: absolute;
+  top: 54%;
+  right: calc(var(--nudge) + var(--pw) - 64px);
+  z-index: 2;
+  width: 158px;
+  transform: rotate(-7deg);
+  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.55));
+}
+
+.pw-floater__face {
+  --s: calc(158px / 170);
+  position: relative;
+  aspect-ratio: 1;
+  padding: calc(10 * var(--s)) calc(10 * var(--s)) calc(30 * var(--s));
+  border-radius: calc(22 * var(--s));
+  background: #f5f0e3;
+}
+
+.pw-floater__face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: calc(5 * var(--s));
+}
+
+.pw-floater__face span {
+  position: absolute;
+  left: calc(12 * var(--s));
+  bottom: 0;
+  height: calc(30 * var(--s));
+  display: flex;
+  align-items: center;
+  font-family: var(--pw-rounded);
+  font-size: calc(13 * var(--s));
+  font-weight: 600;
+  letter-spacing: 0;
+  color: #453b30;
+}
+
+@media (max-width: 1100px) {
+  .pw-floater {
+    display: none;
+  }
+}
+
+.pw-chip {
+  position: absolute;
+  right: calc(var(--nudge) + var(--pw) / 2);
+  bottom: 0;
+  transform: translateX(50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  white-space: nowrap;
+  color: var(--accent-2);
+  background: rgba(26, 20, 19, 0.88);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 14px 40px -12px rgba(0, 0, 0, 0.7);
+}
+
+/* ── Demo layout ─────────────────────────────────────────────────────────── */
+
+.pw-demo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+}
+
+@media (max-width: 980px) {
+  .pw-demo {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.pw-label {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+.pw-src-card {
+  padding: 22px;
+}
+
+.pw-src-card__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pw-strip {
+  display: flex;
+  gap: 8px;
+}
+
+.pw-strip button {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  overflow: hidden;
+  border-radius: 12px;
+  opacity: 0.55;
+  box-shadow: inset 0 0 0 1px var(--line-2);
+  transition: opacity 0.25s, box-shadow 0.25s, transform 0.3s var(--ease-out);
+}
+
+.pw-strip button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pw-strip button:hover {
+  opacity: 0.85;
+}
+
+.pw-strip button[aria-pressed="true"] {
+  opacity: 1;
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--pw-coral);
+}
+
+/* The source photo, with each widget's crop drawn on it. */
+.pw-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: clamp(330px, 40vw, 470px);
+  margin-top: 16px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #0d0d10;
+  border: 1px solid var(--line);
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: crosshair;
+}
+
+.pw-src {
+  position: relative;
+  width: 300px;
+  height: 375px;
+}
+
+.pw-src > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.38) saturate(0.7);
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.pw-win {
+  --c: #fff;
+  position: absolute;
+  pointer-events: none;
+  background-image: var(--img);
+  background-repeat: no-repeat;
+}
+
+/* Outlines paint above every window's photo, so none hides another. */
+.pw-win::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  box-shadow: inset 0 0 0 1.5px var(--c), 0 0 0 1px rgba(0, 0, 0, 0.3);
+}
+
+.pw-win--small {
+  --c: #ff8a6b;
+}
+
+.pw-win--large {
+  --c: #8fd0ff;
+}
+
+/* Labels paint above every window, so a smaller window never hides one. */
+.pw-win span {
+  position: absolute;
+  z-index: 1;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #120b09;
+  background: var(--c);
+  white-space: nowrap;
+}
+
+.pw-win--small span {
+  top: 6px;
+  left: 6px;
+}
+
+.pw-win--medium span {
+  bottom: 6px;
+  left: 6px;
+}
+
+.pw-win--large span {
+  top: 6px;
+  right: 6px;
+}
+
+.pw-win.is-hot::after {
+  box-shadow: inset 0 0 0 2.5px var(--c), 0 0 0 1px rgba(0, 0, 0, 0.3), 0 0 24px rgba(255, 255, 255, 0.3);
+}
+
+.pw-focus {
+  position: absolute;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  margin: -18px 0 0 -18px;
+  border-radius: 50%;
+  cursor: grab;
+  background: rgba(255, 107, 74, 0.22);
+  box-shadow: inset 0 0 0 2px #fff, 0 0 0 1px rgba(0, 0, 0, 0.35), 0 6px 18px rgba(0, 0, 0, 0.45);
+  touch-action: none;
+}
+
+.pw-focus::before,
+.pw-focus::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: #fff;
+  transform: translate(-50%, -50%);
+}
+
+.pw-focus::before {
+  width: 12px;
+  height: 2px;
+}
+
+.pw-focus::after {
+  width: 2px;
+  height: 12px;
+}
+
+.pw-focus:focus-visible {
+  outline: 2px solid var(--pw-coral);
+  outline-offset: 4px;
+  border-radius: 50%;
+}
+
+.pw-stage.is-grabbing,
+.pw-stage.is-grabbing .pw-focus {
+  cursor: grabbing;
+}
+
+/* Settling: after a drag the crop springs back inside the photo. */
+.is-settling .pw-win,
+.is-settling .pw-focus {
+  transition: left 0.42s var(--ease-spring), top 0.42s var(--ease-spring), width 0.42s var(--ease-spring), height 0.42s var(--ease-spring), background-size 0.42s var(--ease-spring), background-position 0.42s var(--ease-spring);
+}
+
+.pw-controls {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.pw-control {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+}
+
+.pw-control--zoom {
+  grid-template-columns: 80px minmax(0, 1fr) 44px auto;
+}
+
+.pw-control input[type="range"] {
+  width: 100%;
+  accent-color: var(--pw-coral);
+}
+
+.pw-control output {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+}
+
+.pw-readout {
+  display: block;
+  padding: 10px 12px;
+  overflow-x: auto;
+  border-radius: 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  white-space: nowrap;
+  color: #d7d2d4;
+  background: #111114;
+  border: 1px solid var(--line);
+  scrollbar-width: none;
+}
+
+.pw-readout b {
+  color: var(--accent-2);
+  font-weight: 500;
+}
+
+.pw-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 34px;
+  padding: 0 13px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--fg);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
+  transition: background-color 0.25s;
+}
+
+.pw-btn .i {
+  font-size: 15px;
+  color: var(--accent-2);
+}
+
+.pw-btn:hover {
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.pw-btn--quiet {
+  color: var(--fg-2);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--line-2);
+}
+
+.pw-seg {
+  display: inline-flex;
+  justify-self: start;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line);
+}
+
+.pw-seg--wrap {
+  flex-wrap: wrap;
+  border-radius: 18px;
+}
+
+.pw-seg button {
+  height: 30px;
+  padding: 0 13px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--fg-2);
+  transition: color 0.25s, background-color 0.25s;
+}
+
+.pw-seg button:hover {
+  color: var(--fg);
+}
+
+.pw-seg button[aria-pressed="true"] {
+  color: var(--pw-ink);
+  font-weight: 600;
+  background: var(--pw-coral);
+  box-shadow: 0 4px 12px -4px rgba(255, 107, 74, 0.6);
+}
+
+.pw-mats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pw-mats button {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--sw);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+  transition: transform 0.3s var(--ease-spring), box-shadow 0.25s;
+}
+
+.pw-mats button:hover {
+  transform: scale(1.08);
+}
+
+.pw-mats button[aria-pressed="true"] {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18), 0 0 0 2px var(--bg), 0 0 0 4px var(--pw-coral);
+}
+
+.pw-mats.is-off button:not([aria-pressed="true"]) {
+  opacity: 0.6;
+}
+
+.pw-caption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.pw-toggle {
+  flex-shrink: 0;
+}
+
+.pw-toggle span {
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  transition: background-color 0.25s;
+}
+
+.pw-toggle i {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s var(--ease-spring);
+}
+
+.pw-toggle[aria-pressed="true"] span {
+  background: #34c759;
+}
+
+.pw-toggle[aria-pressed="true"] i {
+  transform: translateX(16px);
+}
+
+.pw-input {
+  flex: 1;
+  min-width: 0;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--fg);
+  background: #111114;
+  border: 1px solid var(--line);
+  outline: none;
+  transition: border-color 0.25s, opacity 0.25s;
+}
+
+.pw-input:focus {
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+.pw-input:disabled {
+  opacity: 0.4;
+}
+
+@media (max-width: 560px) {
+  .pw-src-card {
+    padding: 16px;
+  }
+
+  .pw-readout {
+    white-space: normal;
+  }
+
+  .pw-strip button {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .pw-control,
+  .pw-control--zoom {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px 12px;
+  }
+
+  .pw-control > .pw-label {
+    grid-column: 1 / -1;
+  }
+
+  .pw-control--zoom input[type="range"] {
+    grid-column: 1 / 2;
+  }
+
+  .pw-control--zoom .pw-btn {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .pw-control .pw-seg,
+  .pw-control .pw-mats,
+  .pw-control .pw-caption {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ── The home screen ─────────────────────────────────────────────────────── */
+
+.pw-home-wrap {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+}
+
+.pw-home-phone {
+  --pw: min(340px, calc(100vw - 40px));
+}
+
+.pw-home {
+  --u: calc(var(--pw) * 0.932 / 440);
+  --sb: calc(var(--pw) * 0.932 / 402);
+  position: relative;
+  isolation: isolate; /* the drag ghost sits above the wallpaper, below every widget */
+  font-family: var(--pw-sf);
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: #fff;
+  background: var(--pw-wallpaper);
+}
+
+.pw-home-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: var(--fg-3);
+}
+
+.pw-home-hint .i {
+  color: var(--accent-2);
+}
+
+/* A widget, at WidgetKit's reference size times --u. */
+.pw-w {
+  position: absolute;
+  left: calc(var(--x) * var(--u));
+  top: calc(var(--y) * var(--u));
+  width: calc(var(--w) * var(--u));
+  height: calc(var(--h) * var(--u));
+  touch-action: pan-y;
+  cursor: grab;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.pw-w.is-dragging {
+  cursor: grabbing;
+}
+
+.pw-face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: calc(22 * var(--u));
+  background: var(--mat, #ddd);
+  box-shadow: 0 calc(6 * var(--u)) calc(18 * var(--u)) rgba(10, 10, 30, 0.25);
+  transition: background-color 0.3s;
+}
+
+.pw-glow {
+  position: absolute;
+  inset: -20%;
+  z-index: -1;
+  opacity: 0;
+  background: var(--img) center / cover;
+  filter: blur(calc(14 * var(--u))) saturate(1.2);
+  transition: opacity 0.3s;
+}
+
+.pw-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.pw-face.is-glow .pw-glow {
+  opacity: 1;
+}
+
+.pw-slot {
+  position: absolute;
+  top: calc(var(--it, 0) * var(--u));
+  left: calc(var(--il, 0) * var(--u));
+  right: calc(var(--ir, 0) * var(--u));
+  bottom: calc(var(--ib, 0) * var(--u));
+  overflow: hidden;
+  border-radius: calc(var(--pr, 0) * var(--u));
+  background: #222;
+  transition: top 0.35s var(--ease-out), left 0.35s var(--ease-out), right 0.35s var(--ease-out), bottom 0.35s var(--ease-out), border-radius 0.35s var(--ease-out);
+}
+
+.pw-img,
+.pw-ghost {
+  position: absolute;
+  max-width: none;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.pw-ghost {
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.22s;
+}
+
+.pw-w.is-dragging .pw-ghost {
+  opacity: 0.32;
+}
+
+.is-settling .pw-img,
+.is-settling .pw-ghost,
+.is-settling .pw-cell__img img {
+  transition: left 0.42s var(--ease-spring), top 0.42s var(--ease-spring), width 0.42s var(--ease-spring), height 0.42s var(--ease-spring), opacity 0.22s;
+}
+
+/* Rule of thirds while touching; yellow centre lines when it snaps. */
+.pw-guides {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s;
+}
+
+.pw-guides i {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.pw-guides .g1,
+.pw-guides .g2 {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
+
+.pw-guides .g1 { left: 33.333%; }
+.pw-guides .g2 { left: 66.666%; }
+
+.pw-guides .g3,
+.pw-guides .g4 {
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+
+.pw-guides .g3 { top: 33.333%; }
+.pw-guides .g4 { top: 66.666%; }
+
+.pw-guides .sx,
+.pw-guides .sy {
+  background: #ffd60a;
+  opacity: 0;
+  transition: opacity 0.18s, transform 0.25s var(--ease-spring);
+}
+
+.pw-guides .sx {
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 0.75px);
+  width: 1.5px;
+  transform: scaleY(0.4);
+}
+
+.pw-guides .sy {
+  left: 0;
+  right: 0;
+  top: calc(50% - 0.75px);
+  height: 1.5px;
+  transform: scaleX(0.4);
+}
+
+.pw-w.is-dragging .pw-guides {
+  opacity: 1;
+}
+
+.pw-w.snap-x .pw-guides .sx,
+.pw-w.snap-y .pw-guides .sy {
+  opacity: 1;
+  transform: none;
+}
+
+/* Captions: over the photo, or on the paper of an Instant frame. */
+.pw-ocap {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  align-items: flex-end;
+  height: min(55%, calc(90 * var(--u)));
+  padding: 0 calc(12 * var(--u)) calc(11 * var(--u));
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45));
+}
+
+.pw-ocap span,
+.pw-pcap {
+  font-family: var(--pw-rounded);
+  font-size: calc(var(--cap, 13) * var(--u));
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.pw-ocap span {
+  display: -webkit-box;
+  overflow: hidden;
+  color: #fff;
+  text-shadow: 0 calc(1 * var(--u)) calc(3 * var(--u)) rgba(0, 0, 0, 0.35);
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.pw-pcap {
+  position: absolute;
+  left: calc(var(--il, 0) * var(--u));
+  right: calc(var(--ir, 0) * var(--u));
+  bottom: 0;
+  height: calc(var(--ib, 0) * var(--u));
+  display: flex;
+  align-items: center;
+  padding: 0 calc(2 * var(--u));
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--ink, #222);
+}
+
+.pw-w.is-hot .pw-face {
+  box-shadow: 0 0 0 calc(2 * var(--u)) rgba(255, 255, 255, 0.85), 0 calc(6 * var(--u)) calc(18 * var(--u)) rgba(10, 10, 30, 0.25);
+}
+
+/* App icons, page dots and the dock. */
+.pw-apps {
+  position: absolute;
+  left: calc(232 * var(--u));
+  top: calc(68 * var(--u));
+  display: grid;
+  grid-template-columns: repeat(2, calc(64 * var(--u)));
+  justify-content: space-between;
+  align-content: space-between;
+  width: calc(170 * var(--u));
+  height: calc(170 * var(--u));
+}
+
+.pw-app {
+  display: grid;
+  justify-items: center;
+  gap: calc(5 * var(--u));
+  font-size: calc(11.5 * var(--u));
+  font-weight: 500;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.pw-app i,
+.pw-dock i {
+  display: grid;
+  place-items: center;
+  width: calc(64 * var(--u));
+  height: calc(64 * var(--u));
+  overflow: hidden;
+  border-radius: calc(14.5 * var(--u));
+  color: #fff;
+  background: var(--tile);
+  box-shadow: 0 calc(2 * var(--u)) calc(6 * var(--u)) rgba(0, 0, 0, 0.15);
+}
+
+.pw-app i.is-light {
+  color: #ff3b30;
+}
+
+.pw-app i.is-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.pw-app .i,
+.pw-dock .i {
+  width: calc(30 * var(--u));
+  height: calc(30 * var(--u));
+  stroke-width: 2;
+}
+
+.pw-dots {
+  position: absolute;
+  top: calc(834 * var(--u));
+  left: 50%;
+  display: flex;
+  gap: calc(8 * var(--u));
+  padding: calc(5 * var(--u)) calc(9 * var(--u));
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.pw-dots i {
+  width: calc(7 * var(--u));
+  height: calc(7 * var(--u));
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.pw-dots i:first-child {
+  background: #fff;
+}
+
+.pw-dock {
+  position: absolute;
+  left: calc(14 * var(--u));
+  right: calc(14 * var(--u));
+  top: calc(856 * var(--u));
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: calc(88 * var(--u));
+  border-radius: calc(34 * var(--u));
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  backdrop-filter: blur(18px) saturate(160%);
+  box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.pw-dock i {
+  width: calc(62 * var(--u));
+  height: calc(62 * var(--u));
+}
+
+/* ── Schedule ────────────────────────────────────────────────────────────── */
+
+.pw-sched {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: clamp(24px, 3.5vw, 44px);
+  padding: clamp(20px, 3vw, 32px);
+}
+
+.pw-sched__side {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 12px;
+}
+
+.pw-wall {
+  --u: 1px;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 28px;
+  background: var(--pw-wallpaper);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.pw-w--tap {
+  position: relative;
+  left: auto;
+  top: auto;
+  cursor: pointer;
+  border-radius: calc(22 * var(--u));
+  transition: transform 0.35s var(--ease-spring);
+}
+
+.pw-w--tap:active {
+  transform: scale(0.95);
+}
+
+.pw-w--tap:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+  border-radius: 24px;
+}
+
+.pw-sched__now {
+  margin-top: 4px;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--fg-2);
+}
+
+.pw-sched__now strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.pw-sched__tip {
+  display: flex;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--fg-3);
+}
+
+.pw-sched__tip .i {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--accent-2);
+}
+
+.pw-sched__main {
+  min-width: 0;
+}
+
+.pw-sched__controls {
+  display: grid;
+  gap: 12px;
+}
+
+.pw-sched__controls .pw-control {
+  grid-template-columns: 110px minmax(0, 1fr);
+}
+
+.pw-rounds {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.pw-round {
+  display: grid;
+  grid-template-columns: 92px repeat(5, minmax(0, 1fr));
+  align-items: center;
+  gap: 10px;
+}
+
+.pw-round__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+.pw-round__label small {
+  display: block;
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--fg-4);
+}
+
+.pw-cell {
+  position: relative;
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  text-align: left;
+  transition: opacity 0.3s, transform 0.35s var(--ease-out);
+}
+
+.pw-cell__img {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #222;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  transition: box-shadow 0.25s;
+}
+
+.pw-cell__img img {
+  position: absolute;
+  max-width: none;
+}
+
+.pw-cell__n {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  display: grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.pw-cell__t {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--fg-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-variant-numeric: tabular-nums;
+}
+
+.pw-cell.is-past {
+  opacity: 0.38;
+}
+
+.pw-cell.is-now .pw-cell__img {
+  box-shadow: 0 0 0 2px var(--pw-coral);
+}
+
+.pw-cell.is-now .pw-cell__t {
+  color: var(--accent-2);
+}
+
+.pw-cell.is-picked .pw-cell__img {
+  box-shadow: 0 0 0 2px #fff;
+}
+
+.pw-cell.is-now.is-picked .pw-cell__img {
+  box-shadow: 0 0 0 2px var(--pw-coral), 0 0 0 4px rgba(255, 255, 255, 0.85);
+}
+
+.pw-cell:hover .pw-cell__img {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.pw-cell__tag {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 1;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--pw-ink);
+  background: var(--pw-coral);
+}
+
+.pw-sched__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--fg-2);
+}
+
+.pw-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--fg);
+}
+
+.pw-check .i {
+  color: #34c759;
+  stroke-width: 2.4;
+}
+
+@media (max-width: 900px) {
+  .pw-sched {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pw-sched__side {
+    grid-template-columns: 170px minmax(0, 1fr);
+    align-items: center;
+    column-gap: 18px;
+  }
+
+  .pw-wall {
+    grid-row: span 3;
+  }
+
+  .pw-sched__side > .pw-btn {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 560px) {
+  .pw-wall {
+    --u: 0.72px;
+  }
+
+  .pw-sched__side {
+    grid-template-columns: 136px minmax(0, 1fr);
+  }
+
+  .pw-sched__controls .pw-control {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .pw-round {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .pw-round__label {
+    grid-column: 1 / -1;
+  }
+
+  .pw-round__label small {
+    display: inline;
+    margin-left: 6px;
+  }
+
+  .pw-cell__t {
+    font-size: 10.5px;
+  }
+
+  .pw-cell__img {
+    border-radius: 9px;
+  }
+
+  .pw-cell__n {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pw-slot,
+  .pw-face,
+  .pw-w--tap {
+    transition: none;
+  }
+}
