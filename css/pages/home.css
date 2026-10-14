@@ -576,6 +576,10 @@
 }
 
 .flagship__stats > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 6px;
   padding-top: 16px;
   border-top: 1px solid rgba(125, 196, 255, 0.16);
 }
@@ -586,7 +590,6 @@
 }
 
 .flagship__stats dd {
-  margin-top: 6px;
   font-size: clamp(26px, 2.6vw, 36px);
   font-weight: 650;
   letter-spacing: -0.04em;
