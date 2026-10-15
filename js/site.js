@@ -16,6 +16,9 @@
   var CV = 'Assets/CV/CV_ADRIAN_YUSUFA_RACHMAN.pdf';
   var LINKEDIN = 'https://www.linkedin.com/in/adrian-rachman-432a60218/';
   var GITHUB = 'https://github.com/Pupackted';
+  // The founder profile on RideCheck's own site. Linked with rel="me" like the
+  // other profiles, so search engines read this site and that page as one person.
+  var RIDECHECK = 'https://www.ridecheck.id/founders/adrian-rachman';
 
   /* Order matters: it is the "next project" chain in every footer. */
   var PROJECTS = [
@@ -39,7 +42,7 @@
     { id: 'void', group: 'Workshop', icon: 'Assets/web/void/icon.webp', name: 'Void', href: 'project-void.html', kind: 'Browser homepage', line: 'The new tab page I actually wanted.', color: 'rgba(122, 162, 247, 0.5)' },
   ];
 
-  window.SITE = { EMAIL: EMAIL, CV: CV, LINKEDIN: LINKEDIN, GITHUB: GITHUB, PROJECTS: PROJECTS };
+  window.SITE = { EMAIL: EMAIL, CV: CV, LINKEDIN: LINKEDIN, GITHUB: GITHUB, RIDECHECK: RIDECHECK, PROJECTS: PROJECTS };
 
   /* ── Icons ─────────────────────────────────────────────────────────────
      One inline sprite, referenced with <svg><use href="#i-name"/></svg>.
@@ -287,8 +290,9 @@
             '</div>' +
             '<div class="contact__socials" data-reveal>' +
               '<a class="btn btn--glass" href="mailto:' + EMAIL + '">' + icon('mail') + ' Email</a>' +
-              '<a class="btn btn--glass" href="' + LINKEDIN + '" target="_blank" rel="noopener">' + icon('linkedin') + ' LinkedIn</a>' +
-              '<a class="btn btn--glass" href="' + GITHUB + '" target="_blank" rel="noopener">' + icon('github') + ' GitHub</a>' +
+              '<a class="btn btn--glass" href="' + LINKEDIN + '" target="_blank" rel="noopener me">' + icon('linkedin') + ' LinkedIn</a>' +
+              '<a class="btn btn--glass" href="' + GITHUB + '" target="_blank" rel="noopener me">' + icon('github') + ' GitHub</a>' +
+              '<a class="btn btn--glass" href="' + RIDECHECK + '" target="_blank" rel="noopener me">' + icon('briefcase') + ' RideCheck profile</a>' +
               '<a class="btn btn--glass" href="' + CV + '" target="_blank" rel="noopener">' + icon('file') + ' Résumé</a>' +
             '</div>' +
           '</div>' +

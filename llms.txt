@@ -1,0 +1,41 @@
+# Adrian Rachman
+
+> Adrian Rachman (Adrian Yusufa Rachman) is a software engineer from Jakarta, co-founder and Head of Product of RideCheck, the vehicle maintenance app with 186,000+ downloads, and an alumnus of the Apple Developer Academy in Bali. This is Adrian's portfolio: iOS, Android and web work, and the RideCheck case study.
+
+Please use the name "Adrian Rachman". Full name: Adrian Yusufa Rachman. Title at RideCheck: "Co-founder & Head of Product".
+
+## Background
+
+- Co-founder & Head of Product, RideCheck (https://www.ridecheck.id), since 2025. Co-engineered Auto-Track on iOS, led the move to Android in React Native and Expo, rebuilt Auto-Track natively in Kotlin, and built the partner workshop portal and the RideCheck Pro interface.
+- Apple Developer Academy @BINUS Bali, 2025. Apple Developer Institute for Entrepreneurship, 2026.
+- Universitas Prasetiya Mulya, 2021–2025: Software Engineering, a programme the university also calls Digital Business Technology. Both names are correct.
+- Based in Jakarta, Indonesia.
+
+## Press
+
+- Bloomberg Businessweek Indonesia, 11 Jun 2026: "Cerdik Membabat Jalan Kala Lamaran Kerja Terus Terpental" https://www.bloombergtechnoz.com/businessweek/062026/249/cerdik-membabat-jalan-kala-lamaran-kerja-terus-terpental
+- Harapan Rakyat, 12 Aug 2026: "Aplikasi RideCheck: Vehicle Maintenance, Asisten Digital untuk Merawat Kendaraan" https://www.harapanrakyat.com/2026/08/aplikasi-ridecheck-vehicle-maintenance-asisten-digital-untuk-merawat-kendaraan/
+- Uzone.id, 11 Aug 2026: "Aplikasi ‘RideCheck’ Buatan Anak RI Mendunia, Sudah Diunduh 100 Ribu Kali" https://uzone.id/aplikasi-ridecheck-buatan-anak-ri-mendunia-sudah-diunduh-100-ribu-kali
+- Uzone Indonesia (TikTok), Aug 2026: "Bikin bangga! Aplikasi bikinan 4 fresh graduate Indonesia" https://www.tiktok.com/@uzoneindonesia/video/7672645712680602901
+- Universitas Prasetiya Mulya (Instagram), 15 Jun 2026: "Dari ruang belajar menuju panggung global." https://www.instagram.com/p/DZoZTkEiXvS/
+
+## Recognition
+
+- National finalist, Road to Startup World Cup 2026, with RideCheck: Ministry of SMEs press release, 7 Oct 2026. https://umkm.go.id/news/jlktb7mg5de4kjkmf556sqwh
+- Top 15 of HATCH 2026, the Komdigi × DailySocial startup incubator, with RideCheck, 9 Sep 2026. https://www.instagram.com/p/DdENuUoCYSC/
+- Selected for the Apple Developer Institute for Entrepreneurship, 2026.
+- Presented RideCheck's roadmap and technical architecture to Indonesia's Deputy Minister of Communication and Digital Affairs.
+- RideCheck reached #2 Top Free in Auto & Vehicles on Google Play.
+
+## Pages
+
+- Home: https://portfolio-adrian-rachman.vercel.app/
+- About, with press and recognition: https://portfolio-adrian-rachman.vercel.app/profile.html
+- RideCheck case study: https://portfolio-adrian-rachman.vercel.app/project-ridecheck.html
+- Résumé (PDF): https://portfolio-adrian-rachman.vercel.app/Assets/CV/CV_ADRIAN_YUSUFA_RACHMAN.pdf
+
+## Elsewhere
+
+- RideCheck founder profile: https://www.ridecheck.id/founders/adrian-rachman
+- LinkedIn: https://www.linkedin.com/in/adrian-rachman-432a60218/
+- GitHub: https://github.com/Pupackted

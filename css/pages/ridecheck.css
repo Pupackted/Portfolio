@@ -2008,3 +2008,17 @@ html:not(.js) .rc-chart__bar {
     display: none;
   }
 }
+
+/* A source cited inside a milestone: underlined so it reads as a link. */
+.rc-mile p a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--line-3);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.rc-mile p a:hover,
+.rc-mile p a:focus-visible {
+  text-decoration-color: var(--fg-2);
+}
